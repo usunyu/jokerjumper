@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="800" height="21" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tilemap5.5" tilewidth="32" tileheight="32">
+  <image source="tilemap5.5.png" width="832" height="768"/>
+ </tileset>
+ <layer name="Background" width="800" height="21">
+  <data encoding="base64" compression="zlib">
+   eJzt3UXXVlUAR/HnfeluLJTutKU7belOW7pbLLrTlu60pTtt6U7BoDvdfgHXYoL33rUHv9lZe/2H54xOXCwWi5MkSZKkOyQeCZAQiZAYSZAUyZAcKZASqZAaaZAW6ZAeGZARmZDZrl27du3atWs34t0wbbUbvO7t3tf/773/1b3dt8V9yIL78QCyIhuyIwdyIhdyIw/yIh/yowAKohAKowiKophdu3bt2rVr127Eu2HaatdukLqP4jE8jidQHCVQEqVQGmVQFuVQHhVQEZVQGVVQFdVQHTXs2rVr165du3Yj3g3TVrt2g9R9Fs/hebyAmqiF2qiDuqiH+miAhmiExmiCpmiG5miBlmhl165du3bt2rUb8W6Yttq1G6Tuq3gNr+MNtEYbtEU7tEcHdEQndEYXdEU3dEcP9EQv9EYfu3bt2rVr167diHfDtNWu3SB138Y7eBfvoT8GYCAGYTCGYCiGYThGYCRGYTTGYCzGYTwm2LVr165du3btRrwbpq127Qap+zE+waf4DBMxCZMxBVMxDdMxAzMxC7MxB3MxD/OxAAuxyK5du3bt2rVrN+LdMG21azdI3a/xDb7Fd1iMJViKZViOFViJVViNNViLdViPDdiITdiMLXbt2rVr165duxHvhmmrXbtB6v6MX/ArfsNWbMN27MBO7MJu7MFe7MN+HMBBHMJhHMFRHLNr165du3bt2o14N0xb7doNUvdP/IW/cRKncBpncBbncB4XcBGXcBlXcBXXcB03cBO38O/HI3bt2rVr165du1HuhmmrXbtB6ibiXGIkQVIkQ3KkQEqkQmqkQVqkQ3pkQEZkQmbchbtxD+6Ns2vXrl27du3ajXY3TFvt2g1SNyuyITtyICdyITfyIC/yIT8KoCAKoTCKoCiK4UE8hIfxiF27du3atWvXbsS7Ydpq126QusVRAiVRCqVRBmVRDuVRARVRCZVRBVVRDdVRA0/iKTyNZ+zatWvXrl27diPeDdNWu3aD1K2JWqiNOqiLeqiPBmiIRmiMJmiKZmiOFmiJVngRL+FlvGLXrl27du3atRvxbpi22rUbpG5rtEFbtEN7dEBHdEJndEFXdEN39EBP9EJv9EFfvIl+eMuuXbt27dq1azfi3TBttWs3SN3+GICBGITBGIKhGIbhGIGRGIXRGIOxGIfxmID38QE+xEd27dq1a9euXbsR74Zpq127QepOxCRMxhRMxTRMxwzMxCzMxhzMxTzMxwIsxCJ8ji/wJb6ya9euXbt27dqNeDdMW+3aDVJ3MZZgKZZhOVZgJVZhNdZgLdZhPTZgIzZhM7bge/yAH/GTXbt27dq1a9duxLth2mrXbpC6W7EN27EDO7ELu7EHe7EP+3EAB3EIh3EER3EMv+M4TuAPu3bt2rVr167diHfDtNWu3SB1T+E0zuAszuE8LuAiLuEyruAqruE6buAmbiEWH4vFIR4JkDDerl27du3atWs32t0wbbVrN0jdfwDrCiUC
+  </data>
+ </layer>
+ <layer name="Wall" width="800" height="21">
+  <data encoding="base64" compression="zlib">
+   eJzt3dfNGzEMAGBvkbJFyhYpW6RskbJFyrDhWy4y/gCWKFO6//sAPhCGhbPORRTt8+UCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/Z5EPI14FvG8I191rOx8dN4AAKhj7baOFxEvI15FvO7IVx0rOx+dNwAA+o3WD9Zu63gT8TbiXcT7jnzVsbLz0XlrqbkBzml2/x0eq9H6YXTtRp4PER8jPkV87shXHSs7H523lpob4Jxm99/hTG6pv0frh9G1G9d691O+RHyN+BbxvSO/LDpWdt4avb+aG6DG7P7E7P47nMkt9fdo/TC6duNa737Kj4ifEb8ifnfkl0XHys5bo/dXcwPUmN2fmN1/h9Vl9jSORuuH0bUb1+yn7EXNzZHvh8Nfu/cnZvffYXWZPY0j9cN67KfsxWuGI98P/1f19bIfe31XfX3z3fsTs/vvft9eb7U5X+0/CjJ7GivJOM/V5yr7XNtP4Z6qn/+7563s/dfqx1e9/pw9XvX8ZB3HQ6qvb64/8X+z53+194P29hVee9Vznn08967xj3baj83YG6w+V9nnWk/q3Ko/D9q8+vm/e97K3n+tfnzV68/Z41XPT9ZxPKT6+ua79ydmmz3/q70ftLev8NqrnvPs47l3jb+rjN86VJ8r18PgFtWfB23+B9FXWZk=
+  </data>
+ </layer>
+ <objectgroup name="Collision" width="800" height="21">
+  <object x="-1" y="610" width="2560" height="188"/>
+  <object x="2690" y="544" width="508" height="190"/>
+  <object x="3331" y="610" width="1405" height="187"/>
+  <object x="4863" y="575" width="512" height="192"/>
+  <object x="5506" y="576" width="512" height="192"/>
+  <object x="6147" y="609" width="892" height="188"/>
+  <object x="7235" y="611" width="508" height="185"/>
+  <object x="8964" y="545" width="635" height="189"/>
+  <object x="9730" y="481" width="639" height="189"/>
+  <object x="10493" y="416" width="640" height="189"/>
+  <object x="11268" y="577" width="635" height="190"/>
+  <object x="12036" y="610" width="1017" height="187"/>
+  <object x="13188" y="610" width="985" height="188"/>
+  <object x="14371" y="577" width="512" height="189"/>
+  <object x="15012" y="608" width="379" height="189"/>
+  <object x="15525" y="575" width="1019" height="192"/>
+  <object x="16675" y="514" width="255" height="188"/>
+  <object x="17023" y="447" width="256" height="190"/>
+  <object x="17381" y="383" width="377" height="189"/>
+  <object x="17892" y="351" width="380" height="190"/>
+  <object x="18403" y="577" width="381" height="188"/>
+  <object x="18950" y="578" width="1527" height="188"/>
+  <object x="7938" y="574" width="894" height="192"/>
+  <object x="20611" y="450" width="380" height="186"/>
+  <object x="21057" y="321" width="510" height="187"/>
+  <object x="21664" y="320" width="509" height="188"/>
+  <object x="22274" y="320" width="1145" height="188"/>
+  <object x="24453" y="609" width="1147" height="188"/>
+  <object x="24065" y="384" width="256" height="190"/>
+  <object x="23551" y="322" width="381" height="186"/>
+ </objectgroup>
+ <objectgroup name="Coin" width="800" height="21">
+  <object x="254" y="448"/>
+  <object x="382" y="447"/>
+  <object x="511" y="447"/>
+  <object x="638" y="447"/>
+  <object x="20383" y="194"/>
+  <object x="17598" y="289"/>
+  <object x="20140" y="222"/>
+  <object x="19940" y="224"/>
+  <object x="19715" y="226"/>
+  <object x="19327" y="224"/>
+  <object x="19071" y="223"/>
+  <object x="18683" y="223"/>
+  <object x="18493" y="224"/>
+  <object x="16767" y="416"/>
+  <object x="17151" y="352"/>
+  <object x="18078" y="259"/>
+  <object x="16286" y="482"/>
+  <object x="15711" y="481"/>
+  <object x="15103" y="546"/>
+  <object x="15263" y="547"/>
+  <object x="14493" y="447"/>
+  <object x="14719" y="450"/>
+  <object x="13917" y="544"/>
+  <object x="14046" y="482"/>
+  <object x="13384" y="563"/>
+  <object x="13577" y="565"/>
+  <object x="12761" y="543"/>
+  <object x="12962" y="543"/>
+  <object x="12190" y="514"/>
+  <object x="12353" y="516"/>
+  <object x="11870" y="388"/>
+  <object x="11442" y="390"/>
+  <object x="10591" y="321"/>
+  <object x="10688" y="257"/>
+  <object x="10784" y="194"/>
+  <object x="10881" y="257"/>
+  <object x="10978" y="322"/>
+  <object x="9822" y="388"/>
+  <object x="9923" y="318"/>
+  <object x="10156" y="319"/>
+  <object x="10268" y="388"/>
+  <object x="9053" y="451"/>
+  <object x="9245" y="449"/>
+  <object x="9471" y="449"/>
+  <object x="8704" y="482"/>
+  <object x="8356" y="478"/>
+  <object x="8188" y="477"/>
+  <object x="8031" y="479"/>
+  <object x="7358" y="515"/>
+  <object x="7615" y="515"/>
+  <object x="6464" y="514"/>
+  <object x="6783" y="514"/>
+  <object x="6080" y="483"/>
+  <object x="5695" y="482"/>
+  <object x="5870" y="481"/>
+  <object x="5440" y="481"/>
+  <object x="4448" y="541"/>
+  <object x="4637" y="541"/>
+  <object x="4798" y="482"/>
+  <object x="3295" y="386"/>
+  <object x="3456" y="449"/>
+  <object x="3617" y="511"/>
+  <object x="3809" y="514"/>
+  <object x="4064" y="514"/>
+  <object x="2817" y="352"/>
+  <object x="2943" y="353"/>
+  <object x="3069" y="353"/>
+  <object x="2463" y="449"/>
+  <object x="768" y="446"/>
+  <object x="834" y="387"/>
+  <object x="1023" y="387"/>
+  <object x="1118" y="453"/>
+  <object x="1377" y="449"/>
+  <object x="1566" y="447"/>
+  <object x="1792" y="419"/>
+  <object x="20799" y="226"/>
+  <object x="21197" y="224"/>
+  <object x="21410" y="221"/>
+  <object x="21794" y="223"/>
+  <object x="22053" y="225"/>
+  <object x="22368" y="226"/>
+  <object x="22620" y="222"/>
+  <object x="22881" y="222"/>
+  <object x="23199" y="226"/>
+  <object x="23392" y="161"/>
+  <object x="23741" y="224"/>
+  <object x="24191" y="288"/>
+ </objectgroup>
+ <objectgroup name="Coin1" width="800" height="21">
+  <object x="928" y="317"/>
+  <object x="4964" y="416"/>
+  <object x="14300" y="409"/>
+ </objectgroup>
+ <objectgroup name="Coin2" width="800" height="21">
+  <object x="7869" y="414"/>
+  <object x="10043" y="245"/>
+ </objectgroup>
+ <objectgroup name="Coin3" width="800" height="21"/>
+</map>

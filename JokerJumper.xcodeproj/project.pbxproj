@@ -33,7 +33,6 @@
 		A4DF532416F0A81F00720555 /* map5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4DF532216F0A81F00720555 /* map5.tmx */; };
 		A4DF532516F0A81F00720555 /* tilemap5.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DF532316F0A81F00720555 /* tilemap5.png */; };
 		A4DF532916F0AB3D00720555 /* tilemap5.5.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DF532716F0AB3D00720555 /* tilemap5.5.png */; };
-		A4DF532B16F0B04100720555 /* map5.5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4DF532A16F0B04100720555 /* map5.5.tmx */; };
 		A4F037BE16D192040068D7C8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F037BD16D192040068D7C8 /* QuartzCore.framework */; };
 		A4F037C016D192040068D7C8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F037BF16D192040068D7C8 /* OpenGLES.framework */; };
 		A4F037C216D192040068D7C8 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F037C116D192040068D7C8 /* OpenAL.framework */; };
@@ -253,8 +252,30 @@
 		A4F03AD816D1AB1E0068D7C8 /* AboutScene.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = A4F03AD716D1AB1E0068D7C8 /* AboutScene.ccbi */; };
 		A4F03ADA16D1ACB60068D7C8 /* GameScene.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = A4F03AD916D1ACB60068D7C8 /* GameScene.ccbi */; };
 		A4F8011F16EA7502006C3BA0 /* ContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4F8011E16EA7502006C3BA0 /* ContactListener.mm */; };
+		DC1F25EA1700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */; };
+		DC1F25EE17022E2D0014F3AC /* Cartoon clown laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */; };
+		DC1F25F21702C6540014F3AC /* map5.95.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25F11702C6540014F3AC /* map5.95.tmx */; };
 		DC3C9B0616F015D4002178AF /* diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = DC3C9B0516F015D4002178AF /* diamond.png */; };
 		DC3C9B0816F015FB002178AF /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DC3C9B0716F015FB002178AF /* heart.png */; };
+		DCB5628016FEA1D70089936A /* map3.1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5627F16FEA1D70089936A /* map3.1.tmx */; };
+		DCB5643716FF8B750089936A /* map6_doubleGravity_trial.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5643616FF8B750089936A /* map6_doubleGravity_trial.tmx */; };
+		DCB5643916FF8C7E0089936A /* tilemap6.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB5643816FF8C7E0089936A /* tilemap6.png */; };
+		DCB5643C16FF92280089936A /* JokerActions_up.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCB5643A16FF92260089936A /* JokerActions_up.plist */; };
+		DCB5643D16FF92280089936A /* JokerActions_up.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB5643B16FF92270089936A /* JokerActions_up.png */; };
+		DCB5643F16FF95450089936A /* map5.5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5643E16FF95430089936A /* map5.5.tmx */; };
+		DCB5644216FFA56D0089936A /* BG.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCB5644116FFA5690089936A /* BG.mm */; };
+		DCB5644516FFA90C0089936A /* BGLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCB5644416FFA9080089936A /* BGLayer.mm */; };
+		DCB5644916FFAC1B0089936A /* JokerActions_both.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB5644816FFAC1A0089936A /* JokerActions_both.png */; };
+		DCB5644B16FFAC220089936A /* JokerActions_both.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCB5644A16FFAC210089936A /* JokerActions_both.plist */; };
+		DCB5644E16FFCC210089936A /* map5.9.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5644D16FFCC1D0089936A /* map5.9.tmx */; };
+		DCB56479170010A50089936A /* brick0_hd_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCB56477170010A10089936A /* brick0_hd_default.plist */; };
+		DCB5647A170010A50089936A /* brick0_hd_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB56478170010A30089936A /* brick0_hd_default.png */; };
+		DCB5647D170010B20089936A /* brick1_hd_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCB5647B170010AE0089936A /* brick1_hd_default.plist */; };
+		DCB5647E170010B20089936A /* brick1_hd_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB5647C170010B00089936A /* brick1_hd_default.png */; };
+		DCB56481170010BF0089936A /* brick2_hd_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCB5647F170010BC0089936A /* brick2_hd_default.plist */; };
+		DCB56482170010BF0089936A /* brick2_hd_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB56480170010BD0089936A /* brick2_hd_default.png */; };
+		DCB564841700191C0089936A /* map5.9_2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB56483170019170089936A /* map5.9_2.tmx */; };
+		DCB5648617001A0F0089936A /* map5.9_3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5648517001A0A0089936A /* map5.9_3.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -288,7 +309,6 @@
 		A4DF532216F0A81F00720555 /* map5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.tmx; sourceTree = "<group>"; };
 		A4DF532316F0A81F00720555 /* tilemap5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilemap5.png; sourceTree = "<group>"; };
 		A4DF532716F0AB3D00720555 /* tilemap5.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilemap5.5.png; sourceTree = "<group>"; };
-		A4DF532A16F0B04100720555 /* map5.5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.5.tmx; sourceTree = "<group>"; };
 		A4F037BA16D192040068D7C8 /* JokerJumper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JokerJumper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4F037BD16D192040068D7C8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A4F037BF16D192040068D7C8 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -719,8 +739,32 @@
 		A4F03AD916D1ACB60068D7C8 /* GameScene.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = GameScene.ccbi; path = CocosBuilderFiles/Scenes/GameScene.ccbi; sourceTree = "<group>"; };
 		A4F8011D16EA7502006C3BA0 /* ContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListener.h; sourceTree = "<group>"; };
 		A4F8011E16EA7502006C3BA0 /* ContactListener.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ContactListener.mm; sourceTree = "<group>"; };
+		DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Pain-SoundBible.com-1883168362.wav"; sourceTree = "<group>"; };
+		DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Cartoon clown laugh.wav"; sourceTree = "<group>"; };
+		DC1F25F11702C6540014F3AC /* map5.95.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.95.tmx; sourceTree = "<group>"; };
 		DC3C9B0516F015D4002178AF /* diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond.png; sourceTree = "<group>"; };
 		DC3C9B0716F015FB002178AF /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		DCB5627F16FEA1D70089936A /* map3.1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map3.1.tmx; sourceTree = "<group>"; };
+		DCB5643616FF8B750089936A /* map6_doubleGravity_trial.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map6_doubleGravity_trial.tmx; sourceTree = "<group>"; };
+		DCB5643816FF8C7E0089936A /* tilemap6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilemap6.png; sourceTree = "<group>"; };
+		DCB5643A16FF92260089936A /* JokerActions_up.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = JokerActions_up.plist; path = ../Map/JokerActions_up.plist; sourceTree = "<group>"; };
+		DCB5643B16FF92270089936A /* JokerActions_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JokerActions_up.png; path = ../Map/JokerActions_up.png; sourceTree = "<group>"; };
+		DCB5643E16FF95430089936A /* map5.5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.5.tmx; sourceTree = "<group>"; };
+		DCB5644116FFA5690089936A /* BG.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BG.mm; sourceTree = "<group>"; };
+		DCB5644316FFA8ED0089936A /* BGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGLayer.h; sourceTree = "<group>"; };
+		DCB5644416FFA9080089936A /* BGLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BGLayer.mm; sourceTree = "<group>"; };
+		DCB5644816FFAC1A0089936A /* JokerActions_both.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JokerActions_both.png; sourceTree = "<group>"; };
+		DCB5644A16FFAC210089936A /* JokerActions_both.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JokerActions_both.plist; sourceTree = "<group>"; };
+		DCB5644C16FFAD980089936A /* BG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BG.h; sourceTree = SOURCE_ROOT; };
+		DCB5644D16FFCC1D0089936A /* map5.9.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.9.tmx; sourceTree = "<group>"; };
+		DCB56477170010A10089936A /* brick0_hd_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brick0_hd_default.plist; sourceTree = "<group>"; };
+		DCB56478170010A30089936A /* brick0_hd_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick0_hd_default.png; sourceTree = "<group>"; };
+		DCB5647B170010AE0089936A /* brick1_hd_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brick1_hd_default.plist; sourceTree = "<group>"; };
+		DCB5647C170010B00089936A /* brick1_hd_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick1_hd_default.png; sourceTree = "<group>"; };
+		DCB5647F170010BC0089936A /* brick2_hd_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brick2_hd_default.plist; sourceTree = "<group>"; };
+		DCB56480170010BD0089936A /* brick2_hd_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick2_hd_default.png; sourceTree = "<group>"; };
+		DCB56483170019170089936A /* map5.9_2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.9_2.tmx; sourceTree = "<group>"; };
+		DCB5648517001A0A0089936A /* map5.9_3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.9_3.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -756,6 +800,8 @@
 			isa = PBXGroup;
 			children = (
 				A433BD1B16F07BF3003CD7CE /* background_music.mp3 */,
+				DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */,
+				DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */,
 				A433BD1416F06F3C003CD7CE /* Collect_Coin.wav */,
 				A4419EC216E95FF1009A441C /* Jump.wav */,
 			);
@@ -766,15 +812,22 @@
 		A4DCA7EE16F062F200819798 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				A4DF532A16F0B04100720555 /* map5.5.tmx */,
+				DCB5648517001A0A0089936A /* map5.9_3.tmx */,
+				DCB56483170019170089936A /* map5.9_2.tmx */,
 				A4DF532716F0AB3D00720555 /* tilemap5.5.png */,
+				DCB5627F16FEA1D70089936A /* map3.1.tmx */,
+				DCB5643616FF8B750089936A /* map6_doubleGravity_trial.tmx */,
+				DCB5643E16FF95430089936A /* map5.5.tmx */,
+				DCB5643816FF8C7E0089936A /* tilemap6.png */,
 				A4DF532216F0A81F00720555 /* map5.tmx */,
 				A4DF532316F0A81F00720555 /* tilemap5.png */,
 				A4DCA7F516F062F200819798 /* fly.png */,
+				DCB5644D16FFCC1D0089936A /* map5.9.tmx */,
 				A4DCA7F616F062F200819798 /* map3.tmx */,
 				A4DCA7F716F062F200819798 /* map4.tmx */,
 				A4DCA7F816F062F200819798 /* map_01.png */,
 				A4DCA7F916F062F200819798 /* map_01.tmx */,
+				DC1F25F11702C6540014F3AC /* map5.95.tmx */,
 				A4DCA7FA16F062F200819798 /* map_level11.tmx */,
 				A4DCA7FB16F062F200819798 /* tilemap.png */,
 				A4DCA7FC16F062F200819798 /* tilemap3.png */,
@@ -787,9 +840,19 @@
 		A4E2F79616E7D28500EF34AA /* Joker */ = {
 			isa = PBXGroup;
 			children = (
-				A433BD1216F069A2003CD7CE /* motion1-hd.png */,
 				A4419EC516E962C6009A441C /* JokerActions.plist */,
+				DCB56477170010A10089936A /* brick0_hd_default.plist */,
+				DCB56478170010A30089936A /* brick0_hd_default.png */,
+				DCB5647B170010AE0089936A /* brick1_hd_default.plist */,
+				DCB5647C170010B00089936A /* brick1_hd_default.png */,
+				DCB5647F170010BC0089936A /* brick2_hd_default.plist */,
+				DCB56480170010BD0089936A /* brick2_hd_default.png */,
 				A4419EC616E962C6009A441C /* JokerActions.png */,
+				DCB5644A16FFAC210089936A /* JokerActions_both.plist */,
+				DCB5644816FFAC1A0089936A /* JokerActions_both.png */,
+				DCB5643A16FF92260089936A /* JokerActions_up.plist */,
+				DCB5643B16FF92270089936A /* JokerActions_up.png */,
+				A433BD1216F069A2003CD7CE /* motion1-hd.png */,
 			);
 			name = Joker;
 			path = Resources/Joker;
@@ -1477,6 +1540,10 @@
 				A4419E9C16E94E3D009A441C /* Constants.h */,
 				A4F03A3D16D19D0E0068D7C8 /* MainMenuLayer.h */,
 				A4F03A3E16D19D0E0068D7C8 /* MainMenuLayer.mm */,
+				DCB5644C16FFAD980089936A /* BG.h */,
+				DCB5644116FFA5690089936A /* BG.mm */,
+				DCB5644316FFA8ED0089936A /* BGLayer.h */,
+				DCB5644416FFA9080089936A /* BGLayer.mm */,
 				A4F03A6C16D1A3DD0068D7C8 /* OptionsLayer.h */,
 				A4F03A6D16D1A3DD0068D7C8 /* OptionsLayer.mm */,
 				A4F03A6F16D1A4460068D7C8 /* AboutLayer.h */,
@@ -1649,7 +1716,26 @@
 				A4DF532416F0A81F00720555 /* map5.tmx in Resources */,
 				A4DF532516F0A81F00720555 /* tilemap5.png in Resources */,
 				A4DF532916F0AB3D00720555 /* tilemap5.5.png in Resources */,
-				A4DF532B16F0B04100720555 /* map5.5.tmx in Resources */,
+				DCB5628016FEA1D70089936A /* map3.1.tmx in Resources */,
+				DCB5643716FF8B750089936A /* map6_doubleGravity_trial.tmx in Resources */,
+				DCB5643916FF8C7E0089936A /* tilemap6.png in Resources */,
+				DCB5643C16FF92280089936A /* JokerActions_up.plist in Resources */,
+				DCB5643D16FF92280089936A /* JokerActions_up.png in Resources */,
+				DCB5643F16FF95450089936A /* map5.5.tmx in Resources */,
+				DCB5644916FFAC1B0089936A /* JokerActions_both.png in Resources */,
+				DCB5644B16FFAC220089936A /* JokerActions_both.plist in Resources */,
+				DCB5644E16FFCC210089936A /* map5.9.tmx in Resources */,
+				DCB56479170010A50089936A /* brick0_hd_default.plist in Resources */,
+				DCB5647A170010A50089936A /* brick0_hd_default.png in Resources */,
+				DCB5647D170010B20089936A /* brick1_hd_default.plist in Resources */,
+				DCB5647E170010B20089936A /* brick1_hd_default.png in Resources */,
+				DCB56481170010BF0089936A /* brick2_hd_default.plist in Resources */,
+				DCB56482170010BF0089936A /* brick2_hd_default.png in Resources */,
+				DCB564841700191C0089936A /* map5.9_2.tmx in Resources */,
+				DCB5648617001A0F0089936A /* map5.9_3.tmx in Resources */,
+				DC1F25EA1700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav in Resources */,
+				DC1F25EE17022E2D0014F3AC /* Cartoon clown laugh.wav in Resources */,
+				DC1F25F21702C6540014F3AC /* map5.95.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1838,6 +1924,8 @@
 				A4419EAA16E95205009A441C /* Joker.mm in Sources */,
 				A4F8011F16EA7502006C3BA0 /* ContactListener.mm in Sources */,
 				A433BD1A16F074D3003CD7CE /* GameOverLayer.mm in Sources */,
+				DCB5644216FFA56D0089936A /* BG.mm in Sources */,
+				DCB5644516FFA90C0089936A /* BGLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

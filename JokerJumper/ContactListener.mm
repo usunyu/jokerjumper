@@ -51,6 +51,17 @@ void ContactListener::PreSolve(b2Contact* contact,
 void ContactListener::PostSolve(b2Contact* contact,
                                 const b2ContactImpulse* impulse) {
 }
+ #define IS_PLAT(x)          ((x==kGameObjectPlatform1)||(x==kGameObjectPlatform2)||(x==kGameObjectPlatform3))
+ #define IS_COIN(x)          ((x==kGameObjectCoin)||(x==kGameObjectCoin1)||(x==kGameObjectCoin2)||(x==kGameObjectCoin3))
+ #define IS_COINTYPE(x, y)      (((x.type == kGameObjectJoker)&&(IS_COIN(y.type)))||((IS_COIN(x.type))&&(y.type == kGameObjectJoker)))
+ #define IS_PLATTYPE(x, y)      (((x.type == kGameObjectJoker)&&(IS_PLAT(y.type)))||((IS_PLAT(x))&&(y.type == kGameObjectJoker)))
+ #define IS_COIN0TYPE(x,y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectCoin))||((x.type == kGameObjectCoin)&&(y.type == kGameObjectJoker)))
+ #define IS_COIN1TYPE(x,y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectCoin1))||((x.type == kGameObjectCoin1)&&(y.type == kGameObjectJoker)))
+ #define IS_COIN2TYPE(x,y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectCoin2))||((x.type == kGameObjectCoin2)&&(y.type == kGameObjectJoker)))
+ #define IS_COIN3TYPE(x,y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectCoin3))||((x.type == kGameObjectCoin3)&&(y.type == kGameObjectJoker)))
+ #define IS_PLAT1TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectPlatform1))||((x.type == kGameObjectPlatform1)&&(y.type == kGameObjectJoker)))
+ #define IS_PLAT2TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectPlatform2))||((x.type == kGameObjectPlatform2)&&(y.type == kGameObjectJoker)))
+ #define IS_PLAT3TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectPlatform3))||((x.type == kGameObjectPlatform3)&&(y.type == kGameObjectJoker)))
 */
 
 #import "ContactListener.h"
@@ -61,19 +72,6 @@ void ContactListener::PostSolve(b2Contact* contact,
 #import "SimpleAudioEngine.h"
 @class GameLayer;
 @class Joker;
-
-#define IS_COIN1(x, y)       ((x.type == kGameObjectJoker)&&(y.type == kGameObjectCoin))
-#define IS_COIN2(x, y)       ((x.type == kGameObjectCoin)&&(y.type == kGameObjectJoker))
-#define IS_COIN1_1(x, y)       ((x.type == kGameObjectJoker)&&(y.type == kGameObjectCoin1))
-#define IS_COIN1_2(x, y)       ((x.type == kGameObjectCoin1)&&(y.type == kGameObjectJoker))
-#define IS_COIN2_1(x, y)       ((x.type == kGameObjectJoker)&&(y.type == kGameObjectCoin2))
-#define IS_COIN2_2(x, y)       ((x.type == kGameObjectCoin2)&&(y.type == kGameObjectJoker))
-#define IS_COIN3_1(x, y)       ((x.type == kGameObjectJoker)&&(y.type == kGameObjectCoin3))
-#define IS_COIN3_2(x, y)       ((x.type == kGameObjectCoin3)&&(y.type == kGameObjectJoker))
-
-#define IS_PLAT1(x, y)      ((x.type == kGameObjectJoker)&&(y.type == kGameObjectPlatform))
-#define IS_PLAT2(x, y)      ((x.type == kGameObjectPlatform)&&(y.type == kGameObjectJoker))
-
 
 
 ContactListener::ContactListener() {
@@ -94,16 +92,29 @@ void ContactListener::BeginContact(b2Contact *contact) {
         GameObject *spriteA = (__bridge GameObject *) bodyA->GetUserData();
         GameObject *spriteB = (__bridge GameObject *) bodyB->GetUserData();
         
-    if (IS_COIN1(spriteA, spriteB))
+    if (IS_COINTYPE(spriteA, spriteB))
     {
+        GameObject *coinSprite=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;
         CCScene* scene = [[CCDirector sharedDirector] runningScene];
         GameLayer * layer = (GameLayer*)[scene getChildByTag:100];
         layer.coinCount++;
-        [layer removeChild:spriteB cleanup:YES];
-        spriteB.visible = false;
+        [layer removeChild:coinSprite cleanup:YES];
+        coinSprite.visible = false;
         [[SimpleAudioEngine sharedEngine] playEffect:@"Collect_Coin.wav"];
         
     }
+    else if(IS_PLATTYPE(spriteA, spriteB))
+    {
+        CCScene* scene = [[CCDirector sharedDirector] runningScene];
+        GameLayer * layer = (GameLayer*)[scene getChildByTag:100];
+        if(layer.joker.jokerJumping == true)
+        {
+            CCLOG(@"Set jump false");
+            [layer.joker setJokerJumping:false];
+        }
+    }
+    
+    /*
     //Sprite A = Coin, Sprite B = Joker
     else if (IS_COIN2(spriteA, spriteB))
     {
@@ -193,6 +204,7 @@ void ContactListener::BeginContact(b2Contact *contact) {
         [[SimpleAudioEngine sharedEngine] playEffect:@"Collect_Coin.wav"];
         
     }
+     */
 }
 
 }

@@ -16,11 +16,14 @@ typedef enum {
     kGameObjectNone,
     kGameObjectCoin,
     kGameObjectJoker,
-    kGameObjectPlatform,
+    kGameObjectPlatform1,
+    kGameObjectPlatform2,
+    kGameObjectPlatform3,
     kGameObjectCoin1,
     kGameObjectCoin2,
     kGameObjectCoin3,
-    kGameObjectFly
+    kGameObjectFly,
+    kGameObjectEmeny
 } GameObjectType;
 
 

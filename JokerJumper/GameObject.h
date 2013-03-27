@@ -11,7 +11,9 @@
 
 @interface GameObject : CCSprite {
     GameObjectType  type;
+    //CGRect posRect;
 }
 
 @property (nonatomic, readwrite) GameObjectType type;
+//@property (nonatomic, readwrite) CGRect posRect;
 @end

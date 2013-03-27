@@ -13,6 +13,8 @@
 #import "GameObject.h"
 #import "SimpleAudioEngine.h"
 
+@class GameObject;
+
 @interface GameLayer()
 @end
 
@@ -26,9 +28,21 @@
 @synthesize coinBar;
 @synthesize disBar;
 @synthesize flyPos;
+@synthesize brick1BatchNode;
+@synthesize brick2BatchNode;
+@synthesize brick3BatchNode;
+@synthesize fly;
+@synthesize emeny;
+@synthesize stateVec;
+
 
 +(GameLayer*) getGameLayer {
     return self;
+}
+
+-(CGRect) positionRect: (CCSprite*)mySprite
+{
+    return CGRectMake(mySprite.position.x - (mySprite.contentSize.width*mySprite.scale) /2, mySprite.position.y - (mySprite.contentSize.height*mySprite.scale) / 2, (mySprite.contentSize.width*mySprite.scale), (mySprite.contentSize.height*mySprite.scale));
 }
 
 - (void)preLoadSoundFiles
@@ -46,7 +60,7 @@
 }
 
 - (void) addScrollingBackgroundWithTileMap {
-    tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map5.5.tmx"];
+    tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map5.95.tmx"];
 	tileMapNode.anchorPoint = ccp(0, 0);
     tileMapNode.scale = 2;
 	[self addChild:tileMapNode z:-1];
@@ -54,7 +68,9 @@
 
 - (void) updateScrollingBackgroundWithTileMap:(int)offset {
     tileMapNode.position = ccp(offset,0);
-    [self updateCollisionTiles:offset];
+    [self updateCollision1Tiles:offset];
+    [self updateCollision2Tiles:offset];
+    [self updateCollision3Tiles:offset];
     [self updateCoinTiles:offset];
     [self updateCoin1Tiles:offset];
     [self updateCoin2Tiles:offset];
@@ -81,23 +97,70 @@
 	if(d)
 		bodyDef.type = b2_dynamicBody;
     
-	
 	bodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
-    if(type!=kGameObjectPlatform)
+    if(IS_PLAT(type))
         bodyDef.gravityScale = 0.0f;
-    
     GameObject* platform;
+    CCAction *Action;
+    NSMutableArray *animFrames = [NSMutableArray array];
+    CCAnimation *Animation;
+    
     if(type==kGameObjectCoin)
     {
         platform = [GameObject spriteWithFile:@"club.png"];
+        /*
+        id lens = [CCLens3D actionWithPosition:ccp(240,160) radius:240 grid:ccg(15,10) duration:8];
+        id waves = [CCWaves3D actionWithWaves:18 amplitude:80 grid:ccg(15,10) duration:10];
+        [platform runAction: [CCRepeatForever actionWithAction: [CCSequence actions: waves, lens, nil]]];
+         */
         [platform setType:type];
         [self addChild:platform z:3];
     }
-    else if(type==kGameObjectPlatform)
+    else if(type==kGameObjectPlatform1)
     {
         platform=[[GameObject alloc] init];
+        for(int i = 1; i <= 4; ++i) {
+            [animFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"brick0_%d_hd.png", i]]];
+        }
+        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
+        Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+        [platform setTexture:[brick1BatchNode texture]];
+        [platform runAction:Action];
+        //platform=[[GameObject alloc] init];
         [platform setType:type];
-        [self addChild:platform z:2];
+        [brick1BatchNode addChild:platform z:2];
+    }
+    else if(type==kGameObjectPlatform2)
+    {
+        platform=[[GameObject alloc] init];
+        for(int i = 1; i <= 4; ++i) {
+            [animFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"brik1_%d_hd.png", i]]];
+        }
+        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
+        Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+        [platform setTexture:[brick2BatchNode texture]];
+        [platform runAction:Action];
+        [platform setType:type];
+        [brick2BatchNode addChild:platform z:2];
+    }
+    else if(type==kGameObjectPlatform3)
+    {
+        platform=[[GameObject alloc] init];
+        for(int i = 1; i <= 4; ++i) {
+            [animFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"brick2_%d_hd.png", i]]];
+        }
+        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
+        Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+        [platform setTexture:[brick3BatchNode texture]];
+        [platform runAction:Action];
+        [platform setType:type];
+        [brick3BatchNode addChild:platform z:2];
     }
     else if(type==kGameObjectCoin1)
     {
@@ -132,16 +195,24 @@
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &dynamicBox;
 	fixtureDef.density = dens;
-    if(type!=kGameObjectPlatform)
+    if(IS_COIN(type))
+    {
+        body->SetGravityScale(0);
+    }
+    if(IS_COIN(type))
     {
         fixtureDef.isSensor=true;
+    }
+    if(type==kGameObjectPlatform3)
+    {
+        body->SetGravityScale(0);
     }
 	fixtureDef.friction = f;
 	fixtureDef.restitution = rest;
 	body->CreateFixture(&fixtureDef);
 }
 
--(void) updateCollisionTiles:(int)offset {
+-(void) updateCollision1Tiles:(int)offset {
     CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Collision"];
 	NSMutableDictionary * objPoint;
 	
@@ -163,9 +234,60 @@
 					 density:0.0f
 				 restitution:0
 					   boxId:-1
-                    bodyType:kGameObjectPlatform];
+                    bodyType:kGameObjectPlatform1];
 	}
+}
 
+-(void) updateCollision2Tiles:(int)offset {
+    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"collision2"];
+	NSMutableDictionary * objPoint;
+	
+	float x, y, w, h;
+	for (objPoint in [objects objects]) {
+		x = [[objPoint valueForKey:@"x"] intValue]+offset;
+		y = [[objPoint valueForKey:@"y"] intValue];
+		w = [[objPoint valueForKey:@"width"] intValue];
+		h = [[objPoint valueForKey:@"height"] intValue];
+		
+		CGPoint _point=ccp(x+w/2,y+h/2);
+		CGPoint _size=ccp(w,h);
+		
+		[self makeBox2dObjAt:_point
+					withSize:_size
+					 dynamic:false
+					rotation:0
+					friction:0.0f
+					 density:0.0f
+				 restitution:0
+					   boxId:-1
+                    bodyType:kGameObjectPlatform2];
+	}
+}
+
+-(void) updateCollision3Tiles:(int)offset {
+    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"collision3"];
+	NSMutableDictionary * objPoint;
+	
+	float x, y, w, h;
+	for (objPoint in [objects objects]) {
+		x = [[objPoint valueForKey:@"x"] intValue]+offset;
+		y = [[objPoint valueForKey:@"y"] intValue];
+		w = [[objPoint valueForKey:@"width"] intValue];
+		h = [[objPoint valueForKey:@"height"] intValue];
+		
+		CGPoint _point=ccp(x+w/2,y+h/2);
+		CGPoint _size=ccp(w,h);
+		
+		[self makeBox2dObjAt:_point
+					withSize:_size
+					 dynamic:true
+					rotation:0
+					friction:0.0f
+					 density:1.0f
+				 restitution:0
+					   boxId:-1
+                    bodyType:kGameObjectPlatform3];
+	}
 }
 
 -(void) updateCoinTiles:(int)offset {
@@ -278,7 +400,7 @@
 
 
 // detect the collision of map
-- (void) drawCollisionTiles {
+- (void) drawCollision1Tiles {
 	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Collision"];
 	NSMutableDictionary * objPoint;
 	
@@ -300,9 +422,64 @@
 					 density:0.0f
 				 restitution:0
 					   boxId:-1
-                    bodyType:kGameObjectPlatform];
+                    bodyType:kGameObjectPlatform1];
 	}
 }
+
+- (void) drawCollision2Tiles {
+	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"collision2"];
+	NSMutableDictionary * objPoint;
+	
+	float x, y, w, h;
+	for (objPoint in [objects objects]) {
+		x = [[objPoint valueForKey:@"x"] intValue];
+		y = [[objPoint valueForKey:@"y"] intValue];
+		w = [[objPoint valueForKey:@"width"] intValue];
+		h = [[objPoint valueForKey:@"height"] intValue];
+		
+		CGPoint _point=ccp(x+w/2,y+h/2);
+		CGPoint _size=ccp(w,h);
+		
+		[self makeBox2dObjAt:_point
+					withSize:_size
+					 dynamic:false
+					rotation:0
+					friction:0.0f
+					 density:0.0f
+				 restitution:0
+					   boxId:-1
+                    bodyType:kGameObjectPlatform2];
+	}
+}
+
+- (void) drawCollision3Tiles {
+	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"collision3"];
+	NSMutableDictionary * objPoint;
+	
+	float x, y, w, h;
+	for (objPoint in [objects objects]) {
+		x = [[objPoint valueForKey:@"x"] intValue];
+		y = [[objPoint valueForKey:@"y"] intValue];
+		w = [[objPoint valueForKey:@"width"] intValue];
+		h = [[objPoint valueForKey:@"height"] intValue];
+		
+		CGPoint _point=ccp(x+w/2,y+h/2);
+		CGPoint _size=ccp(w,h);
+		
+		[self makeBox2dObjAt:_point
+					withSize:_size
+					 dynamic:true
+					rotation:0
+					friction:0.0f
+					 density:1.0f
+				 restitution:0
+					   boxId:-1
+                    bodyType:kGameObjectPlatform3];
+	}
+}
+
+
+
 
 - (void) drawCoinTiles {
 	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin"];
@@ -414,9 +591,27 @@
 
 
 - (void) initBatchNode {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"JokerActions.plist"];
-    jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions.png"];
-    [self addChild:jokerBatchNode z:1];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"JokerActions_both.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick0_hd_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick1_hd_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick2_hd_default.plist"];
+    
+    jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
+    emenyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
+    brick1BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick0_hd_default.png"];
+    brick2BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick1_hd_default.png"];
+    brick3BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick2_hd_default.png"];
+    /*
+    brick1BatchNode.scale=4;
+    brick2BatchNode.scale=4;
+    brick3BatchNode.scale=4;
+     */
+    [self addChild:jokerBatchNode z:10];
+    [self addChild:emenyBatchNode z:9];
+    [self addChild:brick1BatchNode z:2];
+    [self addChild:brick2BatchNode z:2];
+    [self addChild:brick3BatchNode z:2];
+
 }
 
 - (id) init {
@@ -424,6 +619,7 @@
     if (self) {
         // enable touches
         self.isTouchEnabled = YES;
+        
         self.tag = 100;
         self.coinCount=0;
         jokerStartCharge = false;
@@ -434,14 +630,17 @@
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         [self preLoadSoundFiles];
 		[self setupPhysicsWorld];
+        [self initBatchNode];
+        
         [self addScrollingBackgroundWithTileMap];
         [self drawCoinTiles];
         [self drawCoin1Tiles];
         [self drawCoin2Tiles];
         [self drawCoin3Tiles];
-        [self drawCollisionTiles];
+        [self drawCollision1Tiles];
+        [self drawCollision2Tiles];
+        [self drawCollision3Tiles];
         
-        [self initBatchNode];
         
         joker = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
 //        joker = [[Joker alloc] init];
@@ -449,6 +648,12 @@
         [joker initAnimation:jokerBatchNode];
         joker.position = ccp(jokerLocationX, jokerLocationY);
         [joker createBox2dObject:world];
+        
+        emeny = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
+        [emeny setType:kGameObjectEmeny];
+        [emeny initAnimation: emenyBatchNode];
+        emeny.position = ccp(emenyLocationX, emenyLocationY);
+        [emeny createBox2dObject:world];
         
         flyPos=0;
         self.statusLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
@@ -466,12 +671,147 @@
         [self setDistanceLabelText:@"0.00"];
         
         [self schedule:@selector(update:)];
-        //[self schedule:@selector(updateObject:) interval:2.0];
+        [self schedule:@selector(updateObject:) interval:1.0f];
+        //[self schedule:@selector(updateEmeny:) interval:0.2f];
         [self schedule:@selector(jokerCharging:) interval:0.2f];
-        
     }
     return self;
 }
+
+- (void)updateEmeny:(ccTime) dt
+{
+    CGPoint diff=[self seekWithPosition:joker.position selfPos:emeny.position];
+    b2Vec2 newVel;
+    if(joker.jokerBody->GetLinearVelocity().x<9.5/PTM_RATIO)
+    {
+        newVel=b2Vec2(9/PTM_RATIO,joker.jokerBody->GetLinearVelocity().y);
+    }
+    else
+    {
+        newVel=joker.jokerBody->GetLinearVelocity();
+    }
+    emeny.jokerBody->SetLinearVelocity(newVel);
+    emeny.jokerBody->SetTransform(b2Vec2(joker.jokerBody->GetPosition().x-diff.x/PTM_RATIO,joker.jokerBody->GetPosition().y), 0);
+    emeny.jokerFlip=joker.jokerFlip;
+    [emeny flip];
+}
+
+-(b2Vec2) seekWithVelocity:(b2Vec2)targetVelocity selfVel:(b2Vec2) selfVelocity
+{
+    CGPoint t1=ccp(targetVelocity.x,targetVelocity.y);
+    CGPoint t2=ccp(selfVelocity.x,selfVelocity.y);
+    CGPoint resultPoint=[self seekWithPosition:t1 selfPos:t2];
+    return b2Vec2(resultPoint.x/PTM_RATIO,resultPoint.y/PTM_RATIO);
+}
+
+-(CGPoint) seekWithPosition:(CGPoint)targetPos selfPos:(CGPoint)selfPosition
+{
+    CGPoint direction=ccpSub(targetPos, selfPosition);
+    return direction;
+}
+
+- (void)update:(ccTime)dt {
+    CCLOG(@"dt: %f",dt);
+    
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    [joker adjust];
+    [emeny adjust];
+    
+    //CCLOG(@"joker.x = %f", joker.position.x);
+    //    if(joker.position.x >= 18000 && joker.position.x <= 18020) {
+    //        [self updateScrollingBackgroundWithTileMap:18000];
+    //    }
+    //    CGSize winSize = [CCDirector sharedDirector].winSize;
+    if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:fly])))
+    {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"Pain-SoundBible.com-1883168362.wav"];
+    }
+    if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny])))
+    {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"Cartoon clown laugh.wav"];
+    }
+    if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny])))
+    {
+        //||(joker.position.y >winSize.height/PTM_RATIO)
+        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
+        label.color = ccc3(0,0,0);
+        label.position = ccp(winSize.width/2, winSize.height/2);
+        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
+        [self addChild:label];
+        [label runAction:fadeIn];
+        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+    }
+    
+	int32 velocityIterations = 8;
+	int32 positionIterations = 1;
+	world->Step(dt, velocityIterations, positionIterations);
+	
+    std::vector<b2Body *>toDestroy;
+	//Iterate over the bodies in the physics world
+	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
+    {
+        
+		if (b->GetUserData() != NULL)
+        {
+			//Synchronize the AtlasSprites position and rotation with the corresponding body
+			CCSprite *myActor = (__bridge CCSprite*)b->GetUserData();
+			myActor.position = CGPointMake( b->GetPosition().x * PTM_RATIO,
+										   b->GetPosition().y * PTM_RATIO);
+			myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+		}
+	}
+    /*
+     std::vector<b2Body *>::iterator pos2;
+     for (pos2 = toDestroy.begin(); pos2 != toDestroy.end(); ++pos2) {
+     b2Body *body = *pos2;
+     if (body->GetUserData() != NULL) {
+     CCSprite *sprite = (__bridge CCSprite *) body->GetUserData();
+     [self removeChild:sprite cleanup:YES];
+     }
+     world->DestroyBody(body);
+     }
+     */
+    
+    b2Vec2 pos = [joker jokerBody]->GetPosition();
+	CGPoint newPos = ccp(-1 * pos.x * PTM_RATIO + 350, self.position.y * PTM_RATIO);
+	
+	[self setPosition:newPos];
+    
+    self.distance=(float)joker.jokerBody->GetPosition().x;
+	[self setPosition:newPos];
+    [self setStatusLabelText:[NSString stringWithFormat:@"%.2d", self.coinCount]];
+    [self setDistanceLabelText:[NSString stringWithFormat:@"%.2f", self.distance]];
+    
+    if(ccpLength([self seekWithPosition:joker.position selfPos:emeny.position])>500)
+    {
+        emeny.jokerBody->SetTransform(b2Vec2((joker.position.x-300)/PTM_RATIO,joker.position.y/PTM_RATIO), 0);
+    }
+    
+    if(stateVec.size()!=0)
+    {
+    if(emeny.position.x>stateVec.front().position.x)
+    {
+        [emeny jump:false];
+        emeny.jokerBody->SetGravityScale(stateVec.front().gravityScale);
+//        b2Vec2 newVel;
+//        if(joker.jokerBody->GetLinearVelocity().x<9.5/PTM_RATIO)
+//        {
+//            newVel=b2Vec2(9/PTM_RATIO,joker.jokerBody->GetLinearVelocity().y);
+//        }
+//        else
+//        {
+//            newVel=joker.jokerBody->GetLinearVelocity();
+//        }
+//        emeny.jokerBody->SetLinearVelocity(newVel);
+//        emeny.jokerBody->SetTransform(b2Vec2(joker.jokerBody->GetPosition().x-diff.x/PTM_RATIO,joker.jokerBody->GetPosition().y), 0);
+//        emeny.jokerFlip=joker.jokerFlip;
+//        [emeny flip];
+        stateVec.pop_front();
+    }
+    }
+}
+
 
 - (void)jokerCharging: (ccTime) dt {
     if(jokerStartCharge)
@@ -480,87 +820,26 @@
 
 - (void)updateObject:(ccTime) dt
 {
+    CGPoint startPos,endPos;
     CGSize screenSize = [CCDirector sharedDirector].winSize;
-    CCSprite *fly = [CCSprite spriteWithFile:@"club.png"];
-    CGPoint position=joker.position;
-    CGPoint realDestBlock;
-    /*if(flyPos==4)
-    {
-        flyPos=0;
-    }
-     */
-    switch(flyPos)
-    {
-        case 0:
-            position=ccp(joker.position.x+500,screenSize.height*0.5);realDestBlock = ccp(1000, 0);break;
-        case 1:
-            position=ccp(joker.position.x-50,screenSize.height*0.7);realDestBlock = ccp(500, 0);break;
-        case 2:
-            position=ccp(joker.position.x-50,screenSize.height*0.35);realDestBlock = ccp(2000, 0);break;
-        case 3:
-            position=ccp(joker.position.x-50,screenSize.height*0.45);realDestBlock = ccp(3000, 0);break;
-        default:
-            break;
-    }
-    position=ccp(500,500);
-    realDestBlock = ccp(1500, 0);
-    fly.position=position;
-    flyPos++;
+    fly = [GameObject spriteWithFile:@"diamond.png"];
+    [fly setType: kGameObjectFly];
+    startPos=ccp(joker.position.x+screenSize.width,arc4random_uniform(screenSize.height));
+    endPos=ccp(joker.position.x-500,arc4random_uniform(screenSize.height));
+    fly.position=startPos;
+    CCAction *moveAction=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:2.0f position:endPos]];
+    [fly runAction:moveAction];
     [self addChild:fly z:10];
+    flyPos++;
     
-    /*
-    CCAction *_blockMoveAction;
-    _blockMoveAction=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:20.0f position:realDestBlock]];
-    [block runAction:_blockMoveAction];
-     */
-        
-    // Create block body
-    b2BodyDef flyBodyDef;
-    flyBodyDef.type =b2_kinematicBody;
-    flyBodyDef.gravityScale = 0.0f;
-    flyBodyDef.position.Set(0, (position.y)/PTM_RATIO);
-    flyBodyDef.userData = (__bridge void*)fly;
-
-    flyBodyDef.linearVelocity=b2Vec2(50,0);
-    b2Body *flyBody = world->CreateBody(&flyBodyDef);
-    
-    b2PolygonShape flyShape;
-    flyShape.SetAsBox(fly.contentSize.width/PTM_RATIO/2,
-                      fly.contentSize.height/PTM_RATIO/2);
-    
-    b2FixtureDef flyShapeDef;
-    flyShapeDef.shape = &flyShape;
-    flyBody->CreateFixture(&flyShapeDef);
-    CCLOG(@"flyPos = %d",flyPos );
-
-    
-    /*
-    flyBodyDef.position.Set(0, (position.y)/PTM_RATIO);
-    flyBodyDef.userData = (__bridge void*)fly;
-    
-       
-        
-    // Create block shape
-    b2PolygonShape flyShape;
-    flyShape.SetAsBox(fly.contentSize.width/PTM_RATIO/2,
-                        fly.contentSize.height/PTM_RATIO/2);
-    
-    // Create shape definition and add to body
-        flyShapeDef.isSensor=true;
-    flyShapeDef.shape = &flyShape;
-    flyShapeDef.density = 1.0;
-    flyShapeDef.friction = 0.4;
-    flyShapeDef.restitution = 0.0f;
-    flyBody->CreateFixture(&flyShapeDef);
-         */
 }
 
 -(void)setStatusLabelText:(NSString *)text
 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     [self.statusLabel setString:text];
-    CGPoint worldPos1 = [self convertScreenToWorld:ccp(700, screenSize.height - 20)];
-    CGPoint worldPos2 = [self convertScreenToWorld:ccp(600, screenSize.height - 20)];
+    CGPoint worldPos1 = [self convertScreenToWorld:ccp(480, screenSize.height - 20)];
+    CGPoint worldPos2 = [self convertScreenToWorld:ccp(430, screenSize.height - 20)];
     self.statusLabel.position = worldPos1;
     self.coinBar.position=worldPos2;
 }
@@ -570,8 +849,8 @@
 {
     CGSize screenSize = [[CCDirector sharedDirector] winSize];
     [self.distanceLabel setString:text];
-    CGPoint worldPos1 = [self convertScreenToWorld:ccp(900, screenSize.height - 20)];
-    CGPoint worldPos2 = [self convertScreenToWorld:ccp(800, screenSize.height - 20)];
+    CGPoint worldPos1 = [self convertScreenToWorld:ccp(600, screenSize.height - 20)];
+    CGPoint worldPos2 = [self convertScreenToWorld:ccp(550, screenSize.height - 20)];
     self.distanceLabel.position = worldPos1;
     self.disBar.position=worldPos2;
 }
@@ -585,78 +864,6 @@
     world->SetContinuousPhysics(TRUE);
     contactListener = new ContactListener();
     world->SetContactListener(contactListener);
-}
-
-- (void)update:(ccTime)dt {
-     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    if(joker.jokerBody->GetLinearVelocity().x<11.274257) {
-        [joker accelerate];
-    }
-    //CCLOG(@"joker.x = %f", joker.position.x);
-//    if(joker.position.x >= 18000 && joker.position.x <= 18020) {
-//        [self updateScrollingBackgroundWithTileMap:18000];
-//    }
-//    CGSize winSize = [CCDirector sharedDirector].winSize;
-    if(joker.position.y <= 0) {
-        //||(joker.position.y >winSize.height/PTM_RATIO)
-        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
-        label.color = ccc3(0,0,0);
-        label.position = ccp(winSize.width/2, winSize.height/2);
-        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
-        [self addChild:label];
-        [label runAction:fadeIn];
-        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
-    }
-	int32 velocityIterations = 8;
-	int32 positionIterations = 1;
-	world->Step(dt, velocityIterations, positionIterations);
-	
-    std::vector<b2Body *>toDestroy;
-	//Iterate over the bodies in the physics world
-	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
-    {
-		if (b->GetUserData() != NULL)
-        {
-			//Synchronize the AtlasSprites position and rotation with the corresponding body
-			CCSprite *myActor = (__bridge CCSprite*)b->GetUserData();
-			myActor.position = CGPointMake( b->GetPosition().x * PTM_RATIO,
-										   b->GetPosition().y * PTM_RATIO);
-			myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
-            /*
-            GameObject *object = (__bridge GameObject*)b->GetUserData();
-            if(object.type==kGameObjectFly)
-            {
-                if(object.position.x>=joker.position.x+winSize.width)
-                {
-                    toDestroy.push_back(b);
-                }
-            }
-            */
-             
-		}
-	}
-    /*
-    std::vector<b2Body *>::iterator pos2;
-    for (pos2 = toDestroy.begin(); pos2 != toDestroy.end(); ++pos2) {
-        b2Body *body = *pos2;
-        if (body->GetUserData() != NULL) {
-            CCSprite *sprite = (__bridge CCSprite *) body->GetUserData();
-            [self removeChild:sprite cleanup:YES];
-        }
-        world->DestroyBody(body);
-    }
-     */
-    
-    b2Vec2 pos = [joker jokerBody]->GetPosition();
-	CGPoint newPos = ccp(-1 * pos.x * PTM_RATIO + 50, self.position.y * PTM_RATIO);
-	
-	[self setPosition:newPos];
-    
-    self.distance=(float)joker.jokerBody->GetPosition().x;
-	[self setPosition:newPos];
-    [self setStatusLabelText:[NSString stringWithFormat:@"%.2d", self.coinCount]];
-    [self setDistanceLabelText:[NSString stringWithFormat:@"%.2f", self.distance]];
 }
 
 -(CGPoint)convertScreenToWorld:(CGPoint)screenPos
@@ -676,6 +883,10 @@
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
+    joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
+    State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale()};
+    stateVec.push_back(curState);
+    //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
     [joker jump:jokerCharge];
     jokerCharge = 1;
     jokerStartCharge = false;

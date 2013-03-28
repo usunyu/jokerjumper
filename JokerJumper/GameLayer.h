@@ -74,6 +74,7 @@ struct State {
     CCSpriteBatchNode* brick1BatchNode;
     CCSpriteBatchNode* brick2BatchNode;
     CCSpriteBatchNode* brick3BatchNode;
+    CCSpriteBatchNode* flyBatchNode;
     std::deque <State> stateVec;
 }
 +(GameLayer*) getGameLayer;
@@ -92,5 +93,6 @@ struct State {
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick3BatchNode;
 @property (nonatomic, readwrite) GameObject *fly;
 @property (nonatomic, readwrite) CCSpriteBatchNode *emenyBatchNode;
+@property (nonatomic, readwrite) CCSpriteBatchNode *flyBatchNode;
 @property (nonatomic, readwrite) std::deque<State> stateVec;
 @end

@@ -31,6 +31,7 @@
 @synthesize brick1BatchNode;
 @synthesize brick2BatchNode;
 @synthesize brick3BatchNode;
+@synthesize flyBatchNode;
 @synthesize fly;
 @synthesize emeny;
 @synthesize stateVec;
@@ -119,10 +120,10 @@
     else if(type==kGameObjectPlatform1)
     {
         platform=[[GameObject alloc] init];
-        for(int i = 1; i <= 4; ++i) {
+        for(int i = 0; i <= 6; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-              [NSString stringWithFormat:@"brick0_%d_hd.png", i]]];
+              [NSString stringWithFormat:@"brick_ice_flashing%d.png",i]]];
         }
         Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
         Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
@@ -138,9 +139,9 @@
         for(int i = 1; i <= 4; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-              [NSString stringWithFormat:@"brik1_%d_hd.png", i]]];
+              [NSString stringWithFormat:@"brik1_%d_hd.png",i]]];
         }
-        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
+        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.05f];
         Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
         [platform setTexture:[brick2BatchNode texture]];
         [platform runAction:Action];
@@ -153,7 +154,7 @@
         for(int i = 1; i <= 4; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-              [NSString stringWithFormat:@"brick2_%d_hd.png", i]]];
+              [NSString stringWithFormat:@"brick2_%d_hd.png",i]]];
         }
         Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
         Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
@@ -283,7 +284,7 @@
 					 dynamic:true
 					rotation:0
 					friction:0.0f
-					 density:1.0f
+					 density:10.0f
 				 restitution:0
 					   boxId:-1
                     bodyType:kGameObjectPlatform3];
@@ -471,7 +472,7 @@
 					 dynamic:true
 					rotation:0
 					friction:0.0f
-					 density:1.0f
+					 density:10.0f
 				 restitution:0
 					   boxId:-1
                     bodyType:kGameObjectPlatform3];
@@ -592,15 +593,18 @@
 
 - (void) initBatchNode {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"JokerActions_both.plist"];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick0_hd_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_ice_flashing_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick1_hd_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick2_hd_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pokerSoilder_default.plist"];
+
     
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
     emenyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
-    brick1BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick0_hd_default.png"];
+    brick1BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick_ice_flashing_default.png"];
     brick2BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick1_hd_default.png"];
     brick3BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick2_hd_default.png"];
+    flyBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
     /*
     brick1BatchNode.scale=4;
     brick2BatchNode.scale=4;
@@ -611,6 +615,7 @@
     [self addChild:brick1BatchNode z:2];
     [self addChild:brick2BatchNode z:2];
     [self addChild:brick3BatchNode z:2];
+    [self addChild:flyBatchNode z:2];
 
 }
 
@@ -730,7 +735,7 @@
     {
         [[SimpleAudioEngine sharedEngine] playEffect:@"Cartoon clown laugh.wav"];
     }
-    if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny])))
+    if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x)
     {
         //||(joker.position.y >winSize.height/PTM_RATIO)
         CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
@@ -822,14 +827,29 @@
 {
     CGPoint startPos,endPos;
     CGSize screenSize = [CCDirector sharedDirector].winSize;
-    fly = [GameObject spriteWithFile:@"diamond.png"];
+    CCAction *flyAction;
+    NSMutableArray *flyFrames = [NSMutableArray array];
+    CCAnimation *flyAnim;
+    fly = [[GameObject alloc] init];
     [fly setType: kGameObjectFly];
+    
+    for(int i = 0; i <=2 ; ++i) {
+        [flyFrames addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          [NSString stringWithFormat:@"pokerSoilder%i.png", i]]];
+    }
+    flyAnim=[CCAnimation animationWithSpriteFrames:flyFrames delay:0.2f];
+    flyAction= [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: flyAnim]];
+    [fly runAction:flyAction];
+    [fly setTexture:[flyBatchNode texture]];
+    [flyBatchNode addChild:fly z:3];
+    
     startPos=ccp(joker.position.x+screenSize.width,arc4random_uniform(screenSize.height));
     endPos=ccp(joker.position.x-500,arc4random_uniform(screenSize.height));
     fly.position=startPos;
-    CCAction *moveAction=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:2.0f position:endPos]];
+    CCAction *moveAction=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:20.0f position:endPos]];
     [fly runAction:moveAction];
-    [self addChild:fly z:10];
+    //[self addChild:fly z:10];
     flyPos++;
     
 }
@@ -877,10 +897,6 @@
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     jokerStartCharge = true;
-	return YES;
-}
-
--(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
@@ -888,6 +904,11 @@
     stateVec.push_back(curState);
     //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
     [joker jump:jokerCharge];
+	return YES;
+}
+
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    
     jokerCharge = 1;
     jokerStartCharge = false;
 }

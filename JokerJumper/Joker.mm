@@ -109,11 +109,11 @@
 }
 
 - (void) adjust {
-    if(jokerBody->GetLinearVelocity().x<9)
+    if(jokerBody->GetLinearVelocity().x<6)
     {
         [self accelerate];
     }
-    else
+    else if(jokerBody->GetLinearVelocity().x>7)
     {
         [self decelerate];
     }
@@ -121,13 +121,13 @@
 }
 
 - (void) accelerate {
-    b2Vec2 impulse = b2Vec2(10.0f, jokerBody->GetLinearVelocity().y);
+    b2Vec2 impulse = b2Vec2(6.5f, jokerBody->GetLinearVelocity().y);
     jokerBody->SetLinearVelocity(impulse); 
     //jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
 }
 
 - (void) decelerate {
-    b2Vec2 impulse = b2Vec2(10.0f,  jokerBody->GetLinearVelocity().y);
+    b2Vec2 impulse = b2Vec2(6.5f,  jokerBody->GetLinearVelocity().y);
     jokerBody->SetLinearVelocity(impulse);
     //jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
 }
@@ -191,17 +191,18 @@
         b2Vec2 impulse;
         if(jokerBody->GetLinearVelocity().x<11.274257)
         {
-            impulse = b2Vec2(0.0f, charge);
+            impulse = b2Vec2(0.0f, 2000);
         }
         else
         {
-            impulse = b2Vec2(0.0f, charge);
+            impulse = b2Vec2(0.0f, 2000);
         }
+        jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,100));
         jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
 
     }
     }
-    else
+    else if(self.type==kGameObjectEmeny)
     {
         NSLog(@"Joker speed %f", jokerBody->GetLinearVelocity().x);
         if(jokerFlip==true)
@@ -215,7 +216,8 @@
             [self runAction: jokerFlipRunAction];
         }
         jokerFlip=!jokerFlip;
-        jokerBody->ApplyLinearImpulse(b2Vec2(0.0f, 100), jokerBody->GetWorldCenter());
+        jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,100));
+        jokerBody->ApplyLinearImpulse(b2Vec2(0.0f, 2000), jokerBody->GetWorldCenter());
 
     }
 }

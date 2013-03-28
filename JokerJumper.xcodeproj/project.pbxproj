@@ -254,7 +254,8 @@
 		A4F8011F16EA7502006C3BA0 /* ContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4F8011E16EA7502006C3BA0 /* ContactListener.mm */; };
 		DC1F25EA1700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */; };
 		DC1F25EE17022E2D0014F3AC /* Cartoon clown laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */; };
-		DC1F25F21702C6540014F3AC /* map5.95.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25F11702C6540014F3AC /* map5.95.tmx */; };
+		DC1F25F617035E7C0014F3AC /* map5.95.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25F517035E7C0014F3AC /* map5.95.tmx */; };
+		DC1F25F8170369D40014F3AC /* map5.96.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25F7170369D40014F3AC /* map5.96.tmx */; };
 		DC3C9B0616F015D4002178AF /* diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = DC3C9B0516F015D4002178AF /* diamond.png */; };
 		DC3C9B0816F015FB002178AF /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = DC3C9B0716F015FB002178AF /* heart.png */; };
 		DCB5628016FEA1D70089936A /* map3.1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5627F16FEA1D70089936A /* map3.1.tmx */; };
@@ -276,6 +277,10 @@
 		DCB56482170010BF0089936A /* brick2_hd_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB56480170010BD0089936A /* brick2_hd_default.png */; };
 		DCB564841700191C0089936A /* map5.9_2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB56483170019170089936A /* map5.9_2.tmx */; };
 		DCB5648617001A0F0089936A /* map5.9_3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5648517001A0A0089936A /* map5.9_3.tmx */; };
+		DCC4609E1704F6A7009245BD /* pokerSoilder_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC4609C1704F6A7009245BD /* pokerSoilder_default.plist */; };
+		DCC4609F1704F6A7009245BD /* pokerSoilder_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC4609D1704F6A7009245BD /* pokerSoilder_default.png */; };
+		DCC460A2170500BF009245BD /* brick_ice_flashing_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC460A0170500BF009245BD /* brick_ice_flashing_default.plist */; };
+		DCC460A3170500BF009245BD /* brick_ice_flashing_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC460A1170500BF009245BD /* brick_ice_flashing_default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -741,7 +746,8 @@
 		A4F8011E16EA7502006C3BA0 /* ContactListener.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ContactListener.mm; sourceTree = "<group>"; };
 		DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Pain-SoundBible.com-1883168362.wav"; sourceTree = "<group>"; };
 		DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Cartoon clown laugh.wav"; sourceTree = "<group>"; };
-		DC1F25F11702C6540014F3AC /* map5.95.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.95.tmx; sourceTree = "<group>"; };
+		DC1F25F517035E7C0014F3AC /* map5.95.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.95.tmx; sourceTree = "<group>"; };
+		DC1F25F7170369D40014F3AC /* map5.96.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.96.tmx; sourceTree = "<group>"; };
 		DC3C9B0516F015D4002178AF /* diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond.png; sourceTree = "<group>"; };
 		DC3C9B0716F015FB002178AF /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		DCB5627F16FEA1D70089936A /* map3.1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map3.1.tmx; sourceTree = "<group>"; };
@@ -765,6 +771,10 @@
 		DCB56480170010BD0089936A /* brick2_hd_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick2_hd_default.png; sourceTree = "<group>"; };
 		DCB56483170019170089936A /* map5.9_2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.9_2.tmx; sourceTree = "<group>"; };
 		DCB5648517001A0A0089936A /* map5.9_3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.9_3.tmx; sourceTree = "<group>"; };
+		DCC4609C1704F6A7009245BD /* pokerSoilder_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pokerSoilder_default.plist; sourceTree = "<group>"; };
+		DCC4609D1704F6A7009245BD /* pokerSoilder_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokerSoilder_default.png; sourceTree = "<group>"; };
+		DCC460A0170500BF009245BD /* brick_ice_flashing_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brick_ice_flashing_default.plist; sourceTree = "<group>"; };
+		DCC460A1170500BF009245BD /* brick_ice_flashing_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick_ice_flashing_default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -822,12 +832,13 @@
 				A4DF532216F0A81F00720555 /* map5.tmx */,
 				A4DF532316F0A81F00720555 /* tilemap5.png */,
 				A4DCA7F516F062F200819798 /* fly.png */,
+				DC1F25F7170369D40014F3AC /* map5.96.tmx */,
 				DCB5644D16FFCC1D0089936A /* map5.9.tmx */,
+				DC1F25F517035E7C0014F3AC /* map5.95.tmx */,
 				A4DCA7F616F062F200819798 /* map3.tmx */,
 				A4DCA7F716F062F200819798 /* map4.tmx */,
 				A4DCA7F816F062F200819798 /* map_01.png */,
 				A4DCA7F916F062F200819798 /* map_01.tmx */,
-				DC1F25F11702C6540014F3AC /* map5.95.tmx */,
 				A4DCA7FA16F062F200819798 /* map_level11.tmx */,
 				A4DCA7FB16F062F200819798 /* tilemap.png */,
 				A4DCA7FC16F062F200819798 /* tilemap3.png */,
@@ -843,6 +854,10 @@
 				A4419EC516E962C6009A441C /* JokerActions.plist */,
 				DCB56477170010A10089936A /* brick0_hd_default.plist */,
 				DCB56478170010A30089936A /* brick0_hd_default.png */,
+				DCC460A0170500BF009245BD /* brick_ice_flashing_default.plist */,
+				DCC460A1170500BF009245BD /* brick_ice_flashing_default.png */,
+				DCC4609C1704F6A7009245BD /* pokerSoilder_default.plist */,
+				DCC4609D1704F6A7009245BD /* pokerSoilder_default.png */,
 				DCB5647B170010AE0089936A /* brick1_hd_default.plist */,
 				DCB5647C170010B00089936A /* brick1_hd_default.png */,
 				DCB5647F170010BC0089936A /* brick2_hd_default.plist */,
@@ -1735,7 +1750,12 @@
 				DCB5648617001A0F0089936A /* map5.9_3.tmx in Resources */,
 				DC1F25EA1700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav in Resources */,
 				DC1F25EE17022E2D0014F3AC /* Cartoon clown laugh.wav in Resources */,
-				DC1F25F21702C6540014F3AC /* map5.95.tmx in Resources */,
+				DC1F25F617035E7C0014F3AC /* map5.95.tmx in Resources */,
+				DC1F25F8170369D40014F3AC /* map5.96.tmx in Resources */,
+				DCC4609E1704F6A7009245BD /* pokerSoilder_default.plist in Resources */,
+				DCC4609F1704F6A7009245BD /* pokerSoilder_default.png in Resources */,
+				DCC460A2170500BF009245BD /* brick_ice_flashing_default.plist in Resources */,
+				DCC460A3170500BF009245BD /* brick_ice_flashing_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

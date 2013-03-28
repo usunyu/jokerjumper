@@ -71,7 +71,33 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JokerJumper/GameLayer.mm"
-         timestampString = "385974626.184003"
+         timestampString = "386201967.554094"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "506"
+         endingLineNumber = "506"
+         landmarkName = "-drawCoinTiles"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JokerJumper/GameLayer.mm"
+         timestampString = "386201967.554094"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "533"
+         endingLineNumber = "533"
+         landmarkName = "-drawCoin1Tiles"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "JokerJumper/GameLayer.mm"
+         timestampString = "386201967.554094"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "505"
@@ -84,12 +110,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JokerJumper/GameLayer.mm"
-         timestampString = "385974626.184003"
+         timestampString = "386203296.551254"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "532"
-         endingLineNumber = "532"
-         landmarkName = "-drawCoin1Tiles"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
+         landmarkName = "-makeBox2dObjAt:withSize:dynamic:rotation:friction:density:restitution:boxId:bodyType:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -97,12 +123,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JokerJumper/GameLayer.mm"
-         timestampString = "385974626.184003"
+         timestampString = "386203302.364403"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "504"
-         endingLineNumber = "504"
-         landmarkName = "-drawCoinTiles"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
+         landmarkName = "-makeBox2dObjAt:withSize:dynamic:rotation:friction:density:restitution:boxId:bodyType:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

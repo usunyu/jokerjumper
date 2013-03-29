@@ -78,7 +78,13 @@
 	
 	// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
 //	[director_ pushScene: [IntroLayer scene]];
-    [director_ runWithScene: [CCBReader sceneWithNodeGraphFromFile:@"MainMenuScene.ccbi"]];
+//    [director_ runWithScene: [CCBReader sceneWithNodeGraphFromFile:@"MainMenuScene.ccbi"]];
+    
+    // Load the main menu scene from the ccbi-file
+    CCScene* mainScene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenuScene.ccbi"];
+    
+    // Then add the scene to the stack. The director will run it when it automatically when the view is displayed.
+	[director_ pushScene: mainScene];
 	
 	
 	// Create a Navigation Controller with the Director

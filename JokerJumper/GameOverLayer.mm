@@ -9,6 +9,7 @@
 #import "GameOverLayer.h"
 #import "CCControlButton.h"
 #import "CCBReader.h"
+#import "GameScene.h"
 
 #define MAIN_MENU_BUTTON_TAG 1
 #define PLAY_AGAIN_BUTTON_TAG 2
@@ -23,7 +24,8 @@
             break;
             
         case PLAY_AGAIN_BUTTON_TAG:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeUp transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameScene.ccbi"]]];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene scene]]];
+//            [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeUp transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameScene.ccbi"]]];
             break;
     }
 }

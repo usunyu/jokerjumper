@@ -6,6 +6,7 @@
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 
+#import "BackgroundLayer.h"
 #import "GameLayer.h"
 #import "CCBReader.h"
 #import "Constants.h"
@@ -625,7 +626,7 @@
         // enable touches
         self.isTouchEnabled = YES;
         
-        self.tag = 100;
+        self.tag = GAME_LAYER_TAG;
         self.coinCount=0;
         jokerStartCharge = false;
         jokerCharge = 1;
@@ -636,7 +637,6 @@
         [self preLoadSoundFiles];
 		[self setupPhysicsWorld];
         [self initBatchNode];
-        
         [self addScrollingBackgroundWithTileMap];
         [self drawCoinTiles];
         [self drawCoin1Tiles];
@@ -667,6 +667,8 @@
         disBar=[CCSprite spriteWithFile:@"spade.png"];
         coinBar.position = ccp(950,screenSize.height-30);
         disBar.position = ccp(750, screenSize.height-30);
+        
+//        [self loadLayer];
         
         [self addChild:self.statusLabel z:100];
         [self addChild:self.distanceLabel z:101];

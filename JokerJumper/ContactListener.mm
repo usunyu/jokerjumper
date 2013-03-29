@@ -96,7 +96,7 @@ void ContactListener::BeginContact(b2Contact *contact) {
     {
         GameObject *coinSprite=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;
         CCScene* scene = [[CCDirector sharedDirector] runningScene];
-        GameLayer * layer = (GameLayer*)[scene getChildByTag:100];
+        GameLayer * layer = (GameLayer*)[scene getChildByTag:GAME_LAYER_TAG];
         layer.coinCount++;
         [layer removeChild:coinSprite cleanup:YES];
         coinSprite.visible = false;
@@ -106,7 +106,7 @@ void ContactListener::BeginContact(b2Contact *contact) {
     else if(IS_PLATTYPE(spriteA, spriteB))
     {
         CCScene* scene = [[CCDirector sharedDirector] runningScene];
-        GameLayer * layer = (GameLayer*)[scene getChildByTag:100];
+        GameLayer * layer = (GameLayer*)[scene getChildByTag:GAME_LAYER_TAG];
         if(layer.joker.jokerJumping == true)
         {
             CCLOG(@"Set jump false");
@@ -213,8 +213,8 @@ void ContactListener::BeginContact(b2Contact *contact) {
 
 void ContactListener::EndContact(b2Contact *contact)
     {
-	GameObject *o1 = (__bridge GameObject*)contact->GetFixtureA()->GetBody()->GetUserData();
-	GameObject *o2 = (__bridge GameObject*)contact->GetFixtureB()->GetBody()->GetUserData();
+//	GameObject *o1 = (__bridge GameObject*)contact->GetFixtureA()->GetBody()->GetUserData();
+//	GameObject *o2 = (__bridge GameObject*)contact->GetFixtureB()->GetBody()->GetUserData();
     }
 void ContactListener::PreSolve(b2Contact *contact, const b2Manifold *oldManifold) {
 }

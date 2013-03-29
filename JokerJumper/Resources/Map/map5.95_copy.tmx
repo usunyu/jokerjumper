@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="24" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tilemap5.5" tilewidth="32" tileheight="32">
+  <image source="tilemap5.5.png" width="832" height="768"/>
+ </tileset>
+ <layer name="Background" width="30" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzF1tN7mAcYh+Emddo0tZ26TW0mbdLUtjWvNufV5rzanFeb82pzXm3t7l+Q72wH99nveg7f6w1JlChRyP8klMQkISnJSE4KUhJGKlITThoiSEs60pOBjGQic4BuDnKSi9zkIS/5yE8kBShIIQpThKIUozgliKIkpSgdoFuBilSiMlWoSjWqU4Oa1CKaGGpTh1jiqEs89ahPgwDdpjSjOS1oSSta04a2tKM9HehIJzrTha50ozs96EmvAN2XeJlXeJXe9KEv/ejPAAYyiMEMYSjDGM4IRjKK0YwJ0H2Lt3mHdxnLOMYzgYlMYjJTmMo0pjODmcxiNnOYy7wA3Y/4mE/4lPksYCGLWMwSlrKM5axgJatYzRrWso71bAjQ/Yqv+YZv2cgmNrOFrWxjOzvYyS52s4e97GM/BzjIoQDdn/iZX/iVwxzhKMc4zglOcorTnOEs5zjPBS5yictcCdD9i7/5h3+5yjWuc4Ob3OI2d7jLPe7zgIc84jFPeMqzo5FQN6lNMpKTgpSEkYrUhJOGCNKSjvRkICOZyEwWspKN7CEJd/OQl3zkJ5ICFKQQhSlCUYpRnBJEUZJSlKYMZSlH+QDdKlSlGtWpQU1qEU0MtalDLHHUJZ561KcBDWlEY5oE6LakFa1pQ1va0Z4OdKQTnelCV7rRnR70pBfP8Twv8GKAbm/60Jd+9GcAAxnEYIYwlGEMZwQjGcVoxvAar/MGbwbojmUc45nARCYxmSlMZRrTmcFMZjGbOcxlHu/xPh/wYYDufBawkEUsZglLWcZyVrCSVaxmDWtZx3o28Bmf8wVfBuhuZBOb2cJWtrGdHexkF7vZw172sZ8DHOQQ3/E9P/BjgO5hjnCUYxznBCc5xWnOcJZznOcCF7nEZa7wG7/zB38G6F7lGte5wU1ucZs73OUe93nAQx7xmCc85dlDE0IoiUkSmnA3pU0YqUhNOGmIIC3pSE8GMpKJzGQhK9nITg5ykovcoQl3IylAQQpRmCIUpRjFKUEUJSlFacpQlnKUpwIVqUTlAN0a1KQW0cRQmzrEEkdd4qlHfRrQkEY0pglNaUZzWgTo/gcFdTjn
+  </data>
+ </layer>
+ <layer name="Wall" width="30" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztwYEAAAAAw6D5U1/hAFUBAACvAQtAAAE=
+  </data>
+ </layer>
+ <objectgroup name="Collision" width="30" height="24">
+  <object x="2" y="610" width="59" height="59"/>
+  <object x="66" y="610" width="59" height="59"/>
+  <object x="130" y="610" width="59" height="59"/>
+  <object x="194" y="610" width="59" height="59"/>
+  <object x="258" y="610" width="59" height="59"/>
+  <object x="322" y="610" width="59" height="59"/>
+  <object x="450" y="610" width="59" height="59"/>
+  <object x="386" y="610" width="59" height="59"/>
+  <object x="834" y="610" width="59" height="59"/>
+  <object x="898" y="610" width="59" height="59"/>
+  <object x="514" y="610" width="59" height="59"/>
+  <object x="578" y="610" width="59" height="59"/>
+  <object x="706" y="610" width="59" height="59"/>
+  <object x="642" y="610" width="59" height="59"/>
+  <object x="770" y="610" width="59" height="59"/>
+  <object x="322" y="354" width="59" height="59"/>
+  <object x="386" y="354" width="59" height="59"/>
+  <object x="2" y="354" width="59" height="59"/>
+  <object x="706" y="354" width="59" height="59"/>
+  <object x="898" y="354" width="59" height="59"/>
+  <object x="450" y="354" width="59" height="59"/>
+  <object x="770" y="354" width="59" height="59"/>
+  <object x="834" y="354" width="59" height="59"/>
+  <object x="66" y="354" width="59" height="59"/>
+  <object x="194" y="354" width="59" height="59"/>
+  <object x="130" y="354" width="59" height="59"/>
+  <object x="642" y="354" width="59" height="59"/>
+  <object x="578" y="354" width="59" height="59"/>
+  <object x="514" y="354" width="59" height="59"/>
+  <object x="258" y="354" width="59" height="59"/>
+ </objectgroup>
+ <objectgroup name="collision2" width="30" height="24"/>
+ <objectgroup name="collision3" width="30" height="24"/>
+ <objectgroup name="Coin" width="30" height="24">
+  <object x="255" y="542"/>
+  <object x="383" y="541"/>
+  <object x="512" y="541"/>
+  <object x="639" y="541"/>
+  <object x="769" y="540"/>
+  <object x="832" y="479"/>
+ </objectgroup>
+ <objectgroup name="Coin1" width="30" height="24">
+  <object x="928" y="445"/>
+ </objectgroup>
+ <objectgroup name="Coin2" width="30" height="24"/>
+ <objectgroup name="Coin3" width="30" height="24"/>
+ <layer name="joker" width="30" height="24">
+  <data encoding="base64" compression="zlib">
+   eJztwYEAAAAAw6D5U1/hAFUBAACvAQtAAAE=
+  </data>
+ </layer>
+</map>

@@ -14,7 +14,8 @@
 
 #define GAME_LAYER_TAG 100
 
-#define MAP_LENGTH 30
+#define MAP_LENGTH 400
+#define MAP_LEVEL1_NUMS 2
 
 typedef enum {
     kGameObjectNone,

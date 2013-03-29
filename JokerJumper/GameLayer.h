@@ -58,7 +58,7 @@ struct State {
     CCSpriteBatchNode *jokerBatchNode;
     CCSpriteBatchNode *emenyBatchNode;
     b2World* world;
-	CCTMXTiledMap *tileMapNode;
+//	CCTMXTiledMap *tileMapNode;
 	b2Body *playerBody;
     int coinCount;
     float distance;

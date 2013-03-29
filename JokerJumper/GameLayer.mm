@@ -62,32 +62,26 @@
 }
 
 - (void) initTiledMaps {
-    
+//    NSMutableArray *mapArray = [[NSMutableArray alloc] initWithCapacity:MAP_LEVEL1_NUMS];
+    for(int i = 0; i < MAP_LEVEL1_NUMS; i++) {
+        CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map5.95.tmx"];
+        tileMapNode.anchorPoint = ccp(0, 0);
+        int offset = MAP_LENGTH * PTM_RATIO * i;
+        tileMapNode.position = ccp(offset, 0);
+        tileMapNode.scale = 2;
+        [self addChild:tileMapNode z:-1];
+        [self drawCollisions:tileMapNode withOffset:offset];
+    }
 }
 
-- (void) addScrollingBackgroundWithTileMap {
-    tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map5.95_copy.tmx"];
-	tileMapNode.anchorPoint = ccp(0, 0);
-    tileMapNode.scale = 2;
-	[self addChild:tileMapNode z:-1];
-    
-    CCTMXTiledMap *tileMapNode2 = [CCTMXTiledMap tiledMapWithTMXFile:@"map5.95_copy.tmx"];
-    tileMapNode2.anchorPoint = ccp(0, 0);
-    tileMapNode2.scale = 2;
-    tileMapNode2.position = ccp(MAP_LENGTH * PTM_RATIO, 0);
-    [self addChild:tileMapNode2 z:-1];
-//    [self updateScrollingBackgroundWithTileMap:MAP_LENGTH];
-}
-
-- (void) updateScrollingBackgroundWithTileMap:(int)offset {
-    tileMapNode.position = ccp(offset,0);
-    [self updateCollision1Tiles:offset];
-    [self updateCollision2Tiles:offset];
-    [self updateCollision3Tiles:offset];
-    [self updateCoinTiles:offset];
-    [self updateCoin1Tiles:offset];
-    [self updateCoin2Tiles:offset];
-    [self updateCoin3Tiles:offset];
+- (void) drawCollisions:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
+    [self drawCoinTiles:tileMapNode withOffset:offset];
+    [self drawCoin1Tiles:tileMapNode withOffset:offset];
+    [self drawCoin2Tiles:tileMapNode withOffset:offset];
+    [self drawCoin3Tiles:tileMapNode withOffset:offset];
+    [self drawCollision1Tiles:tileMapNode withOffset:offset];
+    [self drawCollision2Tiles:tileMapNode withOffset:offset];
+    [self drawCollision3Tiles:tileMapNode withOffset:offset];
 
 }
 
@@ -225,201 +219,14 @@
 	body->CreateFixture(&fixtureDef);
 }
 
--(void) updateCollision1Tiles:(int)offset {
-    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Collision"];
-	NSMutableDictionary * objPoint;
-	
-	float x, y, w, h;
-	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue]+offset;
-		y = [[objPoint valueForKey:@"y"] intValue];
-		w = [[objPoint valueForKey:@"width"] intValue];
-		h = [[objPoint valueForKey:@"height"] intValue];
-		
-		CGPoint _point=ccp(x+w/2,y+h/2);
-		CGPoint _size=ccp(w,h);
-		
-		[self makeBox2dObjAt:_point
-					withSize:_size
-					 dynamic:false
-					rotation:0
-					friction:0.0f
-					 density:0.0f
-				 restitution:0
-					   boxId:-1
-                    bodyType:kGameObjectPlatform1];
-	}
-}
-
--(void) updateCollision2Tiles:(int)offset {
-    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"collision2"];
-	NSMutableDictionary * objPoint;
-	
-	float x, y, w, h;
-	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue]+offset;
-		y = [[objPoint valueForKey:@"y"] intValue];
-		w = [[objPoint valueForKey:@"width"] intValue];
-		h = [[objPoint valueForKey:@"height"] intValue];
-		
-		CGPoint _point=ccp(x+w/2,y+h/2);
-		CGPoint _size=ccp(w,h);
-		
-		[self makeBox2dObjAt:_point
-					withSize:_size
-					 dynamic:false
-					rotation:0
-					friction:0.0f
-					 density:0.0f
-				 restitution:0
-					   boxId:-1
-                    bodyType:kGameObjectPlatform2];
-	}
-}
-
--(void) updateCollision3Tiles:(int)offset {
-    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"collision3"];
-	NSMutableDictionary * objPoint;
-	
-	float x, y, w, h;
-	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue]+offset;
-		y = [[objPoint valueForKey:@"y"] intValue];
-		w = [[objPoint valueForKey:@"width"] intValue];
-		h = [[objPoint valueForKey:@"height"] intValue];
-		
-		CGPoint _point=ccp(x+w/2,y+h/2);
-		CGPoint _size=ccp(w,h);
-		
-		[self makeBox2dObjAt:_point
-					withSize:_size
-					 dynamic:true
-					rotation:0
-					friction:0.0f
-					 density:10.0f
-				 restitution:0
-					   boxId:-1
-                    bodyType:kGameObjectPlatform3];
-	}
-}
-
--(void) updateCoinTiles:(int)offset {
-    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin"];
-	NSMutableDictionary * objPoint;
-	
-	float x, y, w, h;
-	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue]+offset;
-		y = [[objPoint valueForKey:@"y"] intValue];
-		w = [[objPoint valueForKey:@"width"] intValue];
-		h = [[objPoint valueForKey:@"height"] intValue];
-		
-		CGPoint _point=ccp(x+w/2,y+h/2);
-		CGPoint _size=ccp(w,h);
-		
-		[self makeBox2dObjAt:_point
-					withSize:_size
-					 dynamic:true
-					rotation:0
-					friction:0.0f
-					 density:0.0f
-				 restitution:0
-					   boxId:-1
-                    bodyType: kGameObjectCoin];
-	}
-    
-}
-
--(void) updateCoin1Tiles:(int)offset {
-    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin1"];
-	NSMutableDictionary * objPoint;
-	
-	float x, y, w, h;
-	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue]+offset;
-		y = [[objPoint valueForKey:@"y"] intValue];
-		w = [[objPoint valueForKey:@"width"] intValue];
-		h = [[objPoint valueForKey:@"height"] intValue];
-		
-		CGPoint _point=ccp(x+w/2,y+h/2);
-		CGPoint _size=ccp(w,h);
-		
-		[self makeBox2dObjAt:_point
-					withSize:_size
-					 dynamic:true
-					rotation:0
-					friction:0.0f
-					 density:0.0f
-				 restitution:0
-					   boxId:-1
-                    bodyType: kGameObjectCoin1];
-	}
-    
-}
-
--(void) updateCoin2Tiles:(int)offset {
-    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin2"];
-	NSMutableDictionary * objPoint;
-	
-	float x, y, w, h;
-	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue]+offset;
-		y = [[objPoint valueForKey:@"y"] intValue];
-		w = [[objPoint valueForKey:@"width"] intValue];
-		h = [[objPoint valueForKey:@"height"] intValue];
-		
-		CGPoint _point=ccp(x+w/2,y+h/2);
-		CGPoint _size=ccp(w,h);
-		
-		[self makeBox2dObjAt:_point
-					withSize:_size
-					 dynamic:true
-					rotation:0
-					friction:0.0f
-					 density:0.0f
-				 restitution:0
-					   boxId:-1
-                    bodyType: kGameObjectCoin2];
-	}
-}
-
--(void) updateCoin3Tiles:(int)offset {
-    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin3"];
-	NSMutableDictionary * objPoint;
-	
-	float x, y, w, h;
-	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue]+offset;
-		y = [[objPoint valueForKey:@"y"] intValue];
-		w = [[objPoint valueForKey:@"width"] intValue];
-		h = [[objPoint valueForKey:@"height"] intValue];
-		
-		CGPoint _point=ccp(x+w/2,y+h/2);
-		CGPoint _size=ccp(w,h);
-		
-		[self makeBox2dObjAt:_point
-					withSize:_size
-					 dynamic:true
-					rotation:0
-					friction:0.0f
-					 density:0.0f
-				 restitution:0
-					   boxId:-1
-                    bodyType: kGameObjectCoin3];
-	}
-    
-}
-
-
-
 // detect the collision of map
-- (void) drawCollision1Tiles {
+- (void) drawCollision1Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
 	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Collision"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
 	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue];
+		x = [[objPoint valueForKey:@"x"] intValue]+offset;
 		y = [[objPoint valueForKey:@"y"] intValue];
 		w = [[objPoint valueForKey:@"width"] intValue];
 		h = [[objPoint valueForKey:@"height"] intValue];
@@ -439,13 +246,13 @@
 	}
 }
 
-- (void) drawCollision2Tiles {
+- (void) drawCollision2Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
 	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"collision2"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
 	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue];
+		x = [[objPoint valueForKey:@"x"] intValue]+offset;
 		y = [[objPoint valueForKey:@"y"] intValue];
 		w = [[objPoint valueForKey:@"width"] intValue];
 		h = [[objPoint valueForKey:@"height"] intValue];
@@ -465,13 +272,13 @@
 	}
 }
 
-- (void) drawCollision3Tiles {
+- (void) drawCollision3Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
 	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"collision3"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
 	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue];
+		x = [[objPoint valueForKey:@"x"] intValue]+offset;
 		y = [[objPoint valueForKey:@"y"] intValue];
 		w = [[objPoint valueForKey:@"width"] intValue];
 		h = [[objPoint valueForKey:@"height"] intValue];
@@ -494,13 +301,13 @@
 
 
 
-- (void) drawCoinTiles {
+- (void) drawCoinTiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
 	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
 	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue];
+		x = [[objPoint valueForKey:@"x"] intValue]+offset;
 		y = [[objPoint valueForKey:@"y"] intValue];
 		w = [[objPoint valueForKey:@"width"] intValue];
 		h = [[objPoint valueForKey:@"height"] intValue];
@@ -521,13 +328,13 @@
 	}
 }
 
-- (void) drawCoin1Tiles {
+- (void) drawCoin1Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
 	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin1"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
 	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue];
+		x = [[objPoint valueForKey:@"x"] intValue]+offset;
 		y = [[objPoint valueForKey:@"y"] intValue];
 		w = [[objPoint valueForKey:@"width"] intValue];
 		h = [[objPoint valueForKey:@"height"] intValue];
@@ -548,13 +355,13 @@
 	}
 }
 
-- (void) drawCoin2Tiles {
+- (void) drawCoin2Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
 	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin2"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
 	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue];
+		x = [[objPoint valueForKey:@"x"] intValue]+offset;
 		y = [[objPoint valueForKey:@"y"] intValue];
 		w = [[objPoint valueForKey:@"width"] intValue];
 		h = [[objPoint valueForKey:@"height"] intValue];
@@ -575,13 +382,13 @@
 	}
 }
 
-- (void) drawCoin3Tiles {
+- (void) drawCoin3Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
 	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin3"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
 	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue];
+		x = [[objPoint valueForKey:@"x"] intValue]+offset;
 		y = [[objPoint valueForKey:@"y"] intValue];
 		w = [[objPoint valueForKey:@"width"] intValue];
 		h = [[objPoint valueForKey:@"height"] intValue];
@@ -648,15 +455,7 @@
         [self preLoadSoundFiles];
 		[self setupPhysicsWorld];
         [self initBatchNode];
-        [self addScrollingBackgroundWithTileMap];
-        [self drawCoinTiles];
-        [self drawCoin1Tiles];
-        [self drawCoin2Tiles];
-        [self drawCoin3Tiles];
-        [self drawCollision1Tiles];
-        [self drawCollision2Tiles];
-        [self drawCollision3Tiles];
-        
+        [self initTiledMaps];
         
         joker = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
 //        joker = [[Joker alloc] init];
@@ -678,8 +477,6 @@
         disBar=[CCSprite spriteWithFile:@"spade.png"];
         coinBar.position = ccp(950,screenSize.height-30);
         disBar.position = ccp(750, screenSize.height-30);
-        
-//        [self loadLayer];
         
         [self addChild:self.statusLabel z:100];
         [self addChild:self.distanceLabel z:101];

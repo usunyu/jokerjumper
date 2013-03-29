@@ -120,7 +120,7 @@
     else if(type==kGameObjectPlatform1)
     {
         platform=[[GameObject alloc] init];
-        for(int i = 0; i <= 6; ++i) {
+        for(int i = 0; i <= 8; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"brick_ice_flashing%d.png",i]]];

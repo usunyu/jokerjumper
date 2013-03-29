@@ -79,7 +79,6 @@ struct State {
     std::deque <State> stateVec;
 }
 +(GameLayer*) getGameLayer;
-@property (retain, nonatomic) CCTMXTiledMap *tileMapNode;
 @property (retain, nonatomic) CCLabelBMFont *statusLabel;
 @property (retain, nonatomic) CCLabelBMFont *distanceLabel;
 @property (nonatomic, readwrite) int coinCount;

@@ -19,6 +19,10 @@
 		A4419EC316E95FF1009A441C /* Jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = A4419EC216E95FF1009A441C /* Jump.wav */; };
 		A4419EC716E962C6009A441C /* JokerActions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4419EC516E962C6009A441C /* JokerActions.plist */; };
 		A4419EC816E962C6009A441C /* JokerActions.png in Resources */ = {isa = PBXBuildFile; fileRef = A4419EC616E962C6009A441C /* JokerActions.png */; };
+		A467103717050ABB0010697F /* BackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A467103617050ABB0010697F /* BackgroundLayer.mm */; };
+		A4810E6F1705790D00C61964 /* BackgroundLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = A4810E6D1705790D00C61964 /* BackgroundLayer.ccbi */; };
+		A4810E7917057C1700C61964 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4810E7817057C1700C61964 /* GameScene.mm */; };
+		A4810E8117062B6900C61964 /* map5.95_copy.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4810E8017062B6900C61964 /* map5.95_copy.tmx */; };
 		A4B3415C16DDCCA7003264F7 /* club.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B3415A16DDCCA7003264F7 /* club.png */; };
 		A4B3415D16DDCCA7003264F7 /* spade.png in Resources */ = {isa = PBXBuildFile; fileRef = A4B3415B16DDCCA7003264F7 /* spade.png */; };
 		A4DCA80416F062F200819798 /* fly.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DCA7F516F062F200819798 /* fly.png */; };
@@ -264,8 +268,6 @@
 		DCB5643C16FF92280089936A /* JokerActions_up.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCB5643A16FF92260089936A /* JokerActions_up.plist */; };
 		DCB5643D16FF92280089936A /* JokerActions_up.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB5643B16FF92270089936A /* JokerActions_up.png */; };
 		DCB5643F16FF95450089936A /* map5.5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5643E16FF95430089936A /* map5.5.tmx */; };
-		DCB5644216FFA56D0089936A /* BG.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCB5644116FFA5690089936A /* BG.mm */; };
-		DCB5644516FFA90C0089936A /* BGLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCB5644416FFA9080089936A /* BGLayer.mm */; };
 		DCB5644916FFAC1B0089936A /* JokerActions_both.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB5644816FFAC1A0089936A /* JokerActions_both.png */; };
 		DCB5644B16FFAC220089936A /* JokerActions_both.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCB5644A16FFAC210089936A /* JokerActions_both.plist */; };
 		DCB5644E16FFCC210089936A /* map5.9.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5644D16FFCC1D0089936A /* map5.9.tmx */; };
@@ -300,6 +302,12 @@
 		A4419EC216E95FF1009A441C /* Jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Jump.wav; sourceTree = "<group>"; };
 		A4419EC516E962C6009A441C /* JokerActions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JokerActions.plist; sourceTree = "<group>"; };
 		A4419EC616E962C6009A441C /* JokerActions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JokerActions.png; sourceTree = "<group>"; };
+		A467103517050ABB0010697F /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
+		A467103617050ABB0010697F /* BackgroundLayer.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BackgroundLayer.mm; sourceTree = "<group>"; };
+		A4810E6D1705790D00C61964 /* BackgroundLayer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundLayer.ccbi; sourceTree = "<group>"; };
+		A4810E7717057C1700C61964 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		A4810E7817057C1700C61964 /* GameScene.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = GameScene.mm; sourceTree = "<group>"; };
+		A4810E8017062B6900C61964 /* map5.95_copy.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.95_copy.tmx; sourceTree = "<group>"; };
 		A4B3415A16DDCCA7003264F7 /* club.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = club.png; sourceTree = "<group>"; };
 		A4B3415B16DDCCA7003264F7 /* spade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spade.png; sourceTree = "<group>"; };
 		A4DCA7F516F062F200819798 /* fly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fly.png; sourceTree = "<group>"; };
@@ -756,12 +764,8 @@
 		DCB5643A16FF92260089936A /* JokerActions_up.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = JokerActions_up.plist; path = ../Map/JokerActions_up.plist; sourceTree = "<group>"; };
 		DCB5643B16FF92270089936A /* JokerActions_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JokerActions_up.png; path = ../Map/JokerActions_up.png; sourceTree = "<group>"; };
 		DCB5643E16FF95430089936A /* map5.5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.5.tmx; sourceTree = "<group>"; };
-		DCB5644116FFA5690089936A /* BG.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BG.mm; sourceTree = "<group>"; };
-		DCB5644316FFA8ED0089936A /* BGLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGLayer.h; sourceTree = "<group>"; };
-		DCB5644416FFA9080089936A /* BGLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BGLayer.mm; sourceTree = "<group>"; };
 		DCB5644816FFAC1A0089936A /* JokerActions_both.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JokerActions_both.png; sourceTree = "<group>"; };
 		DCB5644A16FFAC210089936A /* JokerActions_both.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JokerActions_both.plist; sourceTree = "<group>"; };
-		DCB5644C16FFAD980089936A /* BG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BG.h; sourceTree = SOURCE_ROOT; };
 		DCB5644D16FFCC1D0089936A /* map5.9.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.9.tmx; sourceTree = "<group>"; };
 		DCB56477170010A10089936A /* brick0_hd_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brick0_hd_default.plist; sourceTree = "<group>"; };
 		DCB56478170010A30089936A /* brick0_hd_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick0_hd_default.png; sourceTree = "<group>"; };
@@ -819,9 +823,73 @@
 			path = Resources/Sounds;
 			sourceTree = "<group>";
 		};
+		A4810E6B1705790D00C61964 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				A4810E6D1705790D00C61964 /* BackgroundLayer.ccbi */,
+			);
+			name = Layers;
+			path = CocosBuilderFiles/Layers;
+			sourceTree = "<group>";
+		};
+		A4810E7617057BD600C61964 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A4810E7717057C1700C61964 /* GameScene.h */,
+				A4810E7817057C1700C61964 /* GameScene.mm */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		A4810E7A170613DD00C61964 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				A4419EA516E94F72009A441C /* GameObject.h */,
+				A4419EA616E94F72009A441C /* GameObject.mm */,
+				A4419EA816E95205009A441C /* Joker.h */,
+				A4419EA916E95205009A441C /* Joker.mm */,
+				A4F8011D16EA7502006C3BA0 /* ContactListener.h */,
+				A4F8011E16EA7502006C3BA0 /* ContactListener.mm */,
+			);
+			name = Object;
+			sourceTree = "<group>";
+		};
+		A4810E7B1706141400C61964 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				A4F039DA16D192070068D7C8 /* AppDelegate.h */,
+				A4F039DB16D192070068D7C8 /* AppDelegate.mm */,
+				A4F039DD16D192070068D7C8 /* HelloWorldLayer.h */,
+				A4F039DE16D192070068D7C8 /* HelloWorldLayer.mm */,
+				A4F039E016D192070068D7C8 /* IntroLayer.h */,
+				A4F039E116D192070068D7C8 /* IntroLayer.mm */,
+				A4F039E316D192070068D7C8 /* GLES-Render.h */,
+				A4F039E416D192070068D7C8 /* GLES-Render.mm */,
+				A4F039E616D192070068D7C8 /* PhysicsSprite.h */,
+				A4F039E716D192070068D7C8 /* PhysicsSprite.mm */,
+			);
+			name = Default;
+			sourceTree = "<group>";
+		};
+		A4810E7C1706162200C61964 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A4F03A3D16D19D0E0068D7C8 /* MainMenuLayer.h */,
+				A4F03A3E16D19D0E0068D7C8 /* MainMenuLayer.mm */,
+				A4F03A6C16D1A3DD0068D7C8 /* OptionsLayer.h */,
+				A4F03A6D16D1A3DD0068D7C8 /* OptionsLayer.mm */,
+				A4F03A6F16D1A4460068D7C8 /* AboutLayer.h */,
+				A4F03A7016D1A4460068D7C8 /* AboutLayer.mm */,
+				A433BD1816F074D3003CD7CE /* GameOverLayer.h */,
+				A433BD1916F074D3003CD7CE /* GameOverLayer.mm */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		A4DCA7EE16F062F200819798 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				A4810E8017062B6900C61964 /* map5.95_copy.tmx */,
 				DCB5648517001A0A0089936A /* map5.9_3.tmx */,
 				DCB56483170019170089936A /* map5.9_2.tmx */,
 				A4DF532716F0AB3D00720555 /* tilemap5.5.png */,
@@ -880,6 +948,7 @@
 				A4F03A0F16D19CD20068D7C8 /* CCControlExtension */,
 				A4F039FC16D19CC20068D7C8 /* CCBReader */,
 				A4F039FB16D19B9B0068D7C8 /* Scenes */,
+				A4810E6B1705790D00C61964 /* Layers */,
 				A4F037CF16D192040068D7C8 /* JokerJumper */,
 				A4F037BC16D192040068D7C8 /* Frameworks */,
 				A4F037BB16D192040068D7C8 /* Products */,
@@ -913,17 +982,10 @@
 		A4F037CF16D192040068D7C8 /* JokerJumper */ = {
 			isa = PBXGroup;
 			children = (
+				A4810E7617057BD600C61964 /* Scenes */,
 				A4F03A3C16D19CDE0068D7C8 /* Layers */,
-				A4F039DA16D192070068D7C8 /* AppDelegate.h */,
-				A4F039DB16D192070068D7C8 /* AppDelegate.mm */,
-				A4F039DD16D192070068D7C8 /* HelloWorldLayer.h */,
-				A4F039DE16D192070068D7C8 /* HelloWorldLayer.mm */,
-				A4F039E016D192070068D7C8 /* IntroLayer.h */,
-				A4F039E116D192070068D7C8 /* IntroLayer.mm */,
-				A4F039E316D192070068D7C8 /* GLES-Render.h */,
-				A4F039E416D192070068D7C8 /* GLES-Render.mm */,
-				A4F039E616D192070068D7C8 /* PhysicsSprite.h */,
-				A4F039E716D192070068D7C8 /* PhysicsSprite.mm */,
+				A4810E7A170613DD00C61964 /* Object */,
+				A4810E7B1706141400C61964 /* Default */,
 				A4F037D016D192040068D7C8 /* Resources */,
 				A4F037EA16D192040068D7C8 /* libs */,
 				A4F039D616D192070068D7C8 /* Supporting Files */,
@@ -1552,27 +1614,12 @@
 		A4F03A3C16D19CDE0068D7C8 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
+				A4810E7C1706162200C61964 /* Menu */,
 				A4419E9C16E94E3D009A441C /* Constants.h */,
-				A4F03A3D16D19D0E0068D7C8 /* MainMenuLayer.h */,
-				A4F03A3E16D19D0E0068D7C8 /* MainMenuLayer.mm */,
-				DCB5644C16FFAD980089936A /* BG.h */,
-				DCB5644116FFA5690089936A /* BG.mm */,
-				DCB5644316FFA8ED0089936A /* BGLayer.h */,
-				DCB5644416FFA9080089936A /* BGLayer.mm */,
-				A4F03A6C16D1A3DD0068D7C8 /* OptionsLayer.h */,
-				A4F03A6D16D1A3DD0068D7C8 /* OptionsLayer.mm */,
-				A4F03A6F16D1A4460068D7C8 /* AboutLayer.h */,
-				A4F03A7016D1A4460068D7C8 /* AboutLayer.mm */,
-				A433BD1816F074D3003CD7CE /* GameOverLayer.h */,
-				A433BD1916F074D3003CD7CE /* GameOverLayer.mm */,
+				A467103517050ABB0010697F /* BackgroundLayer.h */,
+				A467103617050ABB0010697F /* BackgroundLayer.mm */,
 				A4F03A7216D1A4860068D7C8 /* GameLayer.h */,
 				A4F03A7316D1A4870068D7C8 /* GameLayer.mm */,
-				A4419EA516E94F72009A441C /* GameObject.h */,
-				A4419EA616E94F72009A441C /* GameObject.mm */,
-				A4419EA816E95205009A441C /* Joker.h */,
-				A4419EA916E95205009A441C /* Joker.mm */,
-				A4F8011D16EA7502006C3BA0 /* ContactListener.h */,
-				A4F8011E16EA7502006C3BA0 /* ContactListener.mm */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1756,6 +1803,8 @@
 				DCC4609F1704F6A7009245BD /* pokerSoilder_default.png in Resources */,
 				DCC460A2170500BF009245BD /* brick_ice_flashing_default.plist in Resources */,
 				DCC460A3170500BF009245BD /* brick_ice_flashing_default.png in Resources */,
+				A4810E6F1705790D00C61964 /* BackgroundLayer.ccbi in Resources */,
+				A4810E8117062B6900C61964 /* map5.95_copy.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1944,8 +1993,8 @@
 				A4419EAA16E95205009A441C /* Joker.mm in Sources */,
 				A4F8011F16EA7502006C3BA0 /* ContactListener.mm in Sources */,
 				A433BD1A16F074D3003CD7CE /* GameOverLayer.mm in Sources */,
-				DCB5644216FFA56D0089936A /* BG.mm in Sources */,
-				DCB5644516FFA90C0089936A /* BGLayer.mm in Sources */,
+				A467103717050ABB0010697F /* BackgroundLayer.mm in Sources */,
+				A4810E7917057C1700C61964 /* GameScene.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

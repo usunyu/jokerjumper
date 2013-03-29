@@ -61,11 +61,22 @@
     [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background_music.mp3"];
 }
 
+- (void) initTiledMaps {
+    
+}
+
 - (void) addScrollingBackgroundWithTileMap {
-    tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map5.95.tmx"];
+    tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map5.95_copy.tmx"];
 	tileMapNode.anchorPoint = ccp(0, 0);
     tileMapNode.scale = 2;
 	[self addChild:tileMapNode z:-1];
+    
+    CCTMXTiledMap *tileMapNode2 = [CCTMXTiledMap tiledMapWithTMXFile:@"map5.95_copy.tmx"];
+    tileMapNode2.anchorPoint = ccp(0, 0);
+    tileMapNode2.scale = 2;
+    tileMapNode2.position = ccp(MAP_LENGTH * PTM_RATIO, 0);
+    [self addChild:tileMapNode2 z:-1];
+//    [self updateScrollingBackgroundWithTileMap:MAP_LENGTH];
 }
 
 - (void) updateScrollingBackgroundWithTileMap:(int)offset {

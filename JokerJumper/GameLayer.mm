@@ -32,6 +32,7 @@
 @synthesize brick1BatchNode;
 @synthesize brick2BatchNode;
 @synthesize brick3BatchNode;
+@synthesize diamondBatchNode;
 @synthesize flyBatchNode;
 @synthesize fly;
 @synthesize emeny;
@@ -64,7 +65,7 @@
 - (void) initTiledMaps {
 //    NSMutableArray *mapArray = [[NSMutableArray alloc] initWithCapacity:MAP_LEVEL1_NUMS];
     for(int i = 0; i < MAP_LEVEL1_NUMS; i++) {
-        CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map5.95.tmx"];
+        CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map7.2.tmx"];
         tileMapNode.anchorPoint = ccp(0, 0);
         int offset = MAP_LENGTH * PTM_RATIO * i;
         tileMapNode.position = ccp(offset, 0);
@@ -82,10 +83,11 @@
     [self drawCollision1Tiles:tileMapNode withOffset:offset];
     [self drawCollision2Tiles:tileMapNode withOffset:offset];
     [self drawCollision3Tiles:tileMapNode withOffset:offset];
+	 [self drawCollision4Tiles:tileMapNode withOffset:offset];
 
 }
 
-// create the box2d object
+//---------------------------------- create the box2d object----------------------------------//
 - (void) makeBox2dObjAt:(CGPoint)p
 			   withSize:(CGPoint)size
 				dynamic:(BOOL)d
@@ -114,14 +116,28 @@
     
     if(type==kGameObjectCoin)
     {
-        platform = [GameObject spriteWithFile:@"club.png"];
+		  platform=[[GameObject alloc] init];
+        for(int i = 0; i <= 2; ++i) {
+            [animFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"diamond%d.png",i]]];
+        }
+        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.5f];
+        Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+        [platform setTexture:[diamondBatchNode texture]];
+        [platform runAction:Action];
+        //platform=[[GameObject alloc] init];
+        [platform setType:type];
+        [diamondBatchNode addChild:platform z:3];
+		  
+		  //platform = [GameObject spriteWithFile:@"club.png"];
         /*
         id lens = [CCLens3D actionWithPosition:ccp(240,160) radius:240 grid:ccg(15,10) duration:8];
         id waves = [CCWaves3D actionWithWaves:18 amplitude:80 grid:ccg(15,10) duration:10];
         [platform runAction: [CCRepeatForever actionWithAction: [CCSequence actions: waves, lens, nil]]];
          */
-        [platform setType:type];
-        [self addChild:platform z:3];
+        //[platform setType:type];
+        //[self addChild:platform z:3];
     }
     else if(type==kGameObjectPlatform1)
     {
@@ -141,7 +157,10 @@
     }
     else if(type==kGameObjectPlatform2)
     {
-        platform=[[GameObject alloc] init];
+        platform = [GameObject spriteWithFile:@"brick_grass_hd.png"];
+		  [platform setType:type];
+        [self addChild:platform z:2];
+		  /*platform=[[GameObject alloc] init];
         for(int i = 1; i <= 4; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
@@ -153,11 +172,16 @@
         [platform runAction:Action];
         [platform setType:type];
         [brick2BatchNode addChild:platform z:2];
+			*/
     }
     else if(type==kGameObjectPlatform3)
     {
-        platform=[[GameObject alloc] init];
-        for(int i = 1; i <= 4; ++i) {
+        platform = [GameObject spriteWithFile:@"brick_dice_hd.png"];
+		  [platform setType:type];
+        [self addChild:platform z:2];
+
+		  /* platform=[[GameObject alloc] init];
+       for(int i = 1; i <= 4; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"brick2_%d_hd.png",i]]];
@@ -168,17 +192,26 @@
         [platform runAction:Action];
         [platform setType:type];
         [brick3BatchNode addChild:platform z:2];
+			*/
     }
+	 else if(type==kGameObjectPlatform4)
+    {
+        platform = [GameObject spriteWithFile:@"brick_wood_hd.png"];
+		  [platform setType:type];
+        [self addChild:platform z:2];
+	 }
+	 
+	 //---------------------------create the box2d object: magic props------------------------//
     else if(type==kGameObjectCoin1)
     {
-        platform = [GameObject spriteWithFile:@"heart.png"];
+        platform = [GameObject spriteWithFile:@"heart_hd.png"];
         [platform setType:type];
         [self addChild:platform z:4];
         
     }
     else if(type==kGameObjectCoin2)
     {
-        platform = [GameObject spriteWithFile:@"diamond.png"];
+        platform = [GameObject spriteWithFile:@"club.png"];
         [platform setType:type];
         [self addChild:platform z:5];
     }
@@ -219,35 +252,13 @@
 	body->CreateFixture(&fixtureDef);
 }
 
-// detect the collision of map
-- (void) drawCollision1Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
-	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Collision"];
-	NSMutableDictionary * objPoint;
-	
-	float x, y, w, h;
-	for (objPoint in [objects objects]) {
-		x = [[objPoint valueForKey:@"x"] intValue]+offset;
-		y = [[objPoint valueForKey:@"y"] intValue];
-		w = [[objPoint valueForKey:@"width"] intValue];
-		h = [[objPoint valueForKey:@"height"] intValue];
-		
-		CGPoint _point=ccp(x+w/2,y+h/2);
-		CGPoint _size=ccp(w,h);
-		
-		[self makeBox2dObjAt:_point
-					withSize:_size
-					 dynamic:false
-					rotation:0
-					friction:0.0f
-					 density:0.0f
-				 restitution:0
-					   boxId:-1
-                    bodyType:kGameObjectPlatform1];
-	}
-}
+//----------------------------- detect the collision of map-----------------------------//
 
-- (void) drawCollision2Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
-	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"collision2"];
+/*
+ * draw brick_grass collision layer
+ */
+- (void) drawCollision1Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
+	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"brick_grass"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
@@ -272,8 +283,41 @@
 	}
 }
 
+/*
+ * draw brick_ice collision layer
+ */
+- (void) drawCollision2Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
+	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"brick_ice"];
+	NSMutableDictionary * objPoint;
+	
+	float x, y, w, h;
+	for (objPoint in [objects objects]) {
+		x = [[objPoint valueForKey:@"x"] intValue]+offset;
+		y = [[objPoint valueForKey:@"y"] intValue];
+		w = [[objPoint valueForKey:@"width"] intValue];
+		h = [[objPoint valueForKey:@"height"] intValue];
+		
+		CGPoint _point=ccp(x+w/2,y+h/2);
+		CGPoint _size=ccp(w,h);
+		
+		[self makeBox2dObjAt:_point
+					withSize:_size
+					 dynamic:false
+					rotation:0
+					friction:0.0f
+					 density:0.0f
+				 restitution:0
+					   boxId:-1
+                    bodyType:kGameObjectPlatform1];
+	}
+}
+
+
+/*
+ * draw brick_dice collision layer
+ */
 - (void) drawCollision3Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
-	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"collision3"];
+	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"brick_dice"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
@@ -299,10 +343,42 @@
 }
 
 
+/*
+ * draw brick_wood collision layer
+ */
+- (void) drawCollision4Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
+	 CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"brick_wood"];
+	 NSMutableDictionary * objPoint;
+	 
+	 float x, y, w, h;
+	 for (objPoint in [objects objects]) {
+		  x = [[objPoint valueForKey:@"x"] intValue]+offset;
+		  y = [[objPoint valueForKey:@"y"] intValue];
+		  w = [[objPoint valueForKey:@"width"] intValue];
+		  h = [[objPoint valueForKey:@"height"] intValue];
+		  
+		  CGPoint _point=ccp(x+w/2,y+h/2);
+		  CGPoint _size=ccp(w,h);
+		  
+		  [self makeBox2dObjAt:_point
+						  withSize:_size
+							dynamic:false
+						  rotation:0
+						  friction:0.0f
+							density:0.0f
+					  restitution:0
+							  boxId:-1
+                    bodyType:kGameObjectPlatform4];
+	 }
+}
 
 
+
+/*
+ *draw magic diaomnd collision layer
+ */
 - (void) drawCoinTiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
-	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin"];
+	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"diamond"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
@@ -328,8 +404,11 @@
 	}
 }
 
+/*
+ *draw magic heart collision layer
+ */
 - (void) drawCoin1Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
-	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin1"];
+	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"heart"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
@@ -355,8 +434,11 @@
 	}
 }
 
+/*
+ *draw magic spade collision layer
+ */
 - (void) drawCoin2Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
-	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin2"];
+	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"spade"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
@@ -382,8 +464,11 @@
 	}
 }
 
+/*
+ *draw magic club collision layer
+ */
 - (void) drawCoin3Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
-	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"Coin3"];
+	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"club"];
 	NSMutableDictionary * objPoint;
 	
 	float x, y, w, h;
@@ -410,12 +495,14 @@
 }
 
 
+//------------------------------------------animation: import plsit&png-------------------------------------------//
 - (void) initBatchNode {
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"JokerActions_both.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_ice_flashing_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick1_hd_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick2_hd_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pokerSoilder_default.plist"];
+	 [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"diamond_default.plist"];
 
     
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
@@ -424,6 +511,7 @@
     brick2BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick1_hd_default.png"];
     brick3BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick2_hd_default.png"];
     flyBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
+	 diamondBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"diamond_default.png"];
     /*
     brick1BatchNode.scale=4;
     brick2BatchNode.scale=4;
@@ -435,6 +523,7 @@
     [self addChild:brick2BatchNode z:2];
     [self addChild:brick3BatchNode z:2];
     [self addChild:flyBatchNode z:2];
+	 [self addChild:diamondBatchNode z:3];
 
 }
 
@@ -643,7 +732,7 @@
     fly = [[GameObject alloc] init];
     [fly setType: kGameObjectFly];
     
-    for(int i = 0; i <=2 ; ++i) {
+    for(int i = 0; i <=9 ; ++i) {
         [flyFrames addObject:
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
           [NSString stringWithFormat:@"pokerSoilder%i.png", i]]];

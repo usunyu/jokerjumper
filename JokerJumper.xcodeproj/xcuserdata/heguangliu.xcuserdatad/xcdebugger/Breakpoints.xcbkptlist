@@ -76,7 +76,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "506"
          endingLineNumber = "506"
-         landmarkName = "-drawCoinTiles"
+         landmarkName = "-initBatchNode"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -89,7 +89,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "533"
          endingLineNumber = "533"
-         landmarkName = "-drawCoin1Tiles"
+         landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -102,7 +102,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "505"
          endingLineNumber = "505"
-         landmarkName = "-drawCoinTiles"
+         landmarkName = "-initBatchNode"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

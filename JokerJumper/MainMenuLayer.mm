@@ -10,6 +10,7 @@
 #import "CCControlButton.h"
 #import "CCBReader.h"
 #import "GameScene.h"
+#import "GameScene2.h"
 
 #define PLAY_BUTTON_TAG 1
 #define OPTIONS_BUTTON_TAG 2
@@ -22,6 +23,7 @@
     switch (button.tag) {
         case PLAY_BUTTON_TAG:
             [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene scene]]];
+//            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene2 scene]]];
 //            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameScene.ccbi"]]];
             break;
         case OPTIONS_BUTTON_TAG:

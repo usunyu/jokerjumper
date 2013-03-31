@@ -50,19 +50,19 @@ float middleSpeed = 3.0f;
 //    bgFront2.scale = 1;
 //    bgFront2.flipX = true;
 //    [self addChild:bgFront2 z:-1];
-    //--------------------Middle Background--------------------//
-    bgMiddle1 = [CCSprite spriteWithFile:@"bg_layer2.png"];
-    bgMiddle1.anchorPoint = ccp(0,0);
-    bgMiddle1.position = ccp(0,0);
-    bgMiddle1.scale = 2;
-    [self addChild:bgMiddle1 z:-2];
-    
-    bgMiddle2 = [CCSprite spriteWithFile:@"bg_layer2.png"];
-    bgMiddle2.anchorPoint = ccp(0,0);
-    bgMiddle2.position = ccp(s.width, 0);
-    bgMiddle2.scale = 2;
-    bgMiddle2.flipX = true;
-    [self addChild:bgMiddle2 z:-2];
+//    //--------------------Middle Background--------------------//
+//    bgMiddle1 = [CCSprite spriteWithFile:@"bg_layer2.png"];
+//    bgMiddle1.anchorPoint = ccp(0,0);
+//    bgMiddle1.position = ccp(0,0);
+//    bgMiddle1.scale = 2;
+//    [self addChild:bgMiddle1 z:-2];
+//    
+//    bgMiddle2 = [CCSprite spriteWithFile:@"bg_layer2.png"];
+//    bgMiddle2.anchorPoint = ccp(0,0);
+//    bgMiddle2.position = ccp(s.width, 0);
+//    bgMiddle2.scale = 2;
+//    bgMiddle2.flipX = true;
+//    [self addChild:bgMiddle2 z:-2];
 //    //--------------------Back Background--------------------//
 //    bgBack1 = [CCSprite spriteWithFile:@"bg_layer3.png"];
 //    bgBack1.anchorPoint = ccp(0,0);
@@ -98,21 +98,21 @@ float middleSpeed = 3.0f;
 //    }
 //    bgFront1.position = pos1;
 //    bgFront2.position = pos2;
-    //--------------------Middle Background--------------------//
-    pos1 = bgMiddle1.position;
-    pos2 = bgMiddle2.position;
-    pos1.x -= middleSpeed;
-    pos2.x -= middleSpeed;
-    if(pos1.x <=-(s.width) )
-    {
-        pos1.x = pos2.x + s.width;
-    }
-    if(pos2.x <=-(s.width) )
-    {
-        pos2.x = pos1.x + s.width;
-    }
-    bgMiddle1.position = pos1;
-    bgMiddle2.position = pos2;
+//    //--------------------Middle Background--------------------//
+//    pos1 = bgMiddle1.position;
+//    pos2 = bgMiddle2.position;
+//    pos1.x -= middleSpeed;
+//    pos2.x -= middleSpeed;
+//    if(pos1.x <=-(s.width) )
+//    {
+//        pos1.x = pos2.x + s.width;
+//    }
+//    if(pos2.x <=-(s.width) )
+//    {
+//        pos2.x = pos1.x + s.width;
+//    }
+//    bgMiddle1.position = pos1;
+//    bgMiddle2.position = pos2;
 //    //--------------------Back Background--------------------//
 //    pos1 = bgBack1.position;
 //    pos2 = bgBack2.position;

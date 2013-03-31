@@ -1,13 +1,11 @@
 # User State
-*.xcuserstate
 UserInterfaceState.xcuserstate
+
 *.xcuserstate
 
 .DS_Store
 
 JokerJumper.xcodeproj/project.xcworkspace/xcuserdata/Sun.xcuserdatad/UserInterfaceState.xcuserstate
-
-JokerJumper/Resources/Map/.DS_Store
 
 JokerJumper/Resources/Map/.DS_Store
 

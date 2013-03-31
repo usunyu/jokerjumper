@@ -42,7 +42,7 @@
 @synthesize stateVec;
 @synthesize jumpVec;
 
-NSString *map = @"map7.3.tmx";
+NSString *map = @"map8.0.tmx";
 
 +(GameLayer*) getGameLayer {
     return self;

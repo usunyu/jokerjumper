@@ -5,7 +5,7 @@
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
-	<integer>3</integer>
+	<integer>2</integer>
 	<key>currentSequenceId</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -54,8 +54,8 @@
 						<key>value</key>
 						<array>
 							<real>1.0001950263977051</real>
-							<real>1.0015801191329956</real>
-							<false/>
+							<real>1.0001950263977051</real>
+							<true/>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -90,8 +90,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>baseClass</key>
@@ -116,7 +114,7 @@
 						<key>value</key>
 						<array>
 							<real>800</real>
-							<real>400</real>
+							<real>380</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -127,8 +125,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
-							<real>0.5</real>
+							<real>0.0</real>
+							<real>0.0</real>
 						</array>
 					</dict>
 					<dict>
@@ -138,9 +136,9 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>2</real>
-							<real>2</real>
-							<false/>
+							<real>1</real>
+							<real>1</real>
+							<true/>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -343,8 +341,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
-							<real>0.5</real>
+							<real>0.0</real>
+							<real>0.0</real>
 						</array>
 					</dict>
 					<dict>
@@ -354,9 +352,9 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>2</real>
-							<real>2</real>
-							<false/>
+							<real>1</real>
+							<real>1</real>
+							<true/>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -548,7 +546,7 @@
 						<key>value</key>
 						<array>
 							<real>800</real>
-							<real>200</real>
+							<real>220</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -559,8 +557,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
-							<real>0.5</real>
+							<real>0.0</real>
+							<real>0.0</real>
 						</array>
 					</dict>
 					<dict>
@@ -570,9 +568,9 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>2</real>
-							<real>2</real>
-							<false/>
+							<real>1</real>
+							<real>1</real>
+							<true/>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -740,6 +738,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

@@ -24,7 +24,6 @@
 		A463629D1707D19C00DC75E4 /* heart_hd.png in Resources */ = {isa = PBXBuildFile; fileRef = A463629A1707D19C00DC75E4 /* heart_hd.png */; };
 		A467103717050ABB0010697F /* BackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A467103617050ABB0010697F /* BackgroundLayer.mm */; };
 		A478BF851707DA4C00F40FB5 /* map7.2_copy.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A478BF841707DA4C00F40FB5 /* map7.2_copy.tmx */; };
-		A4810E6F1705790D00C61964 /* BackgroundLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = A4810E6D1705790D00C61964 /* BackgroundLayer.ccbi */; };
 		A4810E7917057C1700C61964 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4810E7817057C1700C61964 /* GameScene.mm */; };
 		A4810E8117062B6900C61964 /* map5.95_copy.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4810E8017062B6900C61964 /* map5.95_copy.tmx */; };
 		A485FF9A1707B0A400688F1E /* GameScene2.mm in Sources */ = {isa = PBXBuildFile; fileRef = A485FF991707B0A400688F1E /* GameScene2.mm */; };
@@ -326,7 +325,6 @@
 		A467103517050ABB0010697F /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		A467103617050ABB0010697F /* BackgroundLayer.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BackgroundLayer.mm; sourceTree = "<group>"; };
 		A478BF841707DA4C00F40FB5 /* map7.2_copy.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map7.2_copy.tmx; sourceTree = "<group>"; };
-		A4810E6D1705790D00C61964 /* BackgroundLayer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundLayer.ccbi; sourceTree = "<group>"; };
 		A4810E7717057C1700C61964 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		A4810E7817057C1700C61964 /* GameScene.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = GameScene.mm; sourceTree = "<group>"; };
 		A4810E8017062B6900C61964 /* map5.95_copy.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.95_copy.tmx; sourceTree = "<group>"; };
@@ -875,15 +873,6 @@
 			path = "Resources/Magic Props";
 			sourceTree = "<group>";
 		};
-		A4810E6B1705790D00C61964 /* Layers */ = {
-			isa = PBXGroup;
-			children = (
-				A4810E6D1705790D00C61964 /* BackgroundLayer.ccbi */,
-			);
-			name = Layers;
-			path = CocosBuilderFiles/Layers;
-			sourceTree = "<group>";
-		};
 		A4810E7617057BD600C61964 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1012,7 +1001,6 @@
 				A4F03A0F16D19CD20068D7C8 /* CCControlExtension */,
 				A4F039FC16D19CC20068D7C8 /* CCBReader */,
 				A4F039FB16D19B9B0068D7C8 /* Scenes */,
-				A4810E6B1705790D00C61964 /* Layers */,
 				A4F037CF16D192040068D7C8 /* JokerJumper */,
 				A4F037BC16D192040068D7C8 /* Frameworks */,
 				A4F037BB16D192040068D7C8 /* Products */,
@@ -1868,7 +1856,6 @@
 				DC1F25F8170369D40014F3AC /* map5.96.tmx in Resources */,
 				DCC460A2170500BF009245BD /* brick_ice_flashing_default.plist in Resources */,
 				DCC460A3170500BF009245BD /* brick_ice_flashing_default.png in Resources */,
-				A4810E6F1705790D00C61964 /* BackgroundLayer.ccbi in Resources */,
 				A4810E8117062B6900C61964 /* map5.95_copy.tmx in Resources */,
 				E95184481707509200F72200 /* map7.0.tmx in Resources */,
 				E951844B1707546D00F72200 /* pokerSoilder_default.plist in Resources */,

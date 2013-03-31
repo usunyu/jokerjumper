@@ -19,6 +19,9 @@
 		A4419EC316E95FF1009A441C /* Jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = A4419EC216E95FF1009A441C /* Jump.wav */; };
 		A4419EC716E962C6009A441C /* JokerActions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4419EC516E962C6009A441C /* JokerActions.plist */; };
 		A4419EC816E962C6009A441C /* JokerActions.png in Resources */ = {isa = PBXBuildFile; fileRef = A4419EC616E962C6009A441C /* JokerActions.png */; };
+		A463629B1707D19C00DC75E4 /* diamond_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A46362981707D19C00DC75E4 /* diamond_default.plist */; };
+		A463629C1707D19C00DC75E4 /* diamond_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A46362991707D19C00DC75E4 /* diamond_default.png */; };
+		A463629D1707D19C00DC75E4 /* heart_hd.png in Resources */ = {isa = PBXBuildFile; fileRef = A463629A1707D19C00DC75E4 /* heart_hd.png */; };
 		A467103717050ABB0010697F /* BackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A467103617050ABB0010697F /* BackgroundLayer.mm */; };
 		A4810E6F1705790D00C61964 /* BackgroundLayer.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = A4810E6D1705790D00C61964 /* BackgroundLayer.ccbi */; };
 		A4810E7917057C1700C61964 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4810E7817057C1700C61964 /* GameScene.mm */; };
@@ -292,9 +295,6 @@
 		E951845617077FA200F72200 /* map7.1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E951845517077FA200F72200 /* map7.1.tmx */; };
 		E95184581707831000F72200 /* map7.1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E95184571707830E00F72200 /* map7.1.tmx */; };
 		E951845E1707862F00F72200 /* map7.2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E951845D1707862F00F72200 /* map7.2.tmx */; };
-		E9518465170793E700F72200 /* diamond_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9518463170793E600F72200 /* diamond_default.plist */; };
-		E9518466170793E700F72200 /* diamond_default.png in Resources */ = {isa = PBXBuildFile; fileRef = E9518464170793E600F72200 /* diamond_default.png */; };
-		E95184691707977A00F72200 /* heart_hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E95184681707977A00F72200 /* heart_hd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -314,6 +314,9 @@
 		A4419EC216E95FF1009A441C /* Jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Jump.wav; sourceTree = "<group>"; };
 		A4419EC516E962C6009A441C /* JokerActions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JokerActions.plist; sourceTree = "<group>"; };
 		A4419EC616E962C6009A441C /* JokerActions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JokerActions.png; sourceTree = "<group>"; };
+		A46362981707D19C00DC75E4 /* diamond_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = diamond_default.plist; sourceTree = "<group>"; };
+		A46362991707D19C00DC75E4 /* diamond_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond_default.png; sourceTree = "<group>"; };
+		A463629A1707D19C00DC75E4 /* heart_hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_hd.png; sourceTree = "<group>"; };
 		A467103517050ABB0010697F /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		A467103617050ABB0010697F /* BackgroundLayer.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BackgroundLayer.mm; sourceTree = "<group>"; };
 		A4810E6D1705790D00C61964 /* BackgroundLayer.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = BackgroundLayer.ccbi; sourceTree = "<group>"; };
@@ -802,9 +805,6 @@
 		E951845517077FA200F72200 /* map7.1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map7.1.tmx; sourceTree = "<group>"; };
 		E95184571707830E00F72200 /* map7.1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map7.1.tmx; sourceTree = "<group>"; };
 		E951845D1707862F00F72200 /* map7.2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map7.2.tmx; sourceTree = "<group>"; };
-		E9518463170793E600F72200 /* diamond_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = diamond_default.plist; path = Resources/Joker/diamond_default.plist; sourceTree = "<group>"; };
-		E9518464170793E600F72200 /* diamond_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = diamond_default.png; path = Resources/Joker/diamond_default.png; sourceTree = "<group>"; };
-		E95184681707977A00F72200 /* heart_hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_hd.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -847,6 +847,17 @@
 			);
 			name = Sounds;
 			path = Resources/Sounds;
+			sourceTree = "<group>";
+		};
+		A46362971707D19C00DC75E4 /* Magic Props */ = {
+			isa = PBXGroup;
+			children = (
+				A46362981707D19C00DC75E4 /* diamond_default.plist */,
+				A46362991707D19C00DC75E4 /* diamond_default.png */,
+				A463629A1707D19C00DC75E4 /* heart_hd.png */,
+			);
+			name = "Magic Props";
+			path = "Resources/Magic Props";
 			sourceTree = "<group>";
 		};
 		A4810E6B1705790D00C61964 /* Layers */ = {
@@ -1031,7 +1042,7 @@
 		A4F037D016D192040068D7C8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E95184671707972F00F72200 /* magic props */,
+				A46362971707D19C00DC75E4 /* Magic Props */,
 				A4E2F79616E7D28500EF34AA /* Joker */,
 				A433BD2016F0804D003CD7CE /* Background */,
 				A4DCA7EE16F062F200819798 /* Map */,
@@ -1706,16 +1717,6 @@
 			path = Resources/Fonts;
 			sourceTree = "<group>";
 		};
-		E95184671707972F00F72200 /* magic props */ = {
-			isa = PBXGroup;
-			children = (
-				E9518463170793E600F72200 /* diamond_default.plist */,
-				E95184681707977A00F72200 /* heart_hd.png */,
-				E9518464170793E600F72200 /* diamond_default.png */,
-			);
-			name = "magic props";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1860,9 +1861,9 @@
 				E951845617077FA200F72200 /* map7.1.tmx in Resources */,
 				E95184581707831000F72200 /* map7.1.tmx in Resources */,
 				E951845E1707862F00F72200 /* map7.2.tmx in Resources */,
-				E9518465170793E700F72200 /* diamond_default.plist in Resources */,
-				E9518466170793E700F72200 /* diamond_default.png in Resources */,
-				E95184691707977A00F72200 /* heart_hd.png in Resources */,
+				A463629B1707D19C00DC75E4 /* diamond_default.plist in Resources */,
+				A463629C1707D19C00DC75E4 /* diamond_default.png in Resources */,
+				A463629D1707D19C00DC75E4 /* heart_hd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

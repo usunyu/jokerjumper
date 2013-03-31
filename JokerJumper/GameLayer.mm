@@ -475,7 +475,7 @@ NSString *map = @"map7.3.tmx";
                  dynamic:true
                 rotation:0
                 friction:0.0f
-                 density:0.0f
+                 density:3.0f
              restitution:0
                    boxId:-1
                 bodyType:kGameObjectFalling

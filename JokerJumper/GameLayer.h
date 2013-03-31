@@ -28,7 +28,7 @@
 //to define the ratio so that your most common object type is 1x1 metre.
 #define PTM_RATIO 32//kGameObjectCoin
 
-#define IS_PLAT(x)          ((x==kGameObjectPlatform1)||(x==kGameObjectPlatform2)||(x==kGameObjectPlatform3)||(x==kGameObjectPlatform4))
+#define IS_PLAT(x)          ((x==kGameObjectPlatform1)||(x==kGameObjectPlatform2)||(x==kGameObjectPlatform3)||(x==kGameObjectPlatform4)||(x==kGameObjectFalling)||(x==kGameObjectDisable))
 #define IS_COIN(x)          ((x==kGameObjectCoin)||(x==kGameObjectCoin1)||(x==kGameObjectCoin2)||(x==kGameObjectCoin3))
 
 #define IS_COINTYPE(x, y)      (((x.type == kGameObjectJoker)&&(IS_COIN(y.type)))||((IS_COIN(x.type))&&(y.type == kGameObjectJoker)))
@@ -43,6 +43,10 @@
 #define IS_PLAT2TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectPlatform2))||((x.type == kGameObjectPlatform2)&&(y.type == kGameObjectJoker)))
 #define IS_PLAT3TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectPlatform3))||((x.type == kGameObjectPlatform3)&&(y.type == kGameObjectJoker)))
 #define IS_PLAT4TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectPlatform4))||((x.type == kGameObjectPlatform4)&&(y.type == kGameObjectJoker)))
+#define IS_PLAT5TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectDisable))||((x.type == kGameObjectDisable)&&(y.type == kGameObjectJoker)))
+#define IS_PLAT6TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectFalling))||((x.type == kGameObjectFalling)&&(y.type == kGameObjectJoker)))
+
+
 
 struct State {
     CGPoint position;
@@ -62,14 +66,17 @@ struct State {
 //	CCTMXTiledMap *tileMapNode;
 	b2Body *playerBody;
     int coinCount;
+    int lifeCount;
     float distance;
     CCSprite *coinBar;
     CCSprite *disBar;
+    CCSprite *lifeBar;
     Joker *joker;
     Joker *emeny;
     GameObject *fly;
     ContactListener *contactListener;
     CCLabelBMFont *statusLabel;
+    CCLabelBMFont *lifeLabel;
     int flyPos;
     BOOL jokerStartCharge;
     float jokerCharge;
@@ -84,13 +91,16 @@ struct State {
 +(GameLayer*) getGameLayer;
 @property (retain, nonatomic) CCLabelBMFont *statusLabel;
 @property (retain, nonatomic) CCLabelBMFont *distanceLabel;
+@property (retain, nonatomic) CCLabelBMFont *lifeLabel;
 @property (nonatomic, readwrite) int coinCount;
+@property (nonatomic, readwrite) int lifeCount;
 @property  (nonatomic, readwrite) float distance;
 @property (nonatomic, readwrite) b2World* world;
 @property (nonatomic, readwrite) Joker* joker;
 @property (nonatomic, readwrite) Joker* emeny;
 @property (nonatomic, readwrite) CCSprite *coinBar;
 @property (nonatomic, readwrite) CCSprite *disBar;
+@property (nonatomic, readwrite) CCSprite *lifeBar;
 @property (nonatomic, readwrite) int flyPos;
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick1BatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick2BatchNode;

@@ -23,14 +23,11 @@
 @synthesize world;
 @synthesize joker;
 @synthesize coinCount;
-@synthesize lifeCount;
 @synthesize distance;
 @synthesize statusLabel;
 @synthesize distanceLabel;
-@synthesize lifeLabel;
 @synthesize coinBar;
 @synthesize disBar;
-@synthesize lifeBar;
 @synthesize flyPos;
 @synthesize brick1BatchNode;
 @synthesize brick2BatchNode;
@@ -42,11 +39,6 @@
 @synthesize stateVec;
 @synthesize jumpVec;
 
-<<<<<<< HEAD
-=======
-NSString *map = @"map8.0.tmx";
-
->>>>>>> add disable object and falling obejct
 +(GameLayer*) getGameLayer {
     return self;
 }
@@ -92,7 +84,7 @@ NSString *map = @"map8.0.tmx";
     [self drawCollision2Tiles:tileMapNode withOffset:offset];
     [self drawCollision3Tiles:tileMapNode withOffset:offset];
     [self drawCollision4Tiles:tileMapNode withOffset:offset];
-    [self drawCollision5Tiles:tileMapNode withOffset:offset];
+    
 }
 
 //---------------------------------- create the box2d object----------------------------------//
@@ -113,8 +105,6 @@ NSString *map = @"map8.0.tmx";
 	
 	if(d)
 		bodyDef.type = b2_dynamicBody;
-    if(type==kGameObjectFalling)
-        bodyDef.type=b2_kinematicBody;
     
 	bodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
     if(IS_PLAT(type))
@@ -204,7 +194,7 @@ NSString *map = @"map8.0.tmx";
          [brick3BatchNode addChild:platform z:2];
          */
     }
-    else if(type==kGameObjectPlatform4||type==kGameObjectDisable)
+    else if(type==kGameObjectPlatform4)
     {
         platform = [GameObject spriteWithFile:@"brick_wood_hd.png"];
         [platform setType:type];
@@ -232,12 +222,6 @@ NSString *map = @"map8.0.tmx";
         [platform setType:type];
         [self addChild:platform z:6];
     }
-    else if(type==kGameObjectFalling)
-    {
-        platform = [GameObject spriteWithFile:@"fallingBrick4.png"];
-        [platform setType:type];
-        [self addChild:platform z:8];
-    }
     
 	bodyDef.userData = (__bridge_retained void*) platform;
     
@@ -255,12 +239,10 @@ NSString *map = @"map8.0.tmx";
     if(IS_COIN(type))
     {
         body->SetGravityScale(0);
-        fixtureDef.isSensor=true;
     }
-    if(type==kGameObjectFalling)
+    if(IS_COIN(type))
     {
-        //fixtureDef.isSensor=true;
-        body->SetLinearVelocity(b2Vec2(0,-2.5f));
+        fixtureDef.isSensor=true;
     }
     if(type==kGameObjectPlatform3)
     {
@@ -331,6 +313,7 @@ NSString *map = @"map8.0.tmx";
 	}
 }
 
+
 /*
  * draw brick_dice collision layer
  */
@@ -387,32 +370,6 @@ NSString *map = @"map8.0.tmx";
                  restitution:0
                        boxId:-1
                     bodyType:kGameObjectPlatform4];
-    }
-}
-
-- (void) drawCollision5Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
-    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"jumpDisable"];
-    NSMutableDictionary * objPoint;
-    
-    float x, y, w, h;
-    for (objPoint in [objects objects]) {
-        x = [[objPoint valueForKey:@"x"] intValue]+offset;
-        y = [[objPoint valueForKey:@"y"] intValue];
-        w = [[objPoint valueForKey:@"width"] intValue];
-        h = [[objPoint valueForKey:@"height"] intValue];
-        
-        CGPoint _point=ccp(x+w/2,y+h/2);
-        CGPoint _size=ccp(w,h);
-        
-        [self makeBox2dObjAt:_point
-                    withSize:_size
-                     dynamic:false
-                    rotation:0
-                    friction:0.0f
-                     density:0.0f
-                 restitution:0
-                       boxId:-1
-                    bodyType: kGameObjectDisable];
     }
 }
 
@@ -508,20 +465,19 @@ NSString *map = @"map8.0.tmx";
 	}
 }
 
--(void) updateFalling: (ccTime) dt
+-(void) updateFalling
 {
-    CGSize screenSize = [CCDirector sharedDirector].winSize;
-    [self makeBox2dObjAt:ccp(joker.position.x+screenSize.width,screenSize.height+50)
-                withSize:ccp(256,64)
-                 dynamic:false
+    CGSize screenSize = [CCDirector sharedDirector].winSize;   
+    [self makeBox2dObjAt:ccp(joker.position.x+0.5*screenSize.width,screenSize.height)
+                withSize:ccp(64,64)
+                 dynamic:true
                 rotation:0
                 friction:0.0f
-                 density:6.0f
+                 density:3.0f
              restitution:0
                    boxId:-1
                 bodyType:kGameObjectFalling
      ];
-     
 }
 
 /*
@@ -595,7 +551,6 @@ NSString *map = @"map8.0.tmx";
         
         self.tag = GAME_LAYER_TAG;
         self.coinCount=0;
-        self.lifeCount=1;
         jokerStartCharge = false;
         jokerCharge = 1;
         CGSize screenSize = [CCDirector sharedDirector].winSize;
@@ -623,33 +578,22 @@ NSString *map = @"map8.0.tmx";
         flyPos=0;
         self.statusLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
         self.distanceLabel= [CCLabelBMFont labelWithString:@"0.0" fntFile:@"Arial.fnt"];
-        self.lifeLabel=[CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
         coinBar= [CCSprite spriteWithFile:@"club.png"];
         disBar=[CCSprite spriteWithFile:@"spade.png"];
-        lifeBar=[CCSprite spriteWithFile:@"heart.png"];
-        
         coinBar.position = ccp(950,screenSize.height-30);
         disBar.position = ccp(750, screenSize.height-30);
-        lifeBar.position=ccp(550, screenSize.height-30);
-        
         
         [self addChild:self.statusLabel z:100];
         [self addChild:self.distanceLabel z:101];
-        [self addChild:self.lifeLabel z:100];
-        
         [self addChild:self.coinBar z:102];
         [self addChild:self.disBar z:103];
-        [self addChild:self.lifeBar z:103];
-        
         [self setStatusLabelText:@"0"];
-        [self setLifeLabelText:@"1"];
         [self setDistanceLabelText:@"0.00"];
         
         [self schedule:@selector(update:)];
         [self schedule:@selector(updateObject:) interval:1.0f];
         //[self schedule:@selector(updateEmeny:) interval:0.2f];
         [self schedule:@selector(jokerCharging:) interval:0.2f];
-        [self schedule:@selector(updateFalling:) interval:6.0f];
     }
     return self;
 }
@@ -705,7 +649,6 @@ NSString *map = @"map8.0.tmx";
     //    CGSize winSize = [CCDirector sharedDirector].winSize;
     if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:fly])))
     {
-        lifeCount--;
         [[SimpleAudioEngine sharedEngine] playEffect:@"Pain-SoundBible.com-1883168362.wav"];
     }
     if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny])))
@@ -763,7 +706,6 @@ NSString *map = @"map8.0.tmx";
     self.distance=(float)joker.jokerBody->GetPosition().x;
 	[self setPosition:newPos];
     [self setStatusLabelText:[NSString stringWithFormat:@"%.2d", self.coinCount]];
-    [self setLifeLabelText:[NSString stringWithFormat:@"%.2d", self.lifeCount]];
     [self setDistanceLabelText:[NSString stringWithFormat:@"%.2f", self.distance]];
     
     if(ccpLength([self seekWithPosition:joker.position selfPos:emeny.position])>500)
@@ -822,7 +764,7 @@ NSString *map = @"map8.0.tmx";
     flyAction= [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: flyAnim]];
     [fly runAction:flyAction];
     [fly setTexture:[flyBatchNode texture]];
-    [flyBatchNode addChild:fly z:10];
+    [flyBatchNode addChild:fly z:3];
     
     startPos=ccp(joker.position.x+screenSize.width,arc4random_uniform(screenSize.height));
     endPos=ccp(joker.position.x-500,arc4random_uniform(screenSize.height));
@@ -832,16 +774,6 @@ NSString *map = @"map8.0.tmx";
     //[self addChild:fly z:10];
     flyPos++;
     
-}
-
--(void)setLifeLabelText:(NSString *)text
-{
-    CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    [self.statusLabel setString:text];
-    CGPoint worldPos1 = [self convertScreenToWorld:ccp(360, screenSize.height - 20)];
-    CGPoint worldPos2 = [self convertScreenToWorld:ccp(310, screenSize.height - 20)];
-    self.statusLabel.position = worldPos1;
-    self.coinBar.position=worldPos2;
 }
 
 -(void)setStatusLabelText:(NSString *)text
@@ -890,8 +822,6 @@ NSString *map = @"map8.0.tmx";
     jokerStartCharge = true;
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
-    if(!joker.jokerJumping)
-    {
     joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
     State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale()};
     stateVec.push_back(curState);
@@ -899,7 +829,6 @@ NSString *map = @"map8.0.tmx";
     [joker jump:jokerCharge];
     jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
     CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
-    }
 	return YES;
 }
 

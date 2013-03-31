@@ -87,7 +87,7 @@ void ContactListener::BeginContact(b2Contact *contact) {
         GameObject *spriteA = (__bridge GameObject *) bodyA->GetUserData();
         GameObject *spriteB = (__bridge GameObject *) bodyB->GetUserData();
         
-        if (IS_COIN0TYPE(spriteA, spriteB))
+        if (IS_COINTYPE(spriteA, spriteB))
         {
             GameObject *coinSprite=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;
             CCScene* scene = [[CCDirector sharedDirector] runningScene];
@@ -97,16 +97,6 @@ void ContactListener::BeginContact(b2Contact *contact) {
             coinSprite.visible = false;
             [[SimpleAudioEngine sharedEngine] playEffect:@"Collect_Coin.wav"];
             
-        }
-        else if(IS_COIN1TYPE(spriteA, spriteB))
-        {
-            GameObject *coinSprite=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;
-            CCScene* scene = [[CCDirector sharedDirector] runningScene];
-            GameLayer * layer = (GameLayer*)[scene getChildByTag:GAME_LAYER_TAG];
-            layer.lifeCount++;
-            [layer removeChild:coinSprite cleanup:YES];
-            coinSprite.visible = false;
-            [[SimpleAudioEngine sharedEngine] playEffect:@"Collect_Coin.wav"];
         }
         else if(IS_PLATTYPE(spriteA, spriteB))
         {
@@ -133,7 +123,7 @@ void ContactListener::BeginContact(b2Contact *contact) {
         {
             b2Body *diceBody=(spriteA.type==kGameObjectJoker)?bodyB:bodyA;
             b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
-            diceBody->SetGravityScale(jokerBody->GetGravityScale()*0.05);
+            diceBody->SetGravityScale(jokerBody->GetGravityScale()*0.1);
         }
         /*
          //Sprite A = Coin, Sprite B = Joker
@@ -231,26 +221,9 @@ void ContactListener::BeginContact(b2Contact *contact) {
 }
 
 
+
 void ContactListener::EndContact(b2Contact *contact)
 {
-    
-    b2Body *bodyA = contact->GetFixtureA()->GetBody();
-    b2Body *bodyB = contact->GetFixtureB()->GetBody();
-    if (bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL)
-    {
-        GameObject *spriteA = (__bridge GameObject *) bodyA->GetUserData();
-        GameObject *spriteB = (__bridge GameObject *) bodyB->GetUserData();
-        if(IS_PLAT5TYPE(spriteA, spriteB)||IS_PLAT6TYPE(spriteA, spriteB))
-        {
-            CCScene* scene = [[CCDirector sharedDirector] runningScene];
-            GameLayer * layer = (GameLayer*)[scene getChildByTag:GAME_LAYER_TAG];
-            b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
-            if(layer.joker.jokerJumping == false)
-            {
-                [layer.joker setJokerJumping:true];
-            }
-        }
-    }
     //	GameObject *o1 = (__bridge GameObject*)contact->GetFixtureA()->GetBody()->GetUserData();
     //	GameObject *o2 = (__bridge GameObject*)contact->GetFixtureB()->GetBody()->GetUserData();
 }

@@ -291,8 +291,6 @@
 		DCB5648617001A0F0089936A /* map5.9_3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5648517001A0A0089936A /* map5.9_3.tmx */; };
 		DCC460A2170500BF009245BD /* brick_ice_flashing_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC460A0170500BF009245BD /* brick_ice_flashing_default.plist */; };
 		DCC460A3170500BF009245BD /* brick_ice_flashing_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC460A1170500BF009245BD /* brick_ice_flashing_default.png */; };
-		DCF791BA1708062F00C173BC /* fallingBrick4.png in Resources */ = {isa = PBXBuildFile; fileRef = DCF791B91708062F00C173BC /* fallingBrick4.png */; };
-		DCF791C01708128C00C173BC /* map8.0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCF791BF1708128C00C173BC /* map8.0.tmx */; };
 		E95184481707509200F72200 /* map7.0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E95184471707509200F72200 /* map7.0.tmx */; };
 		E951844B1707546D00F72200 /* pokerSoilder_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = E95184491707546C00F72200 /* pokerSoilder_default.plist */; };
 		E951844C1707546D00F72200 /* pokerSoilder_default.png in Resources */ = {isa = PBXBuildFile; fileRef = E951844A1707546C00F72200 /* pokerSoilder_default.png */; };
@@ -808,8 +806,6 @@
 		DCB5648517001A0A0089936A /* map5.9_3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.9_3.tmx; sourceTree = "<group>"; };
 		DCC460A0170500BF009245BD /* brick_ice_flashing_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brick_ice_flashing_default.plist; sourceTree = "<group>"; };
 		DCC460A1170500BF009245BD /* brick_ice_flashing_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick_ice_flashing_default.png; sourceTree = "<group>"; };
-		DCF791B91708062F00C173BC /* fallingBrick4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fallingBrick4.png; sourceTree = "<group>"; };
-		DCF791BF1708128C00C173BC /* map8.0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map8.0.tmx; sourceTree = "<group>"; };
 		E95184471707509200F72200 /* map7.0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map7.0.tmx; sourceTree = "<group>"; };
 		E95184491707546C00F72200 /* pokerSoilder_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pokerSoilder_default.plist; sourceTree = "<group>"; };
 		E951844A1707546C00F72200 /* pokerSoilder_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokerSoilder_default.png; sourceTree = "<group>"; };
@@ -941,7 +937,6 @@
 				A478BF841707DA4C00F40FB5 /* map7.2_copy.tmx */,
 				A4810E8017062B6900C61964 /* map5.95_copy.tmx */,
 				DCB5648517001A0A0089936A /* map5.9_3.tmx */,
-				DCF791BF1708128C00C173BC /* map8.0.tmx */,
 				DCB56483170019170089936A /* map5.9_2.tmx */,
 				A4DF532716F0AB3D00720555 /* tilemap5.5.png */,
 				E951845517077FA200F72200 /* map7.1.tmx */,
@@ -984,7 +979,6 @@
 				DCB5647B170010AE0089936A /* brick1_hd_default.plist */,
 				DCB5647C170010B00089936A /* brick1_hd_default.png */,
 				DCB5647F170010BC0089936A /* brick2_hd_default.plist */,
-				DCF791B91708062F00C173BC /* fallingBrick4.png */,
 				DCB56480170010BD0089936A /* brick2_hd_default.png */,
 				A4419EC616E962C6009A441C /* JokerActions.png */,
 				E951844F17075CC700F72200 /* brick_grass_hd.png */,
@@ -1876,20 +1870,11 @@
 				A463629C1707D19C00DC75E4 /* diamond_default.png in Resources */,
 				A463629D1707D19C00DC75E4 /* heart_hd.png in Resources */,
 				A478BF851707DA4C00F40FB5 /* map7.2_copy.tmx in Resources */,
-<<<<<<< HEAD
 				A4ABCA241707FC2200FB4623 /* bg_layer1.png in Resources */,
 				A4ABCA261707FC3000FB4623 /* map7.3.tmx in Resources */,
 				A4ABCA2A1707FCDB00FB4623 /* background_middle.png in Resources */,
 				A4ABCA2B1707FCDB00FB4623 /* background_front.png in Resources */,
 				A4ABCA2C1707FCDB00FB4623 /* mmbg_layer3.png in Resources */,
-=======
-				A478BF8F1707EAE600F40FB5 /* bg_layer1.png in Resources */,
-				A478BF901707EAE600F40FB5 /* bg_layer2.png in Resources */,
-				A478BF911707EAE600F40FB5 /* bg_layer3.png in Resources */,
-				A4585E871707F3B600D843ED /* map7.3.tmx in Resources */,
-				DCF791BA1708062F00C173BC /* fallingBrick4.png in Resources */,
-				DCF791C01708128C00C173BC /* map8.0.tmx in Resources */,
->>>>>>> add disable object and falling obejct
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

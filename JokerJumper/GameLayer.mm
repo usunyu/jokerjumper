@@ -201,6 +201,7 @@ NSString *map = @"map7.3.tmx";
         platform = [GameObject spriteWithFile:@"brick_wood_hd.png"];
         [platform setType:type];
         [self addChild:platform z:2];
+        CCLOG(@"x: %f y: %f",size.x,size.y);
     }
     
     //---------------------------create the box2d object: magic props------------------------//
@@ -337,7 +338,7 @@ NSString *map = @"map7.3.tmx";
 					 dynamic:true
 					rotation:0
 					friction:0.0f
-					 density:2.0f
+					 density:15.0f
 				 restitution:0
 					   boxId:-1
                     bodyType:kGameObjectPlatform3];
@@ -466,6 +467,21 @@ NSString *map = @"map7.3.tmx";
 	}
 }
 
+-(void) updateFalling
+{
+    CGSize screenSize = [CCDirector sharedDirector].winSize;   
+    [self makeBox2dObjAt:ccp(joker.position.x+0.5*screenSize.width,screenSize.height)
+                withSize:ccp(64,64)
+                 dynamic:true
+                rotation:0
+                friction:0.0f
+                 density:0.0f
+             restitution:0
+                   boxId:-1
+                bodyType:kGameObjectFalling
+     ];
+}
+
 /*
  *draw magic club collision layer
  */
@@ -540,7 +556,7 @@ NSString *map = @"map7.3.tmx";
         jokerStartCharge = false;
         jokerCharge = 1;
         CGSize screenSize = [CCDirector sharedDirector].winSize;
-		//CCLOG(@"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
+		CCLOG(@"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
         
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         [self preLoadSoundFiles];
@@ -579,8 +595,7 @@ NSString *map = @"map7.3.tmx";
         [self schedule:@selector(update:)];
         [self schedule:@selector(updateObject:) interval:1.0f];
         //[self schedule:@selector(updateEmeny:) interval:0.2f];
-        [self schedule:@selector(jokerCharging:) interval:1.0f];
-        
+        [self schedule:@selector(jokerCharging:) interval:0.2f];
     }
     return self;
 }
@@ -619,8 +634,9 @@ NSString *map = @"map7.3.tmx";
 
 - (void)update:(ccTime)dt {
     //CCLOG(@"dt: %f",dt);
-    //CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
+    CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
     CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
     if(joker.jokerBody->GetLinearVelocity().x<0.2)
     {
         joker.jokerBody->SetLinearVelocity(jumpVec);
@@ -633,7 +649,6 @@ NSString *map = @"map7.3.tmx";
     //        [self updateScrollingBackgroundWithTileMap:18000];
     //    }
     //    CGSize winSize = [CCDirector sharedDirector].winSize;
-    
     if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:fly])))
     {
         [[SimpleAudioEngine sharedEngine] playEffect:@"Pain-SoundBible.com-1883168362.wav"];
@@ -726,10 +741,11 @@ NSString *map = @"map7.3.tmx";
 
 
 - (void)jokerCharging: (ccTime) dt {
-    //joker.jokerJumping=true;
     if(jokerStartCharge)
         jokerCharge++;
 }
+
+
 
 - (void)updateObject:(ccTime) dt
 {
@@ -814,7 +830,7 @@ NSString *map = @"map7.3.tmx";
     //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
     [joker jump:jokerCharge];
     jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
-    //CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
+    CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
 	return YES;
 }
 

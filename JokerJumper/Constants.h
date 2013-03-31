@@ -29,7 +29,8 @@ typedef enum {
     kGameObjectCoin2,
     kGameObjectCoin3,
     kGameObjectFly,
-    kGameObjectEmeny
+    kGameObjectEmeny,
+    kGameObjectFalling
 } GameObjectType;
 
 

@@ -42,11 +42,8 @@
 @synthesize stateVec;
 @synthesize jumpVec;
 
-<<<<<<< HEAD
-=======
-NSString *map = @"map8.0.tmx";
+NSString *map = @"map7.3.tmx";
 
->>>>>>> add disable object and falling obejct
 +(GameLayer*) getGameLayer {
     return self;
 }
@@ -73,7 +70,7 @@ NSString *map = @"map8.0.tmx";
 - (void) initTiledMaps {
     //    NSMutableArray *mapArray = [[NSMutableArray alloc] initWithCapacity:MAP_LEVEL1_NUMS];
     for(int i = 0; i < MAP_LEVEL1_NUMS; i++) {
-        CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map7.3.tmx"];
+        CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:map];
         tileMapNode.anchorPoint = ccp(0, 0);
         int offset = MAP_LENGTH * PTM_RATIO * i;
         tileMapNode.position = ccp(offset, 0);

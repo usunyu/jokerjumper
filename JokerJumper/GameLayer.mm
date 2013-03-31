@@ -39,8 +39,6 @@
 @synthesize stateVec;
 @synthesize jumpVec;
 
-NSString *map = @"map7.3.tmx";
-
 +(GameLayer*) getGameLayer {
     return self;
 }
@@ -67,7 +65,7 @@ NSString *map = @"map7.3.tmx";
 - (void) initTiledMaps {
     //    NSMutableArray *mapArray = [[NSMutableArray alloc] initWithCapacity:MAP_LEVEL1_NUMS];
     for(int i = 0; i < MAP_LEVEL1_NUMS; i++) {
-        CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:map];
+        CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map7.3.tmx"];
         tileMapNode.anchorPoint = ccp(0, 0);
         int offset = MAP_LENGTH * PTM_RATIO * i;
         tileMapNode.position = ccp(offset, 0);

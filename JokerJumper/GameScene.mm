@@ -19,13 +19,13 @@
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
     
-//    BackgroundLayer *backgroundLayer = [BackgroundLayer node];
-//    [scene addChild:backgroundLayer z:1];
+    BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+    [scene addChild:backgroundLayer z:1];
     
 	// 'layer' is an autorelease object.
 	GameLayer *gameLayer = [GameLayer node];
 	// add layer as a child to scene
-	[scene addChild: gameLayer z:1];
+	[scene addChild: gameLayer z:2];
 	
 	// return the scene
 	return scene;

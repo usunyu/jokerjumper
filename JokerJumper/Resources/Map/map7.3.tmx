@@ -3,14 +3,9 @@
  <tileset firstgid="1" name="bg_layer1" tilewidth="32" tileheight="32">
   <image source="bg_layer1.png" width="1024" height="768"/>
  </tileset>
- <layer name="Background" width="384" height="24">
+ <layer name="Background" width="384" height="24" visible="0">
   <data encoding="base64" compression="zlib">
    eJzt3FcDiAUUgGGrRITsFSGz7DILZWZvGrKjhYzQQomkjFKRspW9yQjZu4Foo1S2UKL59Cu+m3PxXL/nB5xzUqZIkSIVqUnDNVxLWq4jHem5ngxk5AYykZks3EhWspGdHOQkF7nJQ17ykZ+bKEBBUkY/+tGPfvQT6d9MIQpThFsoSjGKU4KSlOJWbqM0ZShLOcpTgYrczh1UojJVqEo1qnMnd1GDmtGPfvSjH/3E+rW4m3uoTR3qUo/6NOBeGtKIxjShKc1oTgta0orWtKEt7WjPfdzPAzxIBx6iY/SjH/3oRz+xfic604WudKM7D9ODnjzCozzG4zxBL3rThyfpSz/6M4CnGMggBvM0z/Asz/E8Q6If/ehHP/qJ9YcyjBd4keG8xAhG8jKjeIXRvMprjGEs4xjP67zBBN7kLd5mIpN4h8m8y3tMYWr0ox/96Ec/sf40pjODmcxiNu/zAXOYyzzms4CFLGIxS1jKMpazgpWs4kNWs4a1rOMj1rOBjdGPfvSjH/3E+h+zic1sYSvb2M4OdrKL3exhL/v4hE/5jM/ZzwEO8gWHOMyXfMXXfMO3fMf3HIl+9KMf/egn1j/KMX7gR47zEz/zCyc4ySlOc4aznOM8v3KBi1ziN37nMn9whav8yV/8zT/8y//LT9GPfvSjH/1k+ilJRWrScA3XkpbrSEd6ricDGbmBTGQmCzeSlWxkJwc5yUVu8pCXfOTnJgpQMPrRj370o59Y/2YKUZgi3EJRilGcEpSkFLdyG6UpQ1nKUZ4KVOR27qASlalCVapRnTu5ixrUjH70ox/96CfWr8Xd3ENt6lCXetSnAffSkEY0pglNaUZzWtCSVrSmDW1pR3vu434e4EE68BAdox/96Ec/+on1O9GZLnSlG915mB705BEe5TEe5wl60Zs+PElf+tGfATzFQAYxmKd5hmd5jucZEv3oRz/60U+sP5RhvMCLDOclRjCSlxnFK4zmVV5jDGMZx3he5w0m8CZv8TYTmcQ7TOZd3mMKU6Mf/ehHP/qJ9acxnRnMZBazeZ8PmMNc5jGfBSxkEYtZwlKWsZwVrGQVH7KaNaxlHR+xng1sjH70ox/96CfW/5hNbGYLW9nGdnawk13sZg972ccnfMpnfM5+DnCQLzjEYb7kK77mG77lO77nSPSjH/3oRz+x/lGO8QM/cpyf+JlfOMFJTnGaM5zlHOf5lQtc5BK/8TuX+YMrXOVP/uJv/uFf/n98Gv3oRz/60U+g//8JgBlSkZo0XMO1pOU60pGe68lARm4gE5nJwo1kJRvZyUFOcpGbPOQlH/m5iQIUTBX96Ec/+tFPqn8zhShMEW6hKMUoTglKUopbuY3SlKEs5ShPBSpyO3dQicpUoSrVqM6d3EUNakY/+tGPfvQT69fibu6hNnWoSz3q04B7aUgjGtOEpjSjOS1oSSta04a2tKM993E/D/AgHXiIjtGPfvSjH/3E+p3oTBe60o3uPEwPevIIj/IYj/MEvehNH56kL/3ozwCeYiCDGMzTPMOzPMfzDIl+9KMf/egn1h/KMF7gRYbzEiMYycuM4hVG8yqvMYaxjGM8r/MGE3iTt3ibiUziHSbzLu8xhanRj370ox/9xPrTmM4MZjKL2bzPB8xhLvOYzwIWsojFLGEpy1jOClayig9ZzRrWso6PWM8GNkY/+tGPfvQT63/MJjazha1sYzs72MkudrOHvezjEz7lMz5nPwc4yBcc4jBf8hVf8w3f8h3fcyT60Y9+9KOfWP8ox/iBHznOT/zML5zgJKc4zRnOco7z/MoFLnKJ3/idy/zBFa7yJ3/xN//wLylSRz/60Y9+9JPq/wfyCxMx
-  </data>
- </layer>
- <layer name="Wall" width="384" height="24" visible="0">
-  <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPwbkAAAAQ==
   </data>
  </layer>
  <objectgroup name="brick_grass" width="384" height="24">
@@ -391,9 +386,4 @@
  </objectgroup>
  <objectgroup name="spade" width="384" height="24"/>
  <objectgroup name="club" width="384" height="24"/>
- <layer name="joker" width="384" height="24">
-  <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPwbkAAAAQ==
-  </data>
- </layer>
 </map>

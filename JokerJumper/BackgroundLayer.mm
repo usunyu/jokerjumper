@@ -19,7 +19,7 @@ CCSprite *bgMiddle2;
 //CCSprite *bgBack2;
 
 float frontSpeed = 12.0f;
-float middleSpeed = 1.0f;
+float middleSpeed = 3.0f;
 //float backSpeed = 1.0f;
 
 - (id) init {

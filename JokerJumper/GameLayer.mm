@@ -66,7 +66,7 @@
 - (void) initTiledMaps {
     //    NSMutableArray *mapArray = [[NSMutableArray alloc] initWithCapacity:MAP_LEVEL1_NUMS];
     for(int i = 0; i < MAP_LEVEL1_NUMS; i++) {
-        CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map7.2.tmx"];
+        CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map7.2_copy.tmx"];
         tileMapNode.anchorPoint = ccp(0, 0);
         int offset = MAP_LENGTH * PTM_RATIO * i;
         tileMapNode.position = ccp(offset, 0);

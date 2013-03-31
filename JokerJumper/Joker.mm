@@ -83,7 +83,7 @@
 	circleShape.m_radius = 1.1;
 	b2FixtureDef fixtureDef;
 	fixtureDef.shape = &circleShape;
-	fixtureDef.density = 3.5f;
+	fixtureDef.density = 8.0f;
 	fixtureDef.friction = 0;
 	fixtureDef.restitution =  0.0f;
 	jokerBody->CreateFixture(&fixtureDef);
@@ -197,10 +197,16 @@
             //        jokerBody->GetLinearVelocity();
             //b2Vec2 impulse= b2Vec2(0.0f, 2000);
             //CCLOG(@"before joker jump set:%f",jokerBody->GetLinearVelocity().x);
-            jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,2000));
-            //CCLOG(@"after joker jump set:%f",jokerBody->GetLinearVelocity().x);
-            
-            //jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
+            if(jokerBody->GetGravityScale()>0)
+            {
+                jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,-3000));
+                CCLOG(@"here1 %d",jokerFlip);
+            }
+            else
+            {
+                jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,3000));
+                CCLOG(@"here2 %d",jokerFlip);
+            }
             
         }
     }
@@ -218,8 +224,15 @@
             [self runAction: jokerFlipRunAction];
         }
         jokerFlip=!jokerFlip;
-        jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,2000));
-        jokerBody->ApplyLinearImpulse(b2Vec2(0.0f, 2000), jokerBody->GetWorldCenter());
+        if(jokerFlip)
+        {
+            jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,3000));
+        }
+        else
+        {
+            jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,-3000));
+        }        
+        //jokerBody->ApplyLinearImpulse(b2Vec2(0.0f, 2000), jokerBody->GetWorldCenter());
         
     }
     

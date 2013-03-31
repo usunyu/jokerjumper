@@ -102,7 +102,7 @@ void ContactListener::BeginContact(b2Contact *contact) {
         {
             CCScene* scene = [[CCDirector sharedDirector] runningScene];
             GameLayer * layer = (GameLayer*)[scene getChildByTag:GAME_LAYER_TAG];
-            b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
+            //b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
             if(layer.joker.jokerJumping == true)
             {
                 //NSLog(@"2222222222 Joker speed before %f", jokerBody->GetLinearVelocity().x);
@@ -118,6 +118,12 @@ void ContactListener::BeginContact(b2Contact *contact) {
             b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
             b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+0.5f, jokerBody->GetLinearVelocity().y);
             jokerBody->SetLinearVelocity(impulse);
+        }
+        if(IS_PLAT3TYPE(spriteA,spriteB))
+        {
+            b2Body *diceBody=(spriteA.type==kGameObjectJoker)?bodyB:bodyA;
+            b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
+            diceBody->SetGravityScale(jokerBody->GetGravityScale()*0.1);
         }
         /*
          //Sprite A = Coin, Sprite B = Joker

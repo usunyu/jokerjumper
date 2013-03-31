@@ -63,7 +63,7 @@
 }
 
 - (void) initTiledMaps {
-//    NSMutableArray *mapArray = [[NSMutableArray alloc] initWithCapacity:MAP_LEVEL1_NUMS];
+    //    NSMutableArray *mapArray = [[NSMutableArray alloc] initWithCapacity:MAP_LEVEL1_NUMS];
     for(int i = 0; i < MAP_LEVEL1_NUMS; i++) {
         CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:@"map7.2.tmx"];
         tileMapNode.anchorPoint = ccp(0, 0);
@@ -83,8 +83,8 @@
     [self drawCollision1Tiles:tileMapNode withOffset:offset];
     [self drawCollision2Tiles:tileMapNode withOffset:offset];
     [self drawCollision3Tiles:tileMapNode withOffset:offset];
-	 [self drawCollision4Tiles:tileMapNode withOffset:offset];
-
+    [self drawCollision4Tiles:tileMapNode withOffset:offset];
+    
 }
 
 //---------------------------------- create the box2d object----------------------------------//
@@ -116,7 +116,7 @@
     
     if(type==kGameObjectCoin)
     {
-		  platform=[[GameObject alloc] init];
+        platform=[[GameObject alloc] init];
         for(int i = 0; i <= 2; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
@@ -129,12 +129,12 @@
         //platform=[[GameObject alloc] init];
         [platform setType:type];
         [diamondBatchNode addChild:platform z:3];
-		  
-		  //platform = [GameObject spriteWithFile:@"club.png"];
+        
+        //platform = [GameObject spriteWithFile:@"club.png"];
         /*
-        id lens = [CCLens3D actionWithPosition:ccp(240,160) radius:240 grid:ccg(15,10) duration:8];
-        id waves = [CCWaves3D actionWithWaves:18 amplitude:80 grid:ccg(15,10) duration:10];
-        [platform runAction: [CCRepeatForever actionWithAction: [CCSequence actions: waves, lens, nil]]];
+         id lens = [CCLens3D actionWithPosition:ccp(240,160) radius:240 grid:ccg(15,10) duration:8];
+         id waves = [CCWaves3D actionWithWaves:18 amplitude:80 grid:ccg(15,10) duration:10];
+         [platform runAction: [CCRepeatForever actionWithAction: [CCSequence actions: waves, lens, nil]]];
          */
         //[platform setType:type];
         //[self addChild:platform z:3];
@@ -158,50 +158,50 @@
     else if(type==kGameObjectPlatform2)
     {
         platform = [GameObject spriteWithFile:@"brick_grass_hd.png"];
-		  [platform setType:type];
-        [self addChild:platform z:2];
-		  /*platform=[[GameObject alloc] init];
-        for(int i = 1; i <= 4; ++i) {
-            [animFrames addObject:
-             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-              [NSString stringWithFormat:@"brik1_%d_hd.png",i]]];
-        }
-        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.05f];
-        Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
-        [platform setTexture:[brick2BatchNode texture]];
-        [platform runAction:Action];
         [platform setType:type];
-        [brick2BatchNode addChild:platform z:2];
-			*/
+        [self addChild:platform z:2];
+        /*platform=[[GameObject alloc] init];
+         for(int i = 1; i <= 4; ++i) {
+         [animFrames addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+         [NSString stringWithFormat:@"brik1_%d_hd.png",i]]];
+         }
+         Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.05f];
+         Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+         [platform setTexture:[brick2BatchNode texture]];
+         [platform runAction:Action];
+         [platform setType:type];
+         [brick2BatchNode addChild:platform z:2];
+         */
     }
     else if(type==kGameObjectPlatform3)
     {
         platform = [GameObject spriteWithFile:@"brick_dice_hd.png"];
-		  [platform setType:type];
-        [self addChild:platform z:2];
-
-		  /* platform=[[GameObject alloc] init];
-       for(int i = 1; i <= 4; ++i) {
-            [animFrames addObject:
-             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-              [NSString stringWithFormat:@"brick2_%d_hd.png",i]]];
-        }
-        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
-        Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
-        [platform setTexture:[brick3BatchNode texture]];
-        [platform runAction:Action];
         [platform setType:type];
-        [brick3BatchNode addChild:platform z:2];
-			*/
+        [self addChild:platform z:2];
+        
+        /* platform=[[GameObject alloc] init];
+         for(int i = 1; i <= 4; ++i) {
+         [animFrames addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+         [NSString stringWithFormat:@"brick2_%d_hd.png",i]]];
+         }
+         Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
+         Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+         [platform setTexture:[brick3BatchNode texture]];
+         [platform runAction:Action];
+         [platform setType:type];
+         [brick3BatchNode addChild:platform z:2];
+         */
     }
-	 else if(type==kGameObjectPlatform4)
+    else if(type==kGameObjectPlatform4)
     {
         platform = [GameObject spriteWithFile:@"brick_wood_hd.png"];
-		  [platform setType:type];
+        [platform setType:type];
         [self addChild:platform z:2];
-	 }
-	 
-	 //---------------------------create the box2d object: magic props------------------------//
+    }
+    
+    //---------------------------create the box2d object: magic props------------------------//
     else if(type==kGameObjectCoin1)
     {
         platform = [GameObject spriteWithFile:@"heart_hd.png"];
@@ -277,7 +277,7 @@
 					rotation:0
 					friction:0.0f
 					 density:0.0f
-				 restitution:0
+				 restitution:0.0f
 					   boxId:-1
                     bodyType:kGameObjectPlatform2];
 	}
@@ -335,7 +335,7 @@
 					 dynamic:true
 					rotation:0
 					friction:0.0f
-					 density:10.0f
+					 density:15.0f
 				 restitution:0
 					   boxId:-1
                     bodyType:kGameObjectPlatform3];
@@ -347,29 +347,29 @@
  * draw brick_wood collision layer
  */
 - (void) drawCollision4Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
-	 CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"brick_wood"];
-	 NSMutableDictionary * objPoint;
-	 
-	 float x, y, w, h;
-	 for (objPoint in [objects objects]) {
-		  x = [[objPoint valueForKey:@"x"] intValue]+offset;
-		  y = [[objPoint valueForKey:@"y"] intValue];
-		  w = [[objPoint valueForKey:@"width"] intValue];
-		  h = [[objPoint valueForKey:@"height"] intValue];
-		  
-		  CGPoint _point=ccp(x+w/2,y+h/2);
-		  CGPoint _size=ccp(w,h);
-		  
-		  [self makeBox2dObjAt:_point
-						  withSize:_size
-							dynamic:false
-						  rotation:0
-						  friction:0.0f
-							density:0.0f
-					  restitution:0
-							  boxId:-1
+    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"brick_wood"];
+    NSMutableDictionary * objPoint;
+    
+    float x, y, w, h;
+    for (objPoint in [objects objects]) {
+        x = [[objPoint valueForKey:@"x"] intValue]+offset;
+        y = [[objPoint valueForKey:@"y"] intValue];
+        w = [[objPoint valueForKey:@"width"] intValue];
+        h = [[objPoint valueForKey:@"height"] intValue];
+        
+        CGPoint _point=ccp(x+w/2,y+h/2);
+        CGPoint _size=ccp(w,h);
+        
+        [self makeBox2dObjAt:_point
+                    withSize:_size
+                     dynamic:false
+                    rotation:0
+                    friction:0.0f
+                     density:0.0f
+                 restitution:0
+                       boxId:-1
                     bodyType:kGameObjectPlatform4];
-	 }
+    }
 }
 
 
@@ -502,8 +502,8 @@
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick1_hd_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick2_hd_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pokerSoilder_default.plist"];
-	 [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"diamond_default.plist"];
-
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"diamond_default.plist"];
+    
     
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
     emenyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
@@ -511,11 +511,11 @@
     brick2BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick1_hd_default.png"];
     brick3BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick2_hd_default.png"];
     flyBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
-	 diamondBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"diamond_default.png"];
+    diamondBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"diamond_default.png"];
     /*
-    brick1BatchNode.scale=4;
-    brick2BatchNode.scale=4;
-    brick3BatchNode.scale=4;
+     brick1BatchNode.scale=4;
+     brick2BatchNode.scale=4;
+     brick3BatchNode.scale=4;
      */
     [self addChild:jokerBatchNode z:10];
     [self addChild:emenyBatchNode z:9];
@@ -523,8 +523,8 @@
     [self addChild:brick2BatchNode z:2];
     [self addChild:brick3BatchNode z:2];
     [self addChild:flyBatchNode z:2];
-	 [self addChild:diamondBatchNode z:3];
-
+    [self addChild:diamondBatchNode z:3];
+    
 }
 
 - (id) init {
@@ -547,7 +547,7 @@
         [self initTiledMaps];
         
         joker = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
-//        joker = [[Joker alloc] init];
+        //        joker = [[Joker alloc] init];
         [joker setType:kGameObjectJoker];
         [joker initAnimation:jokerBatchNode];
         joker.position = ccp(jokerLocationX, jokerLocationY);
@@ -615,9 +615,14 @@
 }
 
 - (void)update:(ccTime)dt {
-    CCLOG(@"dt: %f",dt);
-    
+    //CCLOG(@"dt: %f",dt);
+    CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
     CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    if(joker.jokerBody->GetLinearVelocity().x<2.0)
+    {
+        CCLOG(@"changed/n");
+    }
     [joker adjust];
     [emeny adjust];
     
@@ -694,25 +699,25 @@
     
     if(stateVec.size()!=0)
     {
-    if(emeny.position.x>stateVec.front().position.x)
-    {
-        [emeny jump:false];
-        emeny.jokerBody->SetGravityScale(stateVec.front().gravityScale);
-//        b2Vec2 newVel;
-//        if(joker.jokerBody->GetLinearVelocity().x<9.5/PTM_RATIO)
-//        {
-//            newVel=b2Vec2(9/PTM_RATIO,joker.jokerBody->GetLinearVelocity().y);
-//        }
-//        else
-//        {
-//            newVel=joker.jokerBody->GetLinearVelocity();
-//        }
-//        emeny.jokerBody->SetLinearVelocity(newVel);
-//        emeny.jokerBody->SetTransform(b2Vec2(joker.jokerBody->GetPosition().x-diff.x/PTM_RATIO,joker.jokerBody->GetPosition().y), 0);
-//        emeny.jokerFlip=joker.jokerFlip;
-//        [emeny flip];
-        stateVec.pop_front();
-    }
+        if(emeny.position.x>stateVec.front().position.x)
+        {
+            [emeny jump:false];
+            emeny.jokerBody->SetGravityScale(stateVec.front().gravityScale);
+            //        b2Vec2 newVel;
+            //        if(joker.jokerBody->GetLinearVelocity().x<9.5/PTM_RATIO)
+            //        {
+            //            newVel=b2Vec2(9/PTM_RATIO,joker.jokerBody->GetLinearVelocity().y);
+            //        }
+            //        else
+            //        {
+            //            newVel=joker.jokerBody->GetLinearVelocity();
+            //        }
+            //        emeny.jokerBody->SetLinearVelocity(newVel);
+            //        emeny.jokerBody->SetTransform(b2Vec2(joker.jokerBody->GetPosition().x-diff.x/PTM_RATIO,joker.jokerBody->GetPosition().y), 0);
+            //        emeny.jokerFlip=joker.jokerFlip;
+            //        [emeny flip];
+            stateVec.pop_front();
+        }
     }
 }
 
@@ -795,6 +800,7 @@
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    CCLOG(@"111111111vel before touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
     jokerStartCharge = true;
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
@@ -803,6 +809,7 @@
     stateVec.push_back(curState);
     //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
     [joker jump:jokerCharge];
+    CCLOG(@"111111111vel after touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
 	return YES;
 }
 

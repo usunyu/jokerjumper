@@ -35,29 +35,29 @@ float middleSpeed = 3.0f;
 -(void)initBackground
 {
     CGSize s = [[CCDirector sharedDirector] winSize];
-    //--------------------Front Background--------------------//
-    bgFront1 = [CCSprite spriteWithFile:@"bg_two_layer1.png"];
-//    bgFront1.position = ccp(s.width*0.5f,12*PTM_RATIO);
-    bgFront1.anchorPoint = ccp(0,0);
-    bgFront1.position = ccp(0,0);
-    bgFront1.scale = 2;
-    [self addChild:bgFront1 z:-1];
-    
-    bgFront2 = [CCSprite spriteWithFile:@"bg_two_layer1.png"];
-//    bgFront2.position = ccp(s.width+s.width*0.5f,12*PTM_RATIO);
-    bgFront2.anchorPoint = ccp(0,0);
-    bgFront2.position = ccp(s.width, 0);
-    bgFront2.scale = 2;
-    bgFront2.flipX = true;
-    [self addChild:bgFront2 z:-1];
+//    //--------------------Front Background--------------------//
+//    bgFront1 = [CCSprite spriteWithFile:@"bg_layer1.png"];
+////    bgFront1.position = ccp(s.width*0.5f,12*PTM_RATIO);
+//    bgFront1.anchorPoint = ccp(0,0);
+//    bgFront1.position = ccp(0,0);
+//    bgFront1.scale = 1;
+//    [self addChild:bgFront1 z:-1];
+//    
+//    bgFront2 = [CCSprite spriteWithFile:@"bg_layer1.png"];
+////    bgFront2.position = ccp(s.width+s.width*0.5f,12*PTM_RATIO);
+//    bgFront2.anchorPoint = ccp(0,0);
+//    bgFront2.position = ccp(s.width, 0);
+//    bgFront2.scale = 1;
+//    bgFront2.flipX = true;
+//    [self addChild:bgFront2 z:-1];
     //--------------------Middle Background--------------------//
-    bgMiddle1 = [CCSprite spriteWithFile:@"bg_two_layer2.png"];
+    bgMiddle1 = [CCSprite spriteWithFile:@"bg_layer2.png"];
     bgMiddle1.anchorPoint = ccp(0,0);
     bgMiddle1.position = ccp(0,0);
     bgMiddle1.scale = 2;
     [self addChild:bgMiddle1 z:-2];
     
-    bgMiddle2 = [CCSprite spriteWithFile:@"bg_two_layer2.png"];
+    bgMiddle2 = [CCSprite spriteWithFile:@"bg_layer2.png"];
     bgMiddle2.anchorPoint = ccp(0,0);
     bgMiddle2.position = ccp(s.width, 0);
     bgMiddle2.scale = 2;
@@ -83,21 +83,21 @@ float middleSpeed = 3.0f;
 {
     CGSize s = [[CCDirector sharedDirector] winSize];
     CGPoint pos1, pos2;
-    //--------------------Front Background--------------------//
-    pos1 = bgFront1.position;
-    pos2 = bgFront2.position;
-    pos1.x -= frontSpeed;
-    pos2.x -= frontSpeed;
-    if(pos1.x <=-(s.width) )
-    {
-        pos1.x = pos2.x + s.width;
-    }
-    if(pos2.x <=-(s.width) )
-    {
-        pos2.x = pos1.x + s.width;
-    }
-    bgFront1.position = pos1;
-    bgFront2.position = pos2;
+//    //--------------------Front Background--------------------//
+//    pos1 = bgFront1.position;
+//    pos2 = bgFront2.position;
+//    pos1.x -= frontSpeed;
+//    pos2.x -= frontSpeed;
+//    if(pos1.x <=-(s.width) )
+//    {
+//        pos1.x = pos2.x + s.width;
+//    }
+//    if(pos2.x <=-(s.width) )
+//    {
+//        pos2.x = pos1.x + s.width;
+//    }
+//    bgFront1.position = pos1;
+//    bgFront2.position = pos2;
     //--------------------Middle Background--------------------//
     pos1 = bgMiddle1.position;
     pos2 = bgMiddle2.position;

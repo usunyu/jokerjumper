@@ -28,11 +28,6 @@
  // is reused.
  MyContact myContact = { contact->GetFixtureA(), contact->GetFixtureB() };
  _contacts.push_back(myContact);
- 
- 
- 
- 
- 
  }
  
  void ContactListener::EndContact(b2Contact* contact) {
@@ -108,20 +103,20 @@ void ContactListener::BeginContact(b2Contact *contact) {
             CCScene* scene = [[CCDirector sharedDirector] runningScene];
             GameLayer * layer = (GameLayer*)[scene getChildByTag:GAME_LAYER_TAG];
             b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
-            NSLog(@"2222222222 Joker speed before %f", jokerBody->GetLinearVelocity().x);
             if(layer.joker.jokerJumping == true)
             {
-                CCLOG(@"Set jump false");
-                
+                //NSLog(@"2222222222 Joker speed before %f", jokerBody->GetLinearVelocity().x);
+                //CCLOG(@"Set jump false");
+                //jokerBody->SetLinearVelocity(b2Vec2(layer.jumpVec.x,jokerBody->GetLinearVelocity().y));
                 [layer.joker setJokerJumping:false];
-                jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,jokerBody->GetLinearVelocity().y));
+                //NSLog(@"2222222222 Joker speed after %f", jokerBody->GetLinearVelocity().x);
+                //jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,jokerBody->GetLinearVelocity().y));
             }
-            NSLog(@"2222222222 Joker speed after %f", jokerBody->GetLinearVelocity().x);
         }
         if(IS_PLAT1TYPE(spriteA, spriteB))
         {
             b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
-            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+1.0f, jokerBody->GetLinearVelocity().y);
+            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+0.5f, jokerBody->GetLinearVelocity().y);
             jokerBody->SetLinearVelocity(impulse);
         }
         /*

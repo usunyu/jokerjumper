@@ -110,7 +110,7 @@
 
 
 - (void) adjust {
-    CCLOG(@"before adjust: %f",jokerBody->GetLinearVelocity().x);
+    //CCLOG(@"before adjust: %f",jokerBody->GetLinearVelocity().x);
     if(jokerBody->GetLinearVelocity().x<6)
     {
         [self accelerate];
@@ -119,7 +119,7 @@
     {
         [self decelerate];
     }
-    CCLOG(@"after adjust: %f",jokerBody->GetLinearVelocity().x);
+    //CCLOG(@"after adjust: %f",jokerBody->GetLinearVelocity().x);
     //jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
 }
 
@@ -137,7 +137,6 @@
 
 
 - (void) fall {
-    CCLOG(@"Fall");
     b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, -300.0f);
     jokerBody->SetLinearVelocity(impulse);//, jokerBody->GetWorldCenter());
 }
@@ -172,10 +171,10 @@
             
             if(jokerFlip==true)
             {
-                CCLOG(@"before jokerFlip:%f",jokerBody->GetLinearVelocity().x);
+                //CCLOG(@"before jokerFlip:%f",jokerBody->GetLinearVelocity().x);
                 [self stopAction:jokerFlipRunAction];
                 [self runAction: jokerRunAction];
-                CCLOG(@"after jokerFlip:%f",jokerBody->GetLinearVelocity().x);
+                //CCLOG(@"after jokerFlip:%f",jokerBody->GetLinearVelocity().x);
             }
             else
             {
@@ -197,9 +196,9 @@
             
             //        jokerBody->GetLinearVelocity();
             //b2Vec2 impulse= b2Vec2(0.0f, 2000);
-            CCLOG(@"before joker jump set:%f",jokerBody->GetLinearVelocity().x);
+            //CCLOG(@"before joker jump set:%f",jokerBody->GetLinearVelocity().x);
             jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,2000));
-            CCLOG(@"after joker jump set:%f",jokerBody->GetLinearVelocity().x);
+            //CCLOG(@"after joker jump set:%f",jokerBody->GetLinearVelocity().x);
             
             //jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
             

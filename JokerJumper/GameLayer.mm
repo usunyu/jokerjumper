@@ -37,6 +37,7 @@
 @synthesize fly;
 @synthesize emeny;
 @synthesize stateVec;
+@synthesize jumpVec;
 
 
 +(GameLayer*) getGameLayer {
@@ -619,9 +620,9 @@
     CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     
-    if(joker.jokerBody->GetLinearVelocity().x<2.0)
+    if(joker.jokerBody->GetLinearVelocity().x<0.2)
     {
-        CCLOG(@"changed/n");
+        joker.jokerBody->SetLinearVelocity(jumpVec);
     }
     [joker adjust];
     [emeny adjust];
@@ -800,7 +801,7 @@
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    CCLOG(@"111111111vel before touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
+    //CCLOG(@"111111111vel before touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
     jokerStartCharge = true;
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
@@ -809,12 +810,13 @@
     stateVec.push_back(curState);
     //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
     [joker jump:jokerCharge];
-    CCLOG(@"111111111vel after touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
+    jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
+    CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
 	return YES;
 }
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    
+    //CCLOG(@"333333333vel after touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
     jokerCharge = 1;
     jokerStartCharge = false;
 }

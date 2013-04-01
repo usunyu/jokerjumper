@@ -13,6 +13,7 @@
 #import "ContactListener.h"
 #import "GameObject.h"
 #include <deque>
+#include "HUDLayer.h"
 
 #define jokerRunActionTag 1
 #define mapTag 2
@@ -57,7 +58,7 @@ struct State {
 @class Joker;
 @class Platform;
 @class MapLayer;
-
+@class HUDLayer;
 @interface GameLayer : CCLayer {
     CCLabelTTF *_label;
     CCSpriteBatchNode *jokerBatchNode;
@@ -74,7 +75,7 @@ struct State {
     float distance;
     CCLabelBMFont *statusLabel;
     CCLabelBMFont *lifeLabel;
-    
+    HUDLayer *hudLayer;
     Joker *joker;
     Joker *emeny;
     GameObject *fly;
@@ -113,6 +114,6 @@ struct State {
 @property (nonatomic, readwrite) CCSpriteBatchNode *flyBatchNode;
 @property (nonatomic, readwrite) b2Vec2 jumpVec;
 @property (nonatomic, readwrite) CCSpriteBatchNode *diamondBatchNode;
-
+@property (nonatomic, readwrite) HUDLayer *hudLayer;
 @property (nonatomic, readwrite) std::deque<State> stateVec;
 @end

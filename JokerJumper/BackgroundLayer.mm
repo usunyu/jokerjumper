@@ -29,6 +29,7 @@ float backSpeed = 1.0f;
 - (id) init {
     self = [super init];
     if (self) {
+        self.tag=BG_LAYER_TAG;
         [self initBackground];
         
         [self schedule: @selector(tick:)];

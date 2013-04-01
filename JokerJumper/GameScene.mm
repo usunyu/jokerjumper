@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "GameLayer.h"
 #import "BackgroundLayer.h"
+#import "HUDLayer.h"
 
 @implementation GameScene
 @synthesize tileMapNode;
@@ -27,6 +28,9 @@
 	// add layer as a child to scene
 	[scene addChild: gameLayer z:2];
 	
+    HUDLayer *hudLayer = [HUDLayer node];
+	// add layer as a child to scene
+	[scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
 	// return the scene
 	return scene;
 }

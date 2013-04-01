@@ -16,7 +16,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface HUDLayer : CCLayerColor {
+@interface HUDLayer : CCLayer {
     CCLabelBMFont *lifeLabel;
     CCLabelBMFont *statusLabel;
     CCLabelBMFont *coinLabel;
@@ -28,9 +28,12 @@
     CCSprite *lifeBar;
     
 }
--(void) updatelifeCounter:(int)amount;
+-(void) updateLifeCounter:(int)amount;
 -(void) updateCoinCounter:(int)amount;
 -(void) updateStatusCounter:(float)amount;
-
++(HUDLayer*) getHUDLayer;
+@property (nonatomic, readwrite)CCLabelBMFont * lifeLabel;
+@property (nonatomic, readwrite)CCLabelBMFont * statusLabel;
+@property (nonatomic, readwrite)CCLabelBMFont * coinLabel;
 @end
 

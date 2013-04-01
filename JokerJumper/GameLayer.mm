@@ -41,6 +41,7 @@
 @synthesize emeny;
 @synthesize stateVec;
 @synthesize jumpVec;
+@synthesize hudLayer;
 
 NSString *map = @"map7.3.tmx";
 
@@ -618,29 +619,33 @@ NSString *map = @"map7.3.tmx";
         [emeny createBox2dObject:world];
         
         flyPos=0;
-        self.statusLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
-        self.distanceLabel= [CCLabelBMFont labelWithString:@"0.0" fntFile:@"Arial.fnt"];
-        self.lifeLabel=[CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
-        coinBar= [CCSprite spriteWithFile:@"club.png"];
-        disBar=[CCSprite spriteWithFile:@"spade.png"];
-        lifeBar=[CCSprite spriteWithFile:@"heart.png"];
-        
-        coinBar.position = ccp(950,screenSize.height-30);
-        disBar.position = ccp(750, screenSize.height-30);
-        lifeBar.position=ccp(550, screenSize.height-30);
-        
-        
-        [self addChild:self.statusLabel z:100];
-        [self addChild:self.distanceLabel z:101];
-        [self addChild:self.lifeLabel z:100];
-        
-        [self addChild:self.coinBar z:102];
-        [self addChild:self.disBar z:103];
-        [self addChild:self.lifeBar z:103];
-        
-        [self setStatusLabelText:@"0"];
-        [self setLifeLabelText:@"1"];
-        [self setDistanceLabelText:@"0.00"];
+        CCScene* scene = [[CCDirector sharedDirector] runningScene];
+        hudLayer = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
+        if(hudLayer!=NULL)
+        {
+            CCLOG(@"1");
+        }
+        [hudLayer updateCoinCounter:self.coinCount];
+        [hudLayer updateLifeCounter:self.lifeCount];
+        [hudLayer updateStatusCounter:self.distance];
+//        self.statusLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
+//        self.distanceLabel= [CCLabelBMFont labelWithString:@"0.0" fntFile:@"Arial.fnt"];
+//        self.lifeLabel=[CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
+//        coinBar= [CCSprite spriteWithFile:@"club.png"];
+//        disBar=[CCSprite spriteWithFile:@"spade.png"];
+//        lifeBar=[CCSprite spriteWithFile:@"heart.png"];
+//        coinBar.position = ccp(950,screenSize.height-30);
+//        disBar.position = ccp(750, screenSize.height-30);
+//        lifeBar.position=ccp(550, screenSize.height-30);
+//        [self addChild:self.statusLabel z:100];
+//        [self addChild:self.distanceLabel z:101];
+//        [self addChild:self.lifeLabel z:100];
+//        [self addChild:self.coinBar z:102];
+//        [self addChild:self.disBar z:103];
+//        [self addChild:self.lifeBar z:103];
+//        [self setStatusLabelText:@"0"];
+//        [self setLifeLabelText:@"1"];
+//        [self setDistanceLabelText:@"0.00"];
         
         [self schedule:@selector(update:)];
         [self schedule:@selector(updateObject:) interval:1.0f];
@@ -685,8 +690,19 @@ NSString *map = @"map7.3.tmx";
 
 - (void)update:(ccTime)dt {
     //CCLOG(@"dt: %f",dt);
-    CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
+    //CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
     CGSize winSize = [[CCDirector sharedDirector] winSize];
+    
+    CCScene* scene = [[CCDirector sharedDirector] runningScene];
+    hudLayer  = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
+    if(hudLayer!=NULL)
+    {
+        CCLOG(@"1");
+    }
+    
+    [hudLayer updateCoinCounter:coinCount];
+    [hudLayer updateLifeCounter:lifeCount];
+    [hudLayer updateStatusCounter:distance];
     
     if(joker.jokerBody->GetLinearVelocity().x<0.2)
     {
@@ -694,6 +710,7 @@ NSString *map = @"map7.3.tmx";
     }
     [joker adjust];
     [emeny adjust];
+
     
     //CCLOG(@"joker.x = %f", joker.position.x);
     //    if(joker.position.x >= 18000 && joker.position.x <= 18020) {
@@ -763,9 +780,12 @@ NSString *map = @"map7.3.tmx";
     
     self.distance=(float)joker.jokerBody->GetPosition().x;
 	[self setPosition:newPos];
-    [self setStatusLabelText:[NSString stringWithFormat:@"%.2d", self.coinCount]];
-    [self setLifeLabelText:[NSString stringWithFormat:@"%.2d", self.lifeCount]];
-    [self setDistanceLabelText:[NSString stringWithFormat:@"%.2f", self.distance]];
+    
+    //[self setStatusLabelText:[NSString stringWithFormat:@"%.2d", self.coinCount]];
+    //[self setLifeLabelText:[NSString stringWithFormat:@"%.2d", self.lifeCount]];
+    //[self setDistanceLabelText:[NSString stringWithFormat:@"%.2f", self.distance]];
+    
+
     
     if(ccpLength([self seekWithPosition:joker.position selfPos:emeny.position])>500)
     {

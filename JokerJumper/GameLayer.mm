@@ -166,6 +166,7 @@ NSString *map = @"map7.3.tmx";
     else if(type==kGameObjectPlatform2)
     {
         platform = [GameObject spriteWithFile:@"brick_grass_hd.png"];
+        [platform setVisible:false];
         [platform setType:type];
         [self addChild:platform z:2];
         /*platform=[[GameObject alloc] init];

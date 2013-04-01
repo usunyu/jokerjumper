@@ -62,17 +62,17 @@
 	
 	return self;
 }
-/*
+
 - (void)pauseButtonSelected {
     
     if (![[GameScene sharedGameScene] isShowingPausedMenu]) {
         [[GameScene sharedGameScene] setShowingPausedMenu:YES];
-        [[GameScene getGameScene showPausedMenu];
+        [[GameScene sharedGameScene] showPausedMenu];
         [[CCDirector sharedDirector] pause];
     }
     
 }
-*/
+
 
 -(void) updateLifeCounter:(int)amount
 {

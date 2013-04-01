@@ -129,7 +129,13 @@ void ContactListener::BeginContact(b2Contact *contact) {
             b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+0.5f, jokerBody->GetLinearVelocity().y);
             jokerBody->SetLinearVelocity(impulse);
         }
-        if(IS_PLAT3TYPE(spriteA,spriteB))
+        else if(IS_PLAT2TYPE(spriteA, spriteB))
+        {
+            GameObject *grass=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;
+            [grass setVisible:true];
+            
+        }
+        else if(IS_PLAT3TYPE(spriteA,spriteB))
         {
             b2Body *diceBody=(spriteA.type==kGameObjectJoker)?bodyB:bodyA;
             b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
@@ -249,6 +255,16 @@ void ContactListener::EndContact(b2Contact *contact)
             {
                 [layer.joker setJokerJumping:true];
             }
+        }
+        else if(IS_PLAT2TYPE(spriteA, spriteB))
+        {
+            CCScene* scene = [[CCDirector sharedDirector] runningScene];
+            GameLayer * layer = (GameLayer*)[scene getChildByTag:GAME_LAYER_TAG];
+            
+            GameObject *grass=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;
+            GameObject *wood=[GameObject spriteWithFile:@"brick_wood_hd.png"];
+            wood.position=ccp(grass.position.x,grass.position.y+grass.contentSize.height);
+            [layer addChild:wood];
         }
     }
     //	GameObject *o1 = (__bridge GameObject*)contact->GetFixtureA()->GetBody()->GetUserData();

@@ -10,9 +10,11 @@
 #import "GameLayer.h"
 #import "BackgroundLayer.h"
 #import "HUDLayer.h"
+#import "PauseLayer.h"
 
 @implementation GameScene
-@synthesize tileMapNode;
+@synthesize tileMapNode,
+showingPausedMenu = showingPausedMenu_;
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
 +(CCScene *) scene
@@ -33,6 +35,43 @@
 	[scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
 	// return the scene
 	return scene;
+}
+
+static GameScene* instanceOfGameScene;
+
+-(id) init
+{
+	if( (self=[super init])) {
+        instanceOfGameScene = self;
+		self.isTouchEnabled = YES;
+		self.showingPausedMenu = NO;
+        BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+        [self addChild:backgroundLayer z:1];
+        
+        // 'layer' is an autorelease object.
+        GameLayer *gameLayer = [GameLayer node];
+        // add layer as a child to scene
+        [self addChild: gameLayer z:2];
+        
+        HUDLayer *hudLayer = [HUDLayer node];
+        // add layer as a child to scene
+        [self addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
+        // return the scene
+    }
+    return self;
+}
+
+- (void)showPausedMenu {
+    PauseLayer *pauzy = [PauseLayer node];
+    [self addChild:pauzy z:100 tag:PAUSE_LAYER_TAG];
+}
+
+
+
++ (GameScene *) sharedGameScene
+{
+	NSAssert(instanceOfGameScene != nil, @"GameScene instance not yet initialized!");
+	return instanceOfGameScene;
 }
 
 @end

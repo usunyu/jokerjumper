@@ -93,6 +93,15 @@ struct State {
     std::deque <State> stateVec;
 }
 +(GameLayer*) getGameLayer;
+- (void) makeBox2dObjAt:(CGPoint)p
+withSize:(CGPoint)size
+dynamic:(BOOL)d
+rotation:(long)r
+friction:(long)f
+density:(long)dens
+restitution:(long)rest
+boxId:(int)boxId
+bodyType:(GameObjectType)type;
 @property (retain, nonatomic) CCLabelBMFont *statusLabel;
 @property (retain, nonatomic) CCLabelBMFont *distanceLabel;
 @property (retain, nonatomic) CCLabelBMFont *lifeLabel;

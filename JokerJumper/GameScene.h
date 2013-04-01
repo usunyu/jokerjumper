@@ -11,10 +11,15 @@
 
 @interface GameScene : CCLayer {
     CCTMXTiledMap *tileMapNode;
+    BOOL showingPausedMenu_;
+    //BOOL inTransition;
+    
 }
-
+@property (nonatomic, getter = isShowingPausedMenu) BOOL showingPausedMenu;
 @property (nonatomic, readwrite) CCTMXTiledMap *tileMapNode;
 
+-(void)showPausedMenu;
++(GameScene*) sharedGameScene;
 // returns a CCScene that contains the GameLayer as the only child
 +(CCScene *) scene;
 

@@ -65,18 +65,21 @@ struct State {
     b2World* world;
     //	CCTMXTiledMap *tileMapNode;
 	b2Body *playerBody;
-    int coinCount;
-    int lifeCount;
-    float distance;
+    
     CCSprite *coinBar;
     CCSprite *disBar;
     CCSprite *lifeBar;
+    int coinCount;
+    int lifeCount;
+    float distance;
+    CCLabelBMFont *statusLabel;
+    CCLabelBMFont *lifeLabel;
+    
     Joker *joker;
     Joker *emeny;
     GameObject *fly;
     ContactListener *contactListener;
-    CCLabelBMFont *statusLabel;
-    CCLabelBMFont *lifeLabel;
+
     int flyPos;
     BOOL jokerStartCharge;
     float jokerCharge;

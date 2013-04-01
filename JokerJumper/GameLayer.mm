@@ -735,9 +735,13 @@ NSString *map = @"map7.3.tmx";
         {
 			//Synchronize the AtlasSprites position and rotation with the corresponding body
 			CCSprite *myActor = (__bridge CCSprite*)b->GetUserData();
-			myActor.position = CGPointMake( b->GetPosition().x * PTM_RATIO,
-										   b->GetPosition().y * PTM_RATIO);
-			myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+            double posX = b->GetPosition().x * PTM_RATIO;
+            double posY = b->GetPosition().y * PTM_RATIO;
+            int offset = winSize.width * 0.5 + 300;
+            if(posX <= joker.position.x + offset && posX >= joker.position.x - offset) {
+                myActor.position = CGPointMake( posX, posY);
+                myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
+            }
 		}
 	}
     /*

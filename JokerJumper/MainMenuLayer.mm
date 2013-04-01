@@ -18,6 +18,21 @@
 
 @implementation MainMenuLayer
 
+-(void)newButtonPressed:(id)sender {
+    CCMenuItemImage *item = (CCMenuItemImage*) sender;
+    switch (item.tag) {
+        case PLAY_BUTTON_TAG:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"LevelScene.ccbi"]]];
+            break;
+        case OPTIONS_BUTTON_TAG:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"OptionsScene.ccbi"]]];
+            break;
+        case ABOUT_BUTTON_TAG:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"AboutScene.ccbi"]]];
+            break;
+    }
+}
+
 -(void)buttonPressed:(id)sender {
     CCControlButton *button = (CCControlButton*) sender;
     switch (button.tag) {

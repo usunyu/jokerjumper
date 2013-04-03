@@ -54,6 +54,8 @@
 		A4DF532416F0A81F00720555 /* map5.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4DF532216F0A81F00720555 /* map5.tmx */; };
 		A4DF532516F0A81F00720555 /* tilemap5.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DF532316F0A81F00720555 /* tilemap5.png */; };
 		A4DF532916F0AB3D00720555 /* tilemap5.5.png in Resources */ = {isa = PBXBuildFile; fileRef = A4DF532716F0AB3D00720555 /* tilemap5.5.png */; };
+		A4E7447B170C041E0039BCE1 /* LevelScrollLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4E7447A170C041E0039BCE1 /* LevelScrollLayer.mm */; };
+		A4E7447F170C08960039BCE1 /* LevelScrollScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4E7447E170C08960039BCE1 /* LevelScrollScene.mm */; };
 		A4EC160C170939310081D8CE /* button_about_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = A4EC160A170939310081D8CE /* button_about_sel.png */; };
 		A4EC160D170939310081D8CE /* button_option_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = A4EC160B170939310081D8CE /* button_option_sel.png */; };
 		A4EC161317093E2B0081D8CE /* menu_with_button.png in Resources */ = {isa = PBXBuildFile; fileRef = A4EC161217093E2B0081D8CE /* menu_with_button.png */; };
@@ -374,6 +376,10 @@
 		A4DF532216F0A81F00720555 /* map5.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.tmx; sourceTree = "<group>"; };
 		A4DF532316F0A81F00720555 /* tilemap5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilemap5.png; sourceTree = "<group>"; };
 		A4DF532716F0AB3D00720555 /* tilemap5.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tilemap5.5.png; sourceTree = "<group>"; };
+		A4E74479170C041E0039BCE1 /* LevelScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelScrollLayer.h; sourceTree = "<group>"; };
+		A4E7447A170C041E0039BCE1 /* LevelScrollLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelScrollLayer.mm; sourceTree = "<group>"; };
+		A4E7447D170C08960039BCE1 /* LevelScrollScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelScrollScene.h; sourceTree = "<group>"; };
+		A4E7447E170C08960039BCE1 /* LevelScrollScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LevelScrollScene.mm; sourceTree = "<group>"; };
 		A4EC160A170939310081D8CE /* button_about_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_about_sel.png; sourceTree = "<group>"; };
 		A4EC160B170939310081D8CE /* button_option_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_option_sel.png; sourceTree = "<group>"; };
 		A4EC161217093E2B0081D8CE /* menu_with_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_with_button.png; sourceTree = "<group>"; };
@@ -908,6 +914,8 @@
 			children = (
 				A4810E7717057C1700C61964 /* GameScene.h */,
 				A4810E7817057C1700C61964 /* GameScene.mm */,
+				A4E7447D170C08960039BCE1 /* LevelScrollScene.h */,
+				A4E7447E170C08960039BCE1 /* LevelScrollScene.mm */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -955,6 +963,8 @@
 				A433BD1916F074D3003CD7CE /* GameOverLayer.mm */,
 				A4ABCA2F170818D200FB4623 /* LevelLayer.h */,
 				A4ABCA30170818D200FB4623 /* LevelLayer.mm */,
+				A4E74479170C041E0039BCE1 /* LevelScrollLayer.h */,
+				A4E7447A170C041E0039BCE1 /* LevelScrollLayer.mm */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -2125,6 +2135,8 @@
 				A4ABCA3717082C1300FB4623 /* GameLayer3.mm in Sources */,
 				A4ABCA3A17082C9000FB4623 /* PauseLayer.mm in Sources */,
 				A4ABCA3D17082CAA00FB4623 /* HUDLayer.mm in Sources */,
+				A4E7447B170C041E0039BCE1 /* LevelScrollLayer.mm in Sources */,
+				A4E7447F170C08960039BCE1 /* LevelScrollScene.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

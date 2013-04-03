@@ -22,17 +22,26 @@ showingPausedMenu = showingPausedMenu_;
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
     
-    BackgroundLayer *backgroundLayer = [BackgroundLayer node];
-    [scene addChild:backgroundLayer z:1];
+    GameScene *layer = [GameScene node];
+    [scene addChild:layer];
+    
+    
+    HUDLayer *hudLayer = [HUDLayer node];
+    // add layer as a child to scene
+    [scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
+    
+    
+//    BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+//    [scene addChild:backgroundLayer z:1];
     
 	// 'layer' is an autorelease object.
-	GameLayer *gameLayer = [GameLayer node];
+//	GameLayer *gameLayer = [GameLayer node];
 	// add layer as a child to scene
-	[scene addChild: gameLayer z:2];
+//	[scene addChild: gameLayer z:2];
 	
-    HUDLayer *hudLayer = [HUDLayer node];
+//    HUDLayer *hudLayer = [HUDLayer node];
 	// add layer as a child to scene
-	[scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
+//	[scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
 	// return the scene
 	return scene;
 }
@@ -53,9 +62,9 @@ static GameScene* instanceOfGameScene;
         // add layer as a child to scene
         [self addChild: gameLayer z:2];
         
-        HUDLayer *hudLayer = [HUDLayer node];
+//        HUDLayer *hudLayer = [HUDLayer node];
         // add layer as a child to scene
-        [self addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
+//        [self addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
         // return the scene
     }
     return self;

@@ -809,7 +809,7 @@ NSString *map = @"map8.2.tmx";
     }
     if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny])))
     {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"Cartoon clown laugh.wav"];
+//        [[SimpleAudioEngine sharedEngine] playEffect:@"Cartoon clown laugh.wav"];
     }
     if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x)
     {

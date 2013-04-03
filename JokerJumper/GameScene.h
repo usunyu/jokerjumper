@@ -13,6 +13,7 @@
     CCTMXTiledMap *tileMapNode;
     BOOL showingPausedMenu_;
     //BOOL inTransition;
+    CCScene *selfScene;
     
 }
 @property (nonatomic, getter = isShowingPausedMenu) BOOL showingPausedMenu;

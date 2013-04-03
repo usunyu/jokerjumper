@@ -23,25 +23,25 @@ showingPausedMenu = showingPausedMenu_;
 	CCScene *scene = [CCScene node];
     
     GameScene *layer = [GameScene node];
-    [scene addChild:layer];
+    [scene addChild:layer z:4];
     
     
-    HUDLayer *hudLayer = [HUDLayer node];
+//    HUDLayer *hudLayer = [HUDLayer node];
     // add layer as a child to scene
-    [scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
+//    [scene addChild: hudLayer z:1 tag:HUD_LAYER_TAG];
     
     
-//    BackgroundLayer *backgroundLayer = [BackgroundLayer node];
-//    [scene addChild:backgroundLayer z:1];
+    BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+    [scene addChild:backgroundLayer z:-1];
     
 	// 'layer' is an autorelease object.
-//	GameLayer *gameLayer = [GameLayer node];
+	GameLayer *gameLayer = [GameLayer node];
 	// add layer as a child to scene
-//	[scene addChild: gameLayer z:2];
+	[scene addChild: gameLayer z:1];
 	
-//    HUDLayer *hudLayer = [HUDLayer node];
+    HUDLayer *hudLayer = [HUDLayer node];
 	// add layer as a child to scene
-//	[scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
+	[scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
 	// return the scene
 	return scene;
 }
@@ -54,13 +54,13 @@ static GameScene* instanceOfGameScene;
         instanceOfGameScene = self;
 		self.isTouchEnabled = YES;
 		self.showingPausedMenu = NO;
-        BackgroundLayer *backgroundLayer = [BackgroundLayer node];
-        [self addChild:backgroundLayer z:1];
+//        BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+//        [self addChild:backgroundLayer z:1];
         
         // 'layer' is an autorelease object.
-        GameLayer *gameLayer = [GameLayer node];
+//        GameLayer *gameLayer = [GameLayer node];
         // add layer as a child to scene
-        [self addChild: gameLayer z:2];
+//        [self addChild: gameLayer z:2];
         
 //        HUDLayer *hudLayer = [HUDLayer node];
         // add layer as a child to scene
@@ -72,7 +72,9 @@ static GameScene* instanceOfGameScene;
 
 - (void)showPausedMenu {
     PauseLayer *pauzy = [PauseLayer node];
-    [self addChild:pauzy z:100 tag:PAUSE_LAYER_TAG];
+    [self addChild:pauzy z:1 tag:PAUSE_LAYER_TAG];
+//    CCScene* scene = [[CCDirector sharedDirector] runningScene];
+//    [scene addChild:pauzy z:4 tag:PAUSE_LAYER_TAG];
 }
 
 

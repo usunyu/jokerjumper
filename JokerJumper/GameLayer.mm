@@ -208,7 +208,7 @@ NSString *map = @"map7.3.tmx";
         platform = [GameObject spriteWithFile:@"brick_wood_hd.png"];
         [platform setType:type];
         [self addChild:platform z:2];
-        CCLOG(@"x: %f y: %f",size.x,size.y);
+//        CCLOG(@"x: %f y: %f",size.x,size.y);
     }
     
     //---------------------------create the box2d object: magic props------------------------//
@@ -624,7 +624,7 @@ NSString *map = @"map7.3.tmx";
         hudLayer = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
         if(hudLayer!=NULL)
         {
-            CCLOG(@"1");
+//            CCLOG(@"1");
         }
         [hudLayer updateCoinCounter:self.coinCount];
         [hudLayer updateLifeCounter:self.lifeCount];
@@ -690,6 +690,7 @@ NSString *map = @"map7.3.tmx";
 }
 
 - (void)update:(ccTime)dt {
+//    CCLOG(@"JokerJumping:%s", joker.jokerJumping ? "True" : "False");
     //CCLOG(@"dt: %f",dt);
     //CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
     CGSize winSize = [[CCDirector sharedDirector] winSize];
@@ -698,7 +699,7 @@ NSString *map = @"map7.3.tmx";
     hudLayer  = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
     if(hudLayer!=NULL)
     {
-        CCLOG(@"1");
+//        CCLOG(@"1");
     }
     
     [hudLayer updateCoinCounter:coinCount];
@@ -920,7 +921,7 @@ NSString *map = @"map7.3.tmx";
         //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
         [joker jump:jokerCharge];
         jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
-        CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
+//        CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
     }
 	return YES;
 }

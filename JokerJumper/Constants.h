@@ -11,6 +11,11 @@
 //Box2D is optimized for objects of 1x1 metre therefore it makes sense
 //to define the ratio so that your most common object type is 1x1 metre.
 #define PTM_RATIO 32
+
+#define GAME_STATE_ONE 1
+#define GAME_STATE_TWO 2
+#define GAME_STATE_THREE 3
+
 #define COIN_LABEL_X 950
 #define STATUS_LABEL_X 830
 #define LIFE_LABEL_X 710
@@ -40,6 +45,5 @@ typedef enum {
     kGameObjectFalling,
     kGameObjectDisable
 } GameObjectType;
-
 
 //BOOL jokerJumping;

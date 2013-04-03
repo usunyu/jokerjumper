@@ -10,7 +10,6 @@
 #import "CCControlButton.h"
 #import "CCBReader.h"
 #import "GameScene.h"
-#import "GameScene2.h"
 
 #define PLAY_BUTTON_TAG 1
 #define OPTIONS_BUTTON_TAG 2

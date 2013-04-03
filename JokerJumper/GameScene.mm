@@ -8,9 +8,12 @@
 
 #import "GameScene.h"
 #import "GameLayer.h"
+#import "GameLayer2.h"
+#import "GameLayer3.h"
 #import "BackgroundLayer.h"
 #import "HUDLayer.h"
 #import "PauseLayer.h"
+#import "Constants.h"
 
 @implementation GameScene
 @synthesize tileMapNode,
@@ -23,7 +26,7 @@ showingPausedMenu = showingPausedMenu_;
 	CCScene *scene = [CCScene node];
     
     GameScene *layer = [GameScene node];
-    [scene addChild:layer z:4];
+    [scene addChild:layer z:3];
     
     
 //    HUDLayer *hudLayer = [HUDLayer node];
@@ -43,6 +46,64 @@ showingPausedMenu = showingPausedMenu_;
 	// add layer as a child to scene
 	[scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
 	// return the scene
+	return scene;
+}
+
++(CCScene *) sceneWithState:(int)state {
+    // 'scene' is an autorelease object.
+	CCScene *scene = [CCScene node];
+    GameScene *layer = [GameScene node];
+    [scene addChild:layer z:3];
+    switch (state) {
+        case GAME_STATE_ONE:
+        {
+            BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+            [scene addChild:backgroundLayer z:-1];
+            
+            // 'layer' is an autorelease object.
+            GameLayer *gameLayer = [GameLayer node];
+            // add layer as a child to scene
+            [scene addChild: gameLayer z:1];
+            
+            HUDLayer *hudLayer = [HUDLayer node];
+            // add layer as a child to scene
+            [scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
+            break;
+        }
+        case GAME_STATE_TWO:
+        {
+            BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+            [scene addChild:backgroundLayer z:-1];
+            
+            // 'layer' is an autorelease object.
+            GameLayer *gameLayer = [GameLayer2 node];
+            // add layer as a child to scene
+            [scene addChild: gameLayer z:1];
+            
+            HUDLayer *hudLayer = [HUDLayer node];
+            // add layer as a child to scene
+            [scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
+            break;
+        }
+        case GAME_STATE_THREE:
+        {
+            BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+            [scene addChild:backgroundLayer z:-1];
+            
+            // 'layer' is an autorelease object.
+            GameLayer *gameLayer = [GameLayer3 node];
+            // add layer as a child to scene
+            [scene addChild: gameLayer z:1];
+            
+            HUDLayer *hudLayer = [HUDLayer node];
+            // add layer as a child to scene
+            [scene addChild: hudLayer z:3 tag:HUD_LAYER_TAG];
+            break;
+        }
+        default:
+            
+            break;
+    }
 	return scene;
 }
 

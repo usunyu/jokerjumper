@@ -10,8 +10,7 @@
 #import "CCControlButton.h"
 #import "CCBReader.h"
 #import "GameScene.h"
-#import "GameScene2.h"
-#import "GameScene3.h"
+#import "Constants.h"
 
 @implementation LevelLayer
 
@@ -22,14 +21,14 @@
 -(void)buttonPressed:(id)sender {
     CCControlButton *button = (CCControlButton*) sender;
     switch (button.tag) {
-        case 1:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene scene]]];
+        case GAME_STATE_ONE:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_ONE]]];
             break;
-        case 2:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene2 scene]]];
+        case GAME_STATE_TWO:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_TWO]]];
             break;
-        case 3:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene3 scene]]];
+        case GAME_STATE_THREE:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_THREE]]];
             break;
     }
 }

@@ -111,10 +111,10 @@ enum
 {
 	self.delegate = nil;
     
-//	[layers_ release];
+    //	[layers_ release];
 	layers_ = nil;
     
-//	[super dealloc];
+    //	[super dealloc];
 }
 
 - (void) updatePages

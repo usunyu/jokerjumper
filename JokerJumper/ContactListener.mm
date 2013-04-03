@@ -256,16 +256,16 @@ void ContactListener::EndContact(b2Contact *contact)
                 [layer.joker setJokerJumping:true];
             }
         }
-        else if(IS_PLAT2TYPE(spriteA, spriteB))
-        {
-            CCScene* scene = [[CCDirector sharedDirector] runningScene];
-            GameLayer * layer = (GameLayer*)[scene getChildByTag:GAME_LAYER_TAG];
-            
-            GameObject *grass=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;
-            GameObject *wood=[GameObject spriteWithFile:@"brick_wood_hd.png"];
-            wood.position=ccp(grass.position.x,grass.position.y+grass.contentSize.height);
-            [layer addChild:wood];
-        }
+//        else if(IS_PLAT2TYPE(spriteA, spriteB))
+//        {
+//            CCScene* scene = [[CCDirector sharedDirector] runningScene];
+//            GameLayer * layer = (GameLayer*)[scene getChildByTag:GAME_LAYER_TAG];
+//            
+//            GameObject *grass=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;
+//            GameObject *wood=[GameObject spriteWithFile:@"brick_wood_hd.png"];
+//            wood.position=ccp(grass.position.x,grass.position.y+grass.contentSize.height);
+//            [layer addChild:wood];
+//        }
     }
     //	GameObject *o1 = (__bridge GameObject*)contact->GetFixtureA()->GetBody()->GetUserData();
     //	GameObject *o2 = (__bridge GameObject*)contact->GetFixtureB()->GetBody()->GetUserData();

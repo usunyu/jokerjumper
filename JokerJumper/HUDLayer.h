@@ -6,13 +6,10 @@
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
 #import "BackgroundLayer.h"
-#import "GameLayer.h"
 #import "CCBReader.h"
 #import "Constants.h"
-#import "Joker.h"
-#import "GameObject.h"
 #import "SimpleAudioEngine.h"
-
+#import "GameScene.h"
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
@@ -20,20 +17,18 @@
     CCLabelBMFont *lifeLabel;
     CCLabelBMFont *statusLabel;
     CCLabelBMFont *coinLabel;
-    
     CCMenuItemImage *pause;
-    
     CCSprite *coinBar;
     CCSprite *disBar;
     CCSprite *lifeBar;
-    
 }
 -(void) updateLifeCounter:(int)amount;
 -(void) updateCoinCounter:(int)amount;
 -(void) updateStatusCounter:(float)amount;
 +(HUDLayer*) getHUDLayer;
-@property (nonatomic, readwrite)CCLabelBMFont * lifeLabel;
-@property (nonatomic, readwrite)CCLabelBMFont * statusLabel;
-@property (nonatomic, readwrite)CCLabelBMFont * coinLabel;
+
+//@property (nonatomic, readwrite)CCLabelBMFont * lifeLabel;
+//@property (nonatomic, readwrite)CCLabelBMFont * statusLabel;
+//@property (nonatomic, readwrite)CCLabelBMFont * coinLabel;
 @end
 

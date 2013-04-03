@@ -7,12 +7,11 @@
 //
 
 #import "HUDLayer.h"
-#import "GameScene.h"
 
 @implementation HUDLayer
-@synthesize    lifeLabel;
-@synthesize    statusLabel;
-@synthesize    coinLabel;
+//@synthesize    lifeLabel;
+//@synthesize    statusLabel;
+//@synthesize    coinLabel;
 
 +(HUDLayer*) getHUDLayer {
     return self;

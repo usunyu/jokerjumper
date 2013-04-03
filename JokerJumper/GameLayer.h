@@ -48,13 +48,6 @@
 #define IS_PLAT6TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectFalling))||((x.type == kGameObjectFalling)&&(y.type == kGameObjectJoker)))
 
 
-
-struct State {
-    CGPoint position;
-    b2Vec2 velocity;
-    float gravityScale;
-};
-
 @class Joker;
 @class Platform;
 @class MapLayer;
@@ -67,28 +60,32 @@ struct State {
     //	CCTMXTiledMap *tileMapNode;
 	b2Body *playerBody;
     
-    CCSprite *coinBar;
-    CCSprite *disBar;
-    CCSprite *lifeBar;
+//    CCSprite *coinBar;
+//    CCSprite *disBar;
+//    CCSprite *lifeBar;
     int coinCount;
     int lifeCount;
     float distance;
-    CCLabelBMFont *statusLabel;
-    CCLabelBMFont *lifeLabel;
+//    CCLabelBMFont *statusLabel;
+//    CCLabelBMFont *lifeLabel;
     HUDLayer *hudLayer;
     Joker *joker;
     Joker *emeny;
     GameObject *fly;
     ContactListener *contactListener;
-
+    float fallPos;
     int flyPos;
     BOOL jokerStartCharge;
+    BOOL fall1;
+    BOOL fall2;
     float jokerCharge;
     CCSpriteBatchNode* brick1BatchNode;
     CCSpriteBatchNode* brick2BatchNode;
     CCSpriteBatchNode* brick3BatchNode;
     CCSpriteBatchNode* flyBatchNode;
+    CCSpriteBatchNode* leafBatchNode;
     CCSpriteBatchNode* diamondBatchNode;
+    CCSpriteBatchNode* flowerBatchNode;
     b2Vec2 jumpVec;
     std::deque <State> stateVec;
 }
@@ -102,11 +99,13 @@ density:(long)dens
 restitution:(long)rest
 boxId:(int)boxId
 bodyType:(GameObjectType)type;
-@property (retain, nonatomic) CCLabelBMFont *statusLabel;
-@property (retain, nonatomic) CCLabelBMFont *distanceLabel;
-@property (retain, nonatomic) CCLabelBMFont *lifeLabel;
+//@property (retain, nonatomic) CCLabelBMFont *statusLabel;
+//@property (retain, nonatomic) CCLabelBMFont *distanceLabel;
+//@property (retain, nonatomic) CCLabelBMFont *lifeLabel;
 @property (nonatomic, readwrite) int coinCount;
 @property (nonatomic, readwrite) int lifeCount;
+@property (nonatomic, readwrite) BOOL fall1;
+@property (nonatomic, readwrite) BOOL fall2;
 @property  (nonatomic, readwrite) float distance;
 @property (nonatomic, readwrite) b2World* world;
 @property (nonatomic, readwrite) Joker* joker;
@@ -125,4 +124,7 @@ bodyType:(GameObjectType)type;
 @property (nonatomic, readwrite) CCSpriteBatchNode *diamondBatchNode;
 @property (nonatomic, readwrite) HUDLayer *hudLayer;
 @property (nonatomic, readwrite) std::deque<State> stateVec;
+@property (nonatomic, readwrite) float fallPos;
+@property (nonatomic, readwrite) CCSpriteBatchNode* leafBatchNode;
+@property (nonatomic, readwrite) CCSpriteBatchNode* flowerBatchNode;
 @end

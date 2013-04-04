@@ -2,48 +2,4 @@
 <Bucket
    type = "1"
    version = "1.0">
-<<<<<<< HEAD
-=======
-   <FileBreakpoints>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JokerJumper/ContactListener.mm"
-         timestampString = "386653623.437821"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "243"
-         endingLineNumber = "243"
-         landmarkName = "ContactListener::EndContact(b2Contact *contact)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JokerJumper/ContactListener.mm"
-         timestampString = "386653628.30986"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "83"
-         endingLineNumber = "83"
-         landmarkName = "ContactListener::BeginContact(b2Contact *contact)"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JokerJumper/ContactListener.mm"
-         timestampString = "386654019.73433"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "256"
-         endingLineNumber = "256"
-         landmarkName = "ContactListener::EndContact(b2Contact *contact)"
-         landmarkType = "5">
-      </FileBreakpoint>
-   </FileBreakpoints>
->>>>>>> some change
 </Bucket>

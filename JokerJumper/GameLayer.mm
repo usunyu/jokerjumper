@@ -828,6 +828,12 @@ NSString *map = @"map8.2.tmx";
 	int32 positionIterations = 1;
 	world->Step(dt, velocityIterations, positionIterations);
     
+    b2Vec2 pos = [joker jokerBody]->GetPosition();
+	CGPoint newPos = ccp(-1 * pos.x * PTM_RATIO + 350, self.position.y * PTM_RATIO);
+	[self setPosition:newPos];
+    self.distance=(float)joker.jokerBody->GetPosition().x;
+	[self setPosition:newPos];
+    
     std::vector<b2Body *>toDestroy;
 	//Iterate over the bodies in the physics world
 	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
@@ -866,28 +872,28 @@ NSString *map = @"map8.2.tmx";
                         [actor runAction:Action];
                     }
                 }
+                if(b->GetPosition().x<(joker.position.x-500)/PTM_RATIO)
+                {
+                    toDestroy.push_back(b);
+                }
             }
 		}
 	}
-    /*
+    CCLOG(@"$$$$$$$destroy size: %ld",toDestroy.size());
      std::vector<b2Body *>::iterator pos2;
      for (pos2 = toDestroy.begin(); pos2 != toDestroy.end(); ++pos2) {
      b2Body *body = *pos2;
      if (body->GetUserData() != NULL) {
      CCSprite *sprite = (__bridge CCSprite *) body->GetUserData();
+         CCLOG(@"$$$$$$$$$$$position %f",sprite.position.x);
      [self removeChild:sprite cleanup:YES];
+         
      }
      world->DestroyBody(body);
      }
-     */
     
-    b2Vec2 pos = [joker jokerBody]->GetPosition();
-	CGPoint newPos = ccp(-1 * pos.x * PTM_RATIO + 350, self.position.y * PTM_RATIO);
     
-	[self setPosition:newPos];
-    
-    self.distance=(float)joker.jokerBody->GetPosition().x;
-	[self setPosition:newPos];
+
     
     //[self setStatusLabelText:[NSString stringWithFormat:@"%.2d", self.coinCount]];
     //[self setLifeLabelText:[NSString stringWithFormat:@"%.2d", self.lifeCount]];

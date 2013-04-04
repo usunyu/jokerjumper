@@ -984,6 +984,8 @@
 				A433BD1916F074D3003CD7CE /* GameOverLayer.mm */,
 				DCA232DC170CD4C000EA70E0 /* LevelScrollLayer.h */,
 				DCA232DD170CD4ED00EA70E0 /* LevelScrollLayer.mm */,
+				A4ABCA3817082C8F00FB4623 /* PauseLayer.h */,
+				A4ABCA3917082C8F00FB4623 /* PauseLayer.mm */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -1096,6 +1098,7 @@
 		A4F037CF16D192040068D7C8 /* JokerJumper */ = {
 			isa = PBXGroup;
 			children = (
+				A4419E9C16E94E3D009A441C /* Constants.h */,
 				A4810E7617057BD600C61964 /* Scenes */,
 				A4F03A3C16D19CDE0068D7C8 /* Layers */,
 				A4810E7A170613DD00C61964 /* Object */,
@@ -1728,11 +1731,8 @@
 			isa = PBXGroup;
 			children = (
 				A4810E7C1706162200C61964 /* Menu */,
-				A4419E9C16E94E3D009A441C /* Constants.h */,
 				A467103517050ABB0010697F /* BackgroundLayer.h */,
 				A467103617050ABB0010697F /* BackgroundLayer.mm */,
-				A4ABCA3817082C8F00FB4623 /* PauseLayer.h */,
-				A4ABCA3917082C8F00FB4623 /* PauseLayer.mm */,
 				A4ABCA3B17082CA900FB4623 /* HUDLayer.h */,
 				A4ABCA3C17082CA900FB4623 /* HUDLayer.mm */,
 				A4F03A7216D1A4860068D7C8 /* GameLayer.h */,

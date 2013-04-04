@@ -23,9 +23,9 @@
 		//label.anchorPoint = CGPointMake(0.5f, 1);
 		[self addChild:label z:0 tag:1000];
         
-        CCMenuItemImage *resume = [CCMenuItemImage itemFromNormalImage:@"button_play_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(resumeButtonSelected)];
-        CCMenuItemImage *restart = [CCMenuItemImage itemFromNormalImage:@"button_option_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(restartButtonSelected)];
-        CCMenuItemImage *main = [CCMenuItemImage itemFromNormalImage:@"button_about_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(mainButtonSelected)];
+        CCMenuItemImage *resume = [CCMenuItemImage itemWithNormalImage:@"button_play_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(resumeButtonSelected)];
+        CCMenuItemImage *restart = [CCMenuItemImage itemWithNormalImage:@"button_option_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(restartButtonSelected)];
+        CCMenuItemImage *main = [CCMenuItemImage itemWithNormalImage:@"button_about_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(mainButtonSelected)];
         
         CCMenu *menu = [CCMenu menuWithItems:resume, restart, main, nil];
         menu.position =  ccp( screenSize.width /2 , screenSize.height/2);

@@ -19,6 +19,8 @@
 		A4419EC316E95FF1009A441C /* Jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = A4419EC216E95FF1009A441C /* Jump.wav */; };
 		A4419EC716E962C6009A441C /* JokerActions.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4419EC516E962C6009A441C /* JokerActions.plist */; };
 		A4419EC816E962C6009A441C /* JokerActions.png in Resources */ = {isa = PBXBuildFile; fileRef = A4419EC616E962C6009A441C /* JokerActions.png */; };
+		A4581665170DEA23000162FA /* map8.0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4581663170DEA23000162FA /* map8.0.tmx */; };
+		A4581666170DEA23000162FA /* map9.0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4581664170DEA23000162FA /* map9.0.tmx */; };
 		A463629B1707D19C00DC75E4 /* diamond_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A46362981707D19C00DC75E4 /* diamond_default.plist */; };
 		A463629C1707D19C00DC75E4 /* diamond_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A46362991707D19C00DC75E4 /* diamond_default.png */; };
 		A463629D1707D19C00DC75E4 /* heart_hd.png in Resources */ = {isa = PBXBuildFile; fileRef = A463629A1707D19C00DC75E4 /* heart_hd.png */; };
@@ -340,6 +342,8 @@
 		A4419EC216E95FF1009A441C /* Jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Jump.wav; sourceTree = "<group>"; };
 		A4419EC516E962C6009A441C /* JokerActions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = JokerActions.plist; sourceTree = "<group>"; };
 		A4419EC616E962C6009A441C /* JokerActions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JokerActions.png; sourceTree = "<group>"; };
+		A4581663170DEA23000162FA /* map8.0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map8.0.tmx; sourceTree = "<group>"; };
+		A4581664170DEA23000162FA /* map9.0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map9.0.tmx; sourceTree = "<group>"; };
 		A46362981707D19C00DC75E4 /* diamond_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = diamond_default.plist; sourceTree = "<group>"; };
 		A46362991707D19C00DC75E4 /* diamond_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond_default.png; sourceTree = "<group>"; };
 		A463629A1707D19C00DC75E4 /* heart_hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_hd.png; sourceTree = "<group>"; };
@@ -993,6 +997,8 @@
 		A4DCA7EE16F062F200819798 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				A4581663170DEA23000162FA /* map8.0.tmx */,
+				A4581664170DEA23000162FA /* map9.0.tmx */,
 				A4ABCA251707FC3000FB4623 /* map7.3.tmx */,
 				A4ABCA231707FC2200FB4623 /* bg_layer1.png */,
 				A478BF841707DA4C00F40FB5 /* map7.2_copy.tmx */,
@@ -1964,6 +1970,8 @@
 				DCA232D8170C307B00EA70E0 /* piranha_default.plist in Resources */,
 				DCA232D9170C307B00EA70E0 /* piranha_default.png in Resources */,
 				DCA232DB170C338C00EA70E0 /* piranha0.png in Resources */,
+				A4581665170DEA23000162FA /* map8.0.tmx in Resources */,
+				A4581666170DEA23000162FA /* map9.0.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -48,7 +48,7 @@
 @synthesize jumpVec;
 @synthesize hudLayer;
 
-NSString *map = @"map8.2.tmx";
+NSString *map = @"map9.0.tmx";
 
 +(GameLayer*) getGameLayer {
     return self;

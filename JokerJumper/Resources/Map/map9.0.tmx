@@ -84,7 +84,7 @@
   <object x="3746" y="322" width="59" height="59"/>
   <object x="3810" y="322" width="59" height="59"/>
  </objectgroup>
- <objectgroup name="brick_wood" width="400" height="24">
+ <objectgroup name="brick_wood" width="400" height="24" visible="0">
   <object x="7296" y="416" width="64" height="64"/>
   <object x="7296" y="480" width="64" height="64"/>
   <object x="7296" y="544" width="64" height="64"/>
@@ -135,7 +135,7 @@
  </objectgroup>
  <objectgroup name="spade" width="400" height="24"/>
  <objectgroup name="club" width="400" height="24"/>
- <layer name="joker" width="400" height="24">
+ <layer name="joker" width="400" height="24" visible="0">
   <data encoding="base64" compression="zlib">
    eJztwQENAAAAwqD3T20PBxQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADApwGWAAAB
   </data>
@@ -147,7 +147,7 @@
  </objectgroup>
  <layer name="Wall" width="400" height="24">
   <data encoding="base64" compression="zlib">
-   eJztwQENAAAAwqD3T20PBxQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADApwGWAAAB
+   eJzt3dtuwyAQRdH0fm/6/19bXqyqEcSGMDMH2EtCPEVuBxszYMTpBAsPqTym8pLKa0W9/U7lGjM5Gq9V4+Op9t6lTbCSj1Q+Uzmn8lNRb79TuUYvre+6nv3J0Xh5xKd3PKxqq3679t6NuGdn9pTKc4caNojvf63vuln7k97xsKpHjzPyvlL57lDDBvGFB+Z1cMQoeYN1Xt76vHivFai3E+bgnR+w5jamUfIG67y89XnxXitQbyfMwbtfVl5z81pT2ou5yt8BANewPvHHa01pL+YqfwfgrdfYibGRrS2+xBmAil5jJ8ZGtrb4EmcAQAvyD2BdPfdEs8dnPeQfiMS3ALF67okecY/P3vvT474qXRvAdXwLgEh770+P+6p0bQAARkEe70dhr3Nr/q2QtwPIi5rLIo/3o7DXuTX/VsjbAeRFzWWxrwMA0IJ9HQCsMC6N4TWfRfsCsNp7wbg0htd8lnr7ltZtee+tKfp8s1n3mXjtvYiKx2U/0vqdyKjtbZWPqP6/m9K6rfp7DzaizzebdZ+J197vqHhc9iOt34nUtrdK/2qVj4xyfwMrKY2D71K5z9S3jn+j9n4rfNNuSbV/HeU889HaGzY4/7xOaRz8lsp7pr4134k6p03hm3ZPR+fRrI1ynrlKe+89H6VxXW2NPM4/16Z8TttMjs6jQcve81Ea19XWsPULako17Q==
   </data>
  </layer>
 </map>

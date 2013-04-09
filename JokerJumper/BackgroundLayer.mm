@@ -18,8 +18,8 @@ CCSprite *bgMiddle2;
 CCSprite *bgBack1;
 CCSprite *bgBack2;
 
-BOOL frontOpen = false;
-BOOL middleOpen = false;
+BOOL frontOpen = true;
+BOOL middleOpen = true;
 BOOL backOpen = false;
 
 float frontSpeed = 20.0f;

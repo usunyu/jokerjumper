@@ -13,6 +13,7 @@
 		A433BD1A16F074D3003CD7CE /* GameOverLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A433BD1916F074D3003CD7CE /* GameOverLayer.mm */; };
 		A433BD1C16F07BF3003CD7CE /* background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A433BD1B16F07BF3003CD7CE /* background_music.mp3 */; };
 		A433BD2216F0804D003CD7CE /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = A433BD2116F0804D003CD7CE /* menu.png */; };
+		A43998B31713D25E0006BF15 /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = A43998B21713D25E0006BF15 /* brick.png */; };
 		A4419E9B16E94BBC009A441C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4419E9A16E94BBC009A441C /* Default-568h@2x.png */; };
 		A4419EA716E94F72009A441C /* GameObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4419EA616E94F72009A441C /* GameObject.mm */; };
 		A4419EAA16E95205009A441C /* Joker.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4419EA916E95205009A441C /* Joker.mm */; };
@@ -333,6 +334,7 @@
 		A433BD1916F074D3003CD7CE /* GameOverLayer.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = GameOverLayer.mm; sourceTree = "<group>"; };
 		A433BD1B16F07BF3003CD7CE /* background_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background_music.mp3; sourceTree = "<group>"; };
 		A433BD2116F0804D003CD7CE /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		A43998B21713D25E0006BF15 /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
 		A4419E9A16E94BBC009A441C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A4419E9C16E94E3D009A441C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		A4419EA516E94F72009A441C /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameObject.h; sourceTree = "<group>"; };
@@ -997,6 +999,7 @@
 		A4DCA7EE16F062F200819798 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				A43998B21713D25E0006BF15 /* brick.png */,
 				A4581663170DEA23000162FA /* map8.0.tmx */,
 				A4581664170DEA23000162FA /* map9.0.tmx */,
 				A4ABCA251707FC3000FB4623 /* map7.3.tmx */,
@@ -1972,6 +1975,7 @@
 				DCA232DB170C338C00EA70E0 /* piranha0.png in Resources */,
 				A4581665170DEA23000162FA /* map8.0.tmx in Resources */,
 				A4581666170DEA23000162FA /* map9.0.tmx in Resources */,
+				A43998B31713D25E0006BF15 /* brick.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -88,7 +88,7 @@
 	fixtureDef.restitution =  0.0f;
 	jokerBody->CreateFixture(&fixtureDef);
     
-    b2Vec2 impulse = b2Vec2(150.0f, 0.0f);
+    b2Vec2 impulse = b2Vec2(300.0f, 0.0f);
     jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
 }
 

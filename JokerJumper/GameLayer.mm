@@ -91,7 +91,7 @@ NSString *map = @"map9.0.tmx";
     [self drawCoin1Tiles:tileMapNode withOffset:offset];
     [self drawCoin2Tiles:tileMapNode withOffset:offset];
     [self drawCoin3Tiles:tileMapNode withOffset:offset];
-    [self drawFlowerTiles:tileMapNode withOffset:offset];
+//    [self drawFlowerTiles:tileMapNode withOffset:offset];
     [self drawCollision1Tiles:tileMapNode withOffset:offset];
     [self drawCollision2Tiles:tileMapNode withOffset:offset];
     [self drawCollision3Tiles:tileMapNode withOffset:offset];

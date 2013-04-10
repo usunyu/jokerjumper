@@ -857,7 +857,7 @@ NSString *map = @"map9.0.tmx";
                 {
 //                    CCLOG(@"joker position: %f,%f",joker.position.x,joker.position.y);
 //                    CCLOG(@"###flower position: %f, %f",actor.position.x,actor.position.y);
-                    if((fabs(actor.position.x-joker.position.x)<400)&&(actor.position.x>joker.position.x))
+                    if(actor.position.x-joker.position.x<100)
                     {
                         [actor setVisible:true];
                         NSMutableArray *animFrames = [NSMutableArray array];

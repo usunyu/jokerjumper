@@ -199,12 +199,12 @@
             //CCLOG(@"before joker jump set:%f",jokerBody->GetLinearVelocity().x);
             if(jokerBody->GetGravityScale()>0)
             {
-                jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,-3000));
+                jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,-JUMP_SPEED));
                 CCLOG(@"here1 %d",jokerFlip);
             }
             else
             {
-                jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,3000));
+                jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,JUMP_SPEED));
                 CCLOG(@"here2 %d",jokerFlip);
             }
             
@@ -226,11 +226,11 @@
         jokerFlip=!jokerFlip;
         if(jokerFlip)
         {
-            jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,3000));
+            jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,JUMP_SPEED));
         }
         else
         {
-            jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,-3000));
+            jokerBody->SetLinearVelocity(b2Vec2(jokerBody->GetLinearVelocity().x,-JUMP_SPEED));
         }        
         //jokerBody->ApplyLinearImpulse(b2Vec2(0.0f, 2000), jokerBody->GetWorldCenter());
         

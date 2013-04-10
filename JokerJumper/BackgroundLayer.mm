@@ -22,8 +22,8 @@ BOOL frontOpen = true;
 BOOL middleOpen = true;
 BOOL backOpen = false;
 
-float frontSpeed = 20.0f;
-float middleSpeed = 10.0f;
+float frontSpeed = 6.0f;
+float middleSpeed = 3.0f;
 float backSpeed = 1.0f;
 
 - (id) init {

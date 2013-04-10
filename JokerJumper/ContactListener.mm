@@ -139,7 +139,7 @@ void ContactListener::BeginContact(b2Contact *contact) {
         {
             b2Body *diceBody=(spriteA.type==kGameObjectJoker)?bodyB:bodyA;
             b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
-            diceBody->SetGravityScale(jokerBody->GetGravityScale()*0.05);
+            diceBody->SetGravityScale(jokerBody->GetGravityScale()*0.2);
         }
         /*
          //Sprite A = Coin, Sprite B = Joker

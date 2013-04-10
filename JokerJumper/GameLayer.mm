@@ -91,7 +91,7 @@ NSString *map = @"map9.0.tmx";
     [self drawCoin1Tiles:tileMapNode withOffset:offset];
     [self drawCoin2Tiles:tileMapNode withOffset:offset];
     [self drawCoin3Tiles:tileMapNode withOffset:offset];
-//    [self drawFlowerTiles:tileMapNode withOffset:offset];
+    [self drawFlowerTiles:tileMapNode withOffset:offset];
     [self drawCollision1Tiles:tileMapNode withOffset:offset];
     [self drawCollision2Tiles:tileMapNode withOffset:offset];
     [self drawCollision3Tiles:tileMapNode withOffset:offset];
@@ -554,7 +554,7 @@ NSString *map = @"map9.0.tmx";
 {
     CGSize screenSize = [CCDirector sharedDirector].winSize;
     [self makeBox2dObjAt:ccp(x,screenSize.height+50)
-                withSize:ccp(256,64)
+                withSize:ccp(256,40)
                  dynamic:false
                 rotation:0
                 friction:0.0f
@@ -855,9 +855,9 @@ NSString *map = @"map9.0.tmx";
                 GameObject*actor=(GameObject*)myActor;
                 if(actor.type==kGameObjectFlower)
                 {
-                    CCLOG(@"joker position: %f,%f",joker.position.x,joker.position.y);
-                    CCLOG(@"###flower position: %f, %f",actor.position.x,actor.position.y);
-                    if((fabs(actor.position.x-joker.position.x)<400)&&(actor.position.x>joker.position.x)&&(fabs(actor.position.y-joker.position.y)<50))
+//                    CCLOG(@"joker position: %f,%f",joker.position.x,joker.position.y);
+//                    CCLOG(@"###flower position: %f, %f",actor.position.x,actor.position.y);
+                    if((fabs(actor.position.x-joker.position.x)<400)&&(actor.position.x>joker.position.x))
                     {
                         [actor setVisible:true];
                         NSMutableArray *animFrames = [NSMutableArray array];
@@ -879,13 +879,13 @@ NSString *map = @"map9.0.tmx";
             }
 		}
 	}
-    CCLOG(@"$$$$$$$destroy size: %ld",toDestroy.size());
+//    CCLOG(@"$$$$$$$destroy size: %ld",toDestroy.size());
      std::vector<b2Body *>::iterator pos2;
      for (pos2 = toDestroy.begin(); pos2 != toDestroy.end(); ++pos2) {
      b2Body *body = *pos2;
      if (body->GetUserData() != NULL) {
      CCSprite *sprite = (__bridge CCSprite *) body->GetUserData();
-         CCLOG(@"$$$$$$$$$$$position %f",sprite.position.x);
+//         CCLOG(@"$$$$$$$$$$$position %f",sprite.position.x);
      [self removeChild:sprite cleanup:YES];
          
      }

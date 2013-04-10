@@ -19,7 +19,7 @@
 #define GAME_STATE_ONE 1
 #define GAME_STATE_TWO 2
 #define GAME_STATE_THREE 3
-
+#define JUMP_SPEED 20.0
 
 #define HUD_LAYER_TAG 1
 #define BG_LAYER_TAG 2

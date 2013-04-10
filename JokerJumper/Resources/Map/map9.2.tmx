@@ -40,6 +40,9 @@
   <object x="10914" y="162" width="891" height="59"/>
   <object x="11266" y="418" width="315" height="59"/>
   <object x="11714" y="418" width="315" height="59"/>
+  <object x="12098" y="34" width="251" height="59"/>
+  <object x="12674" y="34" width="123" height="59"/>
+  <object x="12674" y="674" width="123" height="59"/>
  </objectgroup>
  <objectgroup name="brick_ice" width="400" height="24">
   <object x="2050" y="674" width="57" height="59"/>
@@ -58,31 +61,21 @@
  <objectgroup name="brick_dice" width="400" height="24">
   <object x="2754" y="66" width="59" height="59"/>
   <object x="3682" y="322" width="59" height="59"/>
-  <object x="12096" y="96" width="64" height="64"/>
-  <object x="12160" y="96" width="64" height="64"/>
-  <object x="12224" y="32" width="64" height="64"/>
-  <object x="12288" y="32" width="64" height="64"/>
-  <object x="12352" y="32" width="64" height="64"/>
-  <object x="12416" y="32" width="64" height="64"/>
-  <object x="12480" y="32" width="64" height="64"/>
-  <object x="12544" y="32" width="64" height="64"/>
-  <object x="12608" y="32" width="64" height="64"/>
-  <object x="12672" y="32" width="64" height="64"/>
+  <object x="12354" y="34" width="59" height="59"/>
   <object x="12480" y="672" width="64" height="64"/>
   <object x="12352" y="672" width="64" height="64"/>
-  <object x="12288" y="672" width="64" height="64"/>
-  <object x="12224" y="672" width="64" height="64"/>
   <object x="12544" y="672" width="64" height="64"/>
   <object x="12416" y="672" width="64" height="64"/>
-  <object x="12672" y="672" width="64" height="64"/>
   <object x="12608" y="672" width="64" height="64"/>
-  <object x="12736" y="32" width="64" height="64"/>
-  <object x="12736" y="672" width="64" height="64"/>
   <object x="2754" y="130" width="59" height="59"/>
   <object x="2754" y="642" width="59" height="59"/>
   <object x="2754" y="578" width="59" height="59"/>
   <object x="3746" y="322" width="59" height="59"/>
   <object x="3810" y="322" width="59" height="59"/>
+  <object x="12418" y="34" width="59" height="59"/>
+  <object x="12482" y="34" width="59" height="59"/>
+  <object x="12546" y="34" width="59" height="59"/>
+  <object x="12610" y="34" width="59" height="59"/>
  </objectgroup>
  <objectgroup name="brick_wood" width="400" height="24">
   <object x="7296" y="416" width="64" height="64"/>
@@ -147,7 +140,7 @@
  </objectgroup>
  <layer name="Wall" width="400" height="24">
   <data encoding="base64" compression="zlib">
-   eJzt3VtrxCAQhuHtAXqE9v//2nojhUXXOMnMfCbvA+LVktbEyYwx5HaDh5fSXkt7K+19oq+/UznGyhgfXbPnhnOCK/kq7bu0n9J+J/r6O5VjHMUay/fEE+XxOXo8vHqvuD17bjKuWQAarLH8rPHk6PHw6lcfZwBAG+s6OBPvutw6X1gLxxlF1wfMI3jyrsut80V5LRywio7LyvMo6pnSaMxV/g4AeIT85l/UM6XRmKv8HUC0o3InciNfdXwZZwAqjsqdyI181fFlnAEAFtQfwHVtXS8iTqCF+gOZ2AuQa+t60VnjxOj+GXFd9Y4N4DH2AiDT6P4ZcV31jg0AwCqo4+MovOtsrb8V6nYAbVlrWdTxcRTedbbW3wp1O4C2rLUs3usAAFjwXgcAL+SlOaLWszi/ALyQl+aIWs9SP7+957bc964p+/tm7L3fJ2ve3scR6z6RVd8r8rpeVf/fqvfcVv2+Bx/Z3zdj7/0+WfP2Po5Y94nM7mFRia9e1ytxGNDTy4OfSntu9Or5b4/CnnZPqvF1le+ZU+8D83p58Edpn41+b12e9Z02hT3tkbauo3lb5XvmKvX+aH708rrZHliR8nfazmTrOhq0jOZHL6+b7eHrD+C5MPc=
+   eJzt3etqxCAQhuHtAXqE9v6vtkIJhSVWHR3ni74PiL/CthNjHKN4u8HDUyrPqbyk8tpQH9ep/MaVER9drfeGe4KdfKTymcpXKt8N9XGdym+MYu3Le/oT5fiMjodX7dVvt96biDa7klJ7q2W9Duhh7ctX7U9Gx8Orvnqc8avU3mpZrwOgh3kdrMQ7L7c+L8yFY0Wz8wOeI3jyzsutz4vyXDhgNbtfVn6OZn1TKsVc5e8AgP8wvvkz65tSKeYqfwcw26ixE2MjX0d8iTMAFaPGToyNfB3xJc4AAAvyD2BftfNF9BM4Q/6BSKwFiFU7X7RqP1F6f85oV717coFdsRYAkUrvzxntqndPLgAA0cjj51HY62zNvxXydgDnouayyOPnUdjrbM2/FfJ2AOei5rLY1wEAsGBfBwAvjEtjzJrP4v4C8MK4NMas+Sz1+5v7bst7b0/R55vRDvtExeu+H7GuE7lqe/DKR1T/30Puu636ew8+os83ox32iYrXfT9iXSfS2h5U+levfIT2D+jJjYMfUnk8qdXHvzkKa9o9qfavVznPnL326LFru8mNg99SeT+pe/OhqHPaFNa0z1Q7j+btKueZq+y1Lz0fuXFda42xotvNLpTPaVtJ7TwatJSej9y4rrWGrx+uwDJH
   </data>
  </layer>
 </map>

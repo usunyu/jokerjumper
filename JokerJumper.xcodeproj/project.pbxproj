@@ -33,6 +33,7 @@
 		A4A36BF0170944570063E6B3 /* button_play_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A36BED170944570063E6B3 /* button_play_sel.png */; };
 		A4A36BF1170944570063E6B3 /* button.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4A36BEE170944570063E6B3 /* button.plist */; };
 		A4A36BF2170944570063E6B3 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A36BEF170944570063E6B3 /* button.png */; };
+		A4A36DA91715E06600F9460D /* map9.2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4A36DA81715E06600F9460D /* map9.2.tmx */; };
 		A4ABCA241707FC2200FB4623 /* bg_layer1.png in Resources */ = {isa = PBXBuildFile; fileRef = A4ABCA231707FC2200FB4623 /* bg_layer1.png */; };
 		A4ABCA261707FC3000FB4623 /* map7.3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4ABCA251707FC3000FB4623 /* map7.3.tmx */; };
 		A4ABCA2A1707FCDB00FB4623 /* background_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = A4ABCA271707FCDB00FB4623 /* background_middle.png */; };
@@ -360,6 +361,7 @@
 		A4A36BED170944570063E6B3 /* button_play_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_play_sel.png; sourceTree = "<group>"; };
 		A4A36BEE170944570063E6B3 /* button.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = button.plist; sourceTree = "<group>"; };
 		A4A36BEF170944570063E6B3 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		A4A36DA81715E06600F9460D /* map9.2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map9.2.tmx; sourceTree = "<group>"; };
 		A4ABCA231707FC2200FB4623 /* bg_layer1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_layer1.png; sourceTree = "<group>"; };
 		A4ABCA251707FC3000FB4623 /* map7.3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map7.3.tmx; sourceTree = "<group>"; };
 		A4ABCA271707FCDB00FB4623 /* background_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_middle.png; sourceTree = "<group>"; };
@@ -999,6 +1001,7 @@
 		A4DCA7EE16F062F200819798 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				A4A36DA81715E06600F9460D /* map9.2.tmx */,
 				A43998B21713D25E0006BF15 /* brick.png */,
 				A4581663170DEA23000162FA /* map8.0.tmx */,
 				A4581664170DEA23000162FA /* map9.0.tmx */,
@@ -1976,6 +1979,7 @@
 				A4581665170DEA23000162FA /* map8.0.tmx in Resources */,
 				A4581666170DEA23000162FA /* map9.0.tmx in Resources */,
 				A43998B31713D25E0006BF15 /* brick.png in Resources */,
+				A4A36DA91715E06600F9460D /* map9.2.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

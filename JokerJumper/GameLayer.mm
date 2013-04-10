@@ -48,7 +48,7 @@
 @synthesize jumpVec;
 @synthesize hudLayer;
 
-NSString *map = @"map9.0.tmx";
+NSString *map = @"map9.2.tmx";
 
 +(GameLayer*) getGameLayer {
     return self;
@@ -370,7 +370,7 @@ NSString *map = @"map9.0.tmx";
 					 dynamic:true
 					rotation:0
 					friction:0.0f
-					 density:15.0f
+					 density:500.0f
 				 restitution:0
 					   boxId:-1
                     bodyType:kGameObjectPlatform3];

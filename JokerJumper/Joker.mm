@@ -88,7 +88,7 @@
 	fixtureDef.restitution =  0.0f;
 	jokerBody->CreateFixture(&fixtureDef);
     
-    b2Vec2 impulse = b2Vec2(300.0f, 0.0f);
+    b2Vec2 impulse = b2Vec2(200.0f, 0.0f);
     jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
 }
 
@@ -111,7 +111,7 @@
 
 - (void) adjust {
     //CCLOG(@"before adjust: %f",jokerBody->GetLinearVelocity().x);
-    if(jokerBody->GetLinearVelocity().x<6)
+    if(jokerBody->GetLinearVelocity().x<15)
     {
         [self accelerate];
     }
@@ -124,7 +124,7 @@
 }
 
 - (void) accelerate {
-    b2Vec2 impulse = b2Vec2(6.0f, jokerBody->GetLinearVelocity().y);
+    b2Vec2 impulse = b2Vec2(30.0f, jokerBody->GetLinearVelocity().y);
     jokerBody->SetLinearVelocity(impulse);
     //jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
 }

@@ -76,9 +76,9 @@ showingPausedMenu = showingPausedMenu_;
             [scene addChild:backgroundLayer z:-1];
             
             // 'layer' is an autorelease object.
-            //GameLayer *gameLayer = [GameLayer2 node];
+            GameLayer *gameLayer = [GameLayer2 node];
             // add layer as a child to scene
-            //[scene addChild: gameLayer z:1];
+            [scene addChild: gameLayer z:1];
             
             HUDLayer *hudLayer = [HUDLayer node];
             // add layer as a child to scene

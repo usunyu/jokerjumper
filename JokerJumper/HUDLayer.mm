@@ -7,6 +7,7 @@
 //
 
 #import "HUDLayer.h"
+#import "GameScene.h"
 
 @implementation HUDLayer
 //@synthesize    lifeLabel;

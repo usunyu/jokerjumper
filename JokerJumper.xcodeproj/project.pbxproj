@@ -313,6 +313,7 @@
 		DCB56482170010BF0089936A /* brick2_hd_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DCB56480170010BD0089936A /* brick2_hd_default.png */; };
 		DCB564841700191C0089936A /* map5.9_2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB56483170019170089936A /* map5.9_2.tmx */; };
 		DCB5648617001A0F0089936A /* map5.9_3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCB5648517001A0A0089936A /* map5.9_3.tmx */; };
+		DCBFE5AE171BC91200246F4B /* map_lv2_1.0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DCBFE5AD171BC91200246F4B /* map_lv2_1.0.tmx */; };
 		DCC460A2170500BF009245BD /* brick_ice_flashing_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCC460A0170500BF009245BD /* brick_ice_flashing_default.plist */; };
 		DCC460A3170500BF009245BD /* brick_ice_flashing_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC460A1170500BF009245BD /* brick_ice_flashing_default.png */; };
 		DCF791C61708309700C173BC /* fallingBrick4.png in Resources */ = {isa = PBXBuildFile; fileRef = DCF791C51708309700C173BC /* fallingBrick4.png */; };
@@ -858,6 +859,7 @@
 		DCB56480170010BD0089936A /* brick2_hd_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick2_hd_default.png; sourceTree = "<group>"; };
 		DCB56483170019170089936A /* map5.9_2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.9_2.tmx; sourceTree = "<group>"; };
 		DCB5648517001A0A0089936A /* map5.9_3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.9_3.tmx; sourceTree = "<group>"; };
+		DCBFE5AD171BC91200246F4B /* map_lv2_1.0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map_lv2_1.0.tmx; sourceTree = "<group>"; };
 		DCC460A0170500BF009245BD /* brick_ice_flashing_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brick_ice_flashing_default.plist; sourceTree = "<group>"; };
 		DCC460A1170500BF009245BD /* brick_ice_flashing_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick_ice_flashing_default.png; sourceTree = "<group>"; };
 		DCF791C51708309700C173BC /* fallingBrick4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fallingBrick4.png; sourceTree = "<group>"; };
@@ -1005,6 +1007,7 @@
 				A43998B21713D25E0006BF15 /* brick.png */,
 				A4581663170DEA23000162FA /* map8.0.tmx */,
 				A4581664170DEA23000162FA /* map9.0.tmx */,
+				DCBFE5AD171BC91200246F4B /* map_lv2_1.0.tmx */,
 				A4ABCA251707FC3000FB4623 /* map7.3.tmx */,
 				A4ABCA231707FC2200FB4623 /* bg_layer1.png */,
 				A478BF841707DA4C00F40FB5 /* map7.2_copy.tmx */,
@@ -1980,6 +1983,7 @@
 				A4581666170DEA23000162FA /* map9.0.tmx in Resources */,
 				A43998B31713D25E0006BF15 /* brick.png in Resources */,
 				A4A36DA91715E06600F9460D /* map9.2.tmx in Resources */,
+				DCBFE5AE171BC91200246F4B /* map_lv2_1.0.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,11 @@
 #import "BackgroundLayer.h"
 #import "GameLayer.h"
 #import "CCBReader.h"
-#import "Joker.h"
-#import "GameObject.h"
 #import "SimpleAudioEngine.h"
+#import "GLES-Render.h"
+#import "GameObject.h"
+#include "HUDLayer.h"
+#import "Constants.h"
 
 @class GameObject;
 
@@ -170,7 +172,8 @@ NSString *map = @"map9.2.tmx";
     }
     else if(type==kGameObjectPlatform2)
     {
-        platform = [GameObject spriteWithFile:@"brick_grass_hd.png"];
+        platform=[[GameObject alloc] init];
+       // platform = [GameObject spriteWithFile:@"brick_grass_hd.png"];
 //        [platform setVisible:false];
         [platform setType:type];
         [self addChild:platform z:2];

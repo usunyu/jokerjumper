@@ -5,11 +5,9 @@
 //  Created by Sun on 3/31/13.
 //  Copyright 2013 __MyCompanyName__. All rights reserved.
 //
-#import "BackgroundLayer.h"
-#import "CCBReader.h"
+
 #import "Constants.h"
 #import "SimpleAudioEngine.h"
-#import "GameScene.h"
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 

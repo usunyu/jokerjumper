@@ -7,6 +7,10 @@
 //
 
 #import "PauseLayer.h"
+#import "GameScene.h"
+#import "Constants.h"
+#import "CCBReader.h"
+#import "SimpleAudioEngine.h"
 
 
 @implementation PauseLayer

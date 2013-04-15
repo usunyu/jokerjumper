@@ -42,7 +42,8 @@
 #define jokerLocationY 250
 #define emenyLocationX 50
 #define emenyLocationY 250
-
+#define moonLocationX 300
+#define moonLocationY 50
 
 #define HUD_LAYER_TAG 1
 #define BG_LAYER_TAG 2
@@ -74,6 +75,7 @@ typedef enum {
     kGameObjectPlatform2,
     kGameObjectPlatform3,
     kGameObjectPlatform4,
+    kGameObjectPlatform5,
     kGameObjectCoin1,
     kGameObjectCoin2,
     kGameObjectCoin3,

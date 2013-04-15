@@ -60,99 +60,36 @@ int backgroundLevel = 1;
         case 1:
             if(frontOpen) {
                 //--------------------Front Background--------------------//
-                bgFront1 = [CCSprite spriteWithFile:@"background_front.png"];
-                //    bgFront1.position = ccp(s.width*0.5f,12*PTM_RATIO);
-                bgFront1.anchorPoint = ccp(0,0);
-                bgFront1.position = ccp(0,0);
-                //    bgFront1.scale = 1;
-                [self addChild:bgFront1 z:-1];
-                
+                bgFront1 = [CCSprite spriteWithFile:@"background_front.png"];     
                 bgFront2 = [CCSprite spriteWithFile:@"background_front.png"];
-                //    bgFront2.position = ccp(s.width+s.width*0.5f,12*PTM_RATIO);
-                bgFront2.anchorPoint = ccp(0,0);
-                bgFront2.position = ccp(s.width, 0);
-                //    bgFront2.scale = 1;
-                bgFront2.flipX = true;
-                [self addChild:bgFront2 z:-1];
             }
             if(middleOpen) {
                 //--------------------Middle Background--------------------//
-                bgMiddle1 = [CCSprite spriteWithFile:@"background_middle.png"];
-                bgMiddle1.anchorPoint = ccp(0,0);
-                bgMiddle1.position = ccp(0,0);
-                bgMiddle1.scale = 1;
-                [self addChild:bgMiddle1 z:-2];
-                
+                bgMiddle1 = [CCSprite spriteWithFile:@"background_middle.png"];                
                 bgMiddle2 = [CCSprite spriteWithFile:@"background_middle.png"];
-                bgMiddle2.anchorPoint = ccp(0,0);
-                bgMiddle2.position = ccp(s.width, 0);
-                bgMiddle2.scale = 1;
-                bgMiddle2.flipX = true;
-                [self addChild:bgMiddle2 z:-2];
+
             }
             if(backOpen) {
                 //--------------------Back Background--------------------//
                 bgBack1 = [CCSprite spriteWithFile:@"mbg_layer3.png"];
-                bgBack1.anchorPoint = ccp(0,0);
-                bgBack1.position = ccp(0,0);
-                bgBack1.scale = 1;
-                [self addChild:bgBack1 z:-3];
-                
                 bgBack2 = [CCSprite spriteWithFile:@"mbg_layer3.png"];
-                bgBack2.anchorPoint = ccp(0,0);
-                bgBack2.position = ccp(s.width, 0);
-                bgBack2.scale = 1;
-                bgBack2.flipX = true;
-                [self addChild:bgBack2 z:-3];
             }
             break;
         case 2:
             if(frontOpen) {
                 //--------------------Front Background--------------------//
-                bgFront1 = [CCSprite spriteWithFile:@"level2_bg_layer1.png"];
-                //    bgFront1.position = ccp(s.width*0.5f,12*PTM_RATIO);
-                bgFront1.anchorPoint = ccp(0,0);
-                bgFront1.position = ccp(0,0);
-                bgFront1.scale = 2;
-                [self addChild:bgFront1 z:-1];
-                
-                bgFront2 = [CCSprite spriteWithFile:@"level2_bg_layer1.png"];
-                //    bgFront2.position = ccp(s.width+s.width*0.5f,12*PTM_RATIO);
-                bgFront2.anchorPoint = ccp(0,0);
-                bgFront2.position = ccp(s.width, 0);
-                bgFront2.scale = 2;
-                bgFront2.flipX = true;
-                [self addChild:bgFront2 z:-1];
+                bgFront1 = [CCSprite spriteWithFile:@"level2_bg_1.png"];                
+                bgFront2 = [CCSprite spriteWithFile:@"level2_bg_1.png"];
             }
             if(middleOpen) {
                 //--------------------Middle Background--------------------//
-                bgMiddle1 = [CCSprite spriteWithFile:@"level2_bg_layer2.png"];
-                bgMiddle1.anchorPoint = ccp(0,0);
-                bgMiddle1.position = ccp(0,0);
-                bgMiddle1.scale = 2;
-                [self addChild:bgMiddle1 z:-2];
-                
-                bgMiddle2 = [CCSprite spriteWithFile:@"level2_bg_layer2.png"];
-                bgMiddle2.anchorPoint = ccp(0,0);
-                bgMiddle2.position = ccp(s.width, 0);
-                bgMiddle2.scale = 2;
-                bgMiddle2.flipX = true;
-                [self addChild:bgMiddle2 z:-2];
+                bgMiddle1 = [CCSprite spriteWithFile:@"level2_bg_2.png"];
+                bgMiddle2 = [CCSprite spriteWithFile:@"level2_bg_2.png"];
             }
             if(backOpen) {
                 //--------------------Back Background--------------------//
-                bgBack1 = [CCSprite spriteWithFile:@"mbg_layer3.png"];
-                bgBack1.anchorPoint = ccp(0,0);
-                bgBack1.position = ccp(0,0);
-                bgBack1.scale = 1;
-                [self addChild:bgBack1 z:-3];
-                
+                bgBack1 = [CCSprite spriteWithFile:@"mbg_layer3.png"];       
                 bgBack2 = [CCSprite spriteWithFile:@"mbg_layer3.png"];
-                bgBack2.anchorPoint = ccp(0,0);
-                bgBack2.position = ccp(s.width, 0);
-                bgBack2.scale = 1;
-                bgBack2.flipX = true;
-                [self addChild:bgBack2 z:-3];
             }
             break;
         case 3:
@@ -162,6 +99,47 @@ int backgroundLevel = 1;
         default:
             break;
     }
+    if(frontOpen) {
+        //    bgFront1.position = ccp(s.width*0.5f,12*PTM_RATIO);
+        bgFront1.anchorPoint = ccp(0,0);
+        bgFront1.position = ccp(0,0);
+        //    bgFront1.scale = 1;
+        [self addChild:bgFront1 z:-1];
+        
+        //    bgFront2.position = ccp(s.width+s.width*0.5f,12*PTM_RATIO);
+        bgFront2.anchorPoint = ccp(0,0);
+        bgFront2.position = ccp(s.width, 0);
+        //    bgFront2.scale = 1;
+        bgFront2.flipX = true;
+        [self addChild:bgFront2 z:-1];
+    }
+    
+    if(middleOpen) {
+        bgMiddle1.anchorPoint = ccp(0,0);
+        bgMiddle1.position = ccp(0,0);
+        //                bgMiddle1.scale = 1;
+        [self addChild:bgMiddle1 z:-2];
+        
+        bgMiddle2.anchorPoint = ccp(0,0);
+        bgMiddle2.position = ccp(s.width, 0);
+        //                bgMiddle2.scale = 1;
+        bgMiddle2.flipX = true;
+        [self addChild:bgMiddle2 z:-2];
+    }
+    
+    if(backOpen) {
+        bgBack1.anchorPoint = ccp(0,0);
+        bgBack1.position = ccp(0,0);
+        //                bgBack1.scale = 1;
+        [self addChild:bgBack1 z:-3];
+        
+        bgBack2.anchorPoint = ccp(0,0);
+        bgBack2.position = ccp(s.width, 0);
+        //                bgBack2.scale = 1;
+        bgBack2.flipX = true;
+        [self addChild:bgBack2 z:-3];
+    }
+
 }
 
 

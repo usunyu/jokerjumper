@@ -37,6 +37,7 @@
           [NSString stringWithFormat:@"motion%d-hd.png", i]]];
     }
     jokerRunAnimation = [CCAnimation animationWithSpriteFrames:runAnimFrames delay:0.09f];
+    [self setTexture:[batchNode texture]];
     jokerRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerRunAnimation]];
     jokerRunAction.tag = jokerRunActionTag;
     [self runAction:jokerRunAction];

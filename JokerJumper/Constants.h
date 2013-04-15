@@ -42,8 +42,8 @@
 #define jokerLocationY 250
 #define emenyLocationX 50
 #define emenyLocationY 250
-#define moonLocationX 300
-#define moonLocationY 50
+#define moonLocationX 200
+#define moonLocationY 200
 
 #define HUD_LAYER_TAG 1
 #define BG_LAYER_TAG 2

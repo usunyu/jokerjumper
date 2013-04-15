@@ -651,7 +651,7 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     [self addChild:flowerBatchNode z:10];
     [self addChild:ghostBatchNode z:10];
     [self addChild:skullBatchNode z:20];
-    
+    [self addChild:stoneBatchNode z:15];
     
 }
 

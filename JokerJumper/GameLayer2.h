@@ -26,8 +26,8 @@
     //	CCTMXTiledMap *tileMapNode;
 	b2Body *playerBody;
     
-    CCSprite *moon;
-    CCSprite *ghost;
+    //    CCSprite *coinBar;
+    //    CCSprite *disBar;
     //    CCSprite *lifeBar;
     int coinCount;
     int lifeCount;
@@ -52,9 +52,6 @@
     CCSpriteBatchNode* leafBatchNode;
     CCSpriteBatchNode* diamondBatchNode;
     CCSpriteBatchNode* flowerBatchNode;
-    CCSpriteBatchNode* stoneBatchNode;
-    CCSpriteBatchNode* skullBatchNode;
-    CCSpriteBatchNode* ghostBatchNode;
     b2Vec2 jumpVec;
     std::deque <State> stateVec;
 }
@@ -79,16 +76,13 @@
 @property (nonatomic, readwrite) b2World* world;
 @property (nonatomic, readwrite) Joker* joker;
 @property (nonatomic, readwrite) Joker* emeny;
-@property (nonatomic, readwrite) CCSprite *ghost;
-@property (nonatomic, readwrite) CCSprite *moon;
-//@property (nonatomic, readwrite) CCSprite *lifeBar;
+@property (nonatomic, readwrite) CCSprite *coinBar;
+@property (nonatomic, readwrite) CCSprite *disBar;
+@property (nonatomic, readwrite) CCSprite *lifeBar;
 @property (nonatomic, readwrite) int flyPos;
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick1BatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick2BatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick3BatchNode;
-@property (nonatomic, readwrite) CCSpriteBatchNode* stoneBatchNode;
-@property (nonatomic, readwrite) CCSpriteBatchNode* skullBatchNode;
-@property (nonatomic, readwrite) CCSpriteBatchNode* ghostBatchNode;
 @property (nonatomic, readwrite) GameObject *fly;
 @property (nonatomic, readwrite) CCSpriteBatchNode *emenyBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode *flyBatchNode;

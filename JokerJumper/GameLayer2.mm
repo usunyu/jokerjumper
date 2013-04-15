@@ -17,8 +17,8 @@
 @synthesize world;
 @synthesize fallPos;
 @synthesize joker;
-@synthesize ghost;
-@synthesize moon;
+@synthesize coinCount;
+@synthesize lifeCount;
 @synthesize distance;
 @synthesize fall1;
 @synthesize fall2;
@@ -28,11 +28,8 @@
 @synthesize brick2BatchNode;
 @synthesize brick3BatchNode;
 @synthesize diamondBatchNode;
-@synthesize ghostBatchNode;
-@synthesize stoneBatchNode;
 @synthesize flyBatchNode;
 @synthesize leafBatchNode;
-@synthesize skullBatchNode;
 @synthesize fly;
 @synthesize emeny;
 @synthesize stateVec;
@@ -68,43 +65,26 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     //    NSMutableArray *mapArray = [[NSMutableArray alloc] initWithCapacity:MAP_LEVEL1_NUMS];
     for(int i = 0; i < MAP_LEVEL1_NUMS; i++) {
         CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:map2];
-        CCLOG(@"here2");
         tileMapNode.anchorPoint = ccp(0, 0);
-        CCLOG(@"here3");
         int offset = MAP_LENGTH * PTM_RATIO * i;
-        CCLOG(@"here4");
         tileMapNode.position = ccp(offset, 0);
-        CCLOG(@"here5");
         tileMapNode.scale = 2;
-        CCLOG(@"here6");
         [self addChild:tileMapNode z:-1];
-        CCLOG(@"here7");
         [self drawCollisions:tileMapNode withOffset:offset];
-        CCLOG(@"here8");
     }
 }
 
 - (void) drawCollisions:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
-    CCLOG(@"here.1");
     [self drawCoinTiles:tileMapNode withOffset:offset];
-    CCLOG(@"here.2");
     [self drawCoin1Tiles:tileMapNode withOffset:offset];
-    CCLOG(@"here.3");
     [self drawCoin2Tiles:tileMapNode withOffset:offset];
-    CCLOG(@"here.4");
     [self drawCoin3Tiles:tileMapNode withOffset:offset];
     //    [self drawFlowerTiles:tileMapNode withOffset:offset];
-    CCLOG(@"here.5");
     [self drawCollision1Tiles:tileMapNode withOffset:offset];
-    CCLOG(@"here.6");
     [self drawCollision2Tiles:tileMapNode withOffset:offset];
-    CCLOG(@"here.7");
     [self drawCollision3Tiles:tileMapNode withOffset:offset];
-    CCLOG(@"here.8");
     [self drawCollision4Tiles:tileMapNode withOffset:offset];
-    CCLOG(@"here.9");
     [self drawCollision5Tiles:tileMapNode withOffset:offset];
-    CCLOG(@"here1.0");
 }
 
 //---------------------------------- create the box2d object----------------------------------//
@@ -164,18 +144,18 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     else if(type==kGameObjectPlatform1)
     {
         platform=[[GameObject alloc] init];
-        [platform setTexture:[stoneBatchNode texture]];
-        for(int i = 0; i <= 11; ++i) {
+        for(int i = 0; i <= 8; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-              [NSString stringWithFormat:@"brick_stone_smile%d.png",i]]];
+              [NSString stringWithFormat:@"brick_ice_flashing%d.png",i]]];
         }
         Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
         Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+        [platform setTexture:[brick1BatchNode texture]];
         [platform runAction:Action];
         //platform=[[GameObject alloc] init];
         [platform setType:type];
-        [stoneBatchNode addChild:platform z:2];
+        [brick1BatchNode addChild:platform z:2];
     }
     else if(type==kGameObjectPlatform2)
     {
@@ -618,8 +598,6 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"diamond_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"leaf_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"piranha_default.plist"];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_stone_smile_default.plist"];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"skull_default.plist"];
     
     
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
@@ -630,11 +608,7 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     flyBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
     diamondBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"diamond_default.png"];
     leafBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"leaf_default.png"];
-    flowerBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"piranha_default.png"];
-    stoneBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"brick_stone_smile_default.png"];
-    skullBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"skull_default.png"];
-    ghostBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
-    
+    flowerBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"leaf_default.png"];
     /*
      brick1BatchNode.scale=4;
      brick2BatchNode.scale=4;
@@ -649,9 +623,6 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     [self addChild:diamondBatchNode z:3];
     [self addChild:leafBatchNode z:11];
     [self addChild:flowerBatchNode z:10];
-    [self addChild:ghostBatchNode z:10];
-    [self addChild:skullBatchNode z:20];
-    
     
 }
 
@@ -678,42 +649,25 @@ NSString *map2 = @"map_lv2_1.0.tmx";
         [self initTiledMaps];
         
         joker = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
+        //        joker = [[Joker alloc] init];
         [joker setType:kGameObjectJoker];
         [joker initAnimation:jokerBatchNode];
         joker.position = ccp(jokerLocationX, jokerLocationY);
         [joker createBox2dObject:world];
         
-        moon=[CCSprite spriteWithFile:@"level2_moon.png"];
-        moon.position = ccp(jokerLocationX+ moonLocationX,screenSize.height-moonLocationY);
-        [self addChild:moon z:1];
-        
-        
-        ghost=[CCSprite spriteWithSpriteFrameName:@"pokerSoilder1.png"];
-        NSMutableArray *ghostAnimFrames = [NSMutableArray array];
-        for(int i = 0; i <= 9; ++i) {
-            [ghostAnimFrames addObject:
-             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-              [NSString stringWithFormat:@"pokerSoilder%d.png", i]]];
-        }
-        CCAnimation *ghostRunAnimation = [CCAnimation animationWithSpriteFrames:ghostAnimFrames delay:0.09f];
-        CCAction *ghostRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: ghostRunAnimation]];
-        [ghost setTexture:[ghostBatchNode texture]];
-        [ghost runAction:ghostRunAction];
-        ghost.position = ccp(emenyLocationX, emenyLocationY);
-        [ghostBatchNode addChild:ghost z:10];
-        
-        
-        
-        
-//        emeny = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
-//        [emeny setType:kGameObjectEmeny];
-//        [emeny initAnimation: emenyBatchNode];
-//        emeny.position = ccp(emenyLocationX, emenyLocationY);
-//        [emeny createBox2dObject:world];
+        emeny = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
+        [emeny setType:kGameObjectEmeny];
+        [emeny initAnimation: emenyBatchNode];
+        emeny.position = ccp(emenyLocationX, emenyLocationY);
+        [emeny createBox2dObject:world];
         
         flyPos=0;
         CCScene* scene = [[CCDirector sharedDirector] runningScene];
         hudLayer = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
+        if(hudLayer!=NULL)
+        {
+            CCLOG(@"1");
+        }
         [hudLayer updateCoinCounter:self.coinCount];
         [hudLayer updateLifeCounter:self.lifeCount];
         [hudLayer updateStatusCounter:self.distance];
@@ -740,7 +694,7 @@ NSString *map2 = @"map_lv2_1.0.tmx";
         [self schedule:@selector(update:)];
         [self schedule:@selector(updateObject:) interval:0.5f];
         //[self schedule:@selector(updateEmeny:) interval:0.2f];
-        //[self schedule:@selector(jokerCharging:) interval:0.2f];
+        [self schedule:@selector(jokerCharging:) interval:0.2f];
         
         //TAOHU
         /*[self runAction:[CCSequence actions:
@@ -792,11 +746,13 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     //CCLOG(@"dt: %f",dt);
     //CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    moon.position=ccp(joker.position.x+moonLocationX,winSize.height-moonLocationY);
-    
     
     CCScene* scene = [[CCDirector sharedDirector] runningScene];
     hudLayer  = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
+    if(hudLayer!=NULL)
+    {
+        CCLOG(@"1");
+    }
     
     [hudLayer updateCoinCounter:coinCount];
     [hudLayer updateLifeCounter:lifeCount];
@@ -814,12 +770,7 @@ NSString *map2 = @"map_lv2_1.0.tmx";
         }
     }
     [joker adjust];
-    //[emeny adjust];
-    
-    CGPoint endPos=ccp(joker.position.x-300,joker.position.y);
-    CCAction *ghostAction=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:0.2f position:endPos]];
-    [ghost runAction:ghostAction];
-    
+    [emeny adjust];
     if(joker.position.x>FALLING_WOOD1-FALLING_OFFSET&&fall1==false)
     {
         [self updateFalling:FALLING_WOOD1];
@@ -840,7 +791,7 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     {
         //        [[SimpleAudioEngine sharedEngine] playEffect:@"Cartoon clown laugh.wav"];
     }
-    if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:ghost]))||joker.position.x<ghost.position.x)
+    if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x)
     {
         //||(joker.position.y >winSize.height/PTM_RATIO)
         CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
@@ -921,11 +872,10 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     
     
     
-    
     //[self setStatusLabelText:[NSString stringWithFormat:@"%.2d", self.coinCount]];
     //[self setLifeLabelText:[NSString stringWithFormat:@"%.2d", self.lifeCount]];
     //[self setDistanceLabelText:[NSString stringWithFormat:@"%.2f", self.distance]];
-    /*
+    
     if(stateVec.size()!=0)
     {
         CCLOG(@"emeny position: (%f,%f), joker last jump position: %f,queue size:%d",
@@ -963,9 +913,8 @@ NSString *map2 = @"map_lv2_1.0.tmx";
             CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
             stateVec.pop_front();
         }
-     
+        
     }
-     */
     /*
      if((joker.position.x-emeny.position.x>AI_RESET_DISTANCE||(emeny.position.y<=0)||(emeny.position.y>=winSize.height))&&(emeny.position.x>stateVec.front().position.x))
      {
@@ -1014,16 +963,16 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     fly = [[GameObject alloc] init];
     [fly setType: kGameObjectFly];
     
-    for(int i = 0; i <=10 ; ++i) {
+    for(int i = 0; i <=18 ; ++i) {
         [flyFrames addObject:
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-          [NSString stringWithFormat:@"skull%d.png", i]]];
+          [NSString stringWithFormat:@"leaf%d.png", i]]];
     }
     flyAnim=[CCAnimation animationWithSpriteFrames:flyFrames delay:0.2f];
     flyAction= [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: flyAnim]];
-    [fly setTexture:[skullBatchNode texture]];
     [fly runAction:flyAction];
-    [skullBatchNode addChild:fly z:10];
+    [fly setTexture:[leafBatchNode texture]];
+    [leafBatchNode addChild:fly z:10];
     
     startPos=ccp(joker.position.x+screenSize.width,arc4random_uniform(screenSize.height));
     endPos=ccp(joker.position.x-500,arc4random_uniform(screenSize.height));

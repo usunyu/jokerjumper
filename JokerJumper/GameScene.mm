@@ -57,7 +57,7 @@ showingPausedMenu = showingPausedMenu_;
     switch (state) {
         case GAME_STATE_ONE:
         {
-            BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+            BackgroundLayer *backgroundLayer = [[BackgroundLayer alloc] initWithLevel: 1];
             [scene addChild:backgroundLayer z:-1];
             
             // 'layer' is an autorelease object.
@@ -72,7 +72,7 @@ showingPausedMenu = showingPausedMenu_;
         }
         case GAME_STATE_TWO:
         {
-            BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+            BackgroundLayer *backgroundLayer = [[BackgroundLayer alloc] initWithLevel: 2];
             [scene addChild:backgroundLayer z:-1];
             
             // 'layer' is an autorelease object.
@@ -87,7 +87,7 @@ showingPausedMenu = showingPausedMenu_;
         }
         case GAME_STATE_THREE:
         {
-            BackgroundLayer *backgroundLayer = [BackgroundLayer node];
+            BackgroundLayer *backgroundLayer = [[BackgroundLayer alloc] initWithLevel: 3];
             [scene addChild:backgroundLayer z:-1];
             
             // 'layer' is an autorelease object.

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A40A975C171BD63F006F1767 /* level2_bg_layer1.png in Resources */ = {isa = PBXBuildFile; fileRef = A40A975A171BD63F006F1767 /* level2_bg_layer1.png */; };
+		A40A975D171BD63F006F1767 /* level2_bg_layer2.png in Resources */ = {isa = PBXBuildFile; fileRef = A40A975B171BD63F006F1767 /* level2_bg_layer2.png */; };
 		A433BD1316F069A2003CD7CE /* motion1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = A433BD1216F069A2003CD7CE /* motion1-hd.png */; };
 		A433BD1516F06F3C003CD7CE /* Collect_Coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = A433BD1416F06F3C003CD7CE /* Collect_Coin.wav */; };
 		A433BD1716F0745B003CD7CE /* GameOver.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = A433BD1616F0745B003CD7CE /* GameOver.ccbi */; };
@@ -329,6 +331,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A40A975A171BD63F006F1767 /* level2_bg_layer1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level2_bg_layer1.png; sourceTree = "<group>"; };
+		A40A975B171BD63F006F1767 /* level2_bg_layer2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level2_bg_layer2.png; sourceTree = "<group>"; };
 		A433BD1216F069A2003CD7CE /* motion1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "motion1-hd.png"; sourceTree = "<group>"; };
 		A433BD1416F06F3C003CD7CE /* Collect_Coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Collect_Coin.wav; sourceTree = "<group>"; };
 		A433BD1616F0745B003CD7CE /* GameOver.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = GameOver.ccbi; path = CocosBuilderFiles/Scenes/GameOver.ccbi; sourceTree = "<group>"; };
@@ -897,6 +901,8 @@
 		A433BD2016F0804D003CD7CE /* Background */ = {
 			isa = PBXGroup;
 			children = (
+				A40A975A171BD63F006F1767 /* level2_bg_layer1.png */,
+				A40A975B171BD63F006F1767 /* level2_bg_layer2.png */,
 				A4EC161217093E2B0081D8CE /* menu_with_button.png */,
 				A4ABCA281707FCDB00FB4623 /* background_front.png */,
 				A4ABCA271707FCDB00FB4623 /* background_middle.png */,
@@ -1984,6 +1990,8 @@
 				A43998B31713D25E0006BF15 /* brick.png in Resources */,
 				A4A36DA91715E06600F9460D /* map9.2.tmx in Resources */,
 				DCBFE5AE171BC91200246F4B /* map_lv2_1.0.tmx in Resources */,
+				A40A975C171BD63F006F1767 /* level2_bg_layer1.png in Resources */,
+				A40A975D171BD63F006F1767 /* level2_bg_layer2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

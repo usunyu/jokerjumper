@@ -13,4 +13,6 @@
     
 }
 
+- (id) initWithLevel:(int)level;
+
 @end

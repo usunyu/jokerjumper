@@ -14,21 +14,15 @@
 #import "GameObject.h"
 #include <deque>
 #include "HUDLayer.h"
+#import "Constants.h"
 
-#define jokerRunActionTag 1
-#define mapTag 2
 
-#define jokerLocationX 350
-#define jokerLocationY 250
-#define emenyLocationX 50
-#define emenyLocationY 250
 
 //Pixel to metres ratio. Box2D uses metres as the unit for measurement.
 //This ratio defines how many pixels correspond to 1 Box2D "metre"
 //Box2D is optimized for objects of 1x1 metre therefore it makes sense
 //to define the ratio so that your most common object type is 1x1 metre.
 #define PTM_RATIO 32//kGameObjectCoin
-
 #define IS_PLAT(x)          ((x==kGameObjectPlatform1)||(x==kGameObjectPlatform2)||(x==kGameObjectPlatform3)||(x==kGameObjectPlatform4)||(x==kGameObjectFalling)||(x==kGameObjectDisable))
 #define IS_COIN(x)          ((x==kGameObjectCoin)||(x==kGameObjectCoin1)||(x==kGameObjectCoin2)||(x==kGameObjectCoin3))
 
@@ -46,6 +40,7 @@
 #define IS_PLAT4TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectPlatform4))||((x.type == kGameObjectPlatform4)&&(y.type == kGameObjectJoker)))
 #define IS_PLAT5TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectDisable))||((x.type == kGameObjectDisable)&&(y.type == kGameObjectJoker)))
 #define IS_PLAT6TYPE(x, y)      (((x.type == kGameObjectJoker)&&(y.type == kGameObjectFalling))||((x.type == kGameObjectFalling)&&(y.type == kGameObjectJoker)))
+
 
 
 @class Joker;

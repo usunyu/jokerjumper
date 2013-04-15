@@ -9,7 +9,6 @@
 #import "BackgroundLayer.h"
 #import "GameLayer.h"
 #import "CCBReader.h"
-#import "Constants.h"
 #import "Joker.h"
 #import "GameObject.h"
 #import "SimpleAudioEngine.h"
@@ -370,7 +369,7 @@ NSString *map = @"map9.2.tmx";
 					 dynamic:true
 					rotation:0
 					friction:0.0f
-					 density:500.0f
+					 density:DICE_DENSITY 
 				 restitution:0
 					   boxId:-1
                     bodyType:kGameObjectPlatform3];
@@ -732,7 +731,7 @@ NSString *map = @"map9.2.tmx";
         newVel=joker.jokerBody->GetLinearVelocity();
     }
     emeny.jokerBody->SetLinearVelocity(newVel);
-    emeny.jokerBody->SetTransform(b2Vec2(joker.jokerBody->GetPosition().x-diff.x/PTM_RATIO,joker.jokerBody->GetPosition().y), 0);
+    emeny.jokerBody->SetTransform(b2Vec2(joker.jokerBody->GetPosition().x-diff.x/PTM_RATIO,joker.jokerBody->GetPosition().y/PTM_RATIO), 0);
     emeny.jokerFlip=joker.jokerFlip;
     [emeny flip];
 }
@@ -769,39 +768,28 @@ NSString *map = @"map9.2.tmx";
     
     if(joker.jokerBody->GetLinearVelocity().x<0.2)
     {
-        joker.jokerBody->SetLinearVelocity(jumpVec);
+        if(joker.jokerFlip)
+        {
+            joker.jokerBody->SetLinearVelocity(b2Vec2(jumpVec.x,JUMP_SPEED));
+        }
+        else
+        {
+            joker.jokerBody->SetLinearVelocity(b2Vec2(jumpVec.x,-JUMP_SPEED));
+        }
     }
     [joker adjust];
     [emeny adjust];
-    if(joker.position.x>1000&&fall1==false)
+    if(joker.position.x>FALLING_WOOD1-FALLING_OFFSET&&fall1==false)
     {
-        [self updateFalling:1632];
+        [self updateFalling:FALLING_WOOD1];
         fall1=true;
     }
-    if(joker.position.x>2000&&fall2==false)
+    if(joker.position.x>FALLING_WOOD2-FALLING_OFFSET&&fall2==false)
     {
-        [self updateFalling:2528];
+        [self updateFalling:FALLING_WOOD2];
         fall2=true;
     }
-    /*
-    if((joker.position.x>1500&&joker.position.x<1530)|| (joker.position.x>1000&&joker.position.x<1030))
-    {
-        if(joker.position.x>1500&&joker.position.x<1530)
-            fallPos = 2000;
-        else if (joker.position.x>1000&&joker.position.x<1030)
-            fallPos = 1500;
-        fall = true;
-    }
-    if(fall == true) {
-        [self updateFalling:fallPos];
-        fall = false;
-    }*/
     
-    //CCLOG(@"joker.x = %f", joker.position.x);
-    //    if(joker.position.x >= 18000 && joker.position.x <= 18020) {
-    //        [self updateScrollingBackgroundWithTileMap:18000];
-    //    }
-    //    CGSize winSize = [CCDirector sharedDirector].winSize;
     if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:fly])))
     {
         lifeCount--;
@@ -834,6 +822,7 @@ NSString *map = @"map9.2.tmx";
     self.distance=(float)joker.jokerBody->GetPosition().x;
 	[self setPosition:newPos];
     
+    
     std::vector<b2Body *>toDestroy;
 	//Iterate over the bodies in the physics world
 	for (b2Body* b = world->GetBodyList(); b; b = b->GetNext())
@@ -855,8 +844,6 @@ NSString *map = @"map9.2.tmx";
                 GameObject*actor=(GameObject*)myActor;
                 if(actor.type==kGameObjectFlower)
                 {
-//                    CCLOG(@"joker position: %f,%f",joker.position.x,joker.position.y);
-//                    CCLOG(@"###flower position: %f, %f",actor.position.x,actor.position.y);
                     if(actor.position.x-joker.position.x<100)
                     {
                         [actor setVisible:true];
@@ -872,20 +859,18 @@ NSString *map = @"map9.2.tmx";
                         [actor runAction:Action];
                     }
                 }
-                if(b->GetPosition().x<(joker.position.x-500)/PTM_RATIO)
+                if((b->GetPosition().x<(joker.position.x-DESTORY_DISTANCE)/PTM_RATIO)&&actor.type!=kGameObjectEmeny)
                 {
                     toDestroy.push_back(b);
                 }
             }
 		}
 	}
-//    CCLOG(@"$$$$$$$destroy size: %ld",toDestroy.size());
      std::vector<b2Body *>::iterator pos2;
      for (pos2 = toDestroy.begin(); pos2 != toDestroy.end(); ++pos2) {
      b2Body *body = *pos2;
      if (body->GetUserData() != NULL) {
      CCSprite *sprite = (__bridge CCSprite *) body->GetUserData();
-//         CCLOG(@"$$$$$$$$$$$position %f",sprite.position.x);
      [self removeChild:sprite cleanup:YES];
          
      }
@@ -899,13 +884,50 @@ NSString *map = @"map9.2.tmx";
     //[self setLifeLabelText:[NSString stringWithFormat:@"%.2d", self.lifeCount]];
     //[self setDistanceLabelText:[NSString stringWithFormat:@"%.2f", self.distance]];
     
-
-    
-    if(ccpLength([self seekWithPosition:joker.position selfPos:emeny.position])>500)
+    if(stateVec.size()!=0)
     {
-        emeny.jokerBody->SetTransform(b2Vec2((joker.position.x-300)/PTM_RATIO,joker.position.y/PTM_RATIO), 0);
+        CCLOG(@"emeny position: (%f,%f), joker last jump position: %f,queue size:%d",
+              emeny.position.x,emeny.position.y,stateVec.front().position.x,stateVec.front().position.y,stateVec.size());
+        
+        if(((emeny.position.y<=0)||(emeny.position.y>=winSize.height))&&(joker.position.x-stateVec.front().position.x>LASTJUMP_EMENY_DISTANCE))
+        {
+            emeny.jokerBody->SetTransform(b2Vec2(stateVec.front().position.x/PTM_RATIO,stateVec.front().position.y/PTM_RATIO),0);
+            emeny.jokerBody->SetGravityScale(stateVec.front().gravityScale);
+            emeny.jokerFlip=stateVec.front().flipState;
+            emeny.jokerBody->SetLinearVelocity(stateVec.front().velocity);
+            [emeny jump:false];
+            CCLOG(@"emeny position: %f",emeny.position.x);
+            CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
+            stateVec.pop_front();
+        }
+        else if((joker.position.x-emeny.position.x>JOKER_EMENY_DISTANCE)&&(joker.position.x-stateVec.front().position.x>LASTJUMP_EMENY_DISTANCE))
+        {
+            emeny.jokerBody->SetTransform(b2Vec2(stateVec.front().position.x/PTM_RATIO,stateVec.front().position.y/PTM_RATIO),0);
+            emeny.jokerBody->SetGravityScale(stateVec.front().gravityScale);
+            emeny.jokerFlip=stateVec.front().flipState;
+            emeny.jokerBody->SetLinearVelocity(stateVec.front().velocity);
+            [emeny jump:false];
+            CCLOG(@"emeny position: %f",emeny.position.x);
+            CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
+            stateVec.pop_front();
+        }
+        else if(emeny.position.x>stateVec.front().position.x&&fabs(emeny.position.y-stateVec.front().position.y)<10.0)
+        {
+            emeny.jokerBody->SetGravityScale(stateVec.front().gravityScale);
+            emeny.jokerFlip=stateVec.front().flipState;
+            emeny.jokerBody->SetLinearVelocity(stateVec.front().velocity);
+            [emeny jump:false];
+            CCLOG(@"emeny position: %f",emeny.position.x);
+            CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
+            stateVec.pop_front();
+        }
+
     }
-    
+ /*
+    if((joker.position.x-emeny.position.x>AI_RESET_DISTANCE||(emeny.position.y<=0)||(emeny.position.y>=winSize.height))&&(emeny.position.x>stateVec.front().position.x))
+    {
+        emeny.jokerBody->SetTransform(, );
+    }
     if(stateVec.size()!=0)
     {
         if(emeny.position.x>stateVec.front().position.x)
@@ -928,6 +950,7 @@ NSString *map = @"map9.2.tmx";
             stateVec.pop_front();
         }
     }
+  */
 }
 
 
@@ -1028,7 +1051,7 @@ NSString *map = @"map9.2.tmx";
     if(!joker.jokerJumping)
     {
         joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
-        State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale()};
+        State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
         stateVec.push_back(curState);
         //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
         [joker jump:jokerCharge];

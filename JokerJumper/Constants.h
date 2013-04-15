@@ -19,7 +19,30 @@
 #define GAME_STATE_ONE 1
 #define GAME_STATE_TWO 2
 #define GAME_STATE_THREE 3
+
+#define MIN_RUN_SPEED 8.0
+#define MAX_RUN_SPEED 13.0
 #define JUMP_SPEED 20.0
+
+#define DICE_DENSITY 50.0
+
+#define DESTORY_DISTANCE 600.0
+
+#define JOKER_EMENY_DISTANCE 500.0
+#define LASTJUMP_EMENY_DISTANCE 335.0
+
+#define FALLING_WOOD1 1632
+#define FALLING_WOOD2 2528
+#define FALLING_OFFSET 600.0
+
+#define jokerRunActionTag 1
+#define mapTag 2
+
+#define jokerLocationX 350
+#define jokerLocationY 250
+#define emenyLocationX 50
+#define emenyLocationY 250
+
 
 #define HUD_LAYER_TAG 1
 #define BG_LAYER_TAG 2
@@ -40,6 +63,7 @@ struct State {
     CGPoint position;
     b2Vec2 velocity;
     float gravityScale;
+    BOOL flipState;
 };
 
 typedef enum {

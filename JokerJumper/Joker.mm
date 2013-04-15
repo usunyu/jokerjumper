@@ -111,11 +111,11 @@
 
 - (void) adjust {
     //CCLOG(@"before adjust: %f",jokerBody->GetLinearVelocity().x);
-    if(jokerBody->GetLinearVelocity().x<15)
+    if(jokerBody->GetLinearVelocity().x<MIN_RUN_SPEED)
     {
         [self accelerate];
     }
-    else if(jokerBody->GetLinearVelocity().x>15)
+    else if(jokerBody->GetLinearVelocity().x>MAX_RUN_SPEED)
     {
         [self decelerate];
     }
@@ -124,13 +124,13 @@
 }
 
 - (void) accelerate {
-    b2Vec2 impulse = b2Vec2(30.0f, jokerBody->GetLinearVelocity().y);
+    b2Vec2 impulse = b2Vec2(MIN_RUN_SPEED, jokerBody->GetLinearVelocity().y);
     jokerBody->SetLinearVelocity(impulse);
     //jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
 }
 
 - (void) decelerate {
-    b2Vec2 impulse = b2Vec2(15.0f,  jokerBody->GetLinearVelocity().y);
+    b2Vec2 impulse = b2Vec2(MAX_RUN_SPEED,  jokerBody->GetLinearVelocity().y);
     jokerBody->SetLinearVelocity(impulse);
     //jokerBody->ApplyLinearImpulse(impulse, jokerBody->GetWorldCenter());
 }

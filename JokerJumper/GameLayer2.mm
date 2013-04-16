@@ -687,19 +687,19 @@ NSString *map2 = @"map_lv2_trial.tmx";
         joker.position = ccp(jokerLocationX, jokerLocationY);
         [joker createBox2dObject:world];
         
-        moon=[CCSprite spriteWithSpriteFrameName:@"moon0.png"];
-        NSMutableArray *moonAnimFrames = [NSMutableArray array];
-        for(int i = 0; i <= 12; ++i) {
-            [moonAnimFrames addObject:
-             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-              [NSString stringWithFormat:@"moon%d.png", i]]];
-        }
-        CCAnimation *moonRunAnimation = [CCAnimation animationWithSpriteFrames:moonAnimFrames delay:0.1f];
-        CCAction *moonRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: moonRunAnimation]];
-        [moon setTexture:[moonBatchNode texture]];
-        [moon runAction:moonRunAction];
-        moon.position = ccp(jokerLocationX+ moonLocationX,screenSize.height-moonLocationY);
-        [moonBatchNode addChild:moon z:10];
+//        moon=[CCSprite spriteWithSpriteFrameName:@"moon0.png"];
+//        NSMutableArray *moonAnimFrames = [NSMutableArray array];
+//        for(int i = 0; i <= 12; ++i) {
+//            [moonAnimFrames addObject:
+//             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+//              [NSString stringWithFormat:@"moon%d.png", i]]];
+//        }
+//        CCAnimation *moonRunAnimation = [CCAnimation animationWithSpriteFrames:moonAnimFrames delay:0.1f];
+//        CCAction *moonRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: moonRunAnimation]];
+//        [moon setTexture:[moonBatchNode texture]];
+//        [moon runAction:moonRunAction];
+//        moon.position = ccp(jokerLocationX+ moonLocationX,screenSize.height-moonLocationY);
+//        [moonBatchNode addChild:moon z:10];
 
         
         ghost=[CCSprite spriteWithSpriteFrameName:@"pokerSoilder1.png"];
@@ -754,6 +754,7 @@ NSString *map2 = @"map_lv2_trial.tmx";
         [self schedule:@selector(update:)];
         [self schedule:@selector(updateObject:) interval:2.0f];
         [self schedule:@selector(updateGhost:) interval:0.5f];
+        [self schedule:@selector(updateFire:) interval:0.2f];
         //[self schedule:@selector(updateEmeny:) interval:0.2f];
         //[self schedule:@selector(jokerCharging:) interval:0.2f];
         
@@ -769,6 +770,39 @@ NSString *map2 = @"map_lv2_trial.tmx";
         //[self schedule:@selector(updateFalling:) interval:6.0f];
     }
     return self;
+}
+- (void)updateFire:(ccTime) dt
+{
+    if(joker.jokerBody->GetLinearVelocity().x>MIN_RUN_SPEED)
+    {
+        
+        if(!joker.jokerFlip)
+        {
+            CCParticleSystem *ps = [CCParticleExplosion node];
+            [self addChild:ps z:12];
+            ps.texture = [[CCTextureCache sharedTextureCache] addImage:@"fire.png"];
+            ps.position = ccp(joker.position.x-joker.contentSize.width/2,joker.position.y-joker.contentSize.height/2);
+            ps.blendAdditive = YES;
+            ps.life = 0.2f;
+            ps.lifeVar = 0.2f;
+            ps.totalParticles = 60.0f;
+            ps.autoRemoveOnFinish = YES;
+        }
+        else
+        {
+            CCParticleSystem *ps = [CCParticleExplosion node];
+            [self addChild:ps z:12];
+            ps.texture = [[CCTextureCache sharedTextureCache] addImage:@"fire.png"];
+            ps.position = ccp(joker.position.x-joker.contentSize.width/2,joker.position.y+joker.contentSize.height/2);
+            ps.blendAdditive = YES;
+            ps.life = 0.2f;
+            ps.lifeVar = 0.2f;
+            ps.totalParticles = 60.0f;
+            ps.autoRemoveOnFinish = YES;
+        }
+         
+    }
+
 }
 
 - (void)updateEmeny:(ccTime) dt
@@ -808,7 +842,7 @@ NSString *map2 = @"map_lv2_trial.tmx";
     //CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    moon.position = ccp(joker.position.x+ moonLocationX,winSize.height-moonLocationY);
+    //moon.position = ccp(joker.position.x+ moonLocationX,winSize.height-moonLocationY);
 
     CCScene* scene = [[CCDirector sharedDirector] runningScene];
     hudLayer  = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
@@ -1112,7 +1146,7 @@ NSString *map2 = @"map_lv2_trial.tmx";
     world = new b2World(gravity);
     world->SetAllowSleeping(doSleep);
     world->SetContinuousPhysics(TRUE);
-    contactListener = new ContactListener();
+    contactListener = new ContactListener2();
     world->SetContactListener(contactListener);
 }
 

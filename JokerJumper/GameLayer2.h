@@ -1,6 +1,6 @@
 #import "cocos2d.h"
 #import "Box2D.h"
-#import "ContactListener.h"
+#import "ContactListener2.h"
 #import "GameObject.h"
 #include <deque>
 
@@ -38,7 +38,7 @@
     Joker *joker;
     Joker *emeny;
     GameObject *fly;
-    ContactListener *contactListener;
+    ContactListener2 *contactListener;
     float fallPos;
     int flyPos;
     BOOL jokerStartCharge;

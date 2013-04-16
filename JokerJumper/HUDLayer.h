@@ -19,6 +19,9 @@
     CCSprite *coinBar;
     CCSprite *disBar;
     CCSprite *lifeBar;
+    CCSprite *moon;
+    CCSpriteBatchNode* moonBatchNode;
+    
 }
 -(void) updateLifeCounter:(int)amount;
 -(void) updateCoinCounter:(int)amount;

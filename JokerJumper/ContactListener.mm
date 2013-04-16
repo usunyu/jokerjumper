@@ -86,7 +86,23 @@ void ContactListener::BeginContact(b2Contact *contact) {
     {
         GameObject *spriteA = (__bridge GameObject *) bodyA->GetUserData();
         GameObject *spriteB = (__bridge GameObject *) bodyB->GetUserData();
-        
+        if(IS_COINTYPE(spriteA, spriteB))
+        {
+            GameObject *coinSprite=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;
+            CCScene* scene = [[CCDirector sharedDirector] runningScene];
+            GameLayer * layer = (GameLayer*)[scene getChildByTag:GAME_LAYER_TAG];
+            
+            CCParticleSystem *ps = [CCParticleExplosion node];
+            [layer addChild:ps z:12];
+            ps.texture = [[CCTextureCache sharedTextureCache] addImage:@"stars.png"];
+            ps.position = coinSprite.position;
+            ps.blendAdditive = YES;
+            ps.life = 0.2f;
+            ps.lifeVar = 0.2f;
+            ps.totalParticles = 30.0f;
+            ps.autoRemoveOnFinish = YES;
+            
+        }
         if (IS_COIN0TYPE(spriteA, spriteB))
         {
             GameObject *coinSprite=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;

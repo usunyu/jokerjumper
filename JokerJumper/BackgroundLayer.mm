@@ -49,8 +49,8 @@ int backgroundLevel = 1;
         backgroundLevel = level;
         
         [self initBackground];
-        
-        [self initMoon];
+        if(level == 2)
+            [self initMoon];
         
         [self schedule: @selector(tick:)];
     }

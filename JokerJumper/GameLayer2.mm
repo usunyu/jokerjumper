@@ -41,7 +41,7 @@
 @synthesize hudLayer;
 @synthesize positionVec;
 
-NSString *map2 = @"map_lv2_1.0.tmx";
+NSString *map2 = @"map_lv2_trial.tmx";
 
 +(GameLayer2*) getGameLayer2 {
     return self;
@@ -167,7 +167,7 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     {
         platform=[[GameObject alloc] init];
         [platform setTexture:[stoneBatchNode texture]];
-        for(int i = 0; i <= 11; ++i) {
+        for(int i = 0; i <= 12; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"brick_stone_smile%d.png",i]]];
@@ -694,7 +694,7 @@ NSString *map2 = @"map_lv2_1.0.tmx";
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"moon%d.png", i]]];
         }
-        CCAnimation *moonRunAnimation = [CCAnimation animationWithSpriteFrames:moonAnimFrames delay:0.09f];
+        CCAnimation *moonRunAnimation = [CCAnimation animationWithSpriteFrames:moonAnimFrames delay:0.1f];
         CCAction *moonRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: moonRunAnimation]];
         [moon setTexture:[moonBatchNode texture]];
         [moon runAction:moonRunAction];

@@ -290,8 +290,6 @@
 		DC7E1998171BF62E00DA84A0 /* map_lv2_1.0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC7E1997171BF62E00DA84A0 /* map_lv2_1.0.tmx */; };
 		DC7E199B171CEEE900DA84A0 /* moon_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC7E1999171CEEE900DA84A0 /* moon_default.plist */; };
 		DC7E199C171CEEE900DA84A0 /* moon_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7E199A171CEEE900DA84A0 /* moon_default.png */; };
-		DC7E199F171CFE6F00DA84A0 /* brick_stone_smile_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC7E199D171CFE6E00DA84A0 /* brick_stone_smile_default.plist */; };
-		DC7E19A0171CFE6F00DA84A0 /* brick_stone_smile_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7E199E171CFE6F00DA84A0 /* brick_stone_smile_default.png */; };
 		DCA232C5170BDCF200EA70E0 /* ContactListener2.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCA232C4170BDCF200EA70E0 /* ContactListener2.mm */; };
 		DCA232C9170BEF4B00EA70E0 /* fallingBrick8.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA232C8170BEF4B00EA70E0 /* fallingBrick8.png */; };
 		DCA232CE170C245B00EA70E0 /* leaf_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA232CC170C245B00EA70E0 /* leaf_default.plist */; };
@@ -335,6 +333,9 @@
 		E951845617077FA200F72200 /* map7.1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E951845517077FA200F72200 /* map7.1.tmx */; };
 		E95184581707831000F72200 /* map7.1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E95184571707830E00F72200 /* map7.1.tmx */; };
 		E951845E1707862F00F72200 /* map7.2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E951845D1707862F00F72200 /* map7.2.tmx */; };
+		E9881780171D18DB00269E7A /* map_lv2_trial.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E988177F171D18DB00269E7A /* map_lv2_trial.tmx */; };
+		E9881783171D1AD700269E7A /* brick_stone_smile_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9881781171D1AD700269E7A /* brick_stone_smile_default.plist */; };
+		E9881784171D1AD700269E7A /* brick_stone_smile_default.png in Resources */ = {isa = PBXBuildFile; fileRef = E9881782171D1AD700269E7A /* brick_stone_smile_default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -842,8 +843,6 @@
 		DC7E1997171BF62E00DA84A0 /* map_lv2_1.0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map_lv2_1.0.tmx; sourceTree = "<group>"; };
 		DC7E1999171CEEE900DA84A0 /* moon_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = moon_default.plist; sourceTree = "<group>"; };
 		DC7E199A171CEEE900DA84A0 /* moon_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moon_default.png; sourceTree = "<group>"; };
-		DC7E199D171CFE6E00DA84A0 /* brick_stone_smile_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brick_stone_smile_default.plist; sourceTree = "<group>"; };
-		DC7E199E171CFE6F00DA84A0 /* brick_stone_smile_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick_stone_smile_default.png; sourceTree = "<group>"; };
 		DCA232C3170BDCCE00EA70E0 /* ContactListener2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListener2.h; sourceTree = "<group>"; };
 		DCA232C4170BDCF200EA70E0 /* ContactListener2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ContactListener2.mm; sourceTree = "<group>"; };
 		DCA232C8170BEF4B00EA70E0 /* fallingBrick8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fallingBrick8.png; sourceTree = "<group>"; };
@@ -890,6 +889,9 @@
 		E951845517077FA200F72200 /* map7.1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map7.1.tmx; sourceTree = "<group>"; };
 		E95184571707830E00F72200 /* map7.1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map7.1.tmx; sourceTree = "<group>"; };
 		E951845D1707862F00F72200 /* map7.2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map7.2.tmx; sourceTree = "<group>"; };
+		E988177F171D18DB00269E7A /* map_lv2_trial.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map_lv2_trial.tmx; sourceTree = "<group>"; };
+		E9881781171D1AD700269E7A /* brick_stone_smile_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brick_stone_smile_default.plist; sourceTree = "<group>"; };
+		E9881782171D1AD700269E7A /* brick_stone_smile_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick_stone_smile_default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -945,13 +947,13 @@
 			children = (
 				DCA232C8170BEF4B00EA70E0 /* fallingBrick8.png */,
 				A46362981707D19C00DC75E4 /* diamond_default.plist */,
-				DC7E199D171CFE6E00DA84A0 /* brick_stone_smile_default.plist */,
-				DC7E199E171CFE6F00DA84A0 /* brick_stone_smile_default.png */,
 				DCA232CC170C245B00EA70E0 /* leaf_default.plist */,
 				DC7E1991171BF5FC00DA84A0 /* skull_default.plist */,
 				DC7E1995171BF60200DA84A0 /* level2_moon.png */,
 				DC7E1992171BF5FC00DA84A0 /* skull_default.png */,
 				DCA232D0170C256D00EA70E0 /* fallingWood.png */,
+				E9881781171D1AD700269E7A /* brick_stone_smile_default.plist */,
+				E9881782171D1AD700269E7A /* brick_stone_smile_default.png */,
 				DC7E1999171CEEE900DA84A0 /* moon_default.plist */,
 				DC7E199A171CEEE900DA84A0 /* moon_default.png */,
 				DCA232DA170C338C00EA70E0 /* piranha0.png */,
@@ -1036,6 +1038,7 @@
 				A4581664170DEA23000162FA /* map9.0.tmx */,
 				A4ABCA251707FC3000FB4623 /* map7.3.tmx */,
 				A4ABCA231707FC2200FB4623 /* bg_layer1.png */,
+				E988177F171D18DB00269E7A /* map_lv2_trial.tmx */,
 				A478BF841707DA4C00F40FB5 /* map7.2_copy.tmx */,
 				DC7E1997171BF62E00DA84A0 /* map_lv2_1.0.tmx */,
 				DCA232D4170C281800EA70E0 /* map8.2.tmx */,
@@ -2018,8 +2021,9 @@
 				DC7E1998171BF62E00DA84A0 /* map_lv2_1.0.tmx in Resources */,
 				DC7E199B171CEEE900DA84A0 /* moon_default.plist in Resources */,
 				DC7E199C171CEEE900DA84A0 /* moon_default.png in Resources */,
-				DC7E199F171CFE6F00DA84A0 /* brick_stone_smile_default.plist in Resources */,
-				DC7E19A0171CFE6F00DA84A0 /* brick_stone_smile_default.png in Resources */,
+				E9881780171D18DB00269E7A /* map_lv2_trial.tmx in Resources */,
+				E9881783171D1AD700269E7A /* brick_stone_smile_default.plist in Resources */,
+				E9881784171D1AD700269E7A /* brick_stone_smile_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

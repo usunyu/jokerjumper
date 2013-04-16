@@ -17,6 +17,8 @@ CCSprite *bgMiddle1;
 CCSprite *bgMiddle2;
 CCSprite *bgBack1;
 CCSprite *bgBack2;
+CCSprite *moon;
+CCSpriteBatchNode* moonBatchNode;
 
 BOOL frontOpen = true;
 BOOL middleOpen = true;
@@ -48,9 +50,31 @@ int backgroundLevel = 1;
         
         [self initBackground];
         
+        [self initMoon];
+        
         [self schedule: @selector(tick:)];
     }
     return self;
+}
+
+-(void)initMoon {
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"moon_default.plist"];
+    moonBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"moon_default.png"];
+    [self addChild:moonBatchNode z:0];
+    moon=[CCSprite spriteWithSpriteFrameName:@"moon0.png"];
+    NSMutableArray *moonAnimFrames = [NSMutableArray array];
+    for(int i = 0; i <= 12; ++i) {
+        [moonAnimFrames addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          [NSString stringWithFormat:@"moon%d.png", i]]];
+    }
+    CCAnimation *moonRunAnimation = [CCAnimation animationWithSpriteFrames:moonAnimFrames delay:0.1f];
+    CCAction *moonRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: moonRunAnimation]];
+    [moon setTexture:[moonBatchNode texture]];
+    [moon runAction:moonRunAction];
+    moon.position = ccp(jokerLocationX+ moonLocationX, s.height-moonLocationY);
+    [moonBatchNode addChild:moon z:1];
 }
 
 -(void)initBackground

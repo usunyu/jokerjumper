@@ -45,6 +45,7 @@
     BOOL fall1;
     BOOL fall2;
     float jokerCharge;
+    std::deque<CGPoint> positionVec;
     CCSpriteBatchNode* brick1BatchNode;
     CCSpriteBatchNode* brick2BatchNode;
     CCSpriteBatchNode* brick3BatchNode;
@@ -55,8 +56,10 @@
     CCSpriteBatchNode* stoneBatchNode;
     CCSpriteBatchNode* skullBatchNode;
     CCSpriteBatchNode* ghostBatchNode;
+    CCSpriteBatchNode* moonBatchNode;
     b2Vec2 jumpVec;
     std::deque <State> stateVec;
+    
 }
 +(GameLayer2*) getGameLayer2;
 - (void) makeBox2dObjAt:(CGPoint)p
@@ -89,6 +92,7 @@
 @property (nonatomic, readwrite) CCSpriteBatchNode* stoneBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* skullBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* ghostBatchNode;
+@property (nonatomic, readwrite) CCSpriteBatchNode* moonBatchNode;
 @property (nonatomic, readwrite) GameObject *fly;
 @property (nonatomic, readwrite) CCSpriteBatchNode *emenyBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode *flyBatchNode;
@@ -96,6 +100,7 @@
 @property (nonatomic, readwrite) CCSpriteBatchNode *diamondBatchNode;
 @property (nonatomic, readwrite) HUDLayer *hudLayer;
 @property (nonatomic, readwrite) std::deque<State> stateVec;
+@property (nonatomic, readwrite) std::deque<CGPoint> positionVec;
 @property (nonatomic, readwrite) float fallPos;
 @property (nonatomic, readwrite) CCSpriteBatchNode* leafBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* flowerBatchNode;

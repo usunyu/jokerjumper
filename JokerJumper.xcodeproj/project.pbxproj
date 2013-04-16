@@ -288,6 +288,10 @@
 		DC7E1994171BF5FC00DA84A0 /* skull_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7E1992171BF5FC00DA84A0 /* skull_default.png */; };
 		DC7E1996171BF60200DA84A0 /* level2_moon.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7E1995171BF60200DA84A0 /* level2_moon.png */; };
 		DC7E1998171BF62E00DA84A0 /* map_lv2_1.0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC7E1997171BF62E00DA84A0 /* map_lv2_1.0.tmx */; };
+		DC7E199B171CEEE900DA84A0 /* moon_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC7E1999171CEEE900DA84A0 /* moon_default.plist */; };
+		DC7E199C171CEEE900DA84A0 /* moon_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7E199A171CEEE900DA84A0 /* moon_default.png */; };
+		DC7E199F171CFE6F00DA84A0 /* brick_stone_smile_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC7E199D171CFE6E00DA84A0 /* brick_stone_smile_default.plist */; };
+		DC7E19A0171CFE6F00DA84A0 /* brick_stone_smile_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7E199E171CFE6F00DA84A0 /* brick_stone_smile_default.png */; };
 		DCA232C5170BDCF200EA70E0 /* ContactListener2.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCA232C4170BDCF200EA70E0 /* ContactListener2.mm */; };
 		DCA232C9170BEF4B00EA70E0 /* fallingBrick8.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA232C8170BEF4B00EA70E0 /* fallingBrick8.png */; };
 		DCA232CE170C245B00EA70E0 /* leaf_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA232CC170C245B00EA70E0 /* leaf_default.plist */; };
@@ -836,6 +840,10 @@
 		DC7E1992171BF5FC00DA84A0 /* skull_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skull_default.png; sourceTree = "<group>"; };
 		DC7E1995171BF60200DA84A0 /* level2_moon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level2_moon.png; sourceTree = "<group>"; };
 		DC7E1997171BF62E00DA84A0 /* map_lv2_1.0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map_lv2_1.0.tmx; sourceTree = "<group>"; };
+		DC7E1999171CEEE900DA84A0 /* moon_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = moon_default.plist; sourceTree = "<group>"; };
+		DC7E199A171CEEE900DA84A0 /* moon_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moon_default.png; sourceTree = "<group>"; };
+		DC7E199D171CFE6E00DA84A0 /* brick_stone_smile_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = brick_stone_smile_default.plist; sourceTree = "<group>"; };
+		DC7E199E171CFE6F00DA84A0 /* brick_stone_smile_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick_stone_smile_default.png; sourceTree = "<group>"; };
 		DCA232C3170BDCCE00EA70E0 /* ContactListener2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListener2.h; sourceTree = "<group>"; };
 		DCA232C4170BDCF200EA70E0 /* ContactListener2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ContactListener2.mm; sourceTree = "<group>"; };
 		DCA232C8170BEF4B00EA70E0 /* fallingBrick8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fallingBrick8.png; sourceTree = "<group>"; };
@@ -937,11 +945,15 @@
 			children = (
 				DCA232C8170BEF4B00EA70E0 /* fallingBrick8.png */,
 				A46362981707D19C00DC75E4 /* diamond_default.plist */,
+				DC7E199D171CFE6E00DA84A0 /* brick_stone_smile_default.plist */,
+				DC7E199E171CFE6F00DA84A0 /* brick_stone_smile_default.png */,
 				DCA232CC170C245B00EA70E0 /* leaf_default.plist */,
 				DC7E1991171BF5FC00DA84A0 /* skull_default.plist */,
 				DC7E1995171BF60200DA84A0 /* level2_moon.png */,
 				DC7E1992171BF5FC00DA84A0 /* skull_default.png */,
 				DCA232D0170C256D00EA70E0 /* fallingWood.png */,
+				DC7E1999171CEEE900DA84A0 /* moon_default.plist */,
+				DC7E199A171CEEE900DA84A0 /* moon_default.png */,
 				DCA232DA170C338C00EA70E0 /* piranha0.png */,
 				DCA232D6170C307B00EA70E0 /* piranha_default.plist */,
 				DCA232D7170C307B00EA70E0 /* piranha_default.png */,
@@ -2004,6 +2016,10 @@
 				DC7E1994171BF5FC00DA84A0 /* skull_default.png in Resources */,
 				DC7E1996171BF60200DA84A0 /* level2_moon.png in Resources */,
 				DC7E1998171BF62E00DA84A0 /* map_lv2_1.0.tmx in Resources */,
+				DC7E199B171CEEE900DA84A0 /* moon_default.plist in Resources */,
+				DC7E199C171CEEE900DA84A0 /* moon_default.png in Resources */,
+				DC7E199F171CFE6F00DA84A0 /* brick_stone_smile_default.plist in Resources */,
+				DC7E19A0171CFE6F00DA84A0 /* brick_stone_smile_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

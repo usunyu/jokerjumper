@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>frames</key>
+	<dict>
+		
+		<key>moon0.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{54, 105}, {931, 831}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -1}</string>
+			<key>spriteSize</key>
+			<string>{931, 831}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 833}, {931, 831}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon1.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{72, 89}, {905, 859}}</string>
+			<key>spriteOffset</key>
+			<string>{5, 1}</string>
+			<key>spriteSize</key>
+			<string>{905, 859}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{933, 881}, {905, 859}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon10.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{91, 78}, {861, 879}}</string>
+			<key>spriteOffset</key>
+			<string>{2, 2}</string>
+			<key>spriteSize</key>
+			<string>{861, 879}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1796, 0}, {861, 879}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon11.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{72, 89}, {905, 859}}</string>
+			<key>spriteOffset</key>
+			<string>{5, 1}</string>
+			<key>spriteSize</key>
+			<string>{905, 859}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 1666}, {905, 859}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon12.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{54, 105}, {931, 831}}</string>
+			<key>spriteOffset</key>
+			<string>{0, -1}</string>
+			<key>spriteSize</key>
+			<string>{931, 831}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 0}, {931, 831}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon2.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{91, 78}, {861, 879}}</string>
+			<key>spriteOffset</key>
+			<string>{2, 2}</string>
+			<key>spriteSize</key>
+			<string>{861, 879}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{933, 0}, {861, 879}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon3.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{104, 78}, {835, 879}}</string>
+			<key>spriteOffset</key>
+			<string>{2, 2}</string>
+			<key>spriteSize</key>
+			<string>{835, 879}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1840, 881}, {835, 879}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon4.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{122, 78}, {791, 879}}</string>
+			<key>spriteOffset</key>
+			<string>{-2, 2}</string>
+			<key>spriteSize</key>
+			<string>{791, 879}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{2469, 1762}, {791, 879}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon5.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{122, 67}, {791, 897}}</string>
+			<key>spriteOffset</key>
+			<string>{-2, 4}</string>
+			<key>spriteSize</key>
+			<string>{791, 897}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{0, 2527}, {791, 897}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon6.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{136, 67}, {767, 897}}</string>
+			<key>spriteOffset</key>
+			<string>{0, 4}</string>
+			<key>spriteSize</key>
+			<string>{767, 897}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{1700, 1762}, {767, 897}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon7.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{122, 67}, {791, 897}}</string>
+			<key>spriteOffset</key>
+			<string>{-2, 4}</string>
+			<key>spriteSize</key>
+			<string>{791, 897}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{907, 1742}, {791, 897}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon8.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{122, 78}, {791, 879}}</string>
+			<key>spriteOffset</key>
+			<string>{-2, 2}</string>
+			<key>spriteSize</key>
+			<string>{791, 879}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{793, 2641}, {791, 879}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+		<key>moon9.png</key>
+		<dict>
+			<key>aliases</key>
+			<array>
+			
+			</array>
+			<key>spriteColorRect</key>
+			<string>{{104, 78}, {835, 879}}</string>
+			<key>spriteOffset</key>
+			<string>{2, 2}</string>
+			<key>spriteSize</key>
+			<string>{835, 879}</string>
+			<key>spriteSourceSize</key>
+			<string>{1039, 1039}</string>
+			<key>spriteTrimmed</key>
+			<true/>
+			<key>textureRect</key>
+			<string>{{2659, 0}, {835, 879}}</string>
+			<key>textureRotated</key>
+			<false/>
+		</dict>
+		
+	</dict>
+	<key>metadata</key>
+	<dict>
+		<key>version</key>
+		<string>1.6.0</string>
+		<key>format</key>
+		<integer>3</integer>
+		<key>size</key>
+		<string>{4096, 4096}</string>
+		<key>name</key>
+		<string>moon</string>
+		<key>target</key>
+		<dict>
+			<key>name</key>
+			<string>default</string>
+			<key>textureFileName</key>
+			<string>moon_default</string>
+			<key>textureFileExtension</key>
+			<string>.png</string>
+			<key>coordinatesFileName</key>
+			<string>moon_default</string>
+			<key>coordinatesFileExtension</key>
+			<string>.plist</string>
+			<key>premultipliedAlpha</key>
+			<false/>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -33,11 +33,13 @@
 @synthesize flyBatchNode;
 @synthesize leafBatchNode;
 @synthesize skullBatchNode;
+@synthesize moonBatchNode;
 @synthesize fly;
 @synthesize emeny;
 @synthesize stateVec;
 @synthesize jumpVec;
 @synthesize hudLayer;
+@synthesize positionVec;
 
 NSString *map2 = @"map_lv2_1.0.tmx";
 
@@ -620,6 +622,7 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"piranha_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_stone_smile_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"skull_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"moon_default.plist"];
     
     
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
@@ -634,7 +637,7 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     stoneBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"brick_stone_smile_default.png"];
     skullBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"skull_default.png"];
     ghostBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
-    
+    moonBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"moon_default.png"];
     /*
      brick1BatchNode.scale=4;
      brick2BatchNode.scale=4;
@@ -649,9 +652,10 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     [self addChild:diamondBatchNode z:3];
     [self addChild:leafBatchNode z:11];
     [self addChild:flowerBatchNode z:10];
-    [self addChild:ghostBatchNode z:10];
+    [self addChild:ghostBatchNode z:13];
     [self addChild:skullBatchNode z:20];
     [self addChild:stoneBatchNode z:15];
+    [self addChild:moonBatchNode z:-1];
     
 }
 
@@ -683,10 +687,20 @@ NSString *map2 = @"map_lv2_1.0.tmx";
         joker.position = ccp(jokerLocationX, jokerLocationY);
         [joker createBox2dObject:world];
         
-        moon=[CCSprite spriteWithFile:@"level2_moon.png"];
+        moon=[CCSprite spriteWithSpriteFrameName:@"moon0.png"];
+        NSMutableArray *moonAnimFrames = [NSMutableArray array];
+        for(int i = 0; i <= 12; ++i) {
+            [moonAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"moon%d.png", i]]];
+        }
+        CCAnimation *moonRunAnimation = [CCAnimation animationWithSpriteFrames:moonAnimFrames delay:0.09f];
+        CCAction *moonRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: moonRunAnimation]];
+        [moon setTexture:[moonBatchNode texture]];
+        [moon runAction:moonRunAction];
         moon.position = ccp(jokerLocationX+ moonLocationX,screenSize.height-moonLocationY);
-        [self addChild:moon z:1];
-        
+        [moonBatchNode addChild:moon z:10];
+
         
         ghost=[CCSprite spriteWithSpriteFrameName:@"pokerSoilder1.png"];
         NSMutableArray *ghostAnimFrames = [NSMutableArray array];
@@ -739,6 +753,7 @@ NSString *map2 = @"map_lv2_1.0.tmx";
         
         [self schedule:@selector(update:)];
         [self schedule:@selector(updateObject:) interval:2.0f];
+        [self schedule:@selector(updateGhost:) interval:0.5f];
         //[self schedule:@selector(updateEmeny:) interval:0.2f];
         //[self schedule:@selector(jokerCharging:) interval:0.2f];
         
@@ -791,10 +806,10 @@ NSString *map2 = @"map_lv2_1.0.tmx";
 - (void)update:(ccTime)dt {
     //CCLOG(@"dt: %f",dt);
     //CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
+    
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    moon.position=ccp(joker.position.x+moonLocationX,winSize.height-moonLocationY);
-    
-    
+    moon.position = ccp(joker.position.x+ moonLocationX,winSize.height-moonLocationY);
+
     CCScene* scene = [[CCDirector sharedDirector] runningScene];
     hudLayer  = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
     
@@ -816,10 +831,12 @@ NSString *map2 = @"map_lv2_1.0.tmx";
     [joker adjust];
     //[emeny adjust];
     
+    //ghost.position=ccp(joker.position.x-200,joker.position.y);
+    /*
     CGPoint endPos=ccp(joker.position.x-300,joker.position.y);
     CCAction *ghostAction=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:0.2f position:endPos]];
     [ghost runAction:ghostAction];
-    
+    */
     if(joker.position.x>FALLING_WOOD1-FALLING_OFFSET&&fall1==false)
     {
        // [self updateFalling:FALLING_WOOD1];
@@ -1000,6 +1017,28 @@ NSString *map2 = @"map_lv2_1.0.tmx";
 - (void)jokerCharging: (ccTime) dt {
     if(jokerStartCharge)
         jokerCharge++;
+}
+
+- (void)updateGhost:(ccTime) dt
+{
+    CGPoint endPos=joker.position;
+    //CCLOG(@"size: %d, joker:(%f,%f), ghost:(%f,%f)",positionVec.size(),joker.position.x,joker.position.y,ghost.position.x,ghost.position.y);
+    CCAction *action=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:1.0f position:endPos]];
+    [ghost runAction:action];
+    /*
+    if(positionVec.size()<5)
+    {
+        positionVec.push_back(joker.position);
+    }
+    else if(positionVec.size()>=5)
+    {
+        positionVec.push_back(joker.position);
+        endPos=positionVec.front();
+        CCAction *action=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:0.2f position:endPos]];
+        [ghost runAction:action];
+        positionVec.pop_front();
+    }    
+     */
 }
 
 

@@ -60,6 +60,8 @@
     b2Vec2 jumpVec;
     std::deque <State> stateVec;
     
+    int accelerationY;
+    int lastAccelerationY;
 }
 +(GameLayer2*) getGameLayer2;
 - (void) makeBox2dObjAt:(CGPoint)p

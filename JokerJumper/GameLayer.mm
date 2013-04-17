@@ -51,10 +51,53 @@
 @synthesize hudLayer;
 
 NSString *map = @"map9.2.tmx";
+bool gravity = false;
 
 +(GameLayer*) getGameLayer {
     return self;
 }
+
+-(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+    lastLastAccelerationY = lastAccelerationY;
+    lastAccelerationY = accelerationY;
+    accelerationY = acceleration.x*10;
+}
+
+-(void)updateAcceleration {
+    CCLOG(@"###############%d",lastAccelerationY);
+    
+//    if(lastAccelerationY >= 4 && lastAccelerationY <= 6)
+    {
+        if(!joker.jokerFlip) {
+            if(lastLastAccelerationY - accelerationY >= 2) {
+                if(!joker.jokerJumping)
+                {
+                    joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
+                    State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
+                    stateVec.push_back(curState);
+                    //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
+                    [joker jump:jokerCharge];
+                    jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
+                }
+            }
+        }
+        else {
+            if(accelerationY - lastLastAccelerationY >= 2) {
+                if(!joker.jokerJumping)
+                {
+                    joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
+                    State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
+                    stateVec.push_back(curState);
+                    //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
+                    [joker jump:jokerCharge];
+                    jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
+                    jokerStartCharge = false;
+                }
+            }
+        }
+    }
+}
+
 
 -(CGRect) positionRect: (CCSprite*)mySprite
 {
@@ -642,7 +685,10 @@ NSString *map = @"map9.2.tmx";
     self = [super init];
     if (self) {
         // enable touches
-        self.isTouchEnabled = YES;
+        if(!gravity)
+            self.isTouchEnabled = YES;
+        else
+            self.isAccelerometerEnabled = YES;
         
         self.tag = GAME_LAYER_TAG;
         self.coinCount=0;
@@ -961,6 +1007,7 @@ NSString *map = @"map9.2.tmx";
         }
     }
   */
+    [self updateAcceleration];
 }
 
 

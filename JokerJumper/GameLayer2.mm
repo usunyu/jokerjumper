@@ -48,34 +48,50 @@
 
 NSString *map2 = @"map_lv2_trial2.tmx";
 
+bool gravity2 = false;
+
 +(GameLayer2*) getGameLayer2 {
     return self;
 }
 
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration {
+    lastLastAccelerationY = lastAccelerationY;
     lastAccelerationY = accelerationY;
     accelerationY = acceleration.x*10;
 }
 
 -(void)updateAcceleration {
-//    CCLOG(@"#####Acc: %d", accelerationY);
-    //CCLOG(@"111111111vel before touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
-//    jokerStartCharge = true;
-//    CGPoint location = [touch locationInView:[touch view]];
+    CCLOG(@"###############%d",lastAccelerationY);
     
-//    location = [[CCDirector sharedDirector] convertToGL:location];
-    if(abs(lastAccelerationY - accelerationY) >= 2) {
-        if(!joker.jokerJumping)
-        {
-            joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
-            State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
-            stateVec.push_back(curState);
-            //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
-            [joker jump:5];
-            jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
-            //        CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
+    //    if(lastAccelerationY >= 4 && lastAccelerationY <= 6)
+    {
+        if(!joker.jokerFlip) {
+            if(lastLastAccelerationY - accelerationY >= 2) {
+                if(!joker.jokerJumping)
+                {
+                    joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
+                    State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
+                    stateVec.push_back(curState);
+                    //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
+                    [joker jump:jokerCharge];
+                    jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
+                }
+            }
         }
-
+        else {
+            if(accelerationY - lastLastAccelerationY >= 2) {
+                if(!joker.jokerJumping)
+                {
+                    joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
+                    State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
+                    stateVec.push_back(curState);
+                    //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
+                    [joker jump:jokerCharge];
+                    jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
+                    jokerStartCharge = false;
+                }
+            }
+        }
     }
 }
 
@@ -795,9 +811,10 @@ NSString *map2 = @"map_lv2_trial2.tmx";
     self = [super init];
     if (self) {
         // enable touches
-        self.isTouchEnabled = YES;
-        self.isAccelerometerEnabled = YES;
-        accelerationY = 0;
+        if(!gravity2)
+            self.isTouchEnabled = YES;
+        else
+            self.isAccelerometerEnabled = YES;        accelerationY = 0;
         lastAccelerationY = 0;
         
         self.tag = GAME_LAYER_TAG;

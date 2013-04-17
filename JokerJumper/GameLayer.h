@@ -64,6 +64,10 @@
     CCSpriteBatchNode* flowerBatchNode;
     b2Vec2 jumpVec;
     std::deque <State> stateVec;
+    
+    int accelerationY;
+    int lastAccelerationY;
+    int lastLastAccelerationY;
 }
 +(GameLayer*) getGameLayer;
 - (void) makeBox2dObjAt:(CGPoint)p

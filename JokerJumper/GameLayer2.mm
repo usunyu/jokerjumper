@@ -62,7 +62,7 @@ bool gravity2 = true;
 }
 
 -(void)updateAcceleration {
-    CCLOG(@"###############%d",lastAccelerationY);
+//    CCLOG(@"###############%d",lastAccelerationY);
     
     //    if(lastAccelerationY >= 4 && lastAccelerationY <= 6)
     {

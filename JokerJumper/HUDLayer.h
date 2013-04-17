@@ -12,9 +12,9 @@
 #import "cocos2d.h"
 
 @interface HUDLayer : CCLayer {
-    CCLabelBMFont *lifeLabel;
-    CCLabelBMFont *statusLabel;
-    CCLabelBMFont *coinLabel;
+    CCLabelTTF *lifeLabel;
+    CCLabelTTF *statusLabel;
+    CCLabelTTF *coinLabel;
     CCMenuItemImage *pause;
     CCSprite *coinBar;
     CCSprite *disBar;

@@ -34,10 +34,11 @@
         lifeBar.position=ccp(LIFE_LABEL_X, screenSize.height-30);
                 
         // These values are hard coded for Drivers Ed, should be refacotred for more flexability
-        statusLabel = [CCLabelBMFont labelWithString:@"0.0" fntFile:@"Arial.fnt"];
-        lifeLabel=[CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
-        coinLabel=[CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
-        [statusLabel setColor:ccYELLOW];
+            
+        statusLabel = [CCLabelTTF labelWithString:@"0.0" fontName:@"Marker Felt" fontSize:20];
+        lifeLabel=[CCLabelTTF labelWithString:@"0" fontName:@"Marker Felt" fontSize:20];
+        coinLabel=[CCLabelTTF labelWithString:@"0" fontName:@"Marker Felt" fontSize:20];
+        [statusLabel setColor:ccBLACK];
         [lifeLabel setColor:ccYELLOW];
         [coinLabel setColor:ccYELLOW];
         [statusLabel setAnchorPoint:ccp(0.5f,1)];
@@ -84,17 +85,17 @@
     {
         [lifeLabel setColor:ccORANGE];
     }
-        NSString *amounts = [NSString stringWithFormat:@"%2d", amount];
+        NSString *amounts = [NSString stringWithFormat:@"%d", amount];
         [lifeLabel setString:amounts];
 }
 -(void) updateCoinCounter:(int)amount
 {
-        NSString *amounts = [NSString stringWithFormat:@"%2d", amount];
+        NSString *amounts = [NSString stringWithFormat:@"%d", amount];
         [coinLabel setString:amounts];
 }
 -(void) updateStatusCounter:(float)amount
 {
-        NSString *amounts = [NSString stringWithFormat:@"%.2f", amount];
+        NSString *amounts = [NSString stringWithFormat:@"%d", (int)amount];
         [statusLabel setString:amounts];
 }
 

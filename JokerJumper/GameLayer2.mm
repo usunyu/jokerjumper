@@ -938,7 +938,7 @@ NSString *map2 = @"map_lv2_trial.tmx";
     if(joker.position.x >= MAP_LENGTH * PTM_RATIO) {
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
         // CCTransitionFadeBL, lose: CCTransitionProgressRadialCCW
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1.0 scene:[GameWinScene sceneWithLevel:GAME_STATE_TWO Coin:100 Distance:100]]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1.0 scene:[GameWinScene sceneWithLevel:GAME_STATE_TWO Coin:coinCount Distance:distance]]];
     }
     
 	int32 velocityIterations = 8;

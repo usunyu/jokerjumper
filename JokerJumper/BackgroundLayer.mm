@@ -69,7 +69,7 @@ int backgroundLevel = 1;
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
           [NSString stringWithFormat:@"moon%d.png", i]]];
     }
-    CCAnimation *moonRunAnimation = [CCAnimation animationWithSpriteFrames:moonAnimFrames delay:0.1f];
+    CCAnimation *moonRunAnimation = [CCAnimation animationWithSpriteFrames:moonAnimFrames delay:0.2f];
     CCAction *moonRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: moonRunAnimation]];
     [moon setTexture:[moonBatchNode texture]];
     [moon runAction:moonRunAction];

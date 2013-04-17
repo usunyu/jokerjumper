@@ -280,6 +280,13 @@
 		A4F03AA716D1A88C0068D7C8 /* Arial.fnt in Resources */ = {isa = PBXBuildFile; fileRef = A4F03AA316D1A88C0068D7C8 /* Arial.fnt */; };
 		A4F03AA816D1A88C0068D7C8 /* Arial.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F03AA416D1A88C0068D7C8 /* Arial.png */; };
 		A4F8011F16EA7502006C3BA0 /* ContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4F8011E16EA7502006C3BA0 /* ContactListener.mm */; };
+		DC146ADE171E3B8F004B27FE /* zombie_hand_green_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC146ADC171E3B8F004B27FE /* zombie_hand_green_default.plist */; };
+		DC146ADF171E3B8F004B27FE /* zombie_hand_green_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146ADD171E3B8F004B27FE /* zombie_hand_green_default.png */; };
+		DC146AE5171E3BD3004B27FE /* coffin.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146AE4171E3BD3004B27FE /* coffin.png */; };
+		DC146AE8171E4196004B27FE /* zombie_hand_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC146AE6171E4196004B27FE /* zombie_hand_default.plist */; };
+		DC146AE9171E4196004B27FE /* zombie_hand_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146AE7171E4196004B27FE /* zombie_hand_default.png */; };
+		DC146AED171E4659004B27FE /* brick2.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146AEC171E4659004B27FE /* brick2.png */; };
+		DC146AEF171E4A13004B27FE /* map_lv2_trial2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC146AEE171E4A13004B27FE /* map_lv2_trial2.tmx */; };
 		DC1F25EA1700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */; };
 		DC1F25EE17022E2D0014F3AC /* Cartoon clown laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */; };
 		DC1F25F617035E7C0014F3AC /* map5.95.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25F517035E7C0014F3AC /* map5.95.tmx */; };
@@ -839,6 +846,13 @@
 		A4F03AA416D1A88C0068D7C8 /* Arial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arial.png; sourceTree = "<group>"; };
 		A4F8011D16EA7502006C3BA0 /* ContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListener.h; sourceTree = "<group>"; };
 		A4F8011E16EA7502006C3BA0 /* ContactListener.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ContactListener.mm; sourceTree = "<group>"; };
+		DC146ADC171E3B8F004B27FE /* zombie_hand_green_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie_hand_green_default.plist; sourceTree = "<group>"; };
+		DC146ADD171E3B8F004B27FE /* zombie_hand_green_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie_hand_green_default.png; sourceTree = "<group>"; };
+		DC146AE4171E3BD3004B27FE /* coffin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffin.png; sourceTree = "<group>"; };
+		DC146AE6171E4196004B27FE /* zombie_hand_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie_hand_default.plist; sourceTree = "<group>"; };
+		DC146AE7171E4196004B27FE /* zombie_hand_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie_hand_default.png; sourceTree = "<group>"; };
+		DC146AEC171E4659004B27FE /* brick2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick2.png; sourceTree = "<group>"; };
+		DC146AEE171E4A13004B27FE /* map_lv2_trial2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map_lv2_trial2.tmx; sourceTree = "<group>"; };
 		DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Pain-SoundBible.com-1883168362.wav"; sourceTree = "<group>"; };
 		DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Cartoon clown laugh.wav"; sourceTree = "<group>"; };
 		DC1F25F517035E7C0014F3AC /* map5.95.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.95.tmx; sourceTree = "<group>"; };
@@ -959,6 +973,11 @@
 				A46362981707D19C00DC75E4 /* diamond_default.plist */,
 				DCA232CC170C245B00EA70E0 /* leaf_default.plist */,
 				DC7E1991171BF5FC00DA84A0 /* skull_default.plist */,
+				DC146ADC171E3B8F004B27FE /* zombie_hand_green_default.plist */,
+				DC146AE4171E3BD3004B27FE /* coffin.png */,
+				DC146AE6171E4196004B27FE /* zombie_hand_default.plist */,
+				DC146AE7171E4196004B27FE /* zombie_hand_default.png */,
+				DC146ADD171E3B8F004B27FE /* zombie_hand_green_default.png */,
 				DC7E19A4171D233700DA84A0 /* stars.png */,
 				DC7E1995171BF60200DA84A0 /* level2_moon.png */,
 				DC7E1992171BF5FC00DA84A0 /* skull_default.png */,
@@ -1061,10 +1080,12 @@
 				DCA232D2170C27BC00EA70E0 /* map8.3_flower.tmx */,
 				A4810E8017062B6900C61964 /* map5.95_copy.tmx */,
 				DCB5648517001A0A0089936A /* map5.9_3.tmx */,
+				DC146AEC171E4659004B27FE /* brick2.png */,
 				DCB56483170019170089936A /* map5.9_2.tmx */,
 				A4DF532716F0AB3D00720555 /* tilemap5.5.png */,
 				E951845517077FA200F72200 /* map7.1.tmx */,
 				DCB5627F16FEA1D70089936A /* map3.1.tmx */,
+				DC146AEE171E4A13004B27FE /* map_lv2_trial2.tmx */,
 				DCB5643616FF8B750089936A /* map6_doubleGravity_trial.tmx */,
 				DCB5643E16FF95430089936A /* map5.5.tmx */,
 				E95184471707509200F72200 /* map7.0.tmx */,
@@ -2042,6 +2063,13 @@
 				E9881784171D1AD700269E7A /* brick_stone_smile_default.png in Resources */,
 				DC7E19A5171D233700DA84A0 /* stars.png in Resources */,
 				DC4C0ADD171D28BB006EB975 /* fire.png in Resources */,
+				DC146ADE171E3B8F004B27FE /* zombie_hand_green_default.plist in Resources */,
+				DC146ADF171E3B8F004B27FE /* zombie_hand_green_default.png in Resources */,
+				DC146AE5171E3BD3004B27FE /* coffin.png in Resources */,
+				DC146AE8171E4196004B27FE /* zombie_hand_default.plist in Resources */,
+				DC146AE9171E4196004B27FE /* zombie_hand_default.png in Resources */,
+				DC146AED171E4659004B27FE /* brick2.png in Resources */,
+				DC146AEF171E4A13004B27FE /* map_lv2_trial2.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

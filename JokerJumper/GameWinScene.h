@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 
 
-@interface GameWinScene : CCLayer {
+@interface GameWinScene : CCLayerColor <CCTargetedTouchDelegate> {
     
 }
 

@@ -44,6 +44,9 @@
     BOOL jokerStartCharge;
     BOOL fall1;
     BOOL fall2;
+    BOOL hand1;
+    BOOL hand2;
+    BOOL hand3;
     float jokerCharge;
     std::deque<CGPoint> positionVec;
     CCSpriteBatchNode* brick1BatchNode;
@@ -80,6 +83,9 @@
 @property (nonatomic, readwrite) int lifeCount;
 @property (nonatomic, readwrite) BOOL fall1;
 @property (nonatomic, readwrite) BOOL fall2;
+@property (nonatomic, readwrite) BOOL hand1;
+@property (nonatomic, readwrite) BOOL hand2;
+@property (nonatomic, readwrite) BOOL hand3;
 @property  (nonatomic, readwrite) float distance;
 @property (nonatomic, readwrite) b2World* world;
 @property (nonatomic, readwrite) Joker* joker;

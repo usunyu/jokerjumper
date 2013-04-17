@@ -38,9 +38,9 @@
         statusLabel = [CCLabelTTF labelWithString:@"0.0" fontName:@"Marker Felt" fontSize:20];
         lifeLabel=[CCLabelTTF labelWithString:@"0" fontName:@"Marker Felt" fontSize:20];
         coinLabel=[CCLabelTTF labelWithString:@"0" fontName:@"Marker Felt" fontSize:20];
-        [statusLabel setColor:ccBLACK];
-        [lifeLabel setColor:ccYELLOW];
-        [coinLabel setColor:ccYELLOW];
+        [statusLabel setColor:ccORANGE];
+        [lifeLabel setColor:ccORANGE];
+        [coinLabel setColor:ccORANGE];
         [statusLabel setAnchorPoint:ccp(0.5f,1)];
         [coinLabel setAnchorPoint:ccp(0.5f,1)];
         [lifeLabel setAnchorPoint:ccp(0.5f,1)];

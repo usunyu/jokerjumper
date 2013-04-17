@@ -83,7 +83,8 @@ typedef enum {
     kGameObjectEmeny,
     kGameObjectFalling,
     kGameObjectDisable,
-    kGameObjectFlower
+    kGameObjectFlower,
+    kGameObjectStone
 } GameObjectType;
 
 //BOOL jokerJumping;

@@ -23,6 +23,9 @@
 @synthesize distance;
 @synthesize fall1;
 @synthesize fall2;
+@synthesize hand1;
+@synthesize hand2;
+@synthesize hand3;
 @synthesize flowerBatchNode;
 @synthesize flyPos;
 @synthesize brick1BatchNode;
@@ -42,7 +45,7 @@
 @synthesize hudLayer;
 @synthesize positionVec;
 
-NSString *map2 = @"map_lv2_trial.tmx";
+NSString *map2 = @"map_lv2_trial2.tmx";
 
 +(GameLayer2*) getGameLayer2 {
     return self;
@@ -123,11 +126,11 @@ NSString *map2 = @"map_lv2_trial.tmx";
     [self drawCoin2Tiles:tileMapNode withOffset:offset];
     CCLOG(@"here.4");
     [self drawCoin3Tiles:tileMapNode withOffset:offset];
-    //    [self drawFlowerTiles:tileMapNode withOffset:offset];
+    //[self drawFlowerTiles:tileMapNode withOffset:offset];
     CCLOG(@"here.5");
     [self drawCollision1Tiles:tileMapNode withOffset:offset];
     CCLOG(@"here.6");
-    [self drawCollision2Tiles:tileMapNode withOffset:offset];
+    //[self drawCollision2Tiles:tileMapNode withOffset:offset];
     CCLOG(@"here.7");
     [self drawCollision3Tiles:tileMapNode withOffset:offset];
     CCLOG(@"here.8");
@@ -135,6 +138,7 @@ NSString *map2 = @"map_lv2_trial.tmx";
     CCLOG(@"here.9");
     [self drawCollision5Tiles:tileMapNode withOffset:offset];
     CCLOG(@"here1.0");
+    [self drawCollision6Tiles:tileMapNode withOffset:offset];
 }
 
 //---------------------------------- create the box2d object----------------------------------//
@@ -200,7 +204,7 @@ NSString *map2 = @"map_lv2_trial.tmx";
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"brick_stone_smile%d.png",i]]];
         }
-        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
+        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.2f];
         Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
         [platform runAction:Action];
         //platform=[[GameObject alloc] init];
@@ -228,9 +232,25 @@ NSString *map2 = @"map_lv2_trial.tmx";
          [brick2BatchNode addChild:platform z:2];
          */
     }
+    else if(type==kGameObjectStone)
+    {
+        platform=[[GameObject alloc] init];
+        [platform setTexture:[stoneBatchNode texture]];
+        for(int i = 0; i <= 12; ++i) {
+            [animFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"brick_stone_smile%d.png",i]]];
+        }
+        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.1f];
+        Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+        [platform runAction:Action];
+        //platform=[[GameObject alloc] init];
+        [platform setType:type];
+        [stoneBatchNode addChild:platform z:2];
+    }
     else if(type==kGameObjectFlower)
     {
-        platform = [GameObject spriteWithFile:@"piranha0.png"];
+        platform = [GameObject spriteWithSpriteFrameName:@"zombie_hand0.png"];
         [platform setType:type];
         [platform setVisible:false];
         [self addChild:platform z:2];
@@ -292,7 +312,7 @@ NSString *map2 = @"map_lv2_trial.tmx";
     }
     else if(type==kGameObjectFalling)
     {
-        platform = [GameObject spriteWithFile:@"fallingWood.png"];
+        platform = [GameObject spriteWithFile:@"coffin.png"];
         [platform setType:type];
         [self addChild:platform z:8];
     }
@@ -449,6 +469,32 @@ NSString *map2 = @"map_lv2_trial.tmx";
 }
 
 - (void) drawCollision5Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
+    CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"brick_stone"];
+    NSMutableDictionary * objPoint;
+    
+    float x, y, w, h;
+    for (objPoint in [objects objects]) {
+        x = [[objPoint valueForKey:@"x"] intValue]+offset;
+        y = [[objPoint valueForKey:@"y"] intValue];
+        w = [[objPoint valueForKey:@"width"] intValue];
+        h = [[objPoint valueForKey:@"height"] intValue];
+        
+        CGPoint _point=ccp(x+w/2,y+h/2);
+        CGPoint _size=ccp(w,h);
+        
+        [self makeBox2dObjAt:_point
+                    withSize:_size
+                     dynamic:false
+                    rotation:0
+                    friction:0.0f
+                     density:0.0f
+                 restitution:0
+                       boxId:-1
+                    bodyType: kGameObjectStone];
+    }
+}
+
+- (void) drawCollision6Tiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
     CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"brick_check"];
     NSMutableDictionary * objPoint;
     
@@ -470,9 +516,10 @@ NSString *map2 = @"map_lv2_trial.tmx";
                      density:0.0f
                  restitution:0
                        boxId:-1
-                    bodyType: kGameObjectDisable];
+                    bodyType:kGameObjectDisable];
     }
 }
+
 
 - (void) drawFlowerTiles:(CCTMXTiledMap *)tileMapNode withOffset:(int)offset {
 	CCTMXObjectGroup *objects = [tileMapNode objectGroupNamed:@"piranha"];
@@ -607,6 +654,49 @@ NSString *map2 = @"map_lv2_trial.tmx";
     
 }
 
+- (void)updateFlower:(CGPoint)point
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    CCLOG(@"winSize: height: %f width: %f",winSize.height,winSize.width);
+    
+    b2BodyDef bodyDef;
+    bodyDef.position.Set(point.x/PTM_RATIO, (winSize.width-point.y)/PTM_RATIO);
+    bodyDef.gravityScale = 0.0f;
+    GameObject* actor=[GameObject spriteWithSpriteFrameName:@"zombie_hand0.png"];
+    [actor setType:kGameObjectFlower];
+    bodyDef.userData = (__bridge_retained void*) actor;
+    b2Body *body = world->CreateBody(&bodyDef);
+    b2PolygonShape dynamicBox;
+    dynamicBox.SetAsBox(64/2/PTM_RATIO, 64/2/PTM_RATIO);
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &dynamicBox;
+    fixtureDef.density = 0;
+    body->CreateFixture(&fixtureDef);
+    
+    NSMutableArray *animFrames1 = [NSMutableArray array];
+    for(int i = 0; i <= 7; ++i) {
+        [animFrames1 addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
+    }
+    CCAnimation *Animation1 = [CCAnimation animationWithSpriteFrames:animFrames1 delay:0.05f];
+    CCFiniteTimeAction *Action1 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation1] times:1];
+    
+    NSMutableArray *animFrames2 = [NSMutableArray array];
+    for(int i = 8; i <= 18; ++i) {
+        [animFrames1 addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
+    }
+    CCAnimation *Animation2 = [CCAnimation animationWithSpriteFrames:animFrames2 delay:0.05f];
+    CCFiniteTimeAction *Action2 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation2] times:1];
+    
+    id sequence = [CCSequence actions:Action1, Action2, nil];
+    [actor setTexture:[flowerBatchNode texture]];
+    [self addChild:actor z:10];
+    [actor runAction:sequence];
+}
+
 /*
  *draw magic club collision layer
  */
@@ -651,6 +741,7 @@ NSString *map2 = @"map_lv2_trial.tmx";
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_stone_smile_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"skull_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"moon_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"zombie_hand_default.plist"];
     
     
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
@@ -661,7 +752,8 @@ NSString *map2 = @"map_lv2_trial.tmx";
     flyBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
     diamondBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"diamond_default.png"];
     leafBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"leaf_default.png"];
-    flowerBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"piranha_default.png"];
+    flowerBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"zombie_hand_default.png"];
+    
     stoneBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"brick_stone_smile_default.png"];
     skullBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"skull_default.png"];
     ghostBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
@@ -704,7 +796,6 @@ NSString *map2 = @"map_lv2_trial.tmx";
         jokerStartCharge = false;
         jokerCharge = 1;
         CGSize screenSize = [CCDirector sharedDirector].winSize;
-		CCLOG(@"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
         
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         [self preLoadSoundFiles];
@@ -783,9 +874,10 @@ NSString *map2 = @"map_lv2_trial.tmx";
         //        [self setDistanceLabelText:@"0.00"];
         
         [self schedule:@selector(update:)];
-        [self schedule:@selector(updateObject:) interval:2.0f];
+        [self schedule:@selector(updateObject:) interval:1.0f];
         [self schedule:@selector(updateGhost:) interval:0.5f];
         [self schedule:@selector(updateFire:) interval:0.2f];
+        //[self schedule:@selector(updateFlower:) interval:2.0f];
         //[self schedule:@selector(updateEmeny:) interval:0.2f];
         //[self schedule:@selector(jokerCharging:) interval:0.2f];
         
@@ -802,6 +894,8 @@ NSString *map2 = @"map_lv2_trial.tmx";
     }
     return self;
 }
+
+
 - (void)updateFire:(ccTime) dt
 {
     if(joker.jokerBody->GetLinearVelocity().x>MIN_RUN_SPEED)
@@ -904,13 +998,29 @@ NSString *map2 = @"map_lv2_trial.tmx";
     */
     if(joker.position.x>FALLING_WOOD1-FALLING_OFFSET&&fall1==false)
     {
-       // [self updateFalling:FALLING_WOOD1];
+        //[self updateFalling:FALLING_WOOD1];
         fall1=true;
     }
     if(joker.position.x>FALLING_WOOD2-FALLING_OFFSET&&fall2==false)
     {
         [self updateFalling:FALLING_WOOD2];
         fall2=true;
+    }
+    
+    if(joker.position.x>100*32/2-300 && hand1==false)
+    {
+        [self updateFlower:ccp(100*32,16*32)];
+        hand1=true;
+    }
+    if(joker.position.x>150*32/2-300 && hand2==false)
+    {
+        [self updateFlower:ccp(150*32/2,18*32/2)];
+        hand2=true;
+    }
+    if(joker.position.x>214*32/2-300 && hand3==false)
+    {
+        [self updateFlower:ccp(214*32,15*32)];
+        hand3=true;
     }
     
     if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:fly])))
@@ -973,21 +1083,40 @@ NSString *map2 = @"map_lv2_trial.tmx";
                 GameObject*actor=(GameObject*)myActor;
                 if(actor.type==kGameObjectFlower)
                 {
-                    if(actor.position.x-joker.position.x<100)
+                    CCLOG(@"Actor: position: (%f,%f)",actor.position.x,actor.position.y);
+                }
+                
+                /*
+                if(actor.type==kGameObjectFlower)
+                {
+                    if(actor.position.x-joker.position.x<400)
                     {
                         [actor setVisible:true];
-                        NSMutableArray *animFrames = [NSMutableArray array];
-                        for(int i = 0; i <= 10; ++i) {
-                            [animFrames addObject:
+                        
+                        NSMutableArray *animFrames1 = [NSMutableArray array];
+                        for(int i = 0; i <= 7; ++i) {
+                            [animFrames1 addObject:
                              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-                              [NSString stringWithFormat:@"piranha%d.png",i]]];
+                              [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
                         }
-                        CCAnimation *Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.5f];
-                        CCAction *Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+                        CCAnimation *Animation1 = [CCAnimation animationWithSpriteFrames:animFrames1 delay:0.5f];
+                        CCFiniteTimeAction *Action1 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation1] times:1];
+                        
+                        NSMutableArray *animFrames2 = [NSMutableArray array];
+                        for(int i = 8; i <= 18; ++i) {
+                            [animFrames1 addObject:
+                             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                              [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
+                        }
+                        CCAnimation *Animation2 = [CCAnimation animationWithSpriteFrames:animFrames2 delay:0.5f];
+                        CCFiniteTimeAction *Action2 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation2] times:10];
+                        
+                        id sequence = [CCSequence actions:Action1, Action2, nil];
                         [actor setTexture:[flowerBatchNode texture]];
-                        [actor runAction:Action];
+                        [actor runAction:sequence];
                     }
                 }
+                 */
                 if((b->GetPosition().x<(joker.position.x-DESTORY_DISTANCE)/PTM_RATIO)&&actor.type!=kGameObjectEmeny)
                 {
                     toDestroy.push_back(b);

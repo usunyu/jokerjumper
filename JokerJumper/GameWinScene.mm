@@ -43,7 +43,7 @@ int distanceNum;
 }
 
 -(id) init {
-    if( (self=[super init] )) {
+    if ((self = [super initWithColor:ccc4(139, 137, 137, 200)])) {
 		
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         // Create a label for display purposes

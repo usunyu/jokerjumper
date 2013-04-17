@@ -24,8 +24,6 @@
 		A4419EC816E962C6009A441C /* JokerActions.png in Resources */ = {isa = PBXBuildFile; fileRef = A4419EC616E962C6009A441C /* JokerActions.png */; };
 		A4581665170DEA23000162FA /* map8.0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4581663170DEA23000162FA /* map8.0.tmx */; };
 		A4581666170DEA23000162FA /* map9.0.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4581664170DEA23000162FA /* map9.0.tmx */; };
-		A463629B1707D19C00DC75E4 /* diamond_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = A46362981707D19C00DC75E4 /* diamond_default.plist */; };
-		A463629C1707D19C00DC75E4 /* diamond_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A46362991707D19C00DC75E4 /* diamond_default.png */; };
 		A463629D1707D19C00DC75E4 /* heart_hd.png in Resources */ = {isa = PBXBuildFile; fileRef = A463629A1707D19C00DC75E4 /* heart_hd.png */; };
 		A467103717050ABB0010697F /* BackgroundLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A467103617050ABB0010697F /* BackgroundLayer.mm */; };
 		A478BF851707DA4C00F40FB5 /* map7.2_copy.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A478BF841707DA4C00F40FB5 /* map7.2_copy.tmx */; };
@@ -290,10 +288,14 @@
 		DC146ADE171E3B8F004B27FE /* zombie_hand_green_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC146ADC171E3B8F004B27FE /* zombie_hand_green_default.plist */; };
 		DC146ADF171E3B8F004B27FE /* zombie_hand_green_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146ADD171E3B8F004B27FE /* zombie_hand_green_default.png */; };
 		DC146AE5171E3BD3004B27FE /* coffin.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146AE4171E3BD3004B27FE /* coffin.png */; };
-		DC146AE8171E4196004B27FE /* zombie_hand_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC146AE6171E4196004B27FE /* zombie_hand_default.plist */; };
-		DC146AE9171E4196004B27FE /* zombie_hand_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146AE7171E4196004B27FE /* zombie_hand_default.png */; };
 		DC146AED171E4659004B27FE /* brick2.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146AEC171E4659004B27FE /* brick2.png */; };
 		DC146AEF171E4A13004B27FE /* map_lv2_trial2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC146AEE171E4A13004B27FE /* map_lv2_trial2.tmx */; };
+		DC146AFE171E7C5C004B27FE /* zombie_hand_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC146AFC171E7C5C004B27FE /* zombie_hand_default.plist */; };
+		DC146AFF171E7C5C004B27FE /* zombie_hand_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146AFD171E7C5C004B27FE /* zombie_hand_default.png */; };
+		DC146B02171E7C94004B27FE /* heart_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC146B00171E7C94004B27FE /* heart_default.plist */; };
+		DC146B03171E7C94004B27FE /* heart_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146B01171E7C94004B27FE /* heart_default.png */; };
+		DC146B06171E7CE5004B27FE /* diamond_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC146B04171E7CE4004B27FE /* diamond_default.plist */; };
+		DC146B07171E7CE5004B27FE /* diamond_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146B05171E7CE4004B27FE /* diamond_default.png */; };
 		DC1F25EA1700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */; };
 		DC1F25EE17022E2D0014F3AC /* Cartoon clown laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */; };
 		DC1F25F617035E7C0014F3AC /* map5.95.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25F517035E7C0014F3AC /* map5.95.tmx */; };
@@ -378,8 +380,6 @@
 		A4419EC616E962C6009A441C /* JokerActions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JokerActions.png; sourceTree = "<group>"; };
 		A4581663170DEA23000162FA /* map8.0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map8.0.tmx; sourceTree = "<group>"; };
 		A4581664170DEA23000162FA /* map9.0.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map9.0.tmx; sourceTree = "<group>"; };
-		A46362981707D19C00DC75E4 /* diamond_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = diamond_default.plist; sourceTree = "<group>"; };
-		A46362991707D19C00DC75E4 /* diamond_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond_default.png; sourceTree = "<group>"; };
 		A463629A1707D19C00DC75E4 /* heart_hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_hd.png; sourceTree = "<group>"; };
 		A467103517050ABB0010697F /* BackgroundLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundLayer.h; sourceTree = "<group>"; };
 		A467103617050ABB0010697F /* BackgroundLayer.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = BackgroundLayer.mm; sourceTree = "<group>"; };
@@ -864,10 +864,14 @@
 		DC146ADC171E3B8F004B27FE /* zombie_hand_green_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie_hand_green_default.plist; sourceTree = "<group>"; };
 		DC146ADD171E3B8F004B27FE /* zombie_hand_green_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie_hand_green_default.png; sourceTree = "<group>"; };
 		DC146AE4171E3BD3004B27FE /* coffin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffin.png; sourceTree = "<group>"; };
-		DC146AE6171E4196004B27FE /* zombie_hand_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie_hand_default.plist; sourceTree = "<group>"; };
-		DC146AE7171E4196004B27FE /* zombie_hand_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie_hand_default.png; sourceTree = "<group>"; };
 		DC146AEC171E4659004B27FE /* brick2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick2.png; sourceTree = "<group>"; };
 		DC146AEE171E4A13004B27FE /* map_lv2_trial2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map_lv2_trial2.tmx; sourceTree = "<group>"; };
+		DC146AFC171E7C5C004B27FE /* zombie_hand_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = zombie_hand_default.plist; sourceTree = "<group>"; };
+		DC146AFD171E7C5C004B27FE /* zombie_hand_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zombie_hand_default.png; sourceTree = "<group>"; };
+		DC146B00171E7C94004B27FE /* heart_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = heart_default.plist; sourceTree = "<group>"; };
+		DC146B01171E7C94004B27FE /* heart_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart_default.png; sourceTree = "<group>"; };
+		DC146B04171E7CE4004B27FE /* diamond_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = diamond_default.plist; sourceTree = "<group>"; };
+		DC146B05171E7CE4004B27FE /* diamond_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diamond_default.png; sourceTree = "<group>"; };
 		DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Pain-SoundBible.com-1883168362.wav"; sourceTree = "<group>"; };
 		DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Cartoon clown laugh.wav"; sourceTree = "<group>"; };
 		DC1F25F517035E7C0014F3AC /* map5.95.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.95.tmx; sourceTree = "<group>"; };
@@ -991,19 +995,22 @@
 			isa = PBXGroup;
 			children = (
 				DCA232C8170BEF4B00EA70E0 /* fallingBrick8.png */,
-				A46362981707D19C00DC75E4 /* diamond_default.plist */,
 				DCA232CC170C245B00EA70E0 /* leaf_default.plist */,
 				DC7E1991171BF5FC00DA84A0 /* skull_default.plist */,
 				DC146ADC171E3B8F004B27FE /* zombie_hand_green_default.plist */,
 				DC146AE4171E3BD3004B27FE /* coffin.png */,
-				DC146AE6171E4196004B27FE /* zombie_hand_default.plist */,
-				DC146AE7171E4196004B27FE /* zombie_hand_default.png */,
 				DC146ADD171E3B8F004B27FE /* zombie_hand_green_default.png */,
 				DC7E19A4171D233700DA84A0 /* stars.png */,
 				DC7E1995171BF60200DA84A0 /* level2_moon.png */,
 				DC7E1992171BF5FC00DA84A0 /* skull_default.png */,
+				DC146B00171E7C94004B27FE /* heart_default.plist */,
+				DC146B01171E7C94004B27FE /* heart_default.png */,
+				DC146B04171E7CE4004B27FE /* diamond_default.plist */,
+				DC146B05171E7CE4004B27FE /* diamond_default.png */,
 				DCA232D0170C256D00EA70E0 /* fallingWood.png */,
 				DC4C0ADC171D28BB006EB975 /* fire.png */,
+				DC146AFC171E7C5C004B27FE /* zombie_hand_default.plist */,
+				DC146AFD171E7C5C004B27FE /* zombie_hand_default.png */,
 				E9881781171D1AD700269E7A /* brick_stone_smile_default.plist */,
 				E9881782171D1AD700269E7A /* brick_stone_smile_default.png */,
 				DC7E1999171CEEE900DA84A0 /* moon_default.plist */,
@@ -1012,7 +1019,6 @@
 				DCA232D6170C307B00EA70E0 /* piranha_default.plist */,
 				DCA232D7170C307B00EA70E0 /* piranha_default.png */,
 				DCA232CD170C245B00EA70E0 /* leaf_default.png */,
-				A46362991707D19C00DC75E4 /* diamond_default.png */,
 				A463629A1707D19C00DC75E4 /* heart_hd.png */,
 			);
 			name = "Magic Props";
@@ -2042,8 +2048,6 @@
 				E951845617077FA200F72200 /* map7.1.tmx in Resources */,
 				E95184581707831000F72200 /* map7.1.tmx in Resources */,
 				E951845E1707862F00F72200 /* map7.2.tmx in Resources */,
-				A463629B1707D19C00DC75E4 /* diamond_default.plist in Resources */,
-				A463629C1707D19C00DC75E4 /* diamond_default.png in Resources */,
 				A463629D1707D19C00DC75E4 /* heart_hd.png in Resources */,
 				A478BF851707DA4C00F40FB5 /* map7.2_copy.tmx in Resources */,
 				A4ABCA241707FC2200FB4623 /* bg_layer1.png in Resources */,
@@ -2089,16 +2093,23 @@
 				DC146ADE171E3B8F004B27FE /* zombie_hand_green_default.plist in Resources */,
 				DC146ADF171E3B8F004B27FE /* zombie_hand_green_default.png in Resources */,
 				DC146AE5171E3BD3004B27FE /* coffin.png in Resources */,
-				DC146AE8171E4196004B27FE /* zombie_hand_default.plist in Resources */,
-				DC146AE9171E4196004B27FE /* zombie_hand_default.png in Resources */,
 				DC146AED171E4659004B27FE /* brick2.png in Resources */,
 				DC146AEF171E4A13004B27FE /* map_lv2_trial2.tmx in Resources */,
 				A4BEF47F171E5EC800E0ECB4 /* StartMenu0.png in Resources */,
 				A4BEF480171E5EC800E0ECB4 /* StartMenu1.png in Resources */,
 				A4BEF483171E642900E0ECB4 /* StartMenu_default.plist in Resources */,
 				A4BEF484171E642900E0ECB4 /* StartMenu_default.png in Resources */,
+<<<<<<< HEAD
 				A4B309C1171E7B3500E25430 /* level1.png in Resources */,
 				A4B309C2171E7B3500E25430 /* level2.png in Resources */,
+=======
+				DC146AFE171E7C5C004B27FE /* zombie_hand_default.plist in Resources */,
+				DC146AFF171E7C5C004B27FE /* zombie_hand_default.png in Resources */,
+				DC146B02171E7C94004B27FE /* heart_default.plist in Resources */,
+				DC146B03171E7C94004B27FE /* heart_default.png in Resources */,
+				DC146B06171E7CE5004B27FE /* diamond_default.plist in Resources */,
+				DC146B07171E7CE5004B27FE /* diamond_default.png in Resources */,
+>>>>>>> gamelayer2
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

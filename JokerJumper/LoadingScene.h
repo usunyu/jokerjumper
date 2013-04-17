@@ -11,6 +11,8 @@
 
 @interface LoadingScene : CCScene {
     int GameStage;
+    int count;
+    CCLabelTTF* label;
 }
 
 +( id ) sceneWithTargetScene:(int)gameStage;

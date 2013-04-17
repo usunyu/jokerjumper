@@ -60,6 +60,7 @@
     CCSpriteBatchNode* skullBatchNode;
     CCSpriteBatchNode* ghostBatchNode;
     CCSpriteBatchNode* moonBatchNode;
+    CCSpriteBatchNode* heartBatchNode;
     b2Vec2 jumpVec;
     std::deque <State> stateVec;
     
@@ -106,6 +107,7 @@
 @property (nonatomic, readwrite) CCSpriteBatchNode *flyBatchNode;
 @property (nonatomic, readwrite) b2Vec2 jumpVec;
 @property (nonatomic, readwrite) CCSpriteBatchNode *diamondBatchNode;
+@property (nonatomic, readwrite) CCSpriteBatchNode *heartBatchNode;
 @property (nonatomic, readwrite) HUDLayer *hudLayer;
 @property (nonatomic, readwrite) std::deque<State> stateVec;
 @property (nonatomic, readwrite) std::deque<CGPoint> positionVec;

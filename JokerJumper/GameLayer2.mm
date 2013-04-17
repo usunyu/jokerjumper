@@ -32,6 +32,7 @@
 @synthesize brick2BatchNode;
 @synthesize brick3BatchNode;
 @synthesize diamondBatchNode;
+@synthesize heartBatchNode;
 @synthesize ghostBatchNode;
 @synthesize stoneBatchNode;
 @synthesize flyBatchNode;
@@ -173,7 +174,7 @@ NSString *map2 = @"map_lv2_trial2.tmx";
     if(type==kGameObjectCoin)
     {
         platform=[[GameObject alloc] init];
-        for(int i = 0; i <= 2; ++i) {
+        for(int i = 0; i <= 11; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"diamond%d.png",i]]];
@@ -194,6 +195,23 @@ NSString *map2 = @"map_lv2_trial2.tmx";
          */
         //[platform setType:type];
         //[self addChild:platform z:3];
+    }
+    else if(type==kGameObjectCoin1)
+    {
+        platform=[[GameObject alloc] init];
+        for(int i = 0; i <= 11; ++i) {
+            [animFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"heart%d.png",i]]];
+        }
+        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.5f];
+        Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+        [platform setTexture:[heartBatchNode texture]];
+        [platform runAction:Action];
+        //platform=[[GameObject alloc] init];
+        [platform setType:type];
+        [heartBatchNode addChild:platform z:4];
+        
     }
     else if(type==kGameObjectPlatform1)
     {
@@ -291,13 +309,6 @@ NSString *map2 = @"map_lv2_trial2.tmx";
         [self addChild:platform z:2];
     }
     //---------------------------create the box2d object: magic props------------------------//
-    else if(type==kGameObjectCoin1)
-    {
-        platform = [GameObject spriteWithFile:@"heart_hd.png"];
-        [platform setType:type];
-        [self addChild:platform z:4];
-        
-    }
     else if(type==kGameObjectCoin2)
     {
         platform = [GameObject spriteWithFile:@"club.png"];
@@ -660,41 +671,41 @@ NSString *map2 = @"map_lv2_trial2.tmx";
     CCLOG(@"winSize: height: %f width: %f",winSize.height,winSize.width);
     
     b2BodyDef bodyDef;
-    bodyDef.position.Set(point.x/PTM_RATIO, (winSize.width-point.y)/PTM_RATIO);
+    bodyDef.position.Set((point.x+32)/PTM_RATIO, (point.y-32)/PTM_RATIO);
     bodyDef.gravityScale = 0.0f;
     GameObject* actor=[GameObject spriteWithSpriteFrameName:@"zombie_hand0.png"];
     [actor setType:kGameObjectFlower];
     bodyDef.userData = (__bridge_retained void*) actor;
     b2Body *body = world->CreateBody(&bodyDef);
     b2PolygonShape dynamicBox;
-    dynamicBox.SetAsBox(64/2/PTM_RATIO, 64/2/PTM_RATIO);
+    dynamicBox.SetAsBox(128/2/PTM_RATIO, 128/2/PTM_RATIO);
     b2FixtureDef fixtureDef;
     fixtureDef.shape = &dynamicBox;
     fixtureDef.density = 0;
     body->CreateFixture(&fixtureDef);
     
     NSMutableArray *animFrames1 = [NSMutableArray array];
-    for(int i = 0; i <= 7; ++i) {
+    for(int i = 0; i <= 15; ++i) {
         [animFrames1 addObject:
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
           [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
     }
-    CCAnimation *Animation1 = [CCAnimation animationWithSpriteFrames:animFrames1 delay:0.05f];
-    CCFiniteTimeAction *Action1 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation1] times:1];
+    CCAnimation *Animation1 = [CCAnimation animationWithSpriteFrames:animFrames1 delay:0.25f];
+    CCAction *Action1 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation1] times:1];
     
-    NSMutableArray *animFrames2 = [NSMutableArray array];
-    for(int i = 8; i <= 18; ++i) {
-        [animFrames1 addObject:
-         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-          [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
-    }
-    CCAnimation *Animation2 = [CCAnimation animationWithSpriteFrames:animFrames2 delay:0.05f];
-    CCFiniteTimeAction *Action2 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation2] times:1];
+//    NSMutableArray *animFrames2 = [NSMutableArray array];
+//    for(int i = 8; i <= 18; ++i) {
+//        [animFrames1 addObject:
+//         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+//          [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
+//    }
+//    CCAnimation *Animation2 = [CCAnimation animationWithSpriteFrames:animFrames2 delay:0.05f];
+//    CCFiniteTimeAction *Action2 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation2] times:1];
+//    id sequence = [CCSequence actions:Action1, Action2, nil];
+//    [actor setTexture:[flowerBatchNode texture]];
     
-    id sequence = [CCSequence actions:Action1, Action2, nil];
-    [actor setTexture:[flowerBatchNode texture]];
     [self addChild:actor z:10];
-    [actor runAction:sequence];
+    [actor runAction:Action1];
 }
 
 /*
@@ -742,6 +753,7 @@ NSString *map2 = @"map_lv2_trial2.tmx";
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"skull_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"moon_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"zombie_hand_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"heart_default.plist"];
     
     
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
@@ -751,9 +763,9 @@ NSString *map2 = @"map_lv2_trial2.tmx";
     brick3BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick2_hd_default.png"];
     flyBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
     diamondBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"diamond_default.png"];
+    heartBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"heart_default.png"];
     leafBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"leaf_default.png"];
     flowerBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"zombie_hand_default.png"];
-    
     stoneBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"brick_stone_smile_default.png"];
     skullBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"skull_default.png"];
     ghostBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
@@ -771,7 +783,7 @@ NSString *map2 = @"map_lv2_trial2.tmx";
     [self addChild:flyBatchNode z:11];
     [self addChild:diamondBatchNode z:3];
     [self addChild:leafBatchNode z:11];
-    [self addChild:flowerBatchNode z:10];
+    //[self addChild:flowerBatchNode z:10];
     [self addChild:ghostBatchNode z:13];
     [self addChild:skullBatchNode z:20];
     [self addChild:stoneBatchNode z:15];
@@ -1007,19 +1019,19 @@ NSString *map2 = @"map_lv2_trial2.tmx";
         fall2=true;
     }
     
-    if(joker.position.x>100*32/2-300 && hand1==false)
+    if(joker.position.x>100*32-300 && hand1==false)
     {
-        [self updateFlower:ccp(100*32,16*32)];
+        [self updateFlower:ccp(100*32,(24-16)*32)];
         hand1=true;
     }
-    if(joker.position.x>150*32/2-300 && hand2==false)
+    if(joker.position.x>150*32-300 && hand2==false)
     {
-        [self updateFlower:ccp(150*32/2,18*32/2)];
+        [self updateFlower:ccp(150*32,(24-16)*32)];
         hand2=true;
     }
     if(joker.position.x>214*32/2-300 && hand3==false)
     {
-        [self updateFlower:ccp(214*32,15*32)];
+        [self updateFlower:ccp(214*32,(24-15)*32)];
         hand3=true;
     }
     

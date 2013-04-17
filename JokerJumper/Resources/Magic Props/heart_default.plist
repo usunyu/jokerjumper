@@ -5,266 +5,266 @@
 	<key>frames</key>
 	<dict>
 		
-		<key>diamond0.png</key>
+		<key>heart0.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{3, 4}, {92, 92}}</string>
+			<string>{{3, 1}, {96, 98}}</string>
 			<key>spriteOffset</key>
-			<string>{-1, -0}</string>
+			<string>{1, -0}</string>
 			<key>spriteSize</key>
-			<string>{92, 92}</string>
+			<string>{96, 98}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{188, 0}, {92, 92}}</string>
+			<string>{{0, 100}, {96, 98}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond1.png</key>
+		<key>heart1.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{3, 4}, {92, 92}}</string>
+			<string>{{3, 1}, {96, 98}}</string>
 			<key>spriteOffset</key>
-			<string>{-1, -0}</string>
+			<string>{1, -0}</string>
 			<key>spriteSize</key>
-			<string>{92, 92}</string>
+			<string>{96, 98}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 94}, {92, 92}}</string>
+			<string>{{392, 0}, {96, 98}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond10.png</key>
+		<key>heart10.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{3, 4}, {92, 92}}</string>
+			<string>{{3, 1}, {96, 98}}</string>
 			<key>spriteOffset</key>
-			<string>{-1, -0}</string>
+			<string>{1, -0}</string>
 			<key>spriteSize</key>
-			<string>{92, 92}</string>
+			<string>{96, 98}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 188}, {92, 92}}</string>
+			<string>{{196, 0}, {96, 98}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond11.png</key>
+		<key>heart11.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{3, 4}, {92, 92}}</string>
+			<string>{{3, 1}, {96, 98}}</string>
 			<key>spriteOffset</key>
-			<string>{-1, -0}</string>
+			<string>{1, -0}</string>
 			<key>spriteSize</key>
-			<string>{92, 92}</string>
+			<string>{96, 98}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{188, 94}, {92, 92}}</string>
+			<string>{{294, 0}, {96, 98}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond2.png</key>
+		<key>heart2.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{3, 4}, {92, 92}}</string>
+			<string>{{3, 1}, {96, 98}}</string>
 			<key>spriteOffset</key>
-			<string>{-1, -0}</string>
+			<string>{1, -0}</string>
 			<key>spriteSize</key>
-			<string>{92, 92}</string>
+			<string>{96, 98}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{94, 188}, {92, 92}}</string>
+			<string>{{98, 0}, {96, 98}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond3.png</key>
+		<key>heart3.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{4, 4}, {92, 92}}</string>
+			<string>{{4, 2}, {94, 96}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{1, -0}</string>
 			<key>spriteSize</key>
-			<string>{92, 92}</string>
+			<string>{94, 96}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 0}, {92, 92}}</string>
+			<string>{{194, 100}, {94, 96}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond4.png</key>
+		<key>heart4.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{4, 5}, {90, 90}}</string>
+			<string>{{4, 2}, {94, 94}}</string>
 			<key>spriteOffset</key>
-			<string>{-1, -0}</string>
+			<string>{1, 1}</string>
 			<key>spriteSize</key>
-			<string>{90, 90}</string>
+			<string>{94, 94}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{188, 280}, {90, 90}}</string>
+			<string>{{290, 196}, {94, 94}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond5.png</key>
+		<key>heart5.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{25, 21}, {50, 70}}</string>
+			<string>{{10, 20}, {84, 68}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -6}</string>
+			<string>{2, -4}</string>
 			<key>spriteSize</key>
-			<string>{50, 70}</string>
+			<string>{84, 68}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 354}, {50, 70}}</string>
+			<string>{{0, 270}, {84, 68}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond6.png</key>
+		<key>heart6.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{25, 21}, {50, 70}}</string>
+			<string>{{10, 20}, {84, 68}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -6}</string>
+			<string>{2, -4}</string>
 			<key>spriteSize</key>
-			<string>{50, 70}</string>
+			<string>{84, 68}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 282}, {50, 70}}</string>
+			<string>{{0, 200}, {84, 68}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond7.png</key>
+		<key>heart7.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{4, 5}, {90, 90}}</string>
+			<string>{{4, 2}, {94, 94}}</string>
 			<key>spriteOffset</key>
-			<string>{-1, -0}</string>
+			<string>{1, 1}</string>
 			<key>spriteSize</key>
-			<string>{90, 90}</string>
+			<string>{94, 94}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{188, 188}, {90, 90}}</string>
+			<string>{{290, 100}, {94, 94}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond8.png</key>
+		<key>heart8.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{4, 4}, {92, 92}}</string>
+			<string>{{4, 2}, {94, 96}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{1, -0}</string>
 			<key>spriteSize</key>
-			<string>{92, 92}</string>
+			<string>{94, 96}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{94, 94}, {92, 92}}</string>
+			<string>{{98, 100}, {94, 96}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
 		
-		<key>diamond9.png</key>
+		<key>heart9.png</key>
 		<dict>
 			<key>aliases</key>
 			<array>
 			
 			</array>
 			<key>spriteColorRect</key>
-			<string>{{3, 4}, {92, 92}}</string>
+			<string>{{3, 1}, {96, 98}}</string>
 			<key>spriteOffset</key>
-			<string>{-1, -0}</string>
+			<string>{1, -0}</string>
 			<key>spriteSize</key>
-			<string>{92, 92}</string>
+			<string>{96, 98}</string>
 			<key>spriteSourceSize</key>
 			<string>{100, 100}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{94, 0}, {92, 92}}</string>
+			<string>{{0, 0}, {96, 98}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
@@ -279,17 +279,17 @@
 		<key>size</key>
 		<string>{512, 512}</string>
 		<key>name</key>
-		<string>diamond</string>
+		<string>heart</string>
 		<key>target</key>
 		<dict>
 			<key>name</key>
 			<string>default</string>
 			<key>textureFileName</key>
-			<string>diamond_default</string>
+			<string>heart_default</string>
 			<key>textureFileExtension</key>
 			<string>.png</string>
 			<key>coordinatesFileName</key>
-			<string>diamond_default</string>
+			<string>heart_default</string>
 			<key>coordinatesFileExtension</key>
 			<string>.plist</string>
 			<key>premultipliedAlpha</key>

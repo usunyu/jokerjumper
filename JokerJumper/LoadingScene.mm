@@ -23,14 +23,35 @@
     if (( self = [ super init]))
     {
         GameStage = gameStage;
-        
-        CCLabelTTF* label = [CCLabelTTF labelWithString: @"Loading ..." fontName: @"Marker Felt" fontSize: 64 ];
         CGSize size = [[CCDirector sharedDirector] winSize];
-        label.position = CGPointMake(size.width / 2 , size.height / 2 );
+        label = [CCLabelTTF labelWithString: @"Loading ..." fontName: @"Marker Felt" fontSize: 64 ];
+        label.anchorPoint=ccp(size.width/2,size.height/ 2);
+        count=1;
         [ self addChild:label];
+        //[self schedule:@selector(update:) interval:3.0f];
+        //[self schedule:@selector(updateCount:) interval:0.2f];
         [ self scheduleUpdate];
     }
     return self ;
+}
+
+-( void ) updateCoin:(ccTime)delta
+{
+    count++;
+    if(count==7)
+    {
+        count=1;
+    }
+    switch(count)
+    {
+        case 1:[label setString:@"Loading ."];break;
+        case 2:[label setString:@"Loading .."];break;
+        case 3:[label setString:@"Loading ..."];break;
+        case 4:[label setString:@"Loading ...."];break;
+        case 5:[label setString:@"Loading ....."];break;
+        case 6:[label setString:@"Loading ......"];break;
+            
+    }
 }
 
 -( void ) update:(ccTime)delta

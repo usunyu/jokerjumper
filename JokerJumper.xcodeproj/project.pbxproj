@@ -2080,7 +2080,6 @@
 				E9881784171D1AD700269E7A /* brick_stone_smile_default.png in Resources */,
 				DC7E19A5171D233700DA84A0 /* stars.png in Resources */,
 				DC4C0ADD171D28BB006EB975 /* fire.png in Resources */,
-<<<<<<< HEAD
 				DC146ADE171E3B8F004B27FE /* zombie_hand_green_default.plist in Resources */,
 				DC146ADF171E3B8F004B27FE /* zombie_hand_green_default.png in Resources */,
 				DC146AE5171E3BD3004B27FE /* coffin.png in Resources */,
@@ -2088,12 +2087,10 @@
 				DC146AE9171E4196004B27FE /* zombie_hand_default.png in Resources */,
 				DC146AED171E4659004B27FE /* brick2.png in Resources */,
 				DC146AEF171E4A13004B27FE /* map_lv2_trial2.tmx in Resources */,
-=======
 				A4BEF47F171E5EC800E0ECB4 /* StartMenu0.png in Resources */,
 				A4BEF480171E5EC800E0ECB4 /* StartMenu1.png in Resources */,
 				A4BEF483171E642900E0ECB4 /* StartMenu_default.plist in Resources */,
 				A4BEF484171E642900E0ECB4 /* StartMenu_default.png in Resources */,
->>>>>>> MainMenu
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

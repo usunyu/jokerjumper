@@ -658,7 +658,7 @@ bool gravity = true;
 
 //------------------------------------------animation: import plsit&png-------------------------------------------//
 - (void) initBatchNode {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"JokerActions_both.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"texture.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_ice_flashing_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick1_hd_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick2_hd_default.plist"];
@@ -669,8 +669,8 @@ bool gravity = true;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"heart_default.plist"];
     
     
-    jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
-    emenyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
+    jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"texture.png"];
+    emenyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"texture.png"];
     brick1BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick_ice_flashing_default.png"];
     brick2BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick1_hd_default.png"];
     brick3BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick2_hd_default.png"];
@@ -723,14 +723,14 @@ bool gravity = true;
         [self initBatchNode];
         [self initTiledMaps];
         
-        joker = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
+        joker = [Joker spriteWithSpriteFrameName:@"01.png"];
         //        joker = [[Joker alloc] init];
         [joker setType:kGameObjectJoker];
         [joker initAnimation:jokerBatchNode];
         joker.position = ccp(jokerLocationX, jokerLocationY);
         [joker createBox2dObject:world];
         
-        emeny = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
+        emeny = [Joker spriteWithSpriteFrameName:@"01.png"];
         [emeny setType:kGameObjectEmeny];
         [emeny initAnimation: emenyBatchNode];
         emeny.position = ccp(emenyLocationX, emenyLocationY);

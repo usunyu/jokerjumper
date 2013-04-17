@@ -107,12 +107,12 @@ bool gravity2 = true;
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"Collect_Coin.wav"];
     SimpleAudioEngine *sae = [SimpleAudioEngine sharedEngine];
     if (sae != nil) {
-        [sae preloadBackgroundMusic:@"background_music.mp3"];
+        [sae preloadBackgroundMusic:@"1.wav"];
         if (sae.willPlayBackgroundMusic) {
             sae.backgroundMusicVolume = 0.5f;
         }
     }
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background_music.mp3"];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"1.wav"];
 }
 
 - (void) initTiledMaps {
@@ -758,7 +758,7 @@ bool gravity2 = true;
 
 //------------------------------------------animation: import plsit&png-------------------------------------------//
 - (void) initBatchNode {
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"JokerActions_both.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"texture.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_ice_flashing_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick1_hd_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick2_hd_default.plist"];
@@ -774,7 +774,7 @@ bool gravity2 = true;
     
     
     
-    jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
+    jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"texture.png"];
     emenyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
     brick1BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick_ice_flashing_default.png"];
     brick2BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick1_hd_default.png"];
@@ -834,7 +834,7 @@ bool gravity2 = true;
         [self initBatchNode];
         [self initTiledMaps];
         
-        joker = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
+        joker = [Joker spriteWithSpriteFrameName:@"01.png"];
         [joker setType:kGameObjectJoker];
         [joker initAnimation:jokerBatchNode];
         joker.position = ccp(jokerLocationX, jokerLocationY);

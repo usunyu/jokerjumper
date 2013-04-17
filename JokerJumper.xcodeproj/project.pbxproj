@@ -299,6 +299,9 @@
 		DC146B12171E9890004B27FE /* pokerSoilder_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC146B10171E9890004B27FE /* pokerSoilder_default.plist */; };
 		DC146B13171E9890004B27FE /* pokerSoilder_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146B11171E9890004B27FE /* pokerSoilder_default.png */; };
 		DC146B17171E9CB7004B27FE /* map_lv2_trial2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC146B16171E9CB7004B27FE /* map_lv2_trial2.tmx */; };
+		DC146B1A171E9E5F004B27FE /* texture.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC146B18171E9E5F004B27FE /* texture.plist */; };
+		DC146B1B171E9E5F004B27FE /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = DC146B19171E9E5F004B27FE /* texture.png */; };
+		DC146B1D171EA416004B27FE /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC146B1C171EA416004B27FE /* 1.wav */; };
 		DC1F25EA1700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */; };
 		DC1F25EE17022E2D0014F3AC /* Cartoon clown laugh.wav in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */; };
 		DC1F25F617035E7C0014F3AC /* map5.95.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DC1F25F517035E7C0014F3AC /* map5.95.tmx */; };
@@ -877,6 +880,9 @@
 		DC146B10171E9890004B27FE /* pokerSoilder_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pokerSoilder_default.plist; sourceTree = "<group>"; };
 		DC146B11171E9890004B27FE /* pokerSoilder_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokerSoilder_default.png; sourceTree = "<group>"; };
 		DC146B16171E9CB7004B27FE /* map_lv2_trial2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map_lv2_trial2.tmx; sourceTree = "<group>"; };
+		DC146B18171E9E5F004B27FE /* texture.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = texture.plist; sourceTree = "<group>"; };
+		DC146B19171E9E5F004B27FE /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
+		DC146B1C171EA416004B27FE /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = "<group>"; };
 		DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Pain-SoundBible.com-1883168362.wav"; sourceTree = "<group>"; };
 		DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Cartoon clown laugh.wav"; sourceTree = "<group>"; };
 		DC1F25F517035E7C0014F3AC /* map5.95.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.95.tmx; sourceTree = "<group>"; };
@@ -986,6 +992,7 @@
 			children = (
 				A433BD1B16F07BF3003CD7CE /* background_music.mp3 */,
 				DC1F25ED17022E2D0014F3AC /* Cartoon clown laugh.wav */,
+				DC146B1C171EA416004B27FE /* 1.wav */,
 				DC1F25E91700FCE20014F3AC /* Pain-SoundBible.com-1883168362.wav */,
 				A433BD1416F06F3C003CD7CE /* Collect_Coin.wav */,
 				A4419EC216E95FF1009A441C /* Jump.wav */,
@@ -1161,6 +1168,8 @@
 				DCB5647F170010BC0089936A /* brick2_hd_default.plist */,
 				DCB56480170010BD0089936A /* brick2_hd_default.png */,
 				A4419EC616E962C6009A441C /* JokerActions.png */,
+				DC146B18171E9E5F004B27FE /* texture.plist */,
+				DC146B19171E9E5F004B27FE /* texture.png */,
 				E951844F17075CC700F72200 /* brick_grass_hd.png */,
 				DCB5644A16FFAC210089936A /* JokerActions_both.plist */,
 				E951845117075D9000F72200 /* brick_dice_hd.png */,
@@ -2112,6 +2121,9 @@
 				DC146B12171E9890004B27FE /* pokerSoilder_default.plist in Resources */,
 				DC146B13171E9890004B27FE /* pokerSoilder_default.png in Resources */,
 				DC146B17171E9CB7004B27FE /* map_lv2_trial2.tmx in Resources */,
+				DC146B1A171E9E5F004B27FE /* texture.plist in Resources */,
+				DC146B1B171E9E5F004B27FE /* texture.png in Resources */,
+				DC146B1D171EA416004B27FE /* 1.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

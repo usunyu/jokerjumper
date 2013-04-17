@@ -31,10 +31,10 @@
     jokerFlip=false;
     NSMutableArray *runAnimFrames = [NSMutableArray array];
     
-    for(int i = 0; i <= 7; ++i) {
+    for(int i = 1; i <= 14; ++i) {
         [runAnimFrames addObject:
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-          [NSString stringWithFormat:@"motion%d-hd.png", i]]];
+          [NSString stringWithFormat:@"%02d.png", i]]];
     }
     jokerRunAnimation = [CCAnimation animationWithSpriteFrames:runAnimFrames delay:0.09f];
     jokerRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerRunAnimation]];
@@ -47,10 +47,10 @@
     //flip Action
     NSMutableArray *flipAnimFrames = [NSMutableArray array];
     jokerFlipAnimation=[CCAnimation animation];
-    for(int i = 0; i <= 7; i++) {
+    for(int i = 15; i <= 28; i++) {
         [flipAnimFrames addObject:
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-          [NSString stringWithFormat:@"motion%d-hd_flip.png", i]]];
+          [NSString stringWithFormat:@"%02d.png", i]]];
     }
     
     jokerFlipAnimation = [CCAnimation animationWithSpriteFrames:flipAnimFrames delay:0.09f];

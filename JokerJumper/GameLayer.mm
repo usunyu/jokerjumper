@@ -1076,4 +1076,34 @@ NSString *map = @"map9.2.tmx";
     jokerCharge = 1;
     jokerStartCharge = false;
 }
+
+-(void) onEnter {
+    
+    // node的 init 方法后调用.
+    
+    // 如果使用 CCTransitionScene方法，在转场开始后调用.
+    
+    [super onEnter];
+    
+}
+
+-(void ) onEnterTransitionDidFinish {
+    
+    // onEnter方法后调用.
+    
+    // 如果使用 CCTransitionScene方法，在转场结束后调用.
+    
+    [super onEnterTransitionDidFinish];
+    
+}
+
+-(void) onExit {
+    
+    // node的 dealloc 方法前调用.
+    
+    // 如果使用CCTransitionScene方法， 在转场结束时调用.
+    
+    [super onExit];
+    
+}
 @end

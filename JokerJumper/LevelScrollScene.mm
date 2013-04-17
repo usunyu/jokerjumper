@@ -10,6 +10,7 @@
 #import "GameScene.h"
 #import "LevelScrollLayer.h"
 #import "LevelScrollScene.h"
+#import "LoadingScene.h"
 
 
 @implementation LevelScrollScene
@@ -27,15 +28,21 @@
 }
 
 - (void)buttonAction1:(id)sender {
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_ONE]]];
+//    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_ONE]]];
+    CCScene * newScene = [LoadingScene sceneWithTargetScene : GAME_STATE_ONE ];
+    [[ CCDirector sharedDirector ] replaceScene :newScene];
 }
 
 - (void)buttonAction2:(id)sender {
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_TWO]]];
+//    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_TWO]]];
+    CCScene * newScene = [LoadingScene sceneWithTargetScene : GAME_STATE_TWO ];
+    [[ CCDirector sharedDirector ] replaceScene :newScene];
 }
 
 - (void)buttonAction3:(id)sender {
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_THREE]]];
+//    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_THREE]]];
+    CCScene * newScene = [LoadingScene sceneWithTargetScene : GAME_STATE_THREE ];
+    [[ CCDirector sharedDirector ] replaceScene :newScene];
 }
 
 -(id) init

@@ -1075,7 +1075,7 @@ bool gravity2 = true;
 //        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
 //        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_TWO Coin:coinCount Distance:distance]]];
     }
     // MAP_LENGTH * PTM_RATIO
     if(joker.position.x >= MAP_LENGTH * PTM_RATIO * MAP_LEVEL2_NUMS) {

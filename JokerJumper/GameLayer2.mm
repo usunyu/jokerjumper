@@ -7,6 +7,7 @@
 #import "HUDLayer.h"
 #import "Constants.h"
 #import "Joker.h"
+#import "GameWinScene.h"
 
 @class GameObject;
 
@@ -931,7 +932,13 @@ NSString *map2 = @"map_lv2_trial.tmx";
         [self addChild:label];
         [label runAction:fadeIn];
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+    }
+    // MAP_LENGTH * PTM_RATIO
+    if(joker.position.x >= MAP_LENGTH * PTM_RATIO) {
+        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        // CCTransitionFadeBL, lose: CCTransitionProgressRadialCCW
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1.0 scene:[GameWinScene sceneWithLevel:GAME_STATE_TWO Coin:100 Distance:100]]];
     }
     
 	int32 velocityIterations = 8;

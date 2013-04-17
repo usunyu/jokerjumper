@@ -816,7 +816,7 @@ NSString *map = @"map9.2.tmx";
         [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
     }
     // MAP_LENGTH * PTM_RATIO
-    if(joker.position.x >= 1000) {
+    if(joker.position.x >= MAP_LENGTH * PTM_RATIO) {
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
         // CCTransitionFadeBL, lose: CCTransitionProgressRadialCCW
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1.0 scene:[GameWinScene sceneWithLevel:GAME_STATE_ONE Coin:100 Distance:100]]];

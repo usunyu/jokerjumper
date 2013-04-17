@@ -48,7 +48,7 @@
 
 NSString *map2 = @"map_lv2_trial2.tmx";
 
-bool gravity2 = false;
+bool gravity2 = true;
 
 +(GameLayer2*) getGameLayer2 {
     return self;
@@ -769,7 +769,7 @@ bool gravity2 = false;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"skull_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"moon_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"zombie_hand_default.plist"];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"heart_default.plist"];
+    
     
     
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
@@ -860,7 +860,7 @@ bool gravity2 = false;
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"pokerSoilder%d.png", i]]];
         }
-        CCAnimation *ghostRunAnimation = [CCAnimation animationWithSpriteFrames:ghostAnimFrames delay:0.1f];
+        CCAnimation *ghostRunAnimation = [CCAnimation animationWithSpriteFrames:ghostAnimFrames delay:0.8f];
         CCAction *ghostRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: ghostRunAnimation]];
         [ghost setTexture:[ghostBatchNode texture]];
         [ghost runAction:ghostRunAction];

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JokerJumper/GameLayer.mm"
-         timestampString = "387697609.013565"
+         timestampString = "387879221.383737"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "904"
-         endingLineNumber = "904"
+         startingLineNumber = "919"
+         endingLineNumber = "919"
          landmarkName = "-update:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JokerJumper/GameLayer.mm"
-         timestampString = "387697609.013565"
+         timestampString = "387879221.383737"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "915"
-         endingLineNumber = "915"
+         startingLineNumber = "930"
+         endingLineNumber = "930"
          landmarkName = "-update:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JokerJumper/GameLayer.mm"
-         timestampString = "387697609.013565"
+         timestampString = "387879221.383737"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "925"
-         endingLineNumber = "925"
+         startingLineNumber = "940"
+         endingLineNumber = "940"
          landmarkName = "-update:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "JokerJumper/GameLayer.mm"
-         timestampString = "387697609.013565"
+         timestampString = "387879221.383737"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "893"
-         endingLineNumber = "893"
+         startingLineNumber = "908"
+         endingLineNumber = "908"
          landmarkName = "-update:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -65,7 +65,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "985"
          endingLineNumber = "985"
-         landmarkName = "-update:"
+         landmarkName = "-seekWithVelocity:selfVel:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

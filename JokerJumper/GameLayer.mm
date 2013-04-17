@@ -39,6 +39,7 @@
 //@synthesize lifeBar;
 @synthesize flyPos;
 @synthesize brick1BatchNode;
+@synthesize heartBatchNode;
 @synthesize brick2BatchNode;
 @synthesize brick3BatchNode;
 @synthesize diamondBatchNode;
@@ -51,7 +52,7 @@
 @synthesize hudLayer;
 
 NSString *map = @"map9.2.tmx";
-bool gravity = false;
+bool gravity = true;
 
 +(GameLayer*) getGameLayer {
     return self;
@@ -176,7 +177,7 @@ bool gravity = false;
     if(type==kGameObjectCoin)
     {
         platform=[[GameObject alloc] init];
-        for(int i = 0; i <= 2; ++i) {
+        for(int i = 0; i <= 11; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"diamond%d.png",i]]];
@@ -278,9 +279,19 @@ bool gravity = false;
     //---------------------------create the box2d object: magic props------------------------//
     else if(type==kGameObjectCoin1)
     {
-        platform = [GameObject spriteWithFile:@"heart_hd.png"];
+        platform=[[GameObject alloc] init];
+        for(int i = 0; i <= 11; ++i) {
+            [animFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"heart%d.png",i]]];
+        }
+        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.5f];
+        Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+        [platform setTexture:[heartBatchNode texture]];
+        [platform runAction:Action];
+        //platform=[[GameObject alloc] init];
         [platform setType:type];
-        [self addChild:platform z:4];
+        [heartBatchNode addChild:platform z:4];
         
     }
     else if(type==kGameObjectCoin2)
@@ -653,6 +664,7 @@ bool gravity = false;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"diamond_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"leaf_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"piranha_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"heart_default.plist"];
     
     
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
@@ -664,6 +676,9 @@ bool gravity = false;
     diamondBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"diamond_default.png"];
     leafBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"leaf_default.png"];
     flowerBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"leaf_default.png"];
+    heartBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"heart_default.png"];
+    
+    
     /*
      brick1BatchNode.scale=4;
      brick2BatchNode.scale=4;

@@ -8,6 +8,13 @@
   <object x="3136" y="576" width="64" height="64"/>
   <object x="7360" y="192" width="64" height="64"/>
   <object x="7296" y="192" width="64" height="64"/>
+  <object x="12672" y="224" width="64" height="64"/>
+  <object x="12736" y="224" width="64" height="64"/>
+  <object x="12736" y="512" width="64" height="64"/>
+  <object x="12672" y="512" width="64" height="64"/>
+  <object x="9568" y="480" width="64" height="64"/>
+  <object x="9952" y="480" width="64" height="64"/>
+  <object x="10272" y="480" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="brick_grass" width="400" height="24">
   <object x="2" y="354" width="1403" height="59"/>
@@ -21,14 +28,14 @@
   <object x="4546" y="34" width="1211" height="59"/>
   <object x="4674" y="610" width="1083" height="59"/>
   <object x="6850" y="546" width="379" height="59"/>
-  <object x="11522" y="162" width="251" height="59"/>
+  <object x="11522" y="162" width="384" height="64"/>
   <object x="11906" y="578" width="187" height="59"/>
   <object x="12098" y="66" width="187" height="59"/>
   <object x="12290" y="578" width="187" height="59"/>
-  <object x="12482" y="226" width="311" height="59"/>
-  <object x="12482" y="418" width="311" height="59"/>
+  <object x="12352" y="224" width="311" height="59"/>
   <object x="2208" y="608" width="192" height="64"/>
-  <object x="6208" y="224" width="320" height="64"/>
+  <object x="6016" y="96" width="256" height="64"/>
+  <object x="6400" y="96" width="192" height="64"/>
  </objectgroup>
  <objectgroup name="brick_ice" width="400" height="24"/>
  <objectgroup name="brick_dice" width="400" height="24">
@@ -113,16 +120,13 @@
   <object x="9504" y="480" width="64" height="64"/>
   <object x="9440" y="480" width="64" height="64"/>
   <object x="9632" y="480" width="64" height="64"/>
-  <object x="9568" y="480" width="64" height="64"/>
   <object x="9760" y="480" width="64" height="64"/>
   <object x="9696" y="480" width="64" height="64"/>
   <object x="9888" y="480" width="64" height="64"/>
   <object x="9824" y="480" width="64" height="64"/>
   <object x="10016" y="480" width="64" height="64"/>
-  <object x="9952" y="480" width="64" height="64"/>
   <object x="10144" y="480" width="64" height="64"/>
   <object x="10080" y="480" width="64" height="64"/>
-  <object x="10272" y="480" width="64" height="64"/>
   <object x="10208" y="480" width="64" height="64"/>
  </objectgroup>
  <objectgroup name="brick_wood" width="400" height="24">
@@ -156,8 +160,22 @@
   <object x="5088" y="544"/>
   <object x="5184" y="544"/>
   <object x="5280" y="544"/>
+  <object x="8480" y="448"/>
+  <object x="8672" y="448"/>
+  <object x="8992" y="448"/>
+  <object x="9344" y="448"/>
+  <object x="9632" y="448"/>
+  <object x="9856" y="448"/>
+  <object x="10144" y="448"/>
+  <object x="6176" y="352"/>
+  <object x="6624" y="448"/>
+  <object x="7424" y="320"/>
+  <object x="8128" y="416"/>
  </objectgroup>
- <objectgroup name="heart" width="400" height="24"/>
+ <objectgroup name="heart" width="400" height="24">
+  <object x="1760" y="256"/>
+  <object x="3872" y="192"/>
+ </objectgroup>
  <objectgroup name="spade" width="400" height="24"/>
  <objectgroup name="club" width="400" height="24"/>
  <layer name="joker" width="400" height="24" visible="0">
@@ -180,7 +198,7 @@
  </objectgroup>
  <layer name="Wall" width="400" height="24">
   <data encoding="base64" compression="zlib">
-   eJzt28FqhTAQBdAH7aaFdvP6/99at4+CzagxM8k5ENxJYBTvJPHxAIA1fGzjs+FKP601uPsKsOe5jZ+GK/201uDuK/CXvEXE3Xn9bRvvF96vOn0TmchbRNyd17+28X3h/arTN5GZvEcmnkcqy7o/16tvlffIxPNIZVn35/StkJ99Cva09Nc9evBRfb33AdrZp2BPS3/dowcf1dd7HwAAgGxG/y/snDxQUWRvYtbziaP/F3ZOHqgosjfhfOK1Wr/Hs363Z6NOzGbltZXsc279Hvtu16BOzGbltZWKc6Yu/QcAR+g/IJ9orsuSA4/MI8vciVO7V5XXvplHNNdlyYFH5pFl7sSp3avKa9/UFc0nZ/PM6P85Mua0FTPi2TqMfi5WqBH8J5pPzuaZ0f9zZMxpK2bEs3UY/VysUCMAAAAAANr9AiBcJ98=
+   eJzt28FqxCAQBuCF9tLC9tK+/7M212Vh1zFRR/0+CLmFkBH8J+rtBgB7+Dqu74I77ZTWoPcd4JXf4/oruNNOaQ1634Fn8hYRvfP6x3F9Xvi8VqLfo/a76ZvIRN4iondevx/Xz4XPayX6PWq/m76JzGbJe+zBeGRmWdfnWj1/lrzHHoxHZpZ1fU4fCzC3kv66RQ/eq6+3TgfQRkl/3aIH79XX628AAIDsRp8Xtk8emFFkbWLV/YmjzwvbXwDMKLI2YX/itUrn41Xn7dWoE6vxbyWv0vnYvD0HdWI1/q1AH/oPAGroPyCfaK7LkgNr3iPLuxOndo/8+yaDaK7LkgNr3iPLuxOndo/8+2aEaD45m2dGn+fImNN2zIhn6zB6XOxQI3gnmk/O5pnR5zky5rQdM+LZOoweFzvUCAAAAACAcv/nQSel
   </data>
  </layer>
 </map>

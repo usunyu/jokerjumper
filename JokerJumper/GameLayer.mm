@@ -31,6 +31,7 @@
 @synthesize distance;
 @synthesize fall1;
 @synthesize fall2;
+
 @synthesize flowerBatchNode;
 //@synthesize statusLabel;
 //@synthesize distanceLabel;
@@ -816,6 +817,48 @@ bool gravity = true;
     return direction;
 }
 
+- (void)updateFlower:(CGPoint)point
+{
+    CGSize winSize = [CCDirector sharedDirector].winSize;
+    b2BodyDef bodyDef;
+    bodyDef.position.Set((point.x+32)/PTM_RATIO, (point.y-32)/PTM_RATIO);
+    bodyDef.gravityScale = 0.0f;
+    GameObject* actor=[GameObject spriteWithSpriteFrameName:@"piranha0.png"];
+    [actor setType:kGameObjectFlower];
+    bodyDef.userData = (__bridge_retained void*) actor;
+    b2Body *body = world->CreateBody(&bodyDef);
+    b2PolygonShape dynamicBox;
+    dynamicBox.SetAsBox(128/2/PTM_RATIO, 128/2/PTM_RATIO);
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &dynamicBox;
+    fixtureDef.density = 0;
+    body->CreateFixture(&fixtureDef);
+    
+    NSMutableArray *animFrames1 = [NSMutableArray array];
+    for(int i = 0; i <= 10; ++i) {
+        [animFrames1 addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          [NSString stringWithFormat:@"piranha%d.png",i]]];
+    }
+    CCAnimation *Animation1 = [CCAnimation animationWithSpriteFrames:animFrames1 delay:0.25f];
+    CCAction *Action1 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation1] times:1];
+    
+    //    NSMutableArray *animFrames2 = [NSMutableArray array];
+    //    for(int i = 8; i <= 18; ++i) {
+    //        [animFrames1 addObject:
+    //         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+    //          [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
+    //    }
+    //    CCAnimation *Animation2 = [CCAnimation animationWithSpriteFrames:animFrames2 delay:0.05f];
+    //    CCFiniteTimeAction *Action2 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation2] times:1];
+    //    id sequence = [CCSequence actions:Action1, Action2, nil];
+    //    [actor setTexture:[flowerBatchNode texture]];
+    
+    [self addChild:actor z:10];
+    [actor runAction:Action1];
+}
+
+
 - (void)update:(ccTime)dt {
     //CCLOG(@"dt: %f",dt);
     //CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
@@ -855,6 +898,26 @@ bool gravity = true;
         [self updateFalling:FALLING_WOOD2];
         fall2=true;
     }
+    
+    if(joker.position.x>100*32-300 && flower1==false)
+    {
+        [self updateFlower:ccp(100*32,(24-20)*32)];
+        flower1=true;
+    }
+    if(joker.position.x>156*32-300 && flower2==false)
+    {
+        [self updateFlower:ccp(156*32,(24-17)*32)];
+        flower2=true;
+    }
+    if(joker.position.x>216*32/2-300 && flower3==false)
+    {
+        [self updateFlower:ccp(216*32,(24-19)*32)];
+        flower3=true;
+    }
+
+    
+    
+    
     
     if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:fly])))
     {
@@ -916,6 +979,7 @@ bool gravity = true;
             if([myActor isMemberOfClass:[GameObject class]])
             {
                 GameObject*actor=(GameObject*)myActor;
+                /*
                 if(actor.type==kGameObjectFlower)
                 {
                     if(actor.position.x-joker.position.x<100)
@@ -933,6 +997,7 @@ bool gravity = true;
                         [actor runAction:Action];
                     }
                 }
+                 */
                 if((b->GetPosition().x<(joker.position.x-DESTORY_DISTANCE)/PTM_RATIO)&&actor.type!=kGameObjectEmeny)
                 {
                     toDestroy.push_back(b);

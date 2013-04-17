@@ -54,6 +54,9 @@
     BOOL jokerStartCharge;
     BOOL fall1;
     BOOL fall2;
+    BOOL flower1;
+    BOOL flower2;
+    BOOL flower3;
     float jokerCharge;
     CCSpriteBatchNode* brick1BatchNode;
     CCSpriteBatchNode* brick2BatchNode;

@@ -764,6 +764,7 @@ bool gravity2 = true;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick2_hd_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pokerSoilder_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"diamond_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"heart_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"leaf_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"piranha_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_stone_smile_default.plist"];
@@ -856,7 +857,7 @@ bool gravity2 = true;
         
         ghost=[CCSprite spriteWithSpriteFrameName:@"pokerSoilder1.png"];
         NSMutableArray *ghostAnimFrames = [NSMutableArray array];
-        for(int i = 0; i <= 5; ++i) {
+        for(int i = 0; i <= 9; ++i) {
             [ghostAnimFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"pokerSoilder%d.png", i]]];

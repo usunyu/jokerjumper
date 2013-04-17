@@ -8,6 +8,7 @@
 #import "Constants.h"
 #import "Joker.h"
 #import "GameWinScene.h"
+#import "GameOverScene.h"
 
 @class GameObject;
 
@@ -116,7 +117,7 @@ bool gravity2 = true;
 
 - (void) initTiledMaps {
     //    NSMutableArray *mapArray = [[NSMutableArray alloc] initWithCapacity:MAP_LEVEL1_NUMS];
-    for(int i = 0; i < MAP_LEVEL1_NUMS; i++) {
+    for(int i = 0; i < MAP_LEVEL2_NUMS; i++) {
         CCTMXTiledMap *tileMapNode = [CCTMXTiledMap tiledMapWithTMXFile:map2];
         CCLOG(@"here2");
         tileMapNode.anchorPoint = ccp(0, 0);
@@ -1063,18 +1064,20 @@ bool gravity2 = true;
     }
     if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:ghost]))||joker.position.x<ghost.position.x)
     {
-        //||(joker.position.y >winSize.height/PTM_RATIO)
-        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
-        label.color = ccc3(0,0,0);
-        label.position = ccp(winSize.width/2, winSize.height/2);
-        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
-        [self addChild:label];
-        [label runAction:fadeIn];
+//        //||(joker.position.y >winSize.height/PTM_RATIO)
+//        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
+//        label.color = ccc3(0,0,0);
+//        label.position = ccp(winSize.width/2, winSize.height/2);
+//        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
+//        [self addChild:label];
+//        [label runAction:fadeIn];
+//        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+//        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
     }
     // MAP_LENGTH * PTM_RATIO
-    if(joker.position.x >= MAP_LENGTH * PTM_RATIO) {
+    if(joker.position.x >= MAP_LENGTH * PTM_RATIO * MAP_LEVEL2_NUMS) {
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
         // CCTransitionFadeBL, lose: CCTransitionProgressRadialCCW
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1.0 scene:[GameWinScene sceneWithLevel:GAME_STATE_TWO Coin:coinCount Distance:distance]]];

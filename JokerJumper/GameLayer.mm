@@ -15,6 +15,7 @@
 #include "HUDLayer.h"
 #import "Constants.h"
 #import "GameWinScene.h"
+#import "GameOverScene.h"
 
 @class GameObject;
 
@@ -866,18 +867,20 @@ bool gravity = true;
     }
     if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x)
     {
-        //||(joker.position.y >winSize.height/PTM_RATIO)
-        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
-        label.color = ccc3(0,0,0);
-        label.position = ccp(winSize.width/2, winSize.height/2);
-        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
-        [self addChild:label];
-        [label runAction:fadeIn];
+//        //||(joker.position.y >winSize.height/PTM_RATIO)
+//        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
+//        label.color = ccc3(0,0,0);
+//        label.position = ccp(winSize.width/2, winSize.height/2);
+//        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
+//        [self addChild:label];
+//        [label runAction:fadeIn];
+//        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+//        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
     }
     // MAP_LENGTH * PTM_RATIO
-    if(joker.position.x >= MAP_LENGTH * PTM_RATIO) {
+    if(joker.position.x >= MAP_LENGTH * PTM_RATIO * MAP_LEVEL1_NUMS) {
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
         // CCTransitionFadeBL, lose: CCTransitionProgressRadialCCW
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1.0 scene:[GameWinScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];

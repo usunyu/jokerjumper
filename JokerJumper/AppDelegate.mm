@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import "IntroLayer.h"
 #import "CCBReader.h"
-#import "MainMenuScene.h"
 
 @implementation AppController
 
@@ -82,11 +81,11 @@
 //    [director_ runWithScene: [CCBReader sceneWithNodeGraphFromFile:@"MainMenuScene.ccbi"]];
     
     // Load the main menu scene from the ccbi-file
-//    CCScene* mainScene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenuScene.ccbi"];
+    CCScene* mainScene = [CCBReader sceneWithNodeGraphFromFile:@"MainMenuScene.ccbi"];
     
     // Then add the scene to the stack. The director will run it when it automatically when the view is displayed.
-//	[director_ pushScene: mainScene];
-	[director_ pushScene: [MainMenuScene scene]];
+	[director_ pushScene: mainScene];
+	
 	
 	// Create a Navigation Controller with the Director
 	navController_ = [[UINavigationController alloc] initWithRootViewController:director_];

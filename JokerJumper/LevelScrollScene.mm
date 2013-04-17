@@ -57,7 +57,8 @@
         // create a blank layer for page 1
         CCLayer *pageOne = [[CCLayer alloc] init];
         // create an image button for page 1
-        CCMenuItem *button1 = [CCMenuItemImage itemWithNormalImage:@"menu.png" selectedImage:@"menu.png" target:self selector:@selector(buttonAction1:)];
+        CCMenuItem *button1 = [CCMenuItemImage itemWithNormalImage:@"level1.png" selectedImage:@"level1.png" target:self selector:@selector(buttonAction1:)];
+        button1.scale = 0.8;
         CCMenu *Menu1 = [CCMenu menuWithItems:button1, nil];
         Menu1.position=ccp(screenSize.width/2, screenSize.height/2);
         [Menu1 alignItemsHorizontally];
@@ -74,7 +75,8 @@
         // create a blank layer for page 2
         CCLayer *pageTwo = [[CCLayer alloc] init];
         // create an image button for page 2
-        CCMenuItem *button2 = [CCMenuItemImage itemWithNormalImage:@"menu.png" selectedImage:@"menu.png" target:self selector:@selector(buttonAction2:)];
+        CCMenuItem *button2 = [CCMenuItemImage itemWithNormalImage:@"level2.png" selectedImage:@"level2.png" target:self selector:@selector(buttonAction2:)];
+        button2.scale = 0.8;
         CCMenu *Menu2 = [CCMenu menuWithItems:button2, nil];
         Menu2.position=ccp(screenSize.width/2, screenSize.height/2);
         [Menu2 alignItemsHorizontally];
@@ -91,6 +93,7 @@
         CCLayer *pageThree = [[CCLayer alloc] init];
         // create an image button for page 2
         CCMenuItem *button3 = [CCMenuItemImage itemWithNormalImage:@"menu.png" selectedImage:@"menu.png" target:self selector:@selector(buttonAction3:)];
+        button3.scale = 0.8;
         CCMenu *Menu3 = [CCMenu menuWithItems:button3, nil];
         Menu3.position=ccp(screenSize.width/2, screenSize.height/2);
         [Menu3 alignItemsHorizontally];

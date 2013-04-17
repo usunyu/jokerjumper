@@ -4,227 +4,120 @@
 <dict>
 	<key>frames</key>
 	<dict>
-		
 		<key>pokerSoilder0.png</key>
 		<dict>
 			<key>aliases</key>
-			<array>
-			
-			</array>
+			<array/>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {93, 186}}</string>
+			<string>{{12, 11}, {258, 430}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{1, -1}</string>
 			<key>spriteSize</key>
-			<string>{93, 186}</string>
+			<string>{258, 430}</string>
 			<key>spriteSourceSize</key>
-			<string>{93, 186}</string>
+			<string>{280, 450}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{268, 0}, {93, 186}}</string>
+			<string>{{0, 0}, {258, 430}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-		
 		<key>pokerSoilder1.png</key>
 		<dict>
 			<key>aliases</key>
-			<array>
-			
-			</array>
+			<array/>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {95, 188}}</string>
+			<string>{{4, 13}, {252, 428}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{-10, -2}</string>
 			<key>spriteSize</key>
-			<string>{95, 188}</string>
+			<string>{252, 428}</string>
 			<key>spriteSourceSize</key>
-			<string>{95, 188}</string>
+			<string>{280, 450}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{171, 0}, {95, 188}}</string>
+			<string>{{516, 0}, {252, 428}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-		
 		<key>pokerSoilder2.png</key>
 		<dict>
 			<key>aliases</key>
-			<array>
-			
-			</array>
+			<array/>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {90, 191}}</string>
+			<string>{{0, 10}, {254, 430}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{-13, -0}</string>
 			<key>spriteSize</key>
-			<string>{90, 191}</string>
+			<string>{254, 430}</string>
 			<key>spriteSourceSize</key>
-			<string>{90, 191}</string>
+			<string>{280, 450}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{347, 379}, {90, 191}}</string>
+			<string>{{260, 0}, {254, 430}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-		
 		<key>pokerSoilder3.png</key>
 		<dict>
 			<key>aliases</key>
-			<array>
-			
-			</array>
+			<array/>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {91, 189}}</string>
+			<string>{{0, 10}, {254, 430}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{-13, -0}</string>
 			<key>spriteSize</key>
-			<string>{91, 189}</string>
+			<string>{254, 430}</string>
 			<key>spriteSourceSize</key>
-			<string>{91, 189}</string>
+			<string>{280, 450}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 384}, {91, 189}}</string>
+			<string>{{260, 432}, {254, 430}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-		
 		<key>pokerSoilder4.png</key>
 		<dict>
 			<key>aliases</key>
-			<array>
-			
-			</array>
+			<array/>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {82, 192}}</string>
+			<string>{{4, 13}, {252, 428}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{-10, -2}</string>
 			<key>spriteSize</key>
-			<string>{82, 192}</string>
+			<string>{252, 428}</string>
 			<key>spriteSourceSize</key>
-			<string>{82, 192}</string>
+			<string>{280, 450}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{87, 0}, {82, 192}}</string>
+			<string>{{770, 0}, {252, 428}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-		
 		<key>pokerSoilder5.png</key>
 		<dict>
 			<key>aliases</key>
-			<array>
-			
-			</array>
+			<array/>
 			<key>spriteColorRect</key>
-			<string>{{0, 0}, {85, 192}}</string>
+			<string>{{12, 11}, {258, 430}}</string>
 			<key>spriteOffset</key>
-			<string>{0, -0}</string>
+			<string>{1, -1}</string>
 			<key>spriteSize</key>
-			<string>{85, 192}</string>
+			<string>{258, 430}</string>
 			<key>spriteSourceSize</key>
-			<string>{85, 192}</string>
+			<string>{280, 450}</string>
 			<key>spriteTrimmed</key>
 			<true/>
 			<key>textureRect</key>
-			<string>{{0, 0}, {85, 192}}</string>
+			<string>{{0, 432}, {258, 430}}</string>
 			<key>textureRotated</key>
 			<false/>
 		</dict>
-		
-		<key>pokerSoilder6.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {82, 192}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{82, 192}</string>
-			<key>spriteSourceSize</key>
-			<string>{82, 192}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{171, 190}, {82, 192}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>pokerSoilder7.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {91, 189}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{91, 189}</string>
-			<key>spriteSourceSize</key>
-			<string>{91, 189}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{347, 188}, {91, 189}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>pokerSoilder8.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {90, 191}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{90, 191}</string>
-			<key>spriteSourceSize</key>
-			<string>{90, 191}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{255, 190}, {90, 191}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
-		<key>pokerSoilder9.png</key>
-		<dict>
-			<key>aliases</key>
-			<array>
-			
-			</array>
-			<key>spriteColorRect</key>
-			<string>{{0, 0}, {95, 188}}</string>
-			<key>spriteOffset</key>
-			<string>{0, -0}</string>
-			<key>spriteSize</key>
-			<string>{95, 188}</string>
-			<key>spriteSourceSize</key>
-			<string>{95, 188}</string>
-			<key>spriteTrimmed</key>
-			<true/>
-			<key>textureRect</key>
-			<string>{{0, 194}, {95, 188}}</string>
-			<key>textureRotated</key>
-			<false/>
-		</dict>
-		
 	</dict>
 	<key>metadata</key>
 	<dict>

@@ -25,11 +25,11 @@
         GameStage = gameStage;
         CGSize size = [[CCDirector sharedDirector] winSize];
         label = [CCLabelTTF labelWithString: @"Loading ..." fontName: @"Marker Felt" fontSize: 64 ];
-        label.anchorPoint=ccp(size.width/2,size.height/ 2);
+        label.position=ccp(size.width/2,size.height/ 2);
         count=1;
         [ self addChild:label];
-        //[self schedule:@selector(update:) interval:3.0f];
         //[self schedule:@selector(updateCount:) interval:0.2f];
+        //[self schedule:@selector(update:) interval:3.0f];
         [ self scheduleUpdate];
     }
     return self ;

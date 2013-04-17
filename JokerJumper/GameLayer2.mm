@@ -855,12 +855,12 @@ bool gravity2 = false;
         
         ghost=[CCSprite spriteWithSpriteFrameName:@"pokerSoilder1.png"];
         NSMutableArray *ghostAnimFrames = [NSMutableArray array];
-        for(int i = 0; i <= 9; ++i) {
+        for(int i = 0; i <= 5; ++i) {
             [ghostAnimFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"pokerSoilder%d.png", i]]];
         }
-        CCAnimation *ghostRunAnimation = [CCAnimation animationWithSpriteFrames:ghostAnimFrames delay:0.09f];
+        CCAnimation *ghostRunAnimation = [CCAnimation animationWithSpriteFrames:ghostAnimFrames delay:0.1f];
         CCAction *ghostRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: ghostRunAnimation]];
         [ghost setTexture:[ghostBatchNode texture]];
         [ghost runAction:ghostRunAction];

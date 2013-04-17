@@ -25,9 +25,9 @@
 	{
         CGSize screenSize = [[CCDirector sharedDirector] winSize];
         self.tag=HUD_LAYER_TAG;
-        coinBar= [CCSprite spriteWithFile:@"diamond.png"];
+        coinBar= [CCSprite spriteWithSpriteFrameName:@"diamond5.png"];
         disBar=[CCSprite spriteWithFile:@"spade.png"];
-        lifeBar=[CCSprite spriteWithFile:@"heart.png"];
+        lifeBar=[CCSprite spriteWithSpriteFrameName:@"heart5.png"];
         
         coinBar.position = ccp(COIN_LABEL_X,screenSize.height-30);
         disBar.position = ccp(STATUS_LABEL_X, screenSize.height-30);

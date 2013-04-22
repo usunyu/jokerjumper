@@ -68,7 +68,7 @@ CCSpriteBatchNode* bgBatchNode;
 }
 
 -(void) buttonReplayAction:(id)sender {
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionJumpZoom transitionWithDuration:1.0 scene:[LevelScrollScene scene]]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionShrinkGrow transitionWithDuration:1.0 scene:[LevelScrollScene scene]]];
 }
 
 -(void) buttonOptionAction:(id)sender {

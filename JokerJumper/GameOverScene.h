@@ -10,7 +10,8 @@
 #import "cocos2d.h"
 
 @interface GameOverScene : CCLayer {
-    
+    CCLabelTTF *labelCoin;
+    CCLabelTTF *labelDistance;
 }
 
 //+(CCScene *) scene;

@@ -13,8 +13,15 @@
 #import "MainMenuScene.h"
 
 int stageLevel2;
-int coinNum2;
-int distanceNum2;
+static int coinNum2;
+static int distanceNum2;
+
+int currentCoinNum;
+int currentDistanceNum;
+
+int timeSlap;
+BOOL coinFinish;
+BOOL distanceFinish;
 
 @implementation GameOverScene
 
@@ -51,6 +58,11 @@ int distanceNum2;
 
 -(id) init {
     if ((self = [ super init])) {
+        timeSlap = 0;
+        distanceFinish = false;
+        coinFinish = false;
+        currentCoinNum = 0;
+        currentDistanceNum = 0;
 		
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         // Create a label for display purposes
@@ -59,16 +71,16 @@ int distanceNum2;
 		label.position = CGPointMake(winSize.width/2,winSize.height/2+200);
 		[self addChild:label z:0];
         
-        NSString *coinStr = [NSString stringWithFormat:@"Coin:%2d", coinNum2];
+        NSString *coinStr = [NSString stringWithFormat:@"Coin:%2d", 0];
         
-        CCLabelTTF *labelCoin = [CCLabelTTF labelWithString:coinStr fontName:@"Marker Felt" fontSize:40];
+        labelCoin = [CCLabelTTF labelWithString:coinStr fontName:@"Marker Felt" fontSize:40];
         labelCoin.color = ccWHITE;
 		labelCoin.position = CGPointMake(winSize.width/2 - 200,winSize.height/2+100);
 		[self addChild:labelCoin z:0];
         
-        NSString *disStr = [NSString stringWithFormat:@"Distance:%2d", distanceNum2];
+        NSString *disStr = [NSString stringWithFormat:@"Distance:%2d", 0];
         
-        CCLabelTTF *labelDistance = [CCLabelTTF labelWithString:disStr fontName:@"Marker Felt" fontSize:40];
+        labelDistance = [CCLabelTTF labelWithString:disStr fontName:@"Marker Felt" fontSize:40];
         labelDistance.color = ccWHITE;
 		labelDistance.position = CGPointMake(winSize.width/2 + 200,winSize.height/2+100);
 		[self addChild:labelDistance z:0];
@@ -84,9 +96,51 @@ int distanceNum2;
         
         [Menu alignItemsVertically];
         [self addChild:Menu];
+        [self schedule:@selector(update:) interval:0.01f];
     }
     return self;
 }
+
+- (void)update:(ccTime) dt
+{
+        timeSlap++;
+        if(timeSlap >= 10) {
+            if(currentCoinNum < coinNum2) {
+                currentCoinNum++;
+                NSString *coinStr = [NSString stringWithFormat:@"Coin:%2d", currentCoinNum];
+                [labelCoin setString:coinStr];
+            }
+            else
+                coinFinish = true;
+            if(currentDistanceNum < distanceNum2) {
+                currentDistanceNum++;
+                NSString *disStr = [NSString stringWithFormat:@"Distance:%2d", currentDistanceNum];
+                [labelDistance setString:disStr];
+            }
+            else
+                distanceFinish = true;
+            
+            if (coinFinish) {
+                if(labelCoin.scale <= 1.5)
+                    labelCoin.scale += 0.01;
+            }
+            
+            if (distanceFinish) {
+                if(labelDistance.scale <= 1.5)
+                    labelDistance.scale += 0.01;
+            }
+
+//            if(labelCoin.scale <= 1.5)
+//                labelCoin.scale += 0.05;
+//        if(labelCoin.scale >= 1.5)
+//            labelCoin.scale = 2;
+//        if(labelCoin.scale == 2) {
+//            labelCoin.scale = 1;
+//            timeStop = false;
+//        }
+    }
+}
+
 
 - (void)buttonReplayAction:(id)sender {
     switch (stageLevel2) {

@@ -91,7 +91,7 @@
         ////////////////////////////////////////////////
         
         CCLayer *pageThree = [[CCLayer alloc] init];
-        // create an image button for page 2
+        // create an image button for page 3
         CCMenuItem *button3 = [CCMenuItemImage itemWithNormalImage:@"level3.png" selectedImage:@"level3.png" target:self selector:@selector(buttonAction3:)];
         button3.scale = 0.8;
         CCMenu *Menu3 = [CCMenu menuWithItems:button3, nil];

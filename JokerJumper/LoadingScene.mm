@@ -66,7 +66,7 @@
             [[CCDirector sharedDirector] replaceScene:[GameScene sceneWithState:GAME_STATE_TWO]];
             break ;
         case GAME_STATE_THREE:
-            [[CCDirector sharedDirector] replaceScene:[GameScene sceneWithState:GAME_STATE_TWO]];
+            [[CCDirector sharedDirector] replaceScene:[GameScene sceneWithState:GAME_STATE_THREE]];
             break ;
         default :
             break ;

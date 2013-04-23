@@ -24,7 +24,7 @@
 #define MAX_RUN_SPEED 13.0
 #define JUMP_SPEED 20.0
 
-#define DICE_DENSITY 50.0
+#define DICE_DENSITY 100.0
 
 #define DESTORY_DISTANCE 600.0
 

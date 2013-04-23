@@ -292,7 +292,7 @@ bool gravity2 = true;
     }
     else if(type==kGameObjectPlatform3)
     {
-        platform = [GameObject spriteWithFile:@"brick_dice_hd.png"];
+        platform = [GameObject spriteWithFile:@"brick_club_hd.png"];
         [platform setType:type];
         [self addChild:platform z:10];
         
@@ -758,6 +758,7 @@ bool gravity2 = true;
 
 //------------------------------------------animation: import plsit&png-------------------------------------------//
 - (void) initBatchNode {
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"all_character_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"texture.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_ice_flashing_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick1_hd_default.plist"];
@@ -773,7 +774,7 @@ bool gravity2 = true;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"zombie_hand_default.plist"];
     
     
-    
+    allBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"all_character_default.png"];
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"texture.png"];
     emenyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
     brick1BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick_ice_flashing_default.png"];
@@ -792,7 +793,8 @@ bool gravity2 = true;
      brick1BatchNode.scale=4;
      brick2BatchNode.scale=4;
      brick3BatchNode.scale=4;
-     */
+    */
+    [self addChild:allBatchNode z:10];
     [self addChild:jokerBatchNode z:10];
     [self addChild:emenyBatchNode z:9];
     [self addChild:brick1BatchNode z:2];
@@ -834,9 +836,9 @@ bool gravity2 = true;
         [self initBatchNode];
         [self initTiledMaps];
         
-        joker = [Joker spriteWithSpriteFrameName:@"01.png"];
+        joker = [Joker spriteWithSpriteFrameName:@"joker1.png"];
         [joker setType:kGameObjectJoker];
-        [joker initAnimation:jokerBatchNode];
+        [joker initAnimation:allBatchNode character:0];
         joker.position = ccp(jokerLocationX, jokerLocationY);
         [joker createBox2dObject:world];
         

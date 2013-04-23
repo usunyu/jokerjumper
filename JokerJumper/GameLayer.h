@@ -66,6 +66,7 @@
     CCSpriteBatchNode* diamondBatchNode;
     CCSpriteBatchNode* flowerBatchNode;
     CCSpriteBatchNode* heartBatchNode;
+    CCSpriteBatchNode* allBatchNode;
     b2Vec2 jumpVec;
     std::deque <State> stateVec;
     
@@ -102,6 +103,7 @@ bodyType:(GameObjectType)type;
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick2BatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick3BatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* heartBatchNode;
+@property (nonatomic, readwrite) CCSpriteBatchNode* allBatchNode;
 @property (nonatomic, readwrite) GameObject *fly;
 @property (nonatomic, readwrite) CCSpriteBatchNode *emenyBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode *flyBatchNode;

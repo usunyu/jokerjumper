@@ -55,6 +55,7 @@
     CCSpriteBatchNode* flyBatchNode;
     CCSpriteBatchNode* leafBatchNode;
     CCSpriteBatchNode* diamondBatchNode;
+    CCSpriteBatchNode* allBatchNode;
     CCSpriteBatchNode* flowerBatchNode;
     CCSpriteBatchNode* stoneBatchNode;
     CCSpriteBatchNode* skullBatchNode;
@@ -103,6 +104,7 @@
 @property (nonatomic, readwrite) CCSpriteBatchNode* skullBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* ghostBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* moonBatchNode;
+@property (nonatomic, readwrite) CCSpriteBatchNode* allBatchNode;
 @property (nonatomic, readwrite) GameObject *fly;
 @property (nonatomic, readwrite) CCSpriteBatchNode *emenyBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode *flyBatchNode;

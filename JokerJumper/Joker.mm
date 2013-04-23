@@ -26,18 +26,20 @@
 	return self;
 }
 
--(void) initAnimation:(CCSpriteBatchNode*)batchNode {
+-(void) initAnimation:(CCSpriteBatchNode*)batchNode character:(int) num {
     // Run Action
+    if(num==0)
+    {
     jokerFlip=false;
     NSMutableArray *runAnimFrames = [NSMutableArray array];
     
     for(int i = 1; i <= 14; ++i) {
         [runAnimFrames addObject:
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-          [NSString stringWithFormat:@"%02d.png", i]]];
+          [NSString stringWithFormat:@"joker%d.png", i]]];
     }
     jokerRunAnimation = [CCAnimation animationWithSpriteFrames:runAnimFrames delay:0.09f];
-    jokerRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerRunAnimation]];
+    jokerRunAction = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: jokerRunAnimation] times:200];
     jokerRunAction.tag = jokerRunActionTag;
     [self runAction:jokerRunAction];
     [batchNode addChild:(Joker*)self];
@@ -50,13 +52,98 @@
     for(int i = 15; i <= 28; i++) {
         [flipAnimFrames addObject:
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-          [NSString stringWithFormat:@"%02d.png", i]]];
+          [NSString stringWithFormat:@"joker%d.png", i]]];
     }
     
-    jokerFlipAnimation = [CCAnimation animationWithSpriteFrames:flipAnimFrames delay:0.09f];
-    jokerFlipRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerFlipAnimation]];
+    jokerFlipAnimation = [CCAnimation animationWithSpriteFrames:flipAnimFrames delay:0.11f];
+    jokerFlipRunAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation: jokerFlipAnimation] times:200];
     jokerFlipRunAction.tag = jokerFlipRunActionTag;
     
+        NSMutableArray *upAnimFrames = [NSMutableArray array];
+        jokerUpAnimation=[CCAnimation animation];
+        for(int i = 1; i <= 8; i++) {
+            [upAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"jump%d.png", i]]];
+        }
+        
+        jokerUpAnimation = [CCAnimation animationWithSpriteFrames:upAnimFrames delay:0.02f];
+        jokerUpAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation: jokerUpAnimation] times:1];
+        jokerUpAction.tag = jokerUpActionTag;
+    
+        NSMutableArray *downAnimFrames = [NSMutableArray array];
+        jokerDownAnimation=[CCAnimation animation];
+        for(int i = 1; i <= 8; i++) {
+            [downAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"jumpd%d.png", i]]];
+        }
+        jokerDownAnimation = [CCAnimation animationWithSpriteFrames:downAnimFrames delay:0.02f];
+        jokerDownAction = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation: jokerDownAnimation] times:1];
+        jokerDownAction.tag = jokerDownActionTag;
+    }
+    else if(num==1)
+    {
+        jokerFlip=false;
+        NSMutableArray *runAnimFrames = [NSMutableArray array];
+        
+        for(int i = 0; i <= 7; ++i) {
+            [runAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"green_monster%d.png", i]]];
+        }
+        jokerRunAnimation = [CCAnimation animationWithSpriteFrames:runAnimFrames delay:0.09f];
+        jokerRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerRunAnimation]];
+        jokerRunAction.tag = jokerRunActionTag;
+        [self runAction:jokerRunAction];
+        [batchNode addChild:(Joker*)self];
+        
+        
+        
+        //flip Action
+        NSMutableArray *flipAnimFrames = [NSMutableArray array];
+        jokerFlipAnimation=[CCAnimation animation];
+        for(int i = 8; i <= 15; i++) {
+            [flipAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"green_monster%d.png", i]]];
+        }
+        
+        jokerFlipAnimation = [CCAnimation animationWithSpriteFrames:flipAnimFrames delay:0.09f];
+        jokerFlipRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerFlipAnimation]];
+        jokerFlipRunAction.tag = jokerFlipRunActionTag;
+    }
+    else if(num==2)
+    {
+        jokerFlip=false;
+        NSMutableArray *runAnimFrames = [NSMutableArray array];
+        
+        for(int i = 0; i <= 7; ++i) {
+            [runAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"enermy%d.png", i]]];
+        }
+        jokerRunAnimation = [CCAnimation animationWithSpriteFrames:runAnimFrames delay:0.09f];
+        jokerRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerRunAnimation]];
+        jokerRunAction.tag = jokerRunActionTag;
+        [self runAction:jokerRunAction];
+        [batchNode addChild:(Joker*)self];
+        
+        
+        
+        //flip Action
+        NSMutableArray *flipAnimFrames = [NSMutableArray array];
+        jokerFlipAnimation=[CCAnimation animation];
+        for(int i = 8; i <= 15; i++) {
+            [flipAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"enermy%d.png", i]]];
+        }
+        
+        jokerFlipAnimation = [CCAnimation animationWithSpriteFrames:flipAnimFrames delay:0.09f];
+        jokerFlipRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerFlipAnimation]];
+        jokerFlipRunAction.tag = jokerFlipRunActionTag;
+    }
     /*
      // Jump Action
      jokerJumpAnimation = [CCAnimation animation];
@@ -67,8 +154,15 @@
      }
      [jokerJumpAnimation setDelayPerUnit:0.3f];
      */
-    
-    
+}
+-(void) afterUpAction:(Joker *) sprite
+{
+    [sprite runAction:jokerFlipRunAction];
+}
+
+-(void) afterDownAction:(Joker *) sprite
+{
+    [sprite runAction:jokerRunAction];
 }
 
 -(void) createBox2dObject:(b2World*)world {
@@ -147,12 +241,14 @@
     if(!jokerFlip)
     {
         [self stopAllActions];
-        [self runAction: jokerRunAction];
+        [self runAction: [CCSequence actions:jokerDownAction,jokerRunAction,nil]];
+        //[self runAction: jokerRunAction];
     }
     else
     {
         [self stopAllActions];
-        [self runAction: jokerFlipRunAction];
+        [self runAction:[CCSequence actions:jokerUpAction,jokerFlipRunAction,nil]];
+        //[self runAction: jokerFlipRunAction];
     }
 }
 -(void) jump:(float)charge
@@ -172,14 +268,16 @@
             if(jokerFlip==true)
             {
                 //CCLOG(@"before jokerFlip:%f",jokerBody->GetLinearVelocity().x);
-                [self stopAction:jokerFlipRunAction];
-                [self runAction: jokerRunAction];
+                [self stopAllActions];
+                [self runAction: [CCSequence actions:jokerDownAction,jokerRunAction,nil]];
+                //[self runAction: jokerRunAction];
                 //CCLOG(@"after jokerFlip:%f",jokerBody->GetLinearVelocity().x);
             }
             else
             {
-                [self stopAction:jokerRunAction];
-                [self runAction: jokerFlipRunAction];
+                [self stopAllActions];
+                [self runAction:[CCSequence actions:jokerUpAction,jokerFlipRunAction,nil]];
+                //[self runAction: jokerFlipRunAction];
             }
             jokerFlip=!jokerFlip;
             //        [self stopActionByTag:jokerRunActionTag];

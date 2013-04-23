@@ -41,6 +41,7 @@
 //@synthesize lifeBar;
 @synthesize flyPos;
 @synthesize brick1BatchNode;
+@synthesize allBatchNode;
 @synthesize heartBatchNode;
 @synthesize brick2BatchNode;
 @synthesize brick3BatchNode;
@@ -71,7 +72,7 @@ bool gravity = true;
     
 //    if(lastAccelerationY >= 4 && lastAccelerationY <= 6)
     {
-        if(!joker.jokerFlip) {
+        if(joker.jokerFlip) {
             if(lastLastAccelerationY - accelerationY >= 2) {
                 if(!joker.jokerJumping)
                 {
@@ -658,6 +659,7 @@ bool gravity = true;
 
 //------------------------------------------animation: import plsit&png-------------------------------------------//
 - (void) initBatchNode {
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"all_character_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"texture.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_ice_flashing_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick1_hd_default.plist"];
@@ -668,7 +670,7 @@ bool gravity = true;
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"piranha_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"heart_default.plist"];
     
-    
+    allBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"all_character_default.png"];
     jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"texture.png"];
     emenyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"texture.png"];
     brick1BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick_ice_flashing_default.png"];
@@ -686,6 +688,7 @@ bool gravity = true;
      brick2BatchNode.scale=4;
      brick3BatchNode.scale=4;
      */
+    [self addChild:allBatchNode z:10];
     [self addChild:jokerBatchNode z:10];
     [self addChild:emenyBatchNode z:9];
     [self addChild:brick1BatchNode z:2];
@@ -722,20 +725,20 @@ bool gravity = true;
 		[self setupPhysicsWorld];
         [self initBatchNode];
         [self initTiledMaps];
-        
-        joker = [Joker spriteWithSpriteFrameName:@"01.png"];
+        CCLOG(@"here 0");
+        joker = [Joker spriteWithSpriteFrameName:@"joker1.png"];
         //        joker = [[Joker alloc] init];
         [joker setType:kGameObjectJoker];
-        [joker initAnimation:jokerBatchNode];
+        [joker initAnimation:allBatchNode character:0];
         joker.position = ccp(jokerLocationX, jokerLocationY);
         [joker createBox2dObject:world];
-        
-        emeny = [Joker spriteWithSpriteFrameName:@"01.png"];
+        CCLOG(@"here 1");
+        emeny = [Joker spriteWithSpriteFrameName:@"enermy0.png"];
         [emeny setType:kGameObjectEmeny];
-        [emeny initAnimation: emenyBatchNode];
+        [emeny initAnimation: allBatchNode character:1];
         emeny.position = ccp(emenyLocationX, emenyLocationY);
         [emeny createBox2dObject:world];
-        
+        CCLOG(@"here 2");
         flyPos=0;
         CCScene* scene = [[CCDirector sharedDirector] runningScene];
         hudLayer = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
@@ -916,9 +919,6 @@ bool gravity = true;
     }
 
     
-    
-    
-    
     if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:fly])))
     {
         lifeCount--;
@@ -997,7 +997,7 @@ bool gravity = true;
                         [actor runAction:Action];
                     }
                 }
-                 */
+                */
                 if((b->GetPosition().x<(joker.position.x-DESTORY_DISTANCE)/PTM_RATIO)&&actor.type!=kGameObjectEmeny)
                 {
                     toDestroy.push_back(b);

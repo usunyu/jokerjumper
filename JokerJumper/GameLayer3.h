@@ -45,6 +45,7 @@
     BOOL fall1;
     BOOL fall2;
     float jokerCharge;
+    CCSpriteBatchNode* allBatchNode;
     CCSpriteBatchNode* brick1BatchNode;
     CCSpriteBatchNode* brick2BatchNode;
     CCSpriteBatchNode* brick3BatchNode;
@@ -52,6 +53,7 @@
     CCSpriteBatchNode* leafBatchNode;
     CCSpriteBatchNode* diamondBatchNode;
     CCSpriteBatchNode* flowerBatchNode;
+    CCSpriteBatchNode* heartBatchNode;
     b2Vec2 jumpVec;
     std::deque <State> stateVec;
 }
@@ -83,6 +85,7 @@
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick1BatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick2BatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* brick3BatchNode;
+@property (nonatomic, readwrite) CCSpriteBatchNode* allBatchNode;
 @property (nonatomic, readwrite) GameObject *fly;
 @property (nonatomic, readwrite) CCSpriteBatchNode *emenyBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode *flyBatchNode;
@@ -92,5 +95,6 @@
 @property (nonatomic, readwrite) std::deque<State> stateVec;
 @property (nonatomic, readwrite) float fallPos;
 @property (nonatomic, readwrite) CCSpriteBatchNode* leafBatchNode;
+@property (nonatomic, readwrite) CCSpriteBatchNode* heartBatchNode;
 @property (nonatomic, readwrite) CCSpriteBatchNode* flowerBatchNode;
 @end

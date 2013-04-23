@@ -12,22 +12,32 @@
 
 #define jokerRunActionTag 1
 #define jokerFlipRunActionTag 2
+#define jokerUpActionTag 3
+#define jokerDownActionTag 4
 
 @interface Joker : GameObject {
     b2Body          *jokerBody;
-    CCAction *jokerRunAction;
-    CCAction *jokerFlipRunAction;
+    CCFiniteTimeAction *jokerRunAction;
+    CCFiniteTimeAction *jokerFlipRunAction;
+    CCFiniteTimeAction *jokerUpAction;
+    CCFiniteTimeAction *jokerDownAction;
     
     CCAnimation *jokerRunAnimation;
     CCAnimation *jokerJumpAnimation;
     CCAnimation *jokerFlipAnimation;
+    CCAnimation *jokerUpAnimation;
+    CCAnimation *jokerDownAnimation;
+    id sequenceUp;
+    id sequenceDown;
     
     BOOL jokerJumping;
     BOOL jokerFlip;
 }
 
 -(void) createBox2dObject:(b2World*)world;
--(void) initAnimation:(CCSpriteBatchNode*)batchNode;
+-(void) initAnimation:(CCSpriteBatchNode*)batchNode character:(int) num;
+-(void) afterUpAction:(Joker *) sprite;
+-(void) afterDownAction:(Joker *) sprite;
 -(void) jump:(float)charge;
 -(void) run;
 -(void) fall;

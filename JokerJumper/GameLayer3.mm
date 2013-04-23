@@ -28,6 +28,8 @@
 @synthesize brick2BatchNode;
 @synthesize brick3BatchNode;
 @synthesize diamondBatchNode;
+@synthesize allBatchNode;
+@synthesize heartBatchNode;
 @synthesize flyBatchNode;
 @synthesize leafBatchNode;
 @synthesize fly;
@@ -36,7 +38,7 @@
 @synthesize jumpVec;
 @synthesize hudLayer;
 
-NSString *map3 = @"map9.2.tmx";
+NSString *map3 = @"map_lv3_trial2.tmx";
 
 +(GameLayer3*) getGameLayer3 {
     return self;
@@ -98,11 +100,9 @@ NSString *map3 = @"map9.2.tmx";
 				  boxId:(int)boxId
                bodyType:(GameObjectType)type
 {
-    
 	// Define the dynamic body.
 	//Set up a 1m squared box in the physics world
 	b2BodyDef bodyDef;
-    
 	if(d)
 		bodyDef.type = b2_dynamicBody;
     if(type==kGameObjectFalling)
@@ -119,7 +119,7 @@ NSString *map3 = @"map9.2.tmx";
     if(type==kGameObjectCoin)
     {
         platform=[[GameObject alloc] init];
-        for(int i = 0; i <= 2; ++i) {
+        for(int i = 0; i <= 11; ++i) {
             [animFrames addObject:
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"diamond%d.png",i]]];
@@ -141,6 +141,23 @@ NSString *map3 = @"map9.2.tmx";
         //[platform setType:type];
         //[self addChild:platform z:3];
     }
+    else if(type==kGameObjectCoin1)
+    {
+        platform=[[GameObject alloc] init];
+        for(int i = 0; i <= 11; ++i) {
+            [animFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"heart%d.png",i]]];
+        }
+        Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.5f];
+        Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+        [platform setTexture:[heartBatchNode texture]];
+        [platform runAction:Action];
+        //platform=[[GameObject alloc] init];
+        [platform setType:type];
+        [heartBatchNode addChild:platform z:4];
+        
+    }
     else if(type==kGameObjectPlatform1)
     {
         platform=[[GameObject alloc] init];
@@ -159,7 +176,8 @@ NSString *map3 = @"map9.2.tmx";
     }
     else if(type==kGameObjectPlatform2)
     {
-        platform = [GameObject spriteWithFile:@"brick_grass_hd.png"];
+         platform=[[GameObject alloc] init];
+        //platform = [GameObject spriteWithFile:@"brick_grass_hd.png"];
         //        [platform setVisible:false];
         [platform setType:type];
         [self addChild:platform z:2];
@@ -218,13 +236,6 @@ NSString *map3 = @"map9.2.tmx";
         [self addChild:platform z:2];
     }
     //---------------------------create the box2d object: magic props------------------------//
-    else if(type==kGameObjectCoin1)
-    {
-        platform = [GameObject spriteWithFile:@"heart_hd.png"];
-        [platform setType:type];
-        [self addChild:platform z:4];
-        
-    }
     else if(type==kGameObjectCoin2)
     {
         platform = [GameObject spriteWithFile:@"club.png"];
@@ -587,7 +598,14 @@ NSString *map3 = @"map9.2.tmx";
 
 //------------------------------------------animation: import plsit&png-------------------------------------------//
 - (void) initBatchNode {
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"all_character_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"texture.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"JokerActions_both.plist"];
+    
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"diamond_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"heart_default.plist"];
+    
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick_ice_flashing_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick1_hd_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick2_hd_default.plist"];
@@ -597,13 +615,14 @@ NSString *map3 = @"map9.2.tmx";
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"piranha_default.plist"];
     
     
-    
-    jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
-    emenyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"JokerActions_both.png"];
+    allBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"all_character_default.png"];
+    jokerBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"texture.png"];
+    emenyBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"texture.png"];
     brick1BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick_ice_flashing_default.png"];
     brick2BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick1_hd_default.png"];
     brick3BatchNode = [CCSpriteBatchNode batchNodeWithFile:@"brick2_hd_default.png"];
     flyBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
+    heartBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"heart_default.png"];
     diamondBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"diamond_default.png"];
     leafBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"leaf_default.png"];
     flowerBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"leaf_default.png"];
@@ -621,6 +640,7 @@ NSString *map3 = @"map9.2.tmx";
     [self addChild:diamondBatchNode z:3];
     [self addChild:leafBatchNode z:11];
     [self addChild:flowerBatchNode z:10];
+    [self addChild:allBatchNode z:10];
     
 }
 
@@ -643,22 +663,24 @@ NSString *map3 = @"map9.2.tmx";
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         [self preLoadSoundFiles];
 		[self setupPhysicsWorld];
+        CCLOG(@"here1");
         [self initBatchNode];
+        CCLOG(@"here2");
         [self initTiledMaps];
-        
-        joker = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
+        CCLOG(@"here3");
+        joker = [Joker spriteWithSpriteFrameName:@"joker1.png"];
         //        joker = [[Joker alloc] init];
         [joker setType:kGameObjectJoker];
-        [joker initAnimation:jokerBatchNode];
+        [joker initAnimation:allBatchNode character:0];
         joker.position = ccp(jokerLocationX, jokerLocationY);
         [joker createBox2dObject:world];
-        
-        emeny = [Joker spriteWithSpriteFrameName:@"motion1-hd.png"];
+        CCLOG(@"here4");
+        emeny = [Joker spriteWithSpriteFrameName:@"enermy0.png"];
         [emeny setType:kGameObjectEmeny];
-        [emeny initAnimation: emenyBatchNode];
+        [emeny initAnimation: allBatchNode character:2];
         emeny.position = ccp(emenyLocationX, emenyLocationY);
         [emeny createBox2dObject:world];
-        
+        CCLOG(@"here5");
         flyPos=0;
         CCScene* scene = [[CCDirector sharedDirector] runningScene];
         hudLayer = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];

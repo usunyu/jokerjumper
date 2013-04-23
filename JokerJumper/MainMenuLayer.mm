@@ -27,9 +27,11 @@ CCSpriteBatchNode* bgBatchNode;
     if (self) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         
+        bg = [CCSprite spriteWithFile:@"start_menu.png"];
+        bg.anchorPoint = ccp(0, 0);
+        [self addChild: bg];
         
-        
-        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"StartMenu_default.plist"];
+        /*[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"StartMenu_default.plist"];
         bgBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"StartMenu_default.png"];
         [self addChild:bgBatchNode z:0];
         
@@ -46,7 +48,7 @@ CCSpriteBatchNode* bgBatchNode;
         [bg setTexture:[bgBatchNode texture]];
         [bg runAction:bgRunAction];
         bg.anchorPoint = ccp(0, 0);
-        [bgBatchNode addChild:bg z:1];
+        [bgBatchNode addChild:bg z:1];*/
         
         // Create Replay Button
         CCMenuItem *buttonPlay = [CCMenuItemImage itemWithNormalImage:@"button_play_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(buttonReplayAction:)];

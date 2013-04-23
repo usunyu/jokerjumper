@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import "CCBReader.h"
 #import "SimpleAudioEngine.h"
+#import "MainMenuScene.h"
 
 
 @implementation PauseLayer
@@ -52,7 +53,8 @@
     [[GameScene sharedGameScene] setShowingPausedMenu:NO];
     [[CCDirector sharedDirector] resume];
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitRows transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"MainMenuScene.ccbi"]]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenuScene scene]]];
+//    [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitRows transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"MainMenuScene.ccbi"]]];
     [[GameScene sharedGameScene] removeChildByTag:PAUSE_LAYER_TAG cleanup:YES];
     
 }
@@ -72,7 +74,8 @@
     [[GameScene sharedGameScene] setShowingPausedMenu:NO];
     [[CCDirector sharedDirector] resume];
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitRows transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+//    [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitRows transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenuScene scene]]];
     [[GameScene sharedGameScene] removeChildByTag:PAUSE_LAYER_TAG cleanup:YES];
 
 }

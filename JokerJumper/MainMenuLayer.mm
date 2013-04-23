@@ -58,7 +58,8 @@ CCSpriteBatchNode* bgBatchNode;
         CCMenuItem *buttonAbout = [CCMenuItemImage itemWithNormalImage:@"button_about_sel.png" selectedImage:@"button_about_sel.png" target:self selector:@selector(buttonAboutAction:)];
         
         CCMenu *Menu = [CCMenu menuWithItems:buttonPlay, buttonOption, buttonAbout, nil];
-        Menu.position=ccp(winSize.width/2 + 430, winSize.height/2 - 250);
+//        Menu.position=ccp(winSize.width/2 + 400, winSize.height/2 - 200);
+        Menu.position=ccp(820, 250);
         
         [Menu alignItemsVertically];
         [self addChild:Menu z:1];

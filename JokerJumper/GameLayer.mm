@@ -72,7 +72,7 @@ bool gravity = true;
     
 //    if(lastAccelerationY >= 4 && lastAccelerationY <= 6)
     {
-        if(joker.jokerFlip) {
+        if(!joker.jokerFlip) {
             if(lastLastAccelerationY - accelerationY >= 2) {
                 if(!joker.jokerJumping)
                 {
@@ -705,11 +705,14 @@ bool gravity = true;
     self = [super init];
     if (self) {
         // enable touches
-        if(!gravity)
+        if(!gravity) {
             self.isTouchEnabled = YES;
-        else
+            self.isAccelerometerEnabled = NO;
+        }
+        else {
             self.isAccelerometerEnabled = YES;
-        
+            self.isTouchEnabled = NO;
+        }
         self.tag = GAME_LAYER_TAG;
         self.coinCount=0;
         self.lifeCount=1;

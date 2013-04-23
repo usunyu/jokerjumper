@@ -30,6 +30,7 @@
 		A4810E7917057C1700C61964 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = A4810E7817057C1700C61964 /* GameScene.mm */; };
 		A4810E8117062B6900C61964 /* map5.95_copy.tmx in Resources */ = {isa = PBXBuildFile; fileRef = A4810E8017062B6900C61964 /* map5.95_copy.tmx */; };
 		A485FF9D1707B0DE00688F1E /* GameLayer2.mm in Sources */ = {isa = PBXBuildFile; fileRef = A485FF9C1707B0DE00688F1E /* GameLayer2.mm */; };
+		A49F61B41726AA1100A98432 /* GameOptionsScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = A49F61B31726AA1100A98432 /* GameOptionsScene.mm */; };
 		A4A36BF0170944570063E6B3 /* button_play_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A36BED170944570063E6B3 /* button_play_sel.png */; };
 		A4A36BF1170944570063E6B3 /* button.plist in Resources */ = {isa = PBXBuildFile; fileRef = A4A36BEE170944570063E6B3 /* button.plist */; };
 		A4A36BF2170944570063E6B3 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = A4A36BEF170944570063E6B3 /* button.png */; };
@@ -396,6 +397,8 @@
 		A4810E8017062B6900C61964 /* map5.95_copy.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = map5.95_copy.tmx; sourceTree = "<group>"; };
 		A485FF9B1707B0DE00688F1E /* GameLayer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer2.h; sourceTree = "<group>"; };
 		A485FF9C1707B0DE00688F1E /* GameLayer2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameLayer2.mm; sourceTree = "<group>"; };
+		A49F61B21726AA1100A98432 /* GameOptionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOptionsScene.h; sourceTree = "<group>"; };
+		A49F61B31726AA1100A98432 /* GameOptionsScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameOptionsScene.mm; sourceTree = "<group>"; };
 		A4A36BED170944570063E6B3 /* button_play_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_play_sel.png; sourceTree = "<group>"; };
 		A4A36BEE170944570063E6B3 /* button.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = button.plist; sourceTree = "<group>"; };
 		A4A36BEF170944570063E6B3 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
@@ -1059,6 +1062,8 @@
 				A4BEF47B171E587E00E0ECB4 /* MainMenuScene.mm */,
 				A4B309C3171E91E400E25430 /* GameOverScene.h */,
 				A4B309C4171E91E400E25430 /* GameOverScene.mm */,
+				A49F61B21726AA1100A98432 /* GameOptionsScene.h */,
+				A49F61B31726AA1100A98432 /* GameOptionsScene.mm */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -2337,6 +2342,7 @@
 				A4C05F6F171E3A2C007E7719 /* LoadingScene.mm in Sources */,
 				A4BEF47C171E587E00E0ECB4 /* MainMenuScene.mm in Sources */,
 				A4B309C5171E91E400E25430 /* GameOverScene.mm in Sources */,
+				A49F61B41726AA1100A98432 /* GameOptionsScene.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

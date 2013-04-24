@@ -39,7 +39,7 @@
 @synthesize jumpVec;
 @synthesize hudLayer;
 
-NSString *map3 = @"map_lv3_trial2.tmx";
+NSString *map3 = @"map_lv3_trial3.tmx";
 
 +(GameLayer3*) getGameLayer3 {
     return self;

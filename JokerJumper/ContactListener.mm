@@ -142,7 +142,7 @@ void ContactListener::BeginContact(b2Contact *contact) {
         if(IS_PLAT1TYPE(spriteA, spriteB))
         {
             b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
-            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+0.5f, jokerBody->GetLinearVelocity().y);
+            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+1.0f, jokerBody->GetLinearVelocity().y);
             jokerBody->SetLinearVelocity(impulse);
         }
         else if(IS_PLAT2TYPE(spriteA, spriteB))

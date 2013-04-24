@@ -8,6 +8,7 @@
 #import "Constants.h"
 #import "Joker.h"
 #import "GameOverScene.h"
+#import "GameWinScene.h"
 
 @class GameObject;
 
@@ -978,6 +979,12 @@ NSString *map3 = @"map_lv3_trial3.tmx";
             stateVec.pop_front();
         }
         
+    }
+    if(joker.position.x >= MAP_LENGTH * PTM_RATIO * MAP_LEVEL1_NUMS) {
+        //    if(joker.position.x >= 1000) {
+        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        // CCTransitionFadeBL, lose: CCTransitionProgressRadialCCW
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1.0 scene:[GameWinScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
     }
     /*
      if((joker.position.x-emeny.position.x>AI_RESET_DISTANCE||(emeny.position.y<=0)||(emeny.position.y>=winSize.height))&&(emeny.position.x>stateVec.front().position.x))

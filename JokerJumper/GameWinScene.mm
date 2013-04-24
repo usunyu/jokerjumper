@@ -16,6 +16,10 @@ int coinNum;
 int distanceNum;
 
 
+CCSpriteBatchNode* winCharacterBatchNode;
+CCSprite* winJoker;
+
+
 @implementation GameWinScene
 
 +(CCScene *) scene
@@ -47,7 +51,29 @@ int distanceNum;
     if ((self = [ super init])) {
 		
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-        self.isTouchEnabled = YES;
+        
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"all_character_default.plist"];
+        winCharacterBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"all_character_default.png"];
+        
+        [self addChild:winCharacterBatchNode z:1];
+        
+        winJoker = [CCSprite spriteWithSpriteFrameName:@"joker1.png"];
+        
+        NSMutableArray *jokerrunAnimFrames = [NSMutableArray array];
+        for(int i = 1; i <= 14; ++i) {
+            [jokerrunAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"joker%d.png", i]]];
+        }
+        
+        CCAnimation *jokerRunAnimation = [CCAnimation animationWithSpriteFrames:jokerrunAnimFrames delay:0.09f];
+        CCAction *jokerRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerRunAnimation]];
+        jokerRunAction.tag = jokerRunActionTag;
+        [winJoker runAction:jokerRunAction];
+        [winCharacterBatchNode addChild:winJoker];
+        CCFiniteTimeAction *winMoveAction = [CCMoveTo actionWithDuration:6.0f position:ccp(winSize.width+500,160)];
+//        winJoker.scale=1.5;
+        [winJoker runAction:winMoveAction];
         
         switch (stageLevel) {
             case GAME_STATE_ONE:

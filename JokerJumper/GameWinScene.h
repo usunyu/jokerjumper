@@ -13,6 +13,9 @@
 @interface GameWinScene : CCLayerColor <CCTargetedTouchDelegate> {
     CCMenuItem *button;
     CCMenu *Menu;
+    
+    CCLabelTTF *labelCoin;
+    CCLabelTTF *labelDistance;
 }
 
 +(CCScene *) scene;

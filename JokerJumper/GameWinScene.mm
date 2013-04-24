@@ -15,6 +15,11 @@ int stageLevel;
 int coinNum;
 int distanceNum;
 
+int currentCoinNum2;
+int currentDistanceNum2;
+
+BOOL coinFinish2;
+BOOL distanceFinish2;
 
 CCSpriteBatchNode* winCharacterBatchNode;
 CCSprite* winJoker;
@@ -58,6 +63,7 @@ CCSprite* winJoker;
         [self addChild:winCharacterBatchNode z:1];
         
         winJoker = [CCSprite spriteWithSpriteFrameName:@"joker1.png"];
+        winJoker.position = ccp(80, 255);
         
         NSMutableArray *jokerrunAnimFrames = [NSMutableArray array];
         for(int i = 1; i <= 14; ++i) {
@@ -71,19 +77,32 @@ CCSprite* winJoker;
         jokerRunAction.tag = jokerRunActionTag;
         [winJoker runAction:jokerRunAction];
         [winCharacterBatchNode addChild:winJoker];
-        CCFiniteTimeAction *winMoveAction = [CCMoveTo actionWithDuration:6.0f position:ccp(winSize.width+500,160)];
-//        winJoker.scale=1.5;
+        CCFiniteTimeAction *winMoveAction = [CCMoveTo actionWithDuration:6.0f position:ccp(winSize.width - 100, 255)];
+        winJoker.scale=1.5;
         [winJoker runAction:winMoveAction];
+        
+        NSString *coinStr = [NSString stringWithFormat:@"%2d", 0];
+        labelCoin = [CCLabelTTF labelWithString:coinStr fontName:@"Marker Felt" fontSize:40];
+        labelCoin.color = ccRED;
+		labelCoin.position = CGPointMake(500, 540);
+		[self addChild:labelCoin z:3];
+        
+        NSString *disStr = [NSString stringWithFormat:@"%2d", 0];
+        
+        labelDistance = [CCLabelTTF labelWithString:disStr fontName:@"Marker Felt" fontSize:40];
+        labelDistance.color = ccRED;
+		labelDistance.position = CGPointMake(500, 455);
+		[self addChild:labelDistance z:3];
         
         switch (stageLevel) {
             case GAME_STATE_ONE:
                 button = [CCMenuItemImage itemWithNormalImage:@"level1end.png" selectedImage:@"level1end.png" target:self selector:@selector(buttonNextAction:)];
                 break;
             case GAME_STATE_TWO:
-                
+                button = [CCMenuItemImage itemWithNormalImage:@"level2end.png" selectedImage:@"level2end.png" target:self selector:@selector(buttonNextAction:)];
                 break;
             case GAME_STATE_THREE:
-                
+                button = [CCMenuItemImage itemWithNormalImage:@"level3end.png" selectedImage:@"level3end.png" target:self selector:@selector(buttonNextAction:)];
                 break;
 
             default:
@@ -128,10 +147,39 @@ CCSprite* winJoker;
         [Menu alignItemsVertically];
         [self addChild:Menu];
          */
+        [self schedule:@selector(update:) interval:0.01f];
     }
     return self;
 }
 
+
+- (void)update:(ccTime) dt
+{
+        if(currentCoinNum2 < coinNum) {
+            currentCoinNum2++;
+            NSString *coinStr = [NSString stringWithFormat:@"%2d", currentCoinNum2];
+            [labelCoin setString:coinStr];
+        }
+        else
+            coinFinish2 = true;
+        if(currentDistanceNum2 < distanceNum) {
+            currentDistanceNum2++;
+            NSString *disStr = [NSString stringWithFormat:@"%2d", currentDistanceNum2];
+            [labelDistance setString:disStr];
+        }
+        else
+            distanceFinish2 = true;
+        
+        if (coinFinish2) {
+            if(labelCoin.scale <= 1.3)
+                labelCoin.scale += 0.01;
+        }
+        
+        if (distanceFinish2) {
+            if(labelDistance.scale <= 1.3)
+                labelDistance.scale += 0.01;
+        }
+}
 
 - (void)buttonReplayAction:(id)sender {
     switch (stageLevel) {

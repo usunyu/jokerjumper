@@ -52,7 +52,21 @@ CCSpriteBatchNode* playButtonBatchNode;
         [play runAction:playRunAction];
         play.anchorPoint = ccp(0, 0);
         [playButtonBatchNode addChild:play z:1];
-        play.position = ccp(winSize.width/2, winSize.height/2 - 550);
+        play.position = ccp(winSize.width/2 -40, winSize.height/2 - 525);
+//        play.position = ccp(500, 200);
+        NSLog(@"X: %f, Y: %f", winSize.width/2 -40, winSize.height/2 - 525);
+        
+        // Create Replay Button
+        CCMenuItem *playButton = [CCMenuItemImage itemWithNormalImage:@"btn_play0.png" selectedImage:@"btn_play0.png" target:self selector:@selector(buttonReplayAction:)];
+        playButton.scale = 1.3;
+        CCMenu *Menu = [CCMenu menuWithItems:playButton, nil];
+        Menu.position=ccp(500, 150);
+        
+        Menu.opacity = 0;
+        [self addChild:Menu z:1];
+        
+        
+//        [CCMenuItemImage itemWithNormalImage:@"button_play_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(buttonReplayAction:)];
         
         
         /*[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"StartMenu_default.plist"];
@@ -76,7 +90,7 @@ CCSpriteBatchNode* playButtonBatchNode;
         
         
         
-        // Create Replay Button
+        /*// Create Replay Button
         CCMenuItem *buttonPlay = [CCMenuItemImage itemWithNormalImage:@"button_play_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(buttonReplayAction:)];
         
         // Create Option Button
@@ -90,7 +104,7 @@ CCSpriteBatchNode* playButtonBatchNode;
         Menu.position=ccp(820, 250);
         
         [Menu alignItemsVertically];
-        [self addChild:Menu z:1];
+        [self addChild:Menu z:1];*/
         
     }
     return self;

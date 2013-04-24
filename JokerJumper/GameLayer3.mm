@@ -653,7 +653,7 @@ NSString *map3 = @"map_lv3_trial3.tmx";
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"brick2_hd_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"pokerSoilder_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"diamond_default.plist"];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"leaf_default.plist"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"snow_flower_default.plist"];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"piranha_default.plist"];
     
     
@@ -666,7 +666,7 @@ NSString *map3 = @"map_lv3_trial3.tmx";
     flyBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"pokerSoilder_default.png"];
     heartBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"heart_default.png"];
     diamondBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"diamond_default.png"];
-    leafBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"leaf_default.png"];
+    leafBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"snow_flower_default.png"];
     flowerBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"leaf_default.png"];
     /*
      brick1BatchNode.scale=4;
@@ -755,7 +755,7 @@ NSString *map3 = @"map_lv3_trial3.tmx";
         //        [self setDistanceLabelText:@"0.00"];
         
         [self schedule:@selector(update:)];
-        [self schedule:@selector(updateObject:) interval:0.5f];
+        [self schedule:@selector(updateObject:) interval:0.2f];
         //[self schedule:@selector(updateEmeny:) interval:0.2f];
         [self schedule:@selector(jokerCharging:) interval:0.2f];
         
@@ -1028,10 +1028,10 @@ NSString *map3 = @"map_lv3_trial3.tmx";
     fly = [[GameObject alloc] init];
     [fly setType: kGameObjectFly];
     
-    for(int i = 0; i <=18 ; ++i) {
+    for(int i = 0; i <=4 ; ++i) {
         [flyFrames addObject:
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-          [NSString stringWithFormat:@"leaf%d.png", i]]];
+          [NSString stringWithFormat:@"snow_flower%d.png", i]]];
     }
     flyAnim=[CCAnimation animationWithSpriteFrames:flyFrames delay:0.2f];
     flyAction= [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: flyAnim]];

@@ -340,6 +340,8 @@
 		DC8A155C1727A40700B56E33 /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A155B1727A40700B56E33 /* light.png */; };
 		DC8A155E1727A67E00B56E33 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A155D1727A67D00B56E33 /* sun.png */; };
 		DC8A15601727A82F00B56E33 /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A155F1727A82F00B56E33 /* ground.png */; };
+		DC8A15631727AB3E00B56E33 /* snow_flower_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC8A15611727AB3E00B56E33 /* snow_flower_default.plist */; };
+		DC8A15641727AB3E00B56E33 /* snow_flower_default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC8A15621727AB3E00B56E33 /* snow_flower_default.png */; };
 		DCA232C5170BDCF200EA70E0 /* ContactListener2.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCA232C4170BDCF200EA70E0 /* ContactListener2.mm */; };
 		DCA232C9170BEF4B00EA70E0 /* fallingBrick8.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA232C8170BEF4B00EA70E0 /* fallingBrick8.png */; };
 		DCA232CE170C245B00EA70E0 /* leaf_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA232CC170C245B00EA70E0 /* leaf_default.plist */; };
@@ -946,6 +948,8 @@
 		DC8A155B1727A40700B56E33 /* light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light.png; sourceTree = "<group>"; };
 		DC8A155D1727A67D00B56E33 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		DC8A155F1727A82F00B56E33 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
+		DC8A15611727AB3E00B56E33 /* snow_flower_default.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = snow_flower_default.plist; sourceTree = "<group>"; };
+		DC8A15621727AB3E00B56E33 /* snow_flower_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow_flower_default.png; sourceTree = "<group>"; };
 		DCA232C3170BDCCE00EA70E0 /* ContactListener2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListener2.h; sourceTree = "<group>"; };
 		DCA232C4170BDCF200EA70E0 /* ContactListener2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ContactListener2.mm; sourceTree = "<group>"; };
 		DCA232C8170BEF4B00EA70E0 /* fallingBrick8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fallingBrick8.png; sourceTree = "<group>"; };
@@ -1063,6 +1067,8 @@
 		A46362971707D19C00DC75E4 /* Magic Props */ = {
 			isa = PBXGroup;
 			children = (
+				DC8A15611727AB3E00B56E33 /* snow_flower_default.plist */,
+				DC8A15621727AB3E00B56E33 /* snow_flower_default.png */,
 				DCA232C8170BEF4B00EA70E0 /* fallingBrick8.png */,
 				DCA232CC170C245B00EA70E0 /* leaf_default.plist */,
 				DC7E1991171BF5FC00DA84A0 /* skull_default.plist */,
@@ -2220,7 +2226,12 @@
 				DC8A155C1727A40700B56E33 /* light.png in Resources */,
 				DC8A155E1727A67E00B56E33 /* sun.png in Resources */,
 				DC8A15601727A82F00B56E33 /* ground.png in Resources */,
+<<<<<<< HEAD
 				A4D943FF1727A657007419C4 /* level1end.png in Resources */,
+=======
+				DC8A15631727AB3E00B56E33 /* snow_flower_default.plist in Resources */,
+				DC8A15641727AB3E00B56E33 /* snow_flower_default.png in Resources */,
+>>>>>>> main menu...
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -72,16 +72,19 @@ CCFiniteTimeAction *moveAction4;
         light.opacity=50;
         CCRotateBy *rot = [CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:20.0 angle: 360]];
         [light runAction:rot];
-        light.position=ccp(winSize.width/2+120, winSize.height/2-300);
+        light.position=ccp(504, 212);
         [self addChild:light z:-4];
+        CCLOG(@"#######light: (%f,%f)",light.position.x,light.position.y);
         
         sun=[CCSprite spriteWithFile:@"sun.png"];
-        sun.position=ccp(winSize.width/2+150,winSize.height/2-50);
+        sun.position=ccp(534,462);
         [self addChild:sun z:-3];
+        CCLOG(@"#######sun: (%f,%f)",sun.position.x,sun.position.y);
         
         grass=[CCSprite spriteWithFile:@"ground.png"];
-        grass.position=ccp(winSize.width/2,100);
-        [self addChild:sun z:-2];
+        grass.position=ccp(512,68);
+        [self addChild:grass z:-2];
+        CCLOG(@"#######grass: (%f,%f)",grass.position.x,grass.position.y);
         
         CCLOG(@"here0");
         play = [CCSprite spriteWithSpriteFrameName:@"btn_play0.png"];
@@ -91,6 +94,7 @@ CCFiniteTimeAction *moveAction4;
              [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
               [NSString stringWithFormat:@"btn_play%d.png", i]]];
         }
+        CCLOG(@"#######play: (%f,%f)",play.position.x,play.position.y);
         
         CCAnimation *playRunAnimation = [CCAnimation animationWithSpriteFrames:bgAnimFrames delay:0.1f];
         CCAction *playRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: playRunAnimation]];
@@ -98,11 +102,12 @@ CCFiniteTimeAction *moveAction4;
         [play runAction:playRunAction];
         play.anchorPoint = ccp(0, 0);
         [playButtonBatchNode addChild:play z:1];
-        play.position = ccp(winSize.width/2 -40, winSize.height/2 - 525);
+        play.position = ccp(344, -13);
+        
         //        play.position = ccp(500, 200);
         NSLog(@"X: %f, Y: %f", winSize.width/2 -40, winSize.height/2 - 525);
         CCLOG(@"here1");
-        
+         CCLOG(@"#######play: (%f,%f)",play.position.x,play.position.y);
         caption = [CCSprite spriteWithSpriteFrameName:@"caption0.png"];
         NSMutableArray *caAnimFrames = [NSMutableArray array];
         for(int i = 0; i <= 11; ++i) {
@@ -117,7 +122,8 @@ CCFiniteTimeAction *moveAction4;
         [caption runAction:captionRunAction];
         caption.anchorPoint = ccp(0, 0);
         [captionBatchNode addChild:caption z:1];
-        caption.position = ccp(winSize.width/2 -120, winSize.height/2-50);
+        caption.position = ccp(264, 462);
+        CCLOG(@"#######caption: (%f,%f)",caption.position.x,caption.position.y);
         
         joker=[CCSprite spriteWithSpriteFrameName:@"joker1.png"];
         enemy1=[CCSprite spriteWithSpriteFrameName:@"green_monster0.png"];

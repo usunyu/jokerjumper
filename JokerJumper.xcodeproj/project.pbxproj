@@ -2212,7 +2212,6 @@
 				A4D943F517278215007419C4 /* btn_transparent.png in Resources */,
 				A4D943FC17279B08007419C4 /* background1_front.png in Resources */,
 				A4D943FD17279B08007419C4 /* background1_middle.png in Resources */,
-<<<<<<< HEAD
 				DC8A155317279E8100B56E33 /* all_character_default.plist in Resources */,
 				DC8A155417279E8100B56E33 /* all_character_default.png in Resources */,
 				DC8A155717279FD300B56E33 /* caption_default.plist in Resources */,
@@ -2221,9 +2220,7 @@
 				DC8A155C1727A40700B56E33 /* light.png in Resources */,
 				DC8A155E1727A67E00B56E33 /* sun.png in Resources */,
 				DC8A15601727A82F00B56E33 /* ground.png in Resources */,
-=======
 				A4D943FF1727A657007419C4 /* level1end.png in Resources */,
->>>>>>> 10:50
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

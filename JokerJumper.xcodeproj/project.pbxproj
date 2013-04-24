@@ -2189,7 +2189,6 @@
 				A4D943F3172753D8007419C4 /* btn_play0.png in Resources */,
 				DC8A153717275F6500B56E33 /* all_character_default.plist in Resources */,
 				DC8A153817275F6500B56E33 /* all_character_default.png in Resources */,
-<<<<<<< HEAD
 				DC8A154017276A6100B56E33 /* map_lv3_trial3.tmx in Resources */,
 				DC8A154517276D7200B56E33 /* bg.png in Resources */,
 				DC8A154617276D7200B56E33 /* caption.png in Resources */,
@@ -2197,9 +2196,7 @@
 				DC8A154817276D7200B56E33 /* sun.png in Resources */,
 				DC8A154A17276D7C00B56E33 /* cloud_left.png in Resources */,
 				DC8A154C17276D8500B56E33 /* cloud_right.png in Resources */,
-=======
 				A4D943F517278215007419C4 /* btn_transparent.png in Resources */,
->>>>>>> menu zoom
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

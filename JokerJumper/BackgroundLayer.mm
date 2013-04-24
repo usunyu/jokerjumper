@@ -84,17 +84,17 @@ int backgroundLevel = 1;
         case 1:
             if(frontOpen) {
                 //--------------------Front Background--------------------//
-                bgFront1 = [CCSprite spriteWithFile:@"background_front.png"];     
-                bgFront2 = [CCSprite spriteWithFile:@"background_front.png"];
-//                bgFront1 = [CCSprite spriteWithFile:@"level3_bg.png"];
-//                bgFront2 = [CCSprite spriteWithFile:@"level3_bg.png"];
+//                bgFront1 = [CCSprite spriteWithFile:@"background_front.png"];     
+//                bgFront2 = [CCSprite spriteWithFile:@"background_front.png"];
+                bgFront1 = [CCSprite spriteWithFile:@"level3_bg.png"];
+                bgFront2 = [CCSprite spriteWithFile:@"level3_bg.png"];
             }
             if(middleOpen) {
                 //--------------------Middle Background--------------------//
-                bgMiddle1 = [CCSprite spriteWithFile:@"background_middle.png"];                
-                bgMiddle2 = [CCSprite spriteWithFile:@"background_middle.png"];
-//                bgMiddle1 = [CCSprite spriteWithFile:@"level3_bg_front.png"];
-//                bgMiddle2 = [CCSprite spriteWithFile:@"level3_bg_front.png"];
+//                bgMiddle1 = [CCSprite spriteWithFile:@"background_middle.png"];                
+//                bgMiddle2 = [CCSprite spriteWithFile:@"background_middle.png"];
+                bgMiddle1 = [CCSprite spriteWithFile:@"level3_bg_front.png"];
+                bgMiddle2 = [CCSprite spriteWithFile:@"level3_bg_front.png"];
             }
             if(backOpen) {
                 //--------------------Back Background--------------------//

@@ -15,6 +15,7 @@ int stageLevel;
 int coinNum;
 int distanceNum;
 
+
 @implementation GameWinScene
 
 +(CCScene *) scene
@@ -45,7 +46,26 @@ int distanceNum;
 -(id) init {
     if ((self = [ super init])) {
 		
-        CGSize winSize = [[CCDirector sharedDirector] winSize];
+//        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        self.isTouchEnabled = YES;
+        
+        switch (stageLevel) {
+            case GAME_STATE_ONE:
+                
+                break;
+            case GAME_STATE_TWO:
+                
+                break;
+            case GAME_STATE_THREE:
+                
+                break;
+
+            default:
+                break;
+        }
+
+        
+        /*
         // Create a label for display purposes
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"You Win!" fontName:@"Marker Felt" fontSize:60];
         label.color = ccWHITE;
@@ -78,9 +98,33 @@ int distanceNum;
         
         [Menu alignItemsVertically];
         [self addChild:Menu];
+         */
     }
     return self;
 }
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    switch (stageLevel) {
+        case 1:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_TWO]]];
+            break;
+        case 2:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_THREE]]];
+            break;
+        case 3:
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_ONE]]];
+            break;
+        default:
+            break;
+    }
+	return YES;
+}
+
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    
+}
+
 
 - (void)buttonReplayAction:(id)sender {
     switch (stageLevel) {

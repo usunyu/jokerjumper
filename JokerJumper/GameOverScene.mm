@@ -23,6 +23,10 @@ int timeSlap;
 BOOL coinFinish;
 BOOL distanceFinish;
 
+BOOL replaySelected;
+
+BOOL mainSelected;
+
 @implementation GameOverScene
 
 //+(CCScene *) scene
@@ -63,10 +67,18 @@ BOOL distanceFinish;
         coinFinish = false;
         currentCoinNum = 0;
         currentDistanceNum = 0;
-		
+        
+        replaySelected = false;
+        labelReplay.scale = 1;
+        buttonReplay.scale = 1;
+        
+        mainSelected = false;
+        buttonMain.scale = 1;
+        labelMain.scale = 1;
+
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         // Create a label for display purposes
-        CCLabelTTF *label = [CCLabelTTF labelWithString:@"You Lose!" fontName:@"Marker Felt" fontSize:45];
+        CCLabelTTF *label = [CCLabelTTF labelWithString:@"You Lose!" fontName:@"Marker Felt" fontSize:60];
         label.color = ccWHITE;
 		label.position = CGPointMake(winSize.width/2,winSize.height/2+200);
 		[self addChild:label z:0];
@@ -86,10 +98,18 @@ BOOL distanceFinish;
 		[self addChild:labelDistance z:0];
         
         // Create Replay Button
-        CCMenuItem *buttonReplay = [CCMenuItemImage itemWithNormalImage:@"button_play_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(buttonReplayAction:)];
+        buttonReplay = [CCMenuItemImage itemWithNormalImage:@"btn_transparent.png" selectedImage:@"btn_transparent.png" target:self selector:@selector(buttonReplayAction:)];
+        labelReplay = [CCLabelTTF labelWithString:@"Replay" fontName:@"Marker Felt" fontSize:55];
+        labelReplay.color = ccBLACK;
+        labelReplay.position = ccp(510, 330);
+        [self addChild:labelReplay z:1];
         
         // Create Mainmenu Button
-        CCMenuItem *buttonMain = [CCMenuItemImage itemWithNormalImage:@"button_about_sel.png" selectedImage:@"button_about_sel.png" target:self selector:@selector(buttonMainAction:)];
+        buttonMain = [CCMenuItemImage itemWithNormalImage:@"btn_transparent.png" selectedImage:@"btn_transparent.png" target:self selector:@selector(buttonMainAction:)];
+        labelMain = [CCLabelTTF labelWithString:@"Menu" fontName:@"Marker Felt" fontSize:55];
+        labelMain.color = ccBLACK;
+        labelMain.position = ccp(510, 243);
+        [self addChild:labelMain z:1];
         
         CCMenu *Menu = [CCMenu menuWithItems:buttonReplay, buttonMain, nil];
         Menu.position=ccp(winSize.width/2, winSize.height/2 - 100);
@@ -129,20 +149,27 @@ BOOL distanceFinish;
                 if(labelDistance.scale <= 1.5)
                     labelDistance.scale += 0.01;
             }
-
-//            if(labelCoin.scale <= 1.5)
-//                labelCoin.scale += 0.05;
-//        if(labelCoin.scale >= 1.5)
-//            labelCoin.scale = 2;
-//        if(labelCoin.scale == 2) {
-//            labelCoin.scale = 1;
-//            timeStop = false;
-//        }
+        }
+    
+    if(replaySelected) {
+        if(labelReplay.scale <= 1.2) {
+            labelReplay.scale += 0.01;
+            buttonReplay.scale += 0.01;
+        }
     }
+    
+    if(mainSelected) {
+        if(labelReplay.scale <= 1.2) {
+            labelMain.scale += 0.01;
+            buttonMain.scale += 0.01;
+        }
+    }
+
 }
 
 
 - (void)buttonReplayAction:(id)sender {
+    replaySelected = true;
     switch (stageLevel2) {
         case 1:
             [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_ONE]]];
@@ -159,6 +186,7 @@ BOOL distanceFinish;
 }
 
 - (void)buttonMainAction:(id)sender {
+    mainSelected = true;
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MainMenuScene scene]]];
 
 }

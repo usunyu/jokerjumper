@@ -12,7 +12,12 @@
 #import "cocos2d.h"
 
 @interface PauseLayer : CCLayerColor <CCTargetedTouchDelegate> {
-    
+    CCMenuItemImage *resume;
+    CCLabelTTF *labelResume;
+    CCMenuItemImage *restart;
+    CCLabelTTF *restartResume;
+    CCMenuItemImage *main;
+    CCLabelTTF *mainResume;
 }
 
 @end

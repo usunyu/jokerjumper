@@ -50,10 +50,10 @@ CCSpriteBatchNode* playButtonBatchNode;
         CCAction *playRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: playRunAnimation]];
         [play setTexture:[playButtonBatchNode texture]];
         [play runAction:playRunAction];
-        play.anchorPoint = ccp(0, 0);
+//        play.anchorPoint = ccp(0, 0);
         [playButtonBatchNode addChild:play z:1];
-        play.position = ccp(winSize.width/2 -40, winSize.height/2 - 525);
-//        play.position = ccp(500, 200);
+//        play.position = ccp(winSize.width/2 -40, winSize.height/2 - 525);
+        play.position = ccp(500, 150);
         NSLog(@"X: %f, Y: %f", winSize.width/2 -40, winSize.height/2 - 525);
         
         // Create Replay Button

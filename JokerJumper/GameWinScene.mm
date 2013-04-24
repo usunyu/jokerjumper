@@ -47,7 +47,7 @@ int distanceNum;
 		
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         // Create a label for display purposes
-        CCLabelTTF *label = [CCLabelTTF labelWithString:@"You Win!" fontName:@"Marker Felt" fontSize:45];
+        CCLabelTTF *label = [CCLabelTTF labelWithString:@"You Win!" fontName:@"Marker Felt" fontSize:60];
         label.color = ccWHITE;
 		label.position = CGPointMake(winSize.width/2,winSize.height/2+200);
 		[self addChild:label z:0];

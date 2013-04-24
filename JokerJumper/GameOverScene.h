@@ -12,6 +12,12 @@
 @interface GameOverScene : CCLayer {
     CCLabelTTF *labelCoin;
     CCLabelTTF *labelDistance;
+    
+    CCMenuItem *buttonReplay;
+    CCLabelTTF *labelReplay;
+    
+    CCMenuItem *buttonMain;
+    CCLabelTTF *labelMain;
 }
 
 //+(CCScene *) scene;

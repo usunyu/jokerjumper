@@ -864,6 +864,13 @@ bool gravity = true;
     [actor runAction:Action1];
 }
 
+-(void) delayReplaceScene:(ccTime)dt {
+    delayReplaceTime++;
+    if (delayReplaceTime >= 5) {
+        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
+    }
+}
 
 - (void)update:(ccTime)dt {
     //CCLOG(@"dt: %f",dt);
@@ -931,19 +938,34 @@ bool gravity = true;
     {
         //        [[SimpleAudioEngine sharedEngine] playEffect:@"Cartoon clown laugh.wav"];
     }
-    if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x)
+    // Joker out of screen
+    if(joker.position.y <= 0||joker.position.y>winSize.height)
     {
-        //        //||(joker.position.y >winSize.height/PTM_RATIO)
-        //        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
-        //        label.color = ccc3(0,0,0);
-        //        label.position = ccp(winSize.width/2, winSize.height/2);
-        //        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
-        //        [self addChild:label];
-        //        [label runAction:fadeIn];
-        //        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-        //        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+//        [self unschedule:@selector(update:)];
+        [self unscheduleAllSelectors];
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
+    }
+    // Joker caught by enemy
+    if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x + 50) {
+//        [self unschedule:@selector(update:)];
+        [self unscheduleAllSelectors];
+        [self schedule:@selector(delayReplaceScene:) interval:0.1f];
+        
+        NSMutableArray *jokerrunDeadFrames = [NSMutableArray array];
+        for(int i = 1; i <= 9; ++i) {
+            [jokerrunDeadFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"dead%d.png", i]]];
+        }
+        
+        [joker stopAllActions];
+//        [joker stopActionByTag:jokerRunActionTag];
+        
+        CCAnimation *jokerDeadAnimation = [CCAnimation animationWithSpriteFrames:jokerrunDeadFrames delay:0.09f];
+        CCAction *jokerDeadAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerDeadAnimation]];
+
+        [joker runAction:jokerDeadAction];
     }
     // MAP_LENGTH * PTM_RATIO
     if(joker.position.x >= MAP_LENGTH * PTM_RATIO * MAP_LEVEL1_NUMS) {

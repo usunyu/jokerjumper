@@ -806,6 +806,14 @@ NSString *map3 = @"map_lv3_trial3.tmx";
     return direction;
 }
 
+-(void) delayReplaceScene:(ccTime)dt {
+    delayReplaceTime++;
+    if (delayReplaceTime >= 5) {
+        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
+    }
+}
+
 - (void)update:(ccTime)dt {
     //CCLOG(@"dt: %f",dt);
     //CCLOG(@"###vel:%f",joker.jokerBody->GetLinearVelocity().x);
@@ -855,19 +863,50 @@ NSString *map3 = @"map_lv3_trial3.tmx";
     {
         //        [[SimpleAudioEngine sharedEngine] playEffect:@"Cartoon clown laugh.wav"];
     }
-    if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x)
+//    if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x)
+//    {
+//        //||(joker.position.y >winSize.height/PTM_RATIO)
+//        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
+//        label.color = ccc3(0,0,0);
+//        label.position = ccp(winSize.width/2, winSize.height/2);
+//        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
+//        [self addChild:label];
+//        [label runAction:fadeIn];
+//        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+//        //        [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+//        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_THREE Coin:coinCount Distance:distance]]];
+//    }
+    
+    // Joker out of screen
+    if(joker.position.y <= 0||joker.position.y>winSize.height)
     {
-        //||(joker.position.y >winSize.height/PTM_RATIO)
-        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
-        label.color = ccc3(0,0,0);
-        label.position = ccp(winSize.width/2, winSize.height/2);
-        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
-        [self addChild:label];
-        [label runAction:fadeIn];
+        //        [self unschedule:@selector(update:)];
+        [self unscheduleAllSelectors];
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-        //        [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_THREE Coin:coinCount Distance:distance]]];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
     }
+    // Joker caught by enemy
+    if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x) {
+        //        [self unschedule:@selector(update:)];
+        [self unscheduleAllSelectors];
+        [self schedule:@selector(delayReplaceScene:) interval:0.1f];
+        
+        NSMutableArray *jokerrunDeadFrames = [NSMutableArray array];
+        for(int i = 1; i <= 9; ++i) {
+            [jokerrunDeadFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"dead%d.png", i]]];
+        }
+        
+        [joker stopAllActions];
+        //        [joker stopActionByTag:jokerRunActionTag];
+        
+        CCAnimation *jokerDeadAnimation = [CCAnimation animationWithSpriteFrames:jokerrunDeadFrames delay:0.09f];
+        CCAction *jokerDeadAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: jokerDeadAnimation]];
+        
+        [joker runAction:jokerDeadAction];
+    }
+
     
 	int32 velocityIterations = 8;
 	int32 positionIterations = 1;

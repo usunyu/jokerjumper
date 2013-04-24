@@ -61,6 +61,7 @@
     int lastAccelerationY;
     int lastLastAccelerationY;
 
+    int delayReplaceTime;
 }
 +(GameLayer3*) getGameLayer3;
 - (void) makeBox2dObjAt:(CGPoint)p

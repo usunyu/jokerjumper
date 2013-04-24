@@ -52,7 +52,7 @@ CCSpriteBatchNode* playButtonBatchNode;
         [play runAction:playRunAction];
         play.anchorPoint = ccp(0, 0);
         [playButtonBatchNode addChild:play z:1];
-        play.position = ccp(winSize.width/2, winSize.height/2 - 300);
+        play.position = ccp(winSize.width/2, winSize.height/2 - 550);
         
         
         /*[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"StartMenu_default.plist"];

@@ -18,7 +18,9 @@
 #define ABOUT_BUTTON_TAG 3
 
 CCSprite *bg;
-CCSpriteBatchNode* bgBatchNode;
+CCSprite *play;
+//CCSpriteBatchNode* bgBatchNode;
+CCSpriteBatchNode* playButtonBatchNode;
 
 @implementation MainMenuLayer
 
@@ -30,6 +32,28 @@ CCSpriteBatchNode* bgBatchNode;
         bg = [CCSprite spriteWithFile:@"start_menu.png"];
         bg.anchorPoint = ccp(0, 0);
         [self addChild: bg];
+        
+        // Play Button
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"btn_play_default.plist"];
+        playButtonBatchNode = [CCSpriteBatchNode batchNodeWithFile:@"btn_play_default.png"];
+        [self addChild:playButtonBatchNode z:1];
+        
+        play = [CCSprite spriteWithSpriteFrameName:@"btn_play0.png"];
+        NSMutableArray *bgAnimFrames = [NSMutableArray array];
+        for(int i = 0; i <= 16; ++i) {
+            [bgAnimFrames addObject:
+             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+              [NSString stringWithFormat:@"btn_play%d.png", i]]];
+        }
+        
+        CCAnimation *playRunAnimation = [CCAnimation animationWithSpriteFrames:bgAnimFrames delay:0.1f];
+        CCAction *playRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: playRunAnimation]];
+        [play setTexture:[playButtonBatchNode texture]];
+        [play runAction:playRunAction];
+        play.anchorPoint = ccp(0, 0);
+        [playButtonBatchNode addChild:play z:1];
+        play.position = ccp(winSize.width/2, winSize.height/2 - 300);
+        
         
         /*[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"StartMenu_default.plist"];
         bgBatchNode=[CCSpriteBatchNode batchNodeWithFile:@"StartMenu_default.png"];
@@ -49,6 +73,8 @@ CCSpriteBatchNode* bgBatchNode;
         [bg runAction:bgRunAction];
         bg.anchorPoint = ccp(0, 0);
         [bgBatchNode addChild:bg z:1];*/
+        
+        
         
         // Create Replay Button
         CCMenuItem *buttonPlay = [CCMenuItemImage itemWithNormalImage:@"button_play_sel.png" selectedImage:@"button_play_sel.png" target:self selector:@selector(buttonReplayAction:)];

@@ -2226,12 +2226,9 @@
 				DC8A155C1727A40700B56E33 /* light.png in Resources */,
 				DC8A155E1727A67E00B56E33 /* sun.png in Resources */,
 				DC8A15601727A82F00B56E33 /* ground.png in Resources */,
-<<<<<<< HEAD
 				A4D943FF1727A657007419C4 /* level1end.png in Resources */,
-=======
 				DC8A15631727AB3E00B56E33 /* snow_flower_default.plist in Resources */,
 				DC8A15641727AB3E00B56E33 /* snow_flower_default.png in Resources */,
->>>>>>> main menu...
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

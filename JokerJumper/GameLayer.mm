@@ -68,9 +68,9 @@ bool gravity = true;
 }
 
 -(void)updateAcceleration {
-//    CCLOG(@"###############%d",lastAccelerationY);
+    //    CCLOG(@"###############%d",lastAccelerationY);
     
-//    if(lastAccelerationY >= 4 && lastAccelerationY <= 6)
+    //    if(lastAccelerationY >= 4 && lastAccelerationY <= 6)
     {
         if(!joker.jokerFlip) {
             if(lastLastAccelerationY - accelerationY >= 2) {
@@ -140,7 +140,7 @@ bool gravity = true;
     [self drawCoin1Tiles:tileMapNode withOffset:offset];
     [self drawCoin2Tiles:tileMapNode withOffset:offset];
     [self drawCoin3Tiles:tileMapNode withOffset:offset];
-//    [self drawFlowerTiles:tileMapNode withOffset:offset];
+    //    [self drawFlowerTiles:tileMapNode withOffset:offset];
     [self drawCollision1Tiles:tileMapNode withOffset:offset];
     [self drawCollision2Tiles:tileMapNode withOffset:offset];
     [self drawCollision3Tiles:tileMapNode withOffset:offset];
@@ -221,8 +221,8 @@ bool gravity = true;
     else if(type==kGameObjectPlatform2)
     {
         platform=[[GameObject alloc] init];
-       // platform = [GameObject spriteWithFile:@"brick_grass_hd.png"];
-//        [platform setVisible:false];
+        // platform = [GameObject spriteWithFile:@"brick_grass_hd.png"];
+        //        [platform setVisible:false];
         [platform setType:type];
         [self addChild:platform z:2];
         /*platform=[[GameObject alloc] init];
@@ -430,7 +430,7 @@ bool gravity = true;
 					 dynamic:true
 					rotation:0
 					friction:0.0f
-					 density:DICE_DENSITY 
+					 density:DICE_DENSITY
 				 restitution:0
 					   boxId:-1
                     bodyType:kGameObjectPlatform3];
@@ -737,7 +737,7 @@ bool gravity = true;
         [joker createBox2dObject:world];
         CCLOG(@"here 1");
         emeny = [Joker spriteWithSpriteFrameName:@"enermy0.png"];
-        [emeny setType:kGameObjectEmeny];
+        [emeny setType:kGameObjectEmeny1];
         [emeny initAnimation: allBatchNode character:1];
         emeny.position = ccp(emenyLocationX, emenyLocationY);
         [emeny createBox2dObject:world];
@@ -752,25 +752,25 @@ bool gravity = true;
         [hudLayer updateCoinCounter:self.coinCount];
         [hudLayer updateLifeCounter:self.lifeCount];
         [hudLayer updateStatusCounter:self.distance];
-       // [self updateFalling];
-//        self.statusLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
-//        self.distanceLabel= [CCLabelBMFont labelWithString:@"0.0" fntFile:@"Arial.fnt"];
-//        self.lifeLabel=[CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
-//        coinBar= [CCSprite spriteWithFile:@"club.png"];
-//        disBar=[CCSprite spriteWithFile:@"spade.png"];
-//        lifeBar=[CCSprite spriteWithFile:@"heart.png"];
-//        coinBar.position = ccp(950,screenSize.height-30);
-//        disBar.position = ccp(750, screenSize.height-30);
-//        lifeBar.position=ccp(550, screenSize.height-30);
-//        [self addChild:self.statusLabel z:100];
-//        [self addChild:self.distanceLabel z:101];
-//        [self addChild:self.lifeLabel z:100];
-//        [self addChild:self.coinBar z:102];
-//        [self addChild:self.disBar z:103];
-//        [self addChild:self.lifeBar z:103];
-//        [self setStatusLabelText:@"0"];
-//        [self setLifeLabelText:@"1"];
-//        [self setDistanceLabelText:@"0.00"];
+        // [self updateFalling];
+        //        self.statusLabel = [CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
+        //        self.distanceLabel= [CCLabelBMFont labelWithString:@"0.0" fntFile:@"Arial.fnt"];
+        //        self.lifeLabel=[CCLabelBMFont labelWithString:@"0" fntFile:@"Arial.fnt"];
+        //        coinBar= [CCSprite spriteWithFile:@"club.png"];
+        //        disBar=[CCSprite spriteWithFile:@"spade.png"];
+        //        lifeBar=[CCSprite spriteWithFile:@"heart.png"];
+        //        coinBar.position = ccp(950,screenSize.height-30);
+        //        disBar.position = ccp(750, screenSize.height-30);
+        //        lifeBar.position=ccp(550, screenSize.height-30);
+        //        [self addChild:self.statusLabel z:100];
+        //        [self addChild:self.distanceLabel z:101];
+        //        [self addChild:self.lifeLabel z:100];
+        //        [self addChild:self.coinBar z:102];
+        //        [self addChild:self.disBar z:103];
+        //        [self addChild:self.lifeBar z:103];
+        //        [self setStatusLabelText:@"0"];
+        //        [self setLifeLabelText:@"1"];
+        //        [self setDistanceLabelText:@"0.00"];
         
         [self schedule:@selector(update:)];
         [self schedule:@selector(updateObject:) interval:0.5f];
@@ -779,11 +779,11 @@ bool gravity = true;
         
         //TAOHU
         /*[self runAction:[CCSequence actions:
-                         [CCDelayTime actionWithDuration:1.0],
-                         [CCCallFunc actionWithTarget: self selector:@selector(updateFalling:)],
-                         [CCDelayTime actionWithDuration:60.0],
-                         [CCCallFunc actionWithTarget:self selector:@selector(updateFalling:)],
-                         nil]
+         [CCDelayTime actionWithDuration:1.0],
+         [CCCallFunc actionWithTarget: self selector:@selector(updateFalling:)],
+         [CCDelayTime actionWithDuration:60.0],
+         [CCCallFunc actionWithTarget:self selector:@selector(updateFalling:)],
+         nil]
          ];
          */
         //[self schedule:@selector(updateFalling:) interval:6.0f];
@@ -920,7 +920,7 @@ bool gravity = true;
         [self updateFlower:ccp(216*32,(24-19)*32)];
         flower3=true;
     }
-
+    
     
     if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:fly])))
     {
@@ -929,25 +929,24 @@ bool gravity = true;
     }
     if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny])))
     {
-//        [[SimpleAudioEngine sharedEngine] playEffect:@"Cartoon clown laugh.wav"];
+        //        [[SimpleAudioEngine sharedEngine] playEffect:@"Cartoon clown laugh.wav"];
     }
     if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x)
     {
-//        //||(joker.position.y >winSize.height/PTM_RATIO)
-//        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
-//        label.color = ccc3(0,0,0);
-//        label.position = ccp(winSize.width/2, winSize.height/2);
-//        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
-//        [self addChild:label];
-//        [label runAction:fadeIn];
-//        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-//        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+        //        //||(joker.position.y >winSize.height/PTM_RATIO)
+        //        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
+        //        label.color = ccc3(0,0,0);
+        //        label.position = ccp(winSize.width/2, winSize.height/2);
+        //        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
+        //        [self addChild:label];
+        //        [label runAction:fadeIn];
+        //        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        //        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
     }
     // MAP_LENGTH * PTM_RATIO
     if(joker.position.x >= MAP_LENGTH * PTM_RATIO * MAP_LEVEL1_NUMS) {
-//    if(joker.position.x >= 100) {
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
         // CCTransitionFadeBL, lose: CCTransitionProgressRadialCCW
         [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:1.0 scene:[GameWinScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
@@ -984,44 +983,44 @@ bool gravity = true;
             {
                 GameObject*actor=(GameObject*)myActor;
                 /*
-                if(actor.type==kGameObjectFlower)
-                {
-                    if(actor.position.x-joker.position.x<100)
-                    {
-                        [actor setVisible:true];
-                        NSMutableArray *animFrames = [NSMutableArray array];
-                        for(int i = 0; i <= 10; ++i) {
-                            [animFrames addObject:
-                             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-                              [NSString stringWithFormat:@"piranha%d.png",i]]];
-                        }
-                        CCAnimation *Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.5f];
-                        CCAction *Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
-                        [actor setTexture:[flowerBatchNode texture]];
-                        [actor runAction:Action];
-                    }
-                }
-                */
-                if((b->GetPosition().x<(joker.position.x-DESTORY_DISTANCE)/PTM_RATIO)&&actor.type!=kGameObjectEmeny)
+                 if(actor.type==kGameObjectFlower)
+                 {
+                 if(actor.position.x-joker.position.x<100)
+                 {
+                 [actor setVisible:true];
+                 NSMutableArray *animFrames = [NSMutableArray array];
+                 for(int i = 0; i <= 10; ++i) {
+                 [animFrames addObject:
+                 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                 [NSString stringWithFormat:@"piranha%d.png",i]]];
+                 }
+                 CCAnimation *Animation = [CCAnimation animationWithSpriteFrames:animFrames delay:0.5f];
+                 CCAction *Action = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: Animation]];
+                 [actor setTexture:[flowerBatchNode texture]];
+                 [actor runAction:Action];
+                 }
+                 }
+                 */
+                if((b->GetPosition().x<(joker.position.x-DESTORY_DISTANCE)/PTM_RATIO)&&actor.type!=kGameObjectEmeny1&&actor.type!=kGameObjectEmeny2)
                 {
                     toDestroy.push_back(b);
                 }
             }
 		}
 	}
-     std::vector<b2Body *>::iterator pos2;
-     for (pos2 = toDestroy.begin(); pos2 != toDestroy.end(); ++pos2) {
-     b2Body *body = *pos2;
-     if (body->GetUserData() != NULL) {
-     CCSprite *sprite = (__bridge CCSprite *) body->GetUserData();
-     [self removeChild:sprite cleanup:YES];
-         
-     }
-     world->DestroyBody(body);
-     }
+    std::vector<b2Body *>::iterator pos2;
+    for (pos2 = toDestroy.begin(); pos2 != toDestroy.end(); ++pos2) {
+        b2Body *body = *pos2;
+        if (body->GetUserData() != NULL) {
+            CCSprite *sprite = (__bridge CCSprite *) body->GetUserData();
+            [self removeChild:sprite cleanup:YES];
+            
+        }
+        world->DestroyBody(body);
+    }
     
     
-
+    
     
     //[self setStatusLabelText:[NSString stringWithFormat:@"%.2d", self.coinCount]];
     //[self setLifeLabelText:[NSString stringWithFormat:@"%.2d", self.lifeCount]];
@@ -1064,36 +1063,36 @@ bool gravity = true;
             CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
             stateVec.pop_front();
         }
-
+        
     }
- /*
-    if((joker.position.x-emeny.position.x>AI_RESET_DISTANCE||(emeny.position.y<=0)||(emeny.position.y>=winSize.height))&&(emeny.position.x>stateVec.front().position.x))
-    {
-        emeny.jokerBody->SetTransform(, );
-    }
-    if(stateVec.size()!=0)
-    {
-        if(emeny.position.x>stateVec.front().position.x)
-        {
-            [emeny jump:false];
-            emeny.jokerBody->SetGravityScale(stateVec.front().gravityScale);
-            //        b2Vec2 newVel;
-            //        if(joker.jokerBody->GetLinearVelocity().x<9.5/PTM_RATIO)
-            //        {
-            //            newVel=b2Vec2(9/PTM_RATIO,joker.jokerBody->GetLinearVelocity().y);
-            //        }
-            //        else
-            //        {
-            //            newVel=joker.jokerBody->GetLinearVelocity();
-            //        }
-            //        emeny.jokerBody->SetLinearVelocity(newVel);
-            //        emeny.jokerBody->SetTransform(b2Vec2(joker.jokerBody->GetPosition().x-diff.x/PTM_RATIO,joker.jokerBody->GetPosition().y), 0);
-            //        emeny.jokerFlip=joker.jokerFlip;
-            //        [emeny flip];
-            stateVec.pop_front();
-        }
-    }
-  */
+    /*
+     if((joker.position.x-emeny.position.x>AI_RESET_DISTANCE||(emeny.position.y<=0)||(emeny.position.y>=winSize.height))&&(emeny.position.x>stateVec.front().position.x))
+     {
+     emeny.jokerBody->SetTransform(, );
+     }
+     if(stateVec.size()!=0)
+     {
+     if(emeny.position.x>stateVec.front().position.x)
+     {
+     [emeny jump:false];
+     emeny.jokerBody->SetGravityScale(stateVec.front().gravityScale);
+     //        b2Vec2 newVel;
+     //        if(joker.jokerBody->GetLinearVelocity().x<9.5/PTM_RATIO)
+     //        {
+     //            newVel=b2Vec2(9/PTM_RATIO,joker.jokerBody->GetLinearVelocity().y);
+     //        }
+     //        else
+     //        {
+     //            newVel=joker.jokerBody->GetLinearVelocity();
+     //        }
+     //        emeny.jokerBody->SetLinearVelocity(newVel);
+     //        emeny.jokerBody->SetTransform(b2Vec2(joker.jokerBody->GetPosition().x-diff.x/PTM_RATIO,joker.jokerBody->GetPosition().y), 0);
+     //        emeny.jokerFlip=joker.jokerFlip;
+     //        [emeny flip];
+     stateVec.pop_front();
+     }
+     }
+     */
     [self updateAcceleration];
 }
 
@@ -1136,37 +1135,37 @@ bool gravity = true;
     
 }
 /*
--(void)setLifeLabelText:(NSString *)text
-{
-    CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    [self.statusLabel setString:text];
-    CGPoint worldPos1 = [self convertScreenToWorld:ccp(360, screenSize.height - 20)];
-    CGPoint worldPos2 = [self convertScreenToWorld:ccp(310, screenSize.height - 20)];
-    self.statusLabel.position = worldPos1;
-    self.coinBar.position=worldPos2;
-}
-
--(void)setStatusLabelText:(NSString *)text
-{
-    CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    [self.statusLabel setString:text];
-    CGPoint worldPos1 = [self convertScreenToWorld:ccp(480, screenSize.height - 20)];
-    CGPoint worldPos2 = [self convertScreenToWorld:ccp(430, screenSize.height - 20)];
-    self.statusLabel.position = worldPos1;
-    self.coinBar.position=worldPos2;
-}
-
-
--(void)setDistanceLabelText:(NSString *)text
-{
-    CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    [self.distanceLabel setString:text];
-    CGPoint worldPos1 = [self convertScreenToWorld:ccp(600, screenSize.height - 20)];
-    CGPoint worldPos2 = [self convertScreenToWorld:ccp(550, screenSize.height - 20)];
-    self.distanceLabel.position = worldPos1;
-    self.disBar.position=worldPos2;
-}
-*/
+ -(void)setLifeLabelText:(NSString *)text
+ {
+ CGSize screenSize = [[CCDirector sharedDirector] winSize];
+ [self.statusLabel setString:text];
+ CGPoint worldPos1 = [self convertScreenToWorld:ccp(360, screenSize.height - 20)];
+ CGPoint worldPos2 = [self convertScreenToWorld:ccp(310, screenSize.height - 20)];
+ self.statusLabel.position = worldPos1;
+ self.coinBar.position=worldPos2;
+ }
+ 
+ -(void)setStatusLabelText:(NSString *)text
+ {
+ CGSize screenSize = [[CCDirector sharedDirector] winSize];
+ [self.statusLabel setString:text];
+ CGPoint worldPos1 = [self convertScreenToWorld:ccp(480, screenSize.height - 20)];
+ CGPoint worldPos2 = [self convertScreenToWorld:ccp(430, screenSize.height - 20)];
+ self.statusLabel.position = worldPos1;
+ self.coinBar.position=worldPos2;
+ }
+ 
+ 
+ -(void)setDistanceLabelText:(NSString *)text
+ {
+ CGSize screenSize = [[CCDirector sharedDirector] winSize];
+ [self.distanceLabel setString:text];
+ CGPoint worldPos1 = [self convertScreenToWorld:ccp(600, screenSize.height - 20)];
+ CGPoint worldPos2 = [self convertScreenToWorld:ccp(550, screenSize.height - 20)];
+ self.distanceLabel.position = worldPos1;
+ self.disBar.position=worldPos2;
+ }
+ */
 -(void) setupPhysicsWorld {
     //CGSize winSize = [CCDirector sharedDirector].winSize;
     b2Vec2 gravity = b2Vec2(0.0f, -9.8f);

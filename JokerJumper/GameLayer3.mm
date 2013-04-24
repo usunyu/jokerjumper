@@ -218,7 +218,7 @@ NSString *map3 = @"map_lv3_trial3.tmx";
     }
     else if(type==kGameObjectPlatform2)
     {
-         platform=[[GameObject alloc] init];
+        platform=[[GameObject alloc] init];
         //platform = [GameObject spriteWithFile:@"brick_grass_hd.png"];
         //        [platform setVisible:false];
         [platform setType:type];
@@ -719,7 +719,7 @@ NSString *map3 = @"map_lv3_trial3.tmx";
         [joker createBox2dObject:world];
         CCLOG(@"here4");
         emeny = [Joker spriteWithSpriteFrameName:@"enermy0.png"];
-        [emeny setType:kGameObjectEmeny];
+        [emeny setType:kGameObjectEmeny2];
         [emeny initAnimation: allBatchNode character:2];
         emeny.position = ccp(emenyLocationX, emenyLocationY);
         [emeny createBox2dObject:world];
@@ -864,7 +864,7 @@ NSString *map3 = @"map_lv3_trial3.tmx";
         [self addChild:label];
         [label runAction:fadeIn];
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-//        [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+        //        [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_THREE Coin:coinCount Distance:distance]]];
     }
     
@@ -915,7 +915,7 @@ NSString *map3 = @"map_lv3_trial3.tmx";
                         [actor runAction:Action];
                     }
                 }
-                if((b->GetPosition().x<(joker.position.x-DESTORY_DISTANCE)/PTM_RATIO)&&actor.type!=kGameObjectEmeny)
+                if((b->GetPosition().x<(joker.position.x-DESTORY_DISTANCE)/PTM_RATIO)&&actor.type!=kGameObjectEmeny1&&actor.type!=kGameObjectEmeny2)
                 {
                     toDestroy.push_back(b);
                 }

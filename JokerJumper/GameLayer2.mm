@@ -62,7 +62,7 @@ bool gravity2 = true;
 }
 
 -(void)updateAcceleration {
-//    CCLOG(@"###############%d",lastAccelerationY);
+    //    CCLOG(@"###############%d",lastAccelerationY);
     
     //    if(lastAccelerationY >= 4 && lastAccelerationY <= 6)
     {
@@ -710,16 +710,16 @@ bool gravity2 = true;
     CCAnimation *Animation1 = [CCAnimation animationWithSpriteFrames:animFrames1 delay:0.25f];
     CCAction *Action1 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation1] times:1];
     
-//    NSMutableArray *animFrames2 = [NSMutableArray array];
-//    for(int i = 8; i <= 18; ++i) {
-//        [animFrames1 addObject:
-//         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-//          [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
-//    }
-//    CCAnimation *Animation2 = [CCAnimation animationWithSpriteFrames:animFrames2 delay:0.05f];
-//    CCFiniteTimeAction *Action2 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation2] times:1];
-//    id sequence = [CCSequence actions:Action1, Action2, nil];
-//    [actor setTexture:[flowerBatchNode texture]];
+    //    NSMutableArray *animFrames2 = [NSMutableArray array];
+    //    for(int i = 8; i <= 18; ++i) {
+    //        [animFrames1 addObject:
+    //         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+    //          [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
+    //    }
+    //    CCAnimation *Animation2 = [CCAnimation animationWithSpriteFrames:animFrames2 delay:0.05f];
+    //    CCFiniteTimeAction *Action2 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation2] times:1];
+    //    id sequence = [CCSequence actions:Action1, Action2, nil];
+    //    [actor setTexture:[flowerBatchNode texture]];
     
     [self addChild:actor z:10];
     [actor runAction:Action1];
@@ -793,7 +793,7 @@ bool gravity2 = true;
      brick1BatchNode.scale=4;
      brick2BatchNode.scale=4;
      brick3BatchNode.scale=4;
-    */
+     */
     [self addChild:allBatchNode z:10];
     [self addChild:jokerBatchNode z:10];
     [self addChild:emenyBatchNode z:9];
@@ -842,20 +842,20 @@ bool gravity2 = true;
         joker.position = ccp(jokerLocationX, jokerLocationY);
         [joker createBox2dObject:world];
         
-//        moon=[CCSprite spriteWithSpriteFrameName:@"moon0.png"];
-//        NSMutableArray *moonAnimFrames = [NSMutableArray array];
-//        for(int i = 0; i <= 12; ++i) {
-//            [moonAnimFrames addObject:
-//             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-//              [NSString stringWithFormat:@"moon%d.png", i]]];
-//        }
-//        CCAnimation *moonRunAnimation = [CCAnimation animationWithSpriteFrames:moonAnimFrames delay:0.1f];
-//        CCAction *moonRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: moonRunAnimation]];
-//        [moon setTexture:[moonBatchNode texture]];
-//        [moon runAction:moonRunAction];
-//        moon.position = ccp(jokerLocationX+ moonLocationX,screenSize.height-moonLocationY);
-//        [moonBatchNode addChild:moon z:10];
-
+        //        moon=[CCSprite spriteWithSpriteFrameName:@"moon0.png"];
+        //        NSMutableArray *moonAnimFrames = [NSMutableArray array];
+        //        for(int i = 0; i <= 12; ++i) {
+        //            [moonAnimFrames addObject:
+        //             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+        //              [NSString stringWithFormat:@"moon%d.png", i]]];
+        //        }
+        //        CCAnimation *moonRunAnimation = [CCAnimation animationWithSpriteFrames:moonAnimFrames delay:0.1f];
+        //        CCAction *moonRunAction = [CCRepeatForever actionWithAction: [CCAnimate actionWithAnimation: moonRunAnimation]];
+        //        [moon setTexture:[moonBatchNode texture]];
+        //        [moon runAction:moonRunAction];
+        //        moon.position = ccp(jokerLocationX+ moonLocationX,screenSize.height-moonLocationY);
+        //        [moonBatchNode addChild:moon z:10];
+        
         
         ghost=[CCSprite spriteWithSpriteFrameName:@"pokerSoilder1.png"];
         NSMutableArray *ghostAnimFrames = [NSMutableArray array];
@@ -958,9 +958,9 @@ bool gravity2 = true;
             ps.totalParticles = 60.0f;
             ps.autoRemoveOnFinish = YES;
         }
-         
+        
     }
-
+    
 }
 
 - (void)updateEmeny:(ccTime) dt
@@ -1001,7 +1001,7 @@ bool gravity2 = true;
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     //moon.position = ccp(joker.position.x+ moonLocationX,winSize.height-moonLocationY);
-
+    
     CCScene* scene = [[CCDirector sharedDirector] runningScene];
     hudLayer  = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
     
@@ -1025,10 +1025,10 @@ bool gravity2 = true;
     
     //ghost.position=ccp(joker.position.x-200,joker.position.y);
     /*
-    CGPoint endPos=ccp(joker.position.x-300,joker.position.y);
-    CCAction *ghostAction=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:0.2f position:endPos]];
-    [ghost runAction:ghostAction];
-    */
+     CGPoint endPos=ccp(joker.position.x-300,joker.position.y);
+     CCAction *ghostAction=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:0.2f position:endPos]];
+     [ghost runAction:ghostAction];
+     */
     if(joker.position.x>FALLING_WOOD1-FALLING_OFFSET&&fall1==false)
     {
         //[self updateFalling:FALLING_WOOD1];
@@ -1067,15 +1067,15 @@ bool gravity2 = true;
     }
     if(joker.position.y <= 0||joker.position.y>winSize.height||!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:ghost]))||joker.position.x<ghost.position.x)
     {
-//        //||(joker.position.y >winSize.height/PTM_RATIO)
-//        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
-//        label.color = ccc3(0,0,0);
-//        label.position = ccp(winSize.width/2, winSize.height/2);
-//        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
-//        [self addChild:label];
-//        [label runAction:fadeIn];
-//        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
-//        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
+        //        //||(joker.position.y >winSize.height/PTM_RATIO)
+        //        CCLabelTTF * label = [CCLabelTTF labelWithString:@"Game Over!" fontName:@"Arial" fontSize:32];
+        //        label.color = ccc3(0,0,0);
+        //        label.position = ccp(winSize.width/2, winSize.height/2);
+        //        CCAction *fadeIn = [CCFadeTo actionWithDuration:5 opacity:225];
+        //        [self addChild:label];
+        //        [label runAction:fadeIn];
+        //        [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+        //        [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameOver.ccbi"]]];
         [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_TWO Coin:coinCount Distance:distance]]];
     }
@@ -1122,37 +1122,37 @@ bool gravity2 = true;
                 }
                 
                 /*
-                if(actor.type==kGameObjectFlower)
-                {
-                    if(actor.position.x-joker.position.x<400)
-                    {
-                        [actor setVisible:true];
-                        
-                        NSMutableArray *animFrames1 = [NSMutableArray array];
-                        for(int i = 0; i <= 7; ++i) {
-                            [animFrames1 addObject:
-                             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-                              [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
-                        }
-                        CCAnimation *Animation1 = [CCAnimation animationWithSpriteFrames:animFrames1 delay:0.5f];
-                        CCFiniteTimeAction *Action1 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation1] times:1];
-                        
-                        NSMutableArray *animFrames2 = [NSMutableArray array];
-                        for(int i = 8; i <= 18; ++i) {
-                            [animFrames1 addObject:
-                             [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
-                              [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
-                        }
-                        CCAnimation *Animation2 = [CCAnimation animationWithSpriteFrames:animFrames2 delay:0.5f];
-                        CCFiniteTimeAction *Action2 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation2] times:10];
-                        
-                        id sequence = [CCSequence actions:Action1, Action2, nil];
-                        [actor setTexture:[flowerBatchNode texture]];
-                        [actor runAction:sequence];
-                    }
-                }
+                 if(actor.type==kGameObjectFlower)
+                 {
+                 if(actor.position.x-joker.position.x<400)
+                 {
+                 [actor setVisible:true];
+                 
+                 NSMutableArray *animFrames1 = [NSMutableArray array];
+                 for(int i = 0; i <= 7; ++i) {
+                 [animFrames1 addObject:
+                 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                 [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
+                 }
+                 CCAnimation *Animation1 = [CCAnimation animationWithSpriteFrames:animFrames1 delay:0.5f];
+                 CCFiniteTimeAction *Action1 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation1] times:1];
+                 
+                 NSMutableArray *animFrames2 = [NSMutableArray array];
+                 for(int i = 8; i <= 18; ++i) {
+                 [animFrames1 addObject:
+                 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                 [NSString stringWithFormat:@"zombie_hand%d.png",i]]];
+                 }
+                 CCAnimation *Animation2 = [CCAnimation animationWithSpriteFrames:animFrames2 delay:0.5f];
+                 CCFiniteTimeAction *Action2 = [CCRepeat actionWithAction: [CCAnimate actionWithAnimation: Animation2] times:10];
+                 
+                 id sequence = [CCSequence actions:Action1, Action2, nil];
+                 [actor setTexture:[flowerBatchNode texture]];
+                 [actor runAction:sequence];
+                 }
+                 }
                  */
-                if((b->GetPosition().x<(joker.position.x-DESTORY_DISTANCE)/PTM_RATIO)&&actor.type!=kGameObjectEmeny)
+                if((b->GetPosition().x<(joker.position.x-DESTORY_DISTANCE)/PTM_RATIO)&&actor.type!=kGameObjectEmeny1&&actor.type!=kGameObjectEmeny2)
                 {
                     toDestroy.push_back(b);
                 }
@@ -1262,18 +1262,18 @@ bool gravity2 = true;
     CCAction *action=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:1.0f position:endPos]];
     [ghost runAction:action];
     /*
-    if(positionVec.size()<5)
-    {
-        positionVec.push_back(joker.position);
-    }
-    else if(positionVec.size()>=5)
-    {
-        positionVec.push_back(joker.position);
-        endPos=positionVec.front();
-        CCAction *action=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:0.2f position:endPos]];
-        [ghost runAction:action];
-        positionVec.pop_front();
-    }    
+     if(positionVec.size()<5)
+     {
+     positionVec.push_back(joker.position);
+     }
+     else if(positionVec.size()>=5)
+     {
+     positionVec.push_back(joker.position);
+     endPos=positionVec.front();
+     CCAction *action=[CCRepeatForever actionWithAction: [CCMoveTo actionWithDuration:0.2f position:endPos]];
+     [ghost runAction:action];
+     positionVec.pop_front();
+     }
      */
 }
 
@@ -1374,7 +1374,7 @@ bool gravity2 = true;
         //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
         [joker jump:jokerCharge];
         jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
-//        CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
+        //        CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
     }
 	return YES;
 }

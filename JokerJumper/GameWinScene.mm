@@ -46,12 +46,12 @@ int distanceNum;
 -(id) init {
     if ((self = [ super init])) {
 		
-//        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
         self.isTouchEnabled = YES;
         
         switch (stageLevel) {
             case GAME_STATE_ONE:
-                
+                button = [CCMenuItemImage itemWithNormalImage:@"level1end.png" selectedImage:@"level1end.png" target:self selector:@selector(buttonNextAction:)];
                 break;
             case GAME_STATE_TWO:
                 
@@ -63,7 +63,10 @@ int distanceNum;
             default:
                 break;
         }
-
+        Menu = [CCMenu menuWithItems:button, nil];
+        Menu.position=ccp(winSize.width/2, winSize.height/2);
+        [Menu alignItemsHorizontally];
+        [self addChild:Menu];
         
         /*
         // Create a label for display purposes
@@ -101,28 +104,6 @@ int distanceNum;
          */
     }
     return self;
-}
-
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    switch (stageLevel) {
-        case 1:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_TWO]]];
-            break;
-        case 2:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_THREE]]];
-            break;
-        case 3:
-            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameScene sceneWithState:GAME_STATE_ONE]]];
-            break;
-        default:
-            break;
-    }
-	return YES;
-}
-
--(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    
 }
 
 

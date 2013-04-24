@@ -11,7 +11,8 @@
 
 
 @interface GameWinScene : CCLayerColor <CCTargetedTouchDelegate> {
-    
+    CCMenuItem *button;
+    CCMenu *Menu;
 }
 
 +(CCScene *) scene;

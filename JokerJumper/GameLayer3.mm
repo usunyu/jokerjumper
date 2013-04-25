@@ -42,6 +42,8 @@
 
 NSString *map3 = @"map_lv3_trial3.tmx";
 
+bool gravity3 = false;
+
 +(GameLayer3*) getGameLayer3 {
     return self;
 }
@@ -691,8 +693,10 @@ NSString *map3 = @"map_lv3_trial3.tmx";
     self = [super init];
     if (self) {
         // enable touches
-        self.isTouchEnabled = YES;
-        self.isAccelerometerEnabled = YES;
+        if(!gravity3)
+            self.isTouchEnabled = YES;
+        else
+            self.isAccelerometerEnabled = YES;
         
         self.tag = GAME_LAYER_TAG;
         self.coinCount=0;

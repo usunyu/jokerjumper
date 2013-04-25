@@ -19,6 +19,10 @@
     return self;
 }
 
+-(b2Body*) getBody {
+    return jokerBody;
+}
+
 - (id) init {
 	if ((self = [super init])) {
 		type = kGameObjectJoker;

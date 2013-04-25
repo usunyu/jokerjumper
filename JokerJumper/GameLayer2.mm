@@ -49,7 +49,7 @@
 
 NSString *map2 = @"map_lv2_trial2.tmx";
 
-bool gravity2 = true;
+bool gravity2 = false;
 
 +(GameLayer2*) getGameLayer2 {
     return self;
@@ -818,7 +818,8 @@ bool gravity2 = true;
         if(!gravity2)
             self.isTouchEnabled = YES;
         else
-            self.isAccelerometerEnabled = YES;        accelerationY = 0;
+            self.isAccelerometerEnabled = YES;
+        accelerationY = 0;
         lastAccelerationY = 0;
         
         self.tag = GAME_LAYER_TAG;

@@ -55,7 +55,7 @@
 @synthesize hudLayer;
 
 NSString *map = @"map9.2.tmx";
-bool gravity = true;
+bool gravity = false;
 
 +(GameLayer*) getGameLayer {
     return self;
@@ -271,7 +271,7 @@ bool gravity = true;
         platform = [GameObject spriteWithFile:@"brick_wood_hd.png"];
         [platform setType:type];
         [self addChild:platform z:2];
-        CCLOG(@"x: %f y: %f",size.x,size.y);
+//        CCLOG(@"x: %f y: %f",size.x,size.y);
     }
     else if(type==kGameObjectDisable)
     {
@@ -701,6 +701,18 @@ bool gravity = true;
     
 }
 
+- (void)buttonAccelerateAction:(id)sender {
+//    CCLOG(@"Button##############");
+}
+
+-(void) initAccButton {
+    CCMenuItem *buttonAcc = [CCMenuItemImage itemWithNormalImage:@"diamond.png" selectedImage:@"diamond.png" target:self selector:@selector(buttonAccelerateAction:)];
+    CCMenu *Menu = [CCMenu menuWithItems:buttonAcc, nil];
+    Menu.position=ccp(200, 200);
+    [Menu alignItemsVertically];
+    [self addChild:Menu z:5];
+}
+
 - (id) init {
     self = [super init];
     if (self) {
@@ -721,33 +733,33 @@ bool gravity = true;
         jokerStartCharge = false;
         jokerCharge = 1;
         CGSize screenSize = [CCDirector sharedDirector].winSize;
-		CCLOG(@"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
+//		CCLOG(@"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
         
         [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
         [self preLoadSoundFiles];
 		[self setupPhysicsWorld];
         [self initBatchNode];
         [self initTiledMaps];
-        CCLOG(@"here 0");
+//        CCLOG(@"here 0");
         joker = [Joker spriteWithSpriteFrameName:@"joker1.png"];
         //        joker = [[Joker alloc] init];
         [joker setType:kGameObjectJoker];
         [joker initAnimation:allBatchNode character:0];
         joker.position = ccp(jokerLocationX, jokerLocationY);
         [joker createBox2dObject:world];
-        CCLOG(@"here 1");
+//        CCLOG(@"here 1");
         emeny = [Joker spriteWithSpriteFrameName:@"enermy0.png"];
         [emeny setType:kGameObjectEmeny1];
         [emeny initAnimation: allBatchNode character:1];
         emeny.position = ccp(emenyLocationX, emenyLocationY);
         [emeny createBox2dObject:world];
-        CCLOG(@"here 2");
+//        CCLOG(@"here 2");
         flyPos=0;
         CCScene* scene = [[CCDirector sharedDirector] runningScene];
         hudLayer = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
         if(hudLayer!=NULL)
         {
-            CCLOG(@"1");
+//            CCLOG(@"1");
         }
         [hudLayer updateCoinCounter:self.coinCount];
         [hudLayer updateLifeCounter:self.lifeCount];
@@ -787,6 +799,7 @@ bool gravity = true;
          ];
          */
         //[self schedule:@selector(updateFalling:) interval:6.0f];
+//        [self initAccButton];
     }
     return self;
 }
@@ -881,7 +894,7 @@ bool gravity = true;
     hudLayer  = (HUDLayer*)[scene getChildByTag:HUD_LAYER_TAG];
     if(hudLayer!=NULL)
     {
-        CCLOG(@"1");
+//        CCLOG(@"1");
     }
     
     [hudLayer updateCoinCounter:coinCount];
@@ -1051,8 +1064,8 @@ bool gravity = true;
     
     if(stateVec.size()!=0)
     {
-        CCLOG(@"emeny position: (%f,%f), joker last jump position: %f,queue size:%d",
-              emeny.position.x,emeny.position.y,stateVec.front().position.x,stateVec.front().position.y,stateVec.size());
+//        CCLOG(@"emeny position: (%f,%f), joker last jump position: %f,queue size:%d",
+//              emeny.position.x,emeny.position.y,stateVec.front().position.x,stateVec.front().position.y,stateVec.size());
         
         if(((emeny.position.y<=0)||(emeny.position.y>=winSize.height))&&(joker.position.x-stateVec.front().position.x>LASTJUMP_EMENY_DISTANCE))
         {
@@ -1061,8 +1074,8 @@ bool gravity = true;
             emeny.jokerFlip=stateVec.front().flipState;
             emeny.jokerBody->SetLinearVelocity(stateVec.front().velocity);
             [emeny jump:false];
-            CCLOG(@"emeny position: %f",emeny.position.x);
-            CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
+//            CCLOG(@"emeny position: %f",emeny.position.x);
+//            CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
             stateVec.pop_front();
         }
         else if((joker.position.x-emeny.position.x>JOKER_EMENY_DISTANCE)&&(joker.position.x-stateVec.front().position.x>LASTJUMP_EMENY_DISTANCE))
@@ -1072,8 +1085,8 @@ bool gravity = true;
             emeny.jokerFlip=stateVec.front().flipState;
             emeny.jokerBody->SetLinearVelocity(stateVec.front().velocity);
             [emeny jump:false];
-            CCLOG(@"emeny position: %f",emeny.position.x);
-            CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
+//            CCLOG(@"emeny position: %f",emeny.position.x);
+//            CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
             stateVec.pop_front();
         }
         else if(emeny.position.x>stateVec.front().position.x&&fabs(emeny.position.y-stateVec.front().position.y)<10.0)
@@ -1082,8 +1095,8 @@ bool gravity = true;
             emeny.jokerFlip=stateVec.front().flipState;
             emeny.jokerBody->SetLinearVelocity(stateVec.front().velocity);
             [emeny jump:false];
-            CCLOG(@"emeny position: %f",emeny.position.x);
-            CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
+//            CCLOG(@"emeny position: %f",emeny.position.x);
+//            CCLOG(@"joker last jump position: %f",stateVec.front().position.x);
             stateVec.pop_front();
         }
         
@@ -1210,25 +1223,92 @@ bool gravity = true;
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    //CCLOG(@"111111111vel before touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
+    CGPoint touchLocation = [touch locationInView: [touch view]];
+    touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    startLocation = touchLocation;
+    
     jokerStartCharge = true;
-    CGPoint location = [touch locationInView:[touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
-    if(!joker.jokerJumping)
-    {
-        joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
-        State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
-        stateVec.push_back(curState);
-        //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
-        [joker jump:jokerCharge];
-        jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
-        CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
-    }
+    
+    CCParticleSystem *ps = [CCParticleExplosion node];
+    [self addChild:ps z:12];
+    ps.texture = [[CCTextureCache sharedTextureCache] addImage:@"stars.png"];
+    ps.position = touchLocation;
+    ps.blendAdditive = YES;
+    ps.life = 0.2f;
+    ps.lifeVar = 0.2f;
+    ps.totalParticles = 30.0f;
+    ps.autoRemoveOnFinish = YES;
 	return YES;
 }
 
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint touchLocation = [touch locationInView: [touch view]];
+    touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    CCParticleSystem *ps = [CCParticleExplosion node];
+    [self addChild:ps z:12];
+    ps.texture = [[CCTextureCache sharedTextureCache] addImage:@"stars.png"];
+    ps.position = touchLocation;
+    ps.blendAdditive = YES;
+    ps.life = 0.2f;
+    ps.lifeVar = 0.2f;
+    ps.totalParticles = 30.0f;
+    ps.autoRemoveOnFinish = YES;
+}
+
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    //CCLOG(@"333333333vel after touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
+    CGPoint touchLocation = [touch locationInView: [touch view]];
+    touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    endLocation = touchLocation;
+    
+    // Compare difference in distance
+    // accelerate
+    if ((endLocation.x - startLocation.x) >= 200 ) {
+        // Swipe
+        b2Body *jokerBody = [joker getBody];
+        b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+10.0f, jokerBody->GetLinearVelocity().y);
+        jokerBody->SetLinearVelocity(impulse);
+    } // deccelerate
+    else if((startLocation.x - endLocation.x) >= 200 ) {
+        b2Body *jokerBody = [joker getBody];
+        b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x-10.0f, jokerBody->GetLinearVelocity().y);
+        jokerBody->SetLinearVelocity(impulse);
+    } // lose gravity
+    else if((endLocation.y - startLocation.y) >= 200 ) {
+        loseGravity = true;
+        
+        State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
+        beforeLoseGravity = curState;
+//        stateVec.push_back(curState);
+        
+        joker.jokerBody->SetGravityScale(0);
+        
+        b2Body *jokerBody = [joker getBody];
+        b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, jokerBody->GetLinearVelocity().y + 1.0f);
+        jokerBody->SetLinearVelocity(impulse);
+    } // get gravity
+    else if((startLocation.y - endLocation.y) >= 200) {
+        joker.jokerBody->SetGravityScale(1);
+    } // flip
+    else { // Touch
+        if(!joker.jokerJumping)
+        {
+            joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
+            State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
+            stateVec.push_back(curState);
+            //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
+            [joker jump:jokerCharge];
+            jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
+        }
+
+    }
+    
     jokerCharge = 1;
     jokerStartCharge = false;
 }

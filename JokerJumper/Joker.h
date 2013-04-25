@@ -46,6 +46,7 @@
 -(void) flip;
 -(void) adjust;
 +(Joker*) getJoker;
+-(b2Body*) getBody;
 
 @property (nonatomic, readwrite) b2Body *jokerBody;
 @property (nonatomic, readwrite) BOOL jokerJumping;

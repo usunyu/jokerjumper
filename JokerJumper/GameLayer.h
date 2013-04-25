@@ -75,6 +75,12 @@
     int lastLastAccelerationY;
     
     int delayReplaceTime;
+    
+    CGPoint startLocation;
+    CGPoint endLocation;
+    
+    BOOL loseGravity;
+    State beforeLoseGravity;
 }
 +(GameLayer*) getGameLayer;
 - (void) makeBox2dObjAt:(CGPoint)p

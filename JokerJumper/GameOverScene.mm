@@ -77,6 +77,13 @@ BOOL mainSelected;
         labelMain.scale = 1;
 
         CGSize winSize = [[CCDirector sharedDirector] winSize];
+        
+        //bg
+        CCSprite *bg = [CCSprite spriteWithFile:@"dead_menu.png"];
+        bg.anchorPoint = ccp(0, 0);
+        bg.scale = 2;
+        [self addChild:bg z:-1];
+        
         // Create a label for display purposes
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"You Lose!" fontName:@"Marker Felt" fontSize:60];
         label.color = ccWHITE;

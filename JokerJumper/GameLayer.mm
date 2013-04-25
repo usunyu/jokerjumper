@@ -960,7 +960,7 @@ bool gravity = false;
         [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressRadialCCW transitionWithDuration:1.0 scene:[GameOverScene sceneWithLevel:GAME_STATE_ONE Coin:coinCount Distance:distance]]];
     }
     // Joker caught by enemy
-    if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x + 50) {
+    if(!CGRectIsNull(CGRectIntersection([self positionRect:joker],[self positionRect:emeny]))||joker.position.x<emeny.position.x + 80) {
 //        [self unschedule:@selector(update:)];
         [self unscheduleAllSelectors];
         [self schedule:@selector(delayReplaceScene:) interval:0.1f];
@@ -1271,33 +1271,47 @@ bool gravity = false;
     // accelerate
     if ((endLocation.x - startLocation.x) >= 200 ) {
         // Swipe
-        b2Body *jokerBody = [joker getBody];
-        b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+10.0f, jokerBody->GetLinearVelocity().y);
-        jokerBody->SetLinearVelocity(impulse);
+        if(!loseGravity) {
+            b2Body *jokerBody = [joker getBody];
+            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+10.0f, jokerBody->GetLinearVelocity().y);
+            jokerBody->SetLinearVelocity(impulse);
+        }
     } // deccelerate
     else if((startLocation.x - endLocation.x) >= 200 ) {
-        b2Body *jokerBody = [joker getBody];
-        b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x-10.0f, jokerBody->GetLinearVelocity().y);
-        jokerBody->SetLinearVelocity(impulse);
+        if(!loseGravity) {
+            b2Body *jokerBody = [joker getBody];
+            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x-10.0f, jokerBody->GetLinearVelocity().y);
+            jokerBody->SetLinearVelocity(impulse);
+        }
     } // lose gravity
     else if((endLocation.y - startLocation.y) >= 200 ) {
-        loseGravity = true;
-        
-        State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
-        beforeLoseGravity = curState;
-//        stateVec.push_back(curState);
-        
-        joker.jokerBody->SetGravityScale(0);
-        
-        b2Body *jokerBody = [joker getBody];
-        b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, jokerBody->GetLinearVelocity().y + 1.0f);
-        jokerBody->SetLinearVelocity(impulse);
+        if(!loseGravity && !joker.jokerFlip) {
+            loseGravity = true;
+            joker.jokerBody->SetGravityScale(0);
+            b2Body *jokerBody = [joker getBody];
+            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, 1.0f);
+            jokerBody->SetLinearVelocity(impulse);
+        }
+        if(loseGravity && joker.jokerFlip) {
+            loseGravity = false;
+            joker.jokerBody->SetGravityScale(-1);
+        }
     } // get gravity
     else if((startLocation.y - endLocation.y) >= 200) {
-        joker.jokerBody->SetGravityScale(1);
+        if(loseGravity && !joker.jokerFlip) {
+            loseGravity = false;
+            joker.jokerBody->SetGravityScale(1);
+        }
+        if(!loseGravity && joker.jokerFlip) {
+            loseGravity = true;
+            joker.jokerBody->SetGravityScale(0);
+            b2Body *jokerBody = [joker getBody];
+            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, -1.0f);
+            jokerBody->SetLinearVelocity(impulse);
+        }
     } // flip
     else { // Touch
-        if(!joker.jokerJumping)
+        if(!joker.jokerJumping && !loseGravity)
         {
             joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
             State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};

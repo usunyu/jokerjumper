@@ -141,8 +141,18 @@ void ContactListener::BeginContact(b2Contact *contact) {
         }
         if(IS_PLAT1TYPE(spriteA, spriteB))
         {
+            GameObject *coinSprite=(spriteA.type==kGameObjectJoker)?spriteB:spriteA;
+            GameObject *jokerSprite=(spriteA.type==kGameObjectJoker)?spriteA:spriteB;
+            CCScene* scene = [[CCDirector sharedDirector] runningScene];
             b2Body *jokerBody=(spriteA.type==kGameObjectJoker)?bodyA:bodyB;
             b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+1.0f, jokerBody->GetLinearVelocity().y);
+            CCLayer * layer = (CCLayer*)[scene getChildByTag:GAME_LAYER_TAG];
+            GameObject* accerate=[GameObject spriteWithFile:@"acceleration.png"];
+            [accerate setType:kGameObjectAccerate];
+            accerate.opacity=50.0f;
+            accerate.position=jokerSprite.position;
+            
+            [layer addChild:accerate z:30];
             jokerBody->SetLinearVelocity(impulse);
         }
         else if(IS_PLAT2TYPE(spriteA, spriteB))

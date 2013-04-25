@@ -81,7 +81,8 @@ BOOL mainSelected;
         //bg
         CCSprite *bg = [CCSprite spriteWithFile:@"dead_menu.png"];
         bg.anchorPoint = ccp(0, 0);
-        bg.scale = 2;
+//        bg.scale = 2;
+        bg.opacity = 0.8;
         [self addChild:bg z:-1];
         
         // Create a label for display purposes

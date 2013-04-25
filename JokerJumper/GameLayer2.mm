@@ -1386,25 +1386,132 @@ bool gravity2 = false;
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    //CCLOG(@"111111111vel before touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
+    CGPoint touchLocation = [touch locationInView: [touch view]];
+    touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    startLocation = touchLocation;
+    
     jokerStartCharge = true;
-    CGPoint location = [touch locationInView:[touch view]];
-    location = [[CCDirector sharedDirector] convertToGL:location];
-    if(!joker.jokerJumping)
-    {
-        joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
-        State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
-        stateVec.push_back(curState);
-        //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
-        [joker jump:jokerCharge];
-        jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
-        //        CCLOG(@"111111111 jumpVec :%f\n",jumpVec.x);
-    }
+    
+    CCParticleSystem *ps = [CCParticleExplosion node];
+    [self addChild:ps z:12];
+    ps.texture = [[CCTextureCache sharedTextureCache] addImage:@"stars.png"];
+    ps.position = touchLocation;
+    ps.blendAdditive = YES;
+    ps.life = 0.2f;
+    ps.lifeVar = 0.2f;
+    ps.totalParticles = 30.0f;
+    ps.autoRemoveOnFinish = YES;
 	return YES;
 }
 
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint touchLocation = [touch locationInView: [touch view]];
+    touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    CCParticleSystem *ps = [CCParticleExplosion node];
+    [self addChild:ps z:12];
+    ps.texture = [[CCTextureCache sharedTextureCache] addImage:@"stars.png"];
+    ps.position = touchLocation;
+    ps.blendAdditive = YES;
+    ps.life = 0.2f;
+    ps.lifeVar = 0.2f;
+    ps.totalParticles = 30.0f;
+    ps.autoRemoveOnFinish = YES;
+}
+
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    //CCLOG(@"333333333vel after touch:%f\n",(joker.jokerBody->GetLinearVelocity().x));
+    CGPoint touchLocation = [touch locationInView: [touch view]];
+    touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
+    touchLocation = [self convertToNodeSpace:touchLocation];
+    
+    endLocation = touchLocation;
+    
+    // Compare difference in distance
+    // accelerate
+    if ((endLocation.x - startLocation.x) >= 200 ) {
+        // Swipe
+        if(coinCount > 0) {
+            if(!loseGravity) {
+                coinCount--;
+                b2Body *jokerBody = [joker getBody];
+                b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+10.0f, jokerBody->GetLinearVelocity().y);
+                jokerBody->SetLinearVelocity(impulse);
+                jokerAcc = true;
+            }
+        }
+        else {
+            [hudLayer zoomCoin];
+        }
+    } // deccelerate
+    else if((startLocation.x - endLocation.x) >= 200 ) {
+        if(coinCount > 0) {
+            if(!loseGravity) {
+                coinCount--;
+                b2Body *jokerBody = [joker getBody];
+                b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x-10.0f, jokerBody->GetLinearVelocity().y);
+                jokerBody->SetLinearVelocity(impulse);
+            }
+        }
+        else {
+            [hudLayer zoomCoin];
+        }
+    } // lose gravity
+    else if((endLocation.y - startLocation.y) >= 200 ) {
+        if(loseGravity && joker.jokerFlip) {
+            loseGravity = false;
+            joker.jokerBody->SetGravityScale(-1);
+        }
+        if(!loseGravity && !joker.jokerFlip) {
+            if(lifeCount > 0) {
+                lifeCount--;
+                loseGravity = true;
+                joker.jokerBody->SetGravityScale(0);
+                b2Body *jokerBody = [joker getBody];
+                b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, 1.0f);
+                jokerBody->SetLinearVelocity(impulse);
+            }
+            else {
+                [hudLayer zoomLife];
+            }
+        }
+    } // get gravity
+    else if((startLocation.y - endLocation.y) >= 200) {
+        if(loseGravity && !joker.jokerFlip) {
+            loseGravity = false;
+            joker.jokerBody->SetGravityScale(1);
+        }
+        if(!loseGravity && joker.jokerFlip) {
+            if(lifeCount > 0) {
+                lifeCount--;
+                loseGravity = true;
+                joker.jokerBody->SetGravityScale(0);
+                b2Body *jokerBody = [joker getBody];
+                b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, -1.0f);
+                jokerBody->SetLinearVelocity(impulse);
+            }
+            else {
+                [hudLayer zoomLife];
+            }
+        }
+        
+    } // flip
+    else { // Touch
+        if(!joker.jokerJumping && !loseGravity)
+        {
+            joker.jokerBody->SetGravityScale(-joker.jokerBody->GetGravityScale());
+            State curState={joker.position,joker.jokerBody->GetLinearVelocity(),joker.jokerBody->GetGravityScale(),joker.jokerFlip};
+            stateVec.push_back(curState);
+            //world->SetGravity(b2Vec2(0.0,-world->GetGravity().y));
+            [joker jump:jokerCharge];
+            jumpVec=b2Vec2(joker.jokerBody->GetLinearVelocity().x,0);
+        }
+        
+    }
+    
     jokerCharge = 1;
     jokerStartCharge = false;
 }

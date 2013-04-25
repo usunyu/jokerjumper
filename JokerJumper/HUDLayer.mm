@@ -99,5 +99,30 @@
         [statusLabel setString:amounts];
 }
 
+-(void) zoomCoin
+{
+    [self schedule:@selector(updateZoomCoin:) interval:0.1f];
+}
+
+-(void) zoomLife
+{
+    [self schedule:@selector(updateZoomLife:) interval:0.1f];
+}
+
+- (void)updateZoomCoin:(ccTime) dt {
+    coinBar.scale += 0.1;
+    if(coinBar.scale >= 1.2) {
+        coinBar.scale = 1;
+        [self unscheduleAllSelectors];
+    }
+}
+
+- (void)updateZoomLife:(ccTime) dt {
+    lifeBar.scale += 0.1;
+    if(lifeBar.scale >= 1.2) {
+        lifeBar.scale = 1;
+        [self unscheduleAllSelectors];
+    }
+}
 
 @end

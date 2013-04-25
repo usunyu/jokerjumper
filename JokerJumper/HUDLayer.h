@@ -26,6 +26,8 @@
 -(void) updateLifeCounter:(int)amount;
 -(void) updateCoinCounter:(int)amount;
 -(void) updateStatusCounter:(float)amount;
+-(void) zoomCoin;
+-(void) zoomLife;
 +(HUDLayer*) getHUDLayer;
 
 //@property (nonatomic, readwrite)CCLabelBMFont * lifeLabel;

@@ -1271,31 +1271,49 @@ bool gravity = false;
     // accelerate
     if ((endLocation.x - startLocation.x) >= 200 ) {
         // Swipe
-        if(!loseGravity) {
-            b2Body *jokerBody = [joker getBody];
-            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+10.0f, jokerBody->GetLinearVelocity().y);
-            jokerBody->SetLinearVelocity(impulse);
-            jokerAcc = true;
+        if(coinCount > 0) {
+            if(!loseGravity) {
+                coinCount--;
+                b2Body *jokerBody = [joker getBody];
+                b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+10.0f, jokerBody->GetLinearVelocity().y);
+                jokerBody->SetLinearVelocity(impulse);
+                jokerAcc = true;
+            }
+        }
+        else {
+            [hudLayer zoomCoin];
         }
     } // deccelerate
     else if((startLocation.x - endLocation.x) >= 200 ) {
-        if(!loseGravity) {
-            b2Body *jokerBody = [joker getBody];
-            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x-10.0f, jokerBody->GetLinearVelocity().y);
-            jokerBody->SetLinearVelocity(impulse);
+        if(coinCount > 0) {
+            if(!loseGravity) {
+                coinCount--;
+                b2Body *jokerBody = [joker getBody];
+                b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x-10.0f, jokerBody->GetLinearVelocity().y);
+                jokerBody->SetLinearVelocity(impulse);
+            }
+        }
+        else {
+            [hudLayer zoomCoin];
         }
     } // lose gravity
     else if((endLocation.y - startLocation.y) >= 200 ) {
-        if(!loseGravity && !joker.jokerFlip) {
-            loseGravity = true;
-            joker.jokerBody->SetGravityScale(0);
-            b2Body *jokerBody = [joker getBody];
-            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, 1.0f);
-            jokerBody->SetLinearVelocity(impulse);
-        }
         if(loseGravity && joker.jokerFlip) {
             loseGravity = false;
             joker.jokerBody->SetGravityScale(-1);
+        }
+        if(!loseGravity && !joker.jokerFlip) {
+            if(lifeCount > 0) {
+                lifeCount--;
+                loseGravity = true;
+                joker.jokerBody->SetGravityScale(0);
+                b2Body *jokerBody = [joker getBody];
+                b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, 1.0f);
+                jokerBody->SetLinearVelocity(impulse);
+            }
+            else {
+                [hudLayer zoomLife];
+            }            
         }
     } // get gravity
     else if((startLocation.y - endLocation.y) >= 200) {
@@ -1304,12 +1322,19 @@ bool gravity = false;
             joker.jokerBody->SetGravityScale(1);
         }
         if(!loseGravity && joker.jokerFlip) {
-            loseGravity = true;
-            joker.jokerBody->SetGravityScale(0);
-            b2Body *jokerBody = [joker getBody];
-            b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, -1.0f);
-            jokerBody->SetLinearVelocity(impulse);
+            if(lifeCount > 0) {
+                lifeCount--;
+                loseGravity = true;
+                joker.jokerBody->SetGravityScale(0);
+                b2Body *jokerBody = [joker getBody];
+                b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x, -1.0f);
+                jokerBody->SetLinearVelocity(impulse);
+            }
+            else {
+                [hudLayer zoomLife];
+            }
         }
+
     } // flip
     else { // Touch
         if(!joker.jokerJumping && !loseGravity)

@@ -65,6 +65,8 @@
     
     CGPoint startLocation;
     CGPoint endLocation;
+    
+    BOOL loseGravity;
 }
 +(GameLayer3*) getGameLayer3;
 - (void) makeBox2dObjAt:(CGPoint)p

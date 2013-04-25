@@ -80,6 +80,8 @@
     CGPoint endLocation;
     
     BOOL loseGravity;
+    
+    BOOL jokerAcc;
 }
 +(GameLayer*) getGameLayer;
 - (void) makeBox2dObjAt:(CGPoint)p

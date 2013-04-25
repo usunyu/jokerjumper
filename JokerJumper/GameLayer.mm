@@ -1275,6 +1275,7 @@ bool gravity = false;
             b2Body *jokerBody = [joker getBody];
             b2Vec2 impulse = b2Vec2(jokerBody->GetLinearVelocity().x+10.0f, jokerBody->GetLinearVelocity().y);
             jokerBody->SetLinearVelocity(impulse);
+            jokerAcc = true;
         }
     } // deccelerate
     else if((startLocation.x - endLocation.x) >= 200 ) {
